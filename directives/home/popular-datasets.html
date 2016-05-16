@@ -1,0 +1,15 @@
+
+<div ng-repeat="item in datasets.items">
+<div class="container-features-home" >
+	<div   ng-click="datasets.goToUrl(item.url)"  class="title-features">
+	Agenda Cultural
+
+	</div>
+	<div class="description-features">
+		<p>Información de los eventos culturales organizados en la Ciudad. Cine, música, visitas guiadas, artes visuales, teatro, exposiciones, aire libre, muestras, fotografía, pintura, danza, cursos y talleres, entre otros.</p>
+	</div>
+	<span class="more-info-black">
+		<a ng-href="{{item.url}}">+ Info</a>
+	</span>
+</div>
+</div>
