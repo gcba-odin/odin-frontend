@@ -6,7 +6,7 @@
     app.config(function($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "inicio.html",
+                templateUrl: "home.html",
                 controller: controllerHome
             })
             .when("/dataset/:name", {
