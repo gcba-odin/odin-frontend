@@ -1,98 +1,98 @@
 {
-  name: "Zonas recolección residuos sólidos secos",
-  description: "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar los residuos sólidos secos.",
-  organization: "Dg De Reciclado",
-  category: "category",
-  followers: 100,
-  groups: [
+  "name": "Zonas recolección residuos sólidos secos",
+  "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar los residuos sólidos secos.",
+  "organization": "Dg De Reciclado",
+  "category": "category",
+  "followers": 100,
+  "groups": [
     
   ],
-  activity: [
+  "activity": [
     
   ],
-  social: [
+  "social": [
     {
-      twitter: "urltwitter"
+      "twitter": "urltwitter"
     },
     {
-      facebook: "urlfacebook"
+      "facebook": "urlfacebook"
     },
     {
-      gplus: "urlgmail"
-    },
+      "gplus": "urlgmail"
+    }
     
   ],
-  licence: [
+  "licence": [
     {
-      name: "Creative Commons Attribution"
+      "name": "Creative Commons Attribution"
     },
     {
-      facebook: "urlfacebook"
+      "facebook": "urlfacebook"
     },
     {
-      url: "http://opendefinition.org/okd/"
+      "url": "http://opendefinition.org/okd/"
     }
   ],
-  resources: [
+  "resources": [
     {
-      name: "Zonas recolección residuos sólidos secos",
-      description: "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
-      explore: [
+      "name": "Zonas recolección residuos sólidos secos",
+      "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
+      "explore": [
         {
-          type: "preview",
-          url: "url de preview"
+          "type": "preview",
+          "url": "url de preview"
         },
         {
-          type: "download",
-          url: "url de download"
+          "type": "download",
+          "url": "url de download"
         }
       ]
     },
     {
-      name: "Zonas recolección residuos sólidos secos dos",
-      description: "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
-      explore: [
+      "name": "Zonas recolección residuos sólidos secos dos",
+      "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
+      "explore": [
         {
-          type: "info",
-          url: "url de info"
+          "type": "info",
+          "url": "url de info"
         },
         {
-          type: "goto",
-          url: "url de recurso"
+          "type": "goto",
+          "url": "url de recurso"
         }
       ]
     }
   ],
-  tags: [
+  "tags": [
     {
-      name: "Higiene y Seguridad",
-      url: "#/dataset?tags=Higiene+y+Seguridad"
+      "name": "Higiene y Seguridad",
+      "url": "#/dataset?tags=Higiene+y+Seguridad"
     },
     {
-      name: "Zona",
-      url: "#/dataset?tags=Zona"
+      "name": "Zona",
+      "url": "#/dataset?tags=Zona"
     },
     {
-      name: "Barrios",
-      url: "#/dataset?tags=Barrios"
+      "name": "Barrios",
+      "url": "#/dataset?tags=Barrios"
     }
   ],
-  aditionalInformation: [
+  "aditionalInformation": [
     {
-      autor: "Ministerio de Ambiente y Espacio Público - DG de Reciclado"
+      "autor": "Ministerio de Ambiente y Espacio Público - DG de Reciclado"
     },
     {
-      maintainer: "Ministerio de Modernización - Agencia de Sistemas de Información - Unidad de Sistemas de Información Geográfica"
+      "maintainer": "Ministerio de Modernización - Agencia de Sistemas de Información - Unidad de Sistemas de Información Geográfica"
     },
     {
-      lastUpdate: "6 de Mayo de 2016, 4:23 (UTC-02:00)"
+      "lastUpdate": "6 de Mayo de 2016, 4:23 (UTC-02:00)"
     },
     {
-      created: "23 de Febrero de 2016, 17:01 (UTC-02:00)"
+      "created": "23 de Febrero de 2016, 17:01 (UTC-02:00)"
     },
     {
-      frecuency: "Eventual"
-    },
+      "frecuency": "Eventual"
+    }
     
   ]
-}
+}  

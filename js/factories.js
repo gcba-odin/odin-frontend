@@ -1,6 +1,18 @@
 (function() {
     var app = angular.module('store-factories', []);
-    app.factory("datasetF", function() {
+    app.factory("datasetF", function($http) {
+
+
+   var obj = {content:null};
+
+    $http.get('dataset.json').success(function(data) {
+        // you can do some processing here
+        obj.content = data;
+    });    
+	console.log();
+  //  return obj;  
+
+
 
         var datasetRest = {
             name: "",

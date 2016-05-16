@@ -1,8 +1,5 @@
 (function() {
     var app = angular.module('odin', ["ngRoute", "store-directives", "store-factories"]);
-
-
-
     app.config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -17,7 +14,6 @@
             });
 
     });
-
 
     function controllerHome($scope, datasetF) {
 
