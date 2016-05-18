@@ -46,7 +46,36 @@
     }
   ],
   "organizations":[
+   {"name":"ministerio de ambiente","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"50"},
+   {"name":"Unidad De Sistemas De Información Geográfica","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"45"},
+   {"name":"Ministerio De Desarrollo Urbano","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Movilidad Saludable","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Festivales Y Eventos Centrales","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"19"}
+  ],
+  "groups":[
+   {"name":"ministerio de ambiente","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"50"},
+   {"name":"Unidad De Sistemas De Información Geográfica","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"45"},
+   {"name":"Ministerio De Desarrollo Urbano","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Movilidad Saludable","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Festivales Y Eventos Centrales","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"19"}
+  ],
+  "tags":[
+   {"name":"ministerio de ambiente","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"50"},
+   {"name":"Unidad De Sistemas De Información Geográfica","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"45"},
+   {"name":"Ministerio De Desarrollo Urbano","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Movilidad Saludable","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"Dg De Festivales Y Eventos Centrales","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"19"}
+  ],
+  "formats":[
+   {"name":"CSV","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"50"},
+   {"name":"SHP","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"45"},
+   {"name":"PDF","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"RSS","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"23"},
+   {"name":"RAR","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"19"}
+  ],
+  "licences":[
+   {"name":"Creative Commons Attribution","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"50"},
+   {"name":"No se especificó la licencia","slug":"ministerio-de-ambiente-y-espacio-publico","datasetsCount":"45"}
 
-   {"name":"ministerio de ambiente"}
   ]
 }

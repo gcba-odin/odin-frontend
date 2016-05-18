@@ -1,0 +1,18 @@
+<section class="module module-narrow module-shallow" ng-if="groups.length">
+   <h2 class="module-heading">
+      <i class="icon-medium fa fa-filter"></i>
+      Grupos
+   </h2>
+   <nav>
+      <ul class="unstyled nav nav-simple nav-facet">
+         <li class="nav-item" ng-repeat="group in groups">
+            <a ng-href="#/datasets/?group={{group.slug}}" title="{{group.name}}">
+            <span>{{group.name | truncString}} ({{group.datasetsCount}})</span>
+            </a>
+         </li> 
+      </ul>
+   </nav>
+   <p class="module-footer">
+      <a href="#/datasets/?q=&amp;_group_limit=0" class="read-more">Mostrar Más Grupos</a>
+   </p>
+</section>

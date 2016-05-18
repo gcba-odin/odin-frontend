@@ -124,9 +124,43 @@
                 }
             },
             countResults: function() {
-            	console.log(service.res);
                 if (!!service.res) {
                     return service.res.length;
+                } else {
+                    return false
+                }
+            },
+            getOrganizations: function() {
+                if (!!service.res.organizations) {
+                    return service.res.organizations;
+                } else {
+                    return false
+                }
+            },
+            getGroups: function() {
+                if (!!service.res.groups) {
+                    return service.res.groups;
+                } else {
+                    return false
+                }
+            },
+            getTags: function() {
+                if (!!service.res.tags) {
+                    return service.res.tags;
+                } else {
+                    return false
+                }
+            },
+            getFormats: function() {
+                if (!!service.res.formats) {
+                    return service.res.formats;
+                } else {
+                    return false
+                }
+            },
+            getLicences: function() {
+                if (!!service.res.licences) {
+                    return service.res.licences;
                 } else {
                     return false
                 }
