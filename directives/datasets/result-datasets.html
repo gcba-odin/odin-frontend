@@ -1,0 +1,15 @@
+<ul class="dataset-list unstyled">
+   <li class="dataset-item" ng-repeat="result in results">
+      <div class="dataset-content">
+         <h3 class="dataset-heading">
+            <a ng-href="#/dataset/{{result.slug | urlEncode}}">Zonas recolección residuos sólidos secos</a>
+         </h3>
+         <div>{{result.description}}</div>
+      </div>
+      <ul class="dataset-resources unstyled">
+         <li ng-repeat="resource in result.resources">
+            <a ng-href="#/dataset/{{result.slug | urlEncode}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.name | uppercase}}</a>
+         </li>
+      </ul>
+   </li>
+</ul>

@@ -746,3 +746,8 @@ a.shortcut:hover, a.shortcut:focus {
 .input-lg {
     height: 36px;
 }
+
+.secondary{
+      padding: 0px;
+          border-right: 1px solid #dddddd;
+}

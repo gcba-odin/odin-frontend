@@ -16,7 +16,6 @@
             aditionalInformation: []
         }
 
-
         var service = {
             res: [],
             initialDataset: function() {
@@ -87,6 +86,50 @@
             		followers:service.res.followers,
             		licence:service.res.licence}
 
+            }
+
+        }
+        return service;
+    })
+
+
+    app.factory("datasetsF", function($http) {
+
+        var datasetRest = {}
+
+        var service = {
+            res: [],
+            initialDataset: function() {
+                service.res = datasetRest
+            },
+            setDataset: function(dataset) {
+                service.res = dataset;
+            },
+            getDataset:function (success,error){   
+				var dataset = $http.get('datasets.json');
+		        if(success)
+		           dataset.success(success);
+		        if(error)
+		           dataset.error(error);
+            },
+
+            showDatasets:function (){
+            	return service.res.datasets;
+            },
+            getResources: function() {
+                if (!!service.res.resources) {
+                    return service.res.resources;
+                } else {
+                    return false
+                }
+            },
+            countResults: function() {
+            	console.log(service.res);
+                if (!!service.res) {
+                    return service.res.length;
+                } else {
+                    return false
+                }
             }
 
         }

@@ -9,10 +9,13 @@
             .when("/dataset/:name", {
                 templateUrl: "dataset.html",
                 controller: controllerDataset
+            }).when("/datasets", {
+                templateUrl: "datasets.html",
+                controller: controllerDatasets
             }).otherwise({
                 redirectTo: '/'
             });
-
+ 
     });
 
     function controllerHome($scope, datasetF) {
@@ -29,5 +32,13 @@
 		});
     }
 
+    function controllerDatasets($scope, datasetsF, $routeParams) {
+    	$scope.loading=false;
+		datasetsF.getDataset(function(data){
+			datasetsF.setDataset(data);
+			$scope.loading=true;
+			$scope.countResults=datasetsF.countResults();
+		});
+    }
 
 })();
