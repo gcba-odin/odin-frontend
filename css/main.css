@@ -9593,3 +9593,7 @@ iframe {
 .resource-list .btn-group>.btn:first-child {
    margin: 0px
 }
+
+.page-header {
+  padding-bottom: 0px !important
+}

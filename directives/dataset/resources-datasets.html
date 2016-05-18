@@ -1,0 +1,44 @@
+
+
+<section id="dataset-resources" class="resources" ng-if="resources.length">
+   <h3>Datos y Recursos</h3>  
+   <ul class="resource-list">
+      <li class="resource-item"  ng-repeat="resource in resources">
+         <a class="heading" ng-href="{{resource.url}}" title="{{resource.name}}">
+           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.format}}">{{resource.format | uppercase}}</span>
+         </a>
+         <p class="description">
+            {{resource.description}}
+         </p>
+         <div class="dropdown btn-group">
+            <a ng-href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-share"></i>
+            Explorar
+            <span class="caret"></span>
+            </a>  
+            <ul class="dropdown-menu">
+               <li ng-repeat="explore in resource.explore">
+                     <a ng-href="{{explore.url | urlEncode}}">
+                        <span ng-if="explore.type == 'preview'">
+                           <i class="fa fa-bar-chart" ></i>
+                           Previsualización
+                        </span>
+                        <span ng-if="explore.type == 'download'">
+                           <i class="fa fa-download"></i>
+                           Descargar
+                        </span>
+                        <span ng-if="explore.type == 'info'">
+                           <i class="fa fa-info-circle"></i>
+                           Más información
+                        </span>
+                        <span ng-if="explore.type == 'goto'">
+                           <i class="fa fa-external-link"></i>
+                           Ir al recurso
+                        </span>
+                     </a>
+               </li>
+            </ul>
+         </div>
+      </li>
+   </ul>
+</section>

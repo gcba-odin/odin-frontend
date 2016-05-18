@@ -79,7 +79,7 @@
             }, ]
         }
 
-        datasetF.setDataset(datasetRest);
+        datasetF.getDataset(datasetRest);
 
         console.log(datasetF.getSocial());
 

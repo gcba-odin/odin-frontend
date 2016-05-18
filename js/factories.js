@@ -2,18 +2,6 @@
     var app = angular.module('store-factories', []);
     app.factory("datasetF", function($http) {
 
-
-   var obj = {content:null};
-
-    $http.get('dataset.json').success(function(data) {
-        // you can do some processing here
-        obj.content = data;
-    });    
-	console.log();
-  //  return obj;  
-
-
-
         var datasetRest = {
             name: "",
             description: "",
@@ -37,9 +25,19 @@
             setDataset: function(dataset) {
                 service.res = dataset;
             },
+            getDataset:function (success,error){   
+				var dataset = $http.get('dataset.json');
+		        if(success)
+		           dataset.success(success);
+		        if(error)
+		           dataset.error(error);
+            },
+            showDataset:function (){
+            	return service.res;
+            },
             getSocial: function() {
-                if (!!service.res.social) {
-                    return service.res.social;
+                if (!!service.res.socials) {
+                    return service.res.socials;
                 } else {
                     return false
                 }
@@ -47,6 +45,13 @@
             getLicence: function() {
                 if (!!service.res.licence) {
                     return service.res.licence;
+                } else {
+                    return false
+                }
+            },
+            getOrganizations: function() {
+                if (!!service.res.organizations) {
+                    return service.res.organizations;
                 } else {
                     return false
                 }
@@ -71,6 +76,17 @@
                 } else {
                     return false
                 }
+            },
+            getInfo:function (){
+            	return {
+            		slug:service.res.slug,
+            		name:service.res.name,
+            		description:service.res.description,
+            		organizations:service.res.organizations,
+            		category:service.res.category,
+            		followers:service.res.followers,
+            		licence:service.res.licence}
+
             }
 
         }

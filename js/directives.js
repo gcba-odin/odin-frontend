@@ -1,6 +1,26 @@
 (function() {
     var app = angular.module('store-directives', []);
 
+	app.filter('urlEncode', [function() {
+  		return window.encodeURIComponent;
+	}]);
+	app.filter('capitalize', function() {
+	    return function(input) {
+	      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+	    }
+	});
+
+
+	app.filter('truncString', function() {
+	    return function(input) {
+		 var  add =  '...';
+		 var  max=26;
+		 var str=input;
+		   return (typeof str === 'string' && str.length > max ? str.substring(0,max)+add : str);
+	    }
+	});
+
+
 
     app.directive("datasetsCategories", function() {
         return {
@@ -108,27 +128,104 @@
 
 
 
-    app.directive("tagDataset", function() {
+
+
+    app.directive("resourcesDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/home/tags-datasets.html",
-            controller: function($scope) {
+            templateUrl: "/directives/dataset/resources-datasets.html",
+      
+            controller: function($scope,datasetF) {
+       		var data={};
 
-                var items = [{
-                    url: "#/dataset/zonas-recoleccion-residuos-solidos-secos",
-                    name: "Higiene y Seguridad",
-                }, {
-                    url: "#/dataset/zonas-recoleccion-residuos-solidos-secos",
-                    name: "Visitas a la web del GCBA",
-                }]
+	          $scope.$watch('loading', function (val) {
+	          	if(val){
+	          		data=datasetF.getResources();
+	          		$scope.resources=data;
 
-                this.items = items;
-
-
-
+	          	}
+	          });
             },
-            controllerAs: "datasets"
+            controllerAs: "resources"
         };
     });
+
+
+    app.directive("tagsDataset", function() {
+        return {
+            restrict: "E",
+            templateUrl: "/directives/dataset/tags-datasets.html",
+      
+            controller: function($scope,datasetF) {
+       		var data={};
+
+	          $scope.$watch('loading', function (val) {
+	          	if(val){
+	          		data=datasetF.getTags();
+	          		$scope.tags=data;
+	          	}
+	          });
+            },
+            controllerAs: "tags"
+        };
+    });
+
+    app.directive("aditionalInfoDataset", function() {
+        return {
+            restrict: "E",
+            templateUrl: "/directives/dataset/aditional-info-dataset.html",
+      
+            controller: function($scope,datasetF) {
+       		var data={};
+
+	          $scope.$watch('loading', function (val) {
+	          	if(val){
+	          		data=datasetF.getAditionalInformation();
+	          		$scope.aditionalinfo=data;
+	          	}
+	          });
+            },
+            controllerAs: "aditionalinfo"
+        };
+    });
+
+    app.directive("organizationsDataset", function() {
+        return {
+            restrict: "E",
+            templateUrl: "/directives/dataset/organizations-dataset.html",
+      
+            controller: function($scope,datasetF) {
+       		var data={};
+
+	          $scope.$watch('loading', function (val) {
+	          	if(val){
+	          		data=datasetF.getOrganizations();
+	          		$scope.organizations=data;
+	          	}
+	          });
+            },
+            controllerAs: "organizations"
+        };
+    });
+
+        app.directive("socialsDataset", function() {
+        return {
+            restrict: "E",
+            templateUrl: "/directives/dataset/socials-dataset.html",
+      
+            controller: function($scope,datasetF) {
+       		var data={};
+
+	          $scope.$watch('loading', function (val) {
+	          	if(val){
+	          		data=datasetF.getSocial();
+	          		$scope.socials=data;
+	          	}
+	          });
+            },
+            controllerAs: "socials"
+        };
+    });
+
 
 })();

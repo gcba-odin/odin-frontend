@@ -1,42 +1,31 @@
 {
   "name": "Zonas recolección residuos sólidos secos",
   "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar los residuos sólidos secos.",
-  "organization": "Dg De Reciclado",
+  "organizations":[
+    {
+      "name":"Dg De Reciclado",
+      "image":"http://www.racialequityresourceguide.org/images/dmImage/ThumbnailImage/icon-lg-organizations-blue2.png",
+      "slug":"dg-de-reciclado"
+    }
+  ],
   "category": "category",
   "followers": 100,
+  "slug": "zonas-recoleccion-residuos-solidos-secos",
   "groups": [
     
   ],
-  "activity": [
+  "activities": [
     
   ],
-  "social": [
-    {
-      "twitter": "urltwitter"
-    },
-    {
-      "facebook": "urlfacebook"
-    },
-    {
-      "gplus": "urlgmail"
-    }
-    
-  ],
-  "licence": [
-    {
-      "name": "Creative Commons Attribution"
-    },
-    {
-      "facebook": "urlfacebook"
-    },
-    {
-      "url": "http://opendefinition.org/okd/"
-    }
-  ],
+  "socials":{"twitter":"urltwitter","facebook":"urlfacebook","gplus":"urlgmail"},
+  "licence":{"name": "Creative Commons Attribution","url": "http://opendefinition.org/okd/"},
+
   "resources": [
     {
       "name": "Zonas recolección residuos sólidos secos",
       "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
+      "format":"csv",
+      "url":"urlrecurso",
       "explore": [
         {
           "type": "preview",
@@ -51,6 +40,8 @@
     {
       "name": "Zonas recolección residuos sólidos secos dos",
       "description": "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar...",
+      "format":"shp",
+      "url":"urlrecurso",
       "explore": [
         {
           "type": "info",
@@ -66,32 +57,37 @@
   "tags": [
     {
       "name": "Higiene y Seguridad",
-      "url": "#/dataset?tags=Higiene+y+Seguridad"
+      "url": "Higiene+y+Seguridad"
     },
     {
       "name": "Zona",
-      "url": "#/dataset?tags=Zona"
+      "url": " Zona"
     },
     {
       "name": "Barrios",
-      "url": "#/dataset?tags=Barrios"
+      "url": "Barrios"
     }
   ],
   "aditionalInformation": [
     {
-      "autor": "Ministerio de Ambiente y Espacio Público - DG de Reciclado"
+      "name":"Autor",
+      "value": "Ministerio de Ambiente y Espacio Público - DG de Reciclado"
     },
     {
-      "maintainer": "Ministerio de Modernización - Agencia de Sistemas de Información - Unidad de Sistemas de Información Geográfica"
+      "name":"Mantenedor",
+      "value": "Ministerio de Modernización - Agencia de Sistemas de Información - Unidad de Sistemas de Información Geográfica"
     },
     {
-      "lastUpdate": "6 de Mayo de 2016, 4:23 (UTC-02:00)"
+      "name":"Última actualización",
+      "value": "6 de Mayo de 2016, 4:23 (UTC-02:00)"
     },
     {
-      "created": "23 de Febrero de 2016, 17:01 (UTC-02:00)"
+      "name":"Creado",
+      "value": "23 de Febrero de 2016, 17:01 (UTC-02:00)"
     },
     {
-      "frecuency": "Eventual"
+      "name":"Frecuencia de Actualización",
+      "value": "Eventual"
     }
     
   ]
