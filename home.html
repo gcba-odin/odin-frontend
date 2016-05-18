@@ -2,13 +2,13 @@
    <div class="container">
       <div class="panel-panel row">
          <div class="col-md-12">
-            <form class="module-content search-form search-home" method="get" action="/ckan/dataset">
+            <div class="module-content search-form search-home" >
                <section id="search" class="search-input">
-                  <button type="submit"><i class="fa fa-search icon-search"></i></button>       
-                  <input id="search-input" class="form-control input-lg" placeholder="Search icons" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
+                  <input id="search-input" name="q" ng-model="term" class="form-control input-lg" placeholder="CATEGORÍAS" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
                   <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
                </section>
-            </form>
+            </div>
          </div>
          <div class="col-md-12">
             <datasets-categories ></datasets-categories>

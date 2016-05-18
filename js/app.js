@@ -18,8 +18,10 @@
  
     });
 
-    function controllerHome($scope, datasetF) {
-
+    function controllerHome($scope, datasetF,$location) {
+	    $scope.search = function() {
+			$location.url('/datasets?q='+$scope.term);
+		}
 
     }
 
@@ -32,13 +34,16 @@
 		});
     }
 
-    function controllerDatasets($scope, datasetsF, $routeParams) {
+    function controllerDatasets($scope, datasetsF, $routeParams,$location) {
     	$scope.loading=false;
 		datasetsF.getDataset(function(data){
 			datasetsF.setDataset(data);
 			$scope.loading=true;
 			$scope.countResults=datasetsF.countResults();
 		});
+		$scope.search = function() {
+			$location.url('/datasets?q='+$scope.term);
+		}
     }
 
 })();

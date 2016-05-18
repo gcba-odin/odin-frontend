@@ -15,10 +15,10 @@
             <section class="module">
                <div class="module-content">
                   <!-- Snippet snippets/search_form.html start -->
-                  <form id="dataset-search-form" class="search-form" method="get" data-module="select-switch">
+                  <div id="dataset-search-form" class="search-form"  data-module="select-switch">
 		 				<section id="search" class="search-input">
-		                  <button type="submit"><i class="fa fa-search icon-search"></i></button>       
-		                  <input id="search-input" class="form-control input-lg" placeholder="Search icons" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+		                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
+		                  <input ng-model="term" id="search-input" class="form-control input-lg" placeholder="Buscar conjuntos de datos..." autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
 		                  <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
 		               </section>
                      <div class="form-select control-group control-order-by">
@@ -38,7 +38,7 @@
                      <p class="filter-list">
                      </p>
                      <a class="show-filters btn">Filtrar Resultados</a>
-                  </form>
+                  </div>
 
                   <ul class="dataset-list unstyled">
        				<result-dataset></result-dataset>
