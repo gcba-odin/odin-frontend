@@ -3,14 +3,14 @@
     app.config(function($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "home.html",
+                templateUrl: "views/home.html",
                 controller: controllerHome
             })
             .when("/dataset/:id", {
-                templateUrl: "dataset.html",
+                templateUrl: "views/dataset.html",
                 controller: DatasetController
             }).when("/datasets", {
-                templateUrl: "datasets.html",
+                templateUrl: "views/datasets.html",
                 controller: DatasetListController
             }).otherwise({
                 redirectTo: '/'
