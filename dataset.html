@@ -5,21 +5,19 @@
       <div class="toolbar">
          <ol class="breadcrumb">
             <!-- Snippet snippets/home_breadcrumb_item.html start -->
-            <li class="home"><a ng-href="/ckan/"><i class="fa fa-home"></i><span> Inicio</span></a></li>
+            <li class="home"><a ng-href="#/"><i class="fa fa-home"></i><span> Inicio</span></a></li>
             <!-- Snippet snippets/home_breadcrumb_item.html end -->
-            <li><a ng-href="#/organizations">Organizaciones</a></li>
-            <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>
-            <li class="active"><a class=" active" ng-href="#/dataset/{{info.slug}}">{{info.name | truncString}}</a></li>
+            <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
+            <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
+            <li class="active"><a class=" active" ng-href="#/dataset/{{info.id | lowercase}}">{{info.name | truncString}}</a></li>
          </ol> 
       </div>
       <div class=" wrapper">
-         <div class="primary col-md-9">
+         <div class="primary col-md-12">
             <article class="module">
                <header class="module-content page-header">
                   <ul class="nav nav-tabs">
-                     <li class="active"><a ng-href="/ckan/dataset/zonas-recoleccion-residuos-solidos-secos"><i class="fa fa-sitemap"></i> Conjunto de datos</a></li>
-                     <li ng-if="info.groups.length"><a ng-href="/ckan/dataset/groups/zonas-recoleccion-residuos-solidos-secos"><i class="fa fa-group"></i> Grupos</a></li>
-                     <li ng-if="info.activities.length"><a ng-href="/ckan/dataset/activity/zonas-recoleccion-residuos-solidos-secos"><i class="fa fa-clock-o"></i> Flujo de Actividad</a></li>
+                     <li class="active"><a ng-href="#/dataset/{{info.id | lowercase}}"><i class="fa fa-sitemap"></i> Conjunto de datos</a></li>
                   </ul>
                </header>
                <div class="module-content">
@@ -27,7 +25,7 @@
                      {{info.name}}
                   </h1>
                   <div class="notes embedded-content">
-                     <p>{{info.description}}</p>
+                     <p ng-bind-html="getHtml(info.description)"></p>
                   </div>
                   <span class="insert-comment-thread"></span>
                     <resources-dataset></resources-dataset>
@@ -36,7 +34,7 @@
                </div>
             </article>
          </div>
-         <aside class="secondary col-md-3">
+        <!-- <aside class="secondary col-md-3">
             <section class="module module-narrow">
                <div class="module context-info">
                   <div class="module-content">
@@ -62,7 +60,7 @@
                   <a ng-href="{{info.licence.url}}" rel="dc:rights">{{info.licence.name}}</a>
                </p>
             </section>
-         </aside>
+         </aside>-->
       </div>
    </div>
 </div>

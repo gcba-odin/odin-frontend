@@ -1,10 +1,11 @@
 (function() {
-    var app = angular.module('store-controllers', []);
+    var app = angular.module('odin.controllers', ["odin.categoryControllers","odin.datasetControllers"]);
 
     function controllerHome($scope, datasetF) {
 
 
     }
+    
 
     function controllerDataset($scope, datasetF, $routeParams) {
         console.log($routeParams);

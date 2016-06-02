@@ -1,11 +1,12 @@
-<div ng-repeat="item in datasets.items">
+<div ng-repeat="item in latestDataset.data">
 
 	<div class="box-latest-datasets">
-			<div ng-click="datasets.goToUrl(item.url)"   class="title-dataset-box">{{item.name}}
+			<div ng-click="datasets.goToUrl()"    class="title-dataset-box">{{item.name}}
 			</div>
 			<div class="description-dataset-box">
-			<p>{{item.description}}</p>
-			<span class="more-info"><a ng-href="{{item.url}}">+ Info</a></span>
+			<p ng-bind-html="getHtml(item.description)"></p>
+
+			<span class="more-info"><a ng-href="#/dataset/{{ item.id | slug }}">+ Info</a></span>
 		</div>
 	</div>
 </div>

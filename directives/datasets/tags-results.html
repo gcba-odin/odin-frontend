@@ -1,4 +1,4 @@
-<section class="module module-narrow module-shallow" ng-if="groups.length">
+<section class="module module-narrow module-shallow" ng-if="tags.length">
    <h2 class="module-heading">
       <i class="icon-medium fa fa-filter"></i>
       Tags
@@ -7,13 +7,13 @@
    
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="tag in tags">
-            <a ng-href="#/datasets/?tag={{tag.slug}}" title="{{tag.name}}">
-            <span>{{tag.name | truncString}} ({{tag.datasetsCount}})</span>
+            <a ng-href="#/datasets/?tag={{tag.id}}" title="{{tag.name}}">
+            <span>{{tag.name | truncString}}</span>
             </a>
          </li> 
       </ul>
    </nav>
-   <p class="module-footer">
-      <a href="#/datasets/?q=&amp;_tag_limit=0" class="read-more">Mostrar Más Tags</a>
+  <p class="module-footer" ng-if="resultTags.data.length">
+      <a href="javascript:void(0)" ng-click="loadTags(5)" class="read-more">Mostrar Más Tags</a>
    </p>
 </section>

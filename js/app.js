@@ -1,28 +1,38 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "store-directives", "store-factories"]);
+    var app = angular.module('odin', ["ngRoute", "config-odin","ngResource","ngProgress","odin.controllers","store-directives", "store-factories"]);
     app.config(function($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "home.html",
                 controller: controllerHome
             })
-            .when("/dataset/:name", {
+            .when("/dataset/:id", {
                 templateUrl: "dataset.html",
-                controller: controllerDataset
+                controller: DatasetController
             }).when("/datasets", {
                 templateUrl: "datasets.html",
-                controller: controllerDatasets
+                controller: DatasetListController
             }).otherwise({
                 redirectTo: '/'
             });
  
     });
 
-    function controllerHome($scope, datasetF,$location) {
-	    $scope.search = function() {
-			$location.url('/datasets?q='+$scope.term);
-		}
 
+
+    function controllerHome($scope,$location,$sce,$filter) {
+
+
+        $scope.search = function() {
+    		$location.url('/datasets?q='+$scope.term);
+    	}
+        $scope.getHtml = function(html){
+            return $sce.trustAsHtml(html);
+        };
+        $scope.goToUrl = function(url) {
+            $filter('slug')(this.item.name);
+            window.location = "#/dataset/"+$filter('slug')(this.item.id);
+        };
     }
 
     function controllerDataset($scope, datasetF, $routeParams) {

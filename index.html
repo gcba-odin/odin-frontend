@@ -20,77 +20,35 @@
           <a href="http://www.buenosaires.gob.ar/" target="_blank"><div id="logo">Buenos Aires Ciudad</div></a>
         </div>
     </nav>
-      <div class="branding-data">
-        <div class="container">
-        <div class="row">
-                <div class="col-md-12 breadcrumb-header">
-                    <ul>
-                        <li><a href="">Buenos Aires</a>
-                        </li>
-                        <li><a href="">Gobierno Abierto</a>
-                        </li>
-                        <li><a href="" class="last-item">BUenos Aires Data</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-12 title description-header">
-                    <h1><a href="/ckan/">BUENOS AIRES DATA</a></h1>
-                    <p class="lead">Iniciativa de datos públicos y transparencia de la Ciudad Autónoma de Buenos Aires.</p>
-                </div>
-                <div class="col-md-12">
-                    <ul class="link-header-data">
-                        <li><a>Qué es Open Data</a>
-                        </li>
-                        <li><a>Qué es Ba Data</a>
-                        </li>
-                        <li><a href="https://github.com/gcba" class="last-item">Desarrolladores</a>
-                        </li>
-                    </ul>
-                </div>
-           </div>
-        </div>
-
-    </div>
-    <div class=" auxiliar-bar-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-auxiliar-bar">
-                    169 Datasets Cargados
-
-
-                </div>
-                <div class="col-md-6 text-auxiliar-bar">
-                    93 Datasets Descargados
-                </div>
-            </div>
-        </div>
-    </div>
+    <branding-data></branding-data>
+    <auxiliar-bar></auxiliar-bar>
     <div ng-view></div>
-    <footer class="site-footer">
-        <div class="container">
-            <ul class="menu-footer">
-                <li><a>Especificaciones</a>
-                </li>
-                <li><a>Términos y condiciones</a>
-                </li>
-                <li><a>Contacto</a>
-                </li>
+    <footer-bar></footer-bar>
 
-            </ul>
-        </div>
-
-    </footer>
+ 
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script src="https://code.angularjs.org/1.5.5/angular-route.min.js"></script>
-      <script src="js/directives/homeDirectives.js"></script>
-      <script src="js/directives/datasetDirectives.js"></script>
-      <script src="js/directives/datasetsDirectives.js"></script>
+      <script src="https://code.angularjs.org/1.5.5/angular-resource.min.js"></script>
 
+      <script src="plugins/loading.js"></script>
+
+      <script src="config.js"></script>
+
+      <script src="js/app.js"></script>
+      <script src="js/controllers/categoryController.js"></script>
+      <script src="js/controllers/datasetController.js"></script>
+
+
+
+      <script src="js/controllers.js"></script>
 
       <script src="js/factories.js"></script>
       <script src="js/directives.js"></script>
-      <script src="js/app.js"></script>
+
+      <script src="js/directives/homeDirectives.js"></script>
+      <script src="js/directives/datasetDirectives.js"></script>
+      <script src="js/directives/datasetsDirectives.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </body>

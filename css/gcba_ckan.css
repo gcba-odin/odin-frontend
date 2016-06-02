@@ -751,3 +751,14 @@ a.shortcut:hover, a.shortcut:focus {
       padding: 0px;
           border-right: 1px solid #dddddd;
 }
+
+#ngProgress-container{
+  position: absolute;
+    z-index: 100000;
+    width: 100%;
+    top: 0px;
+}
+#ngProgress{
+  background-color: white !important;
+  color: white!important
+}
