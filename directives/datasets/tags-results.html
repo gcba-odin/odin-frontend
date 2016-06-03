@@ -6,9 +6,9 @@
    <nav>
    
       <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item" ng-repeat="tag in tags">
-            <a ng-href="#/datasets/?tag={{tag.id}}" title="{{tag.name}}">
-            <span>{{tag.name | truncString}}</span>
+         <li class="nav-item "  ng-repeat="tag in tags" ng-class="tag.selected ? 'active' : '' ">
+            <a class="tags-item" ng-href="javascript:void(0)" ng-click="addFilterSearch(tag.id,tag.name,tag,$index,tagsSelected)" title="{{tag.name}}">
+               <span>{{tag.name | truncString}}</span>
             </a>
          </li> 
       </ul>

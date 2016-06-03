@@ -5770,7 +5770,7 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../../../base/images/bg.png");
+  background: #fbfbfb url("../images/bg.png");
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -5919,7 +5919,7 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../../../base/images/bg.png");
+  background: #fbfbfb url("../images/bg.png");
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -6121,7 +6121,7 @@ a.tag:hover {
 }
 .nav-item.active,
 .nav-aside li.active {
-  background-color: #f6f6f6;
+  background-color: #8ca0a6;
 }
 .nav-item.active > a,
 .nav-aside li.active a {
@@ -6143,7 +6143,7 @@ a.tag:hover {
     right: -6px;
     width: 6px;
     height: 34px;
-    background-image: url("../../../base/images/nav-active.png?1");
+    background-image: url("../images/nav-active.png?1");
   }
 }
 .nav-item.active > a span,
@@ -6186,24 +6186,25 @@ a.tag:hover {
   top: 2px;
   width: 16px;
   height: 16px;
-  background-image: url("../../../base/images/sprite-ckan-icons.png");
+  background-image: url("../images/sprite-ckan-icons.png");
   background-repeat: no-repeat;
   background-position: 16px 16px;
   content: "";
   position: absolute;
   top: 50%;
   right: 5px;
+
   margin-top: -8px;
 }
 .nav-facet .nav-item > a:hover:after {
   width: 17px;
   height: 17px;
-  background-position: -17px -16px;
-}
+    background-position: -17px 0px;
+  }
 .nav-facet .nav-item.active > a:after {
   width: 17px;
   height: 17px;
-  background-position: 0px -16px;
+  background-position: 0px;
   right: 3px;
 }
 .user-list {
@@ -7327,7 +7328,6 @@ textarea {
 }
 .search-form {
   margin-bottom: 20px;
-  padding-bottom: 25px;
   border-bottom: 1px dotted #dddddd;
 }
 .search-form .search-input {
@@ -7399,12 +7399,14 @@ textarea {
   color: #444444;
   line-height: 32px;
   margin: 10px 0 0 0;
+  width: 100%;
+  display: table;
 }
 .search-form .filter-list .pill {
   line-height: 21px;
 }
 .search-form .filter-list .extra {
-  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 18px;
   font-weight: normal;
   color: #000000;
@@ -7921,7 +7923,7 @@ h4 small {
   background-repeat: no-repeat;
   background-position: 16px 16px;
   text-indent: -900em;
-  background: url("../../../base/images/sprite-resource-icons.png") no-repeat 0 0;
+  background: url("../images/sprite-resource-icons.png") no-repeat 0 0;
 }
 .format-label {
   width: 32px;
@@ -7957,6 +7959,12 @@ h4 small {
   width: 32px;
   height: 35px;
   background-position: -160px -62px;
+}
+.format-label[data-format=img],
+.format-label[data-format*=img] {
+width: 32px;
+    height: 35px;
+    background-position: -350px -62px;
 }
 .format-label[data-format=csv],
 .format-label[data-format*=csv] {
@@ -8051,7 +8059,6 @@ h4 small {
 }
 @media (min-width: 768px) {
   .wrapper {
-    background-image: url("../../../base/images/nav.png");
     background-repeat: repeat-y;
     background-position: -54px 0px;
   }
@@ -8073,7 +8080,7 @@ h4 small {
   [role=main],
   .main {
     padding-top: 10px;
-    background: #eeeeee url("../../../base/images/bg.png");
+    background: #eeeeee url("../images/bg.png");
   }
 }
 [role=main] {
@@ -8421,7 +8428,7 @@ h4 small {
   *zoom: 1;
   min-height: 30px;
   color: #ffffff;
-  background: #003647 url("../../../base/images/bg.png");
+  background: #003647 url("../images/bg.png");
 }
 .account-masthead:before,
 .account-masthead:after {
@@ -8505,7 +8512,7 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a url("../images/bg.png");
 }
 .masthead:before,
 .masthead:after {
@@ -8641,7 +8648,7 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a url("../images/bg.png");
   padding: 20px 0;
 }
 .site-footer:before,
@@ -9258,7 +9265,7 @@ h4 small {
   color: #009900;
 }
 body {
-  background: #005d7a url("../../../base/images/bg.png");
+  background: #005d7a url("../images/bg.png");
 }
 [hidden] {
   display: none;
@@ -9398,7 +9405,7 @@ iframe {
 .ie8 .main,
 .ie7 .main {
   padding-top: 10px;
-  background: #eeeeee url("../../../base/images/bg.png");
+  background: #eeeeee url("../images/bg.png");
 }
 .ie8 .hero,
 .ie7 .hero {
@@ -9624,4 +9631,16 @@ iframe {
 }
 .cultura-recreacion-y-turismo{
     background-image:url("/images/educacion.png")
+}
+
+
+
+.tags-item:focus {
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
+.tags-item{
+  padding-top: 7px !important;
+    padding-bottom: 7px   !important;
 }

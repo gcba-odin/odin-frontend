@@ -16,11 +16,11 @@
             <section class="module">
                <div class="module-content">
                   <div id="dataset-search-form" class="search-form"  data-module="select-switch">
-		 				<section id="search" class="search-input">
-		                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
-		                  <input ng-model="term" id="search-input" class="form-control input-lg" placeholder="Buscar conjuntos de datos..." autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
-		                  <a id="search-clear" href="javascript:void(0)" ng-click="loadResults()" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-		               </section>
+  		 				       <section id="search" class="search-input">
+  		                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
+  		                  <input ng-model="term" id="search-input" class="form-control input-lg" placeholder="Buscar conjuntos de datos..." autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+  		                  <a id="search-clear" href="javascript:void(0)" ng-click="loadResults()" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+  		               </section>
                      <div class="form-select control-group control-order-by">
                         <label for="field-order-by">Ordenar por </label>
                         <select ng-model="sorting"  id="field-order-by" name="sort">
@@ -37,31 +37,57 @@
                      </h2>
                      <p class="filter-list">
                      </p>
+                     <p class="filter-list" ng-if="tagsSelected.length">
+                          <span class="facet" >Etiquetas: </span>
+                            <span class="filtered pill" ng-repeat="tags in tagsSelected | orderBy:'name':false">{{tags.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,tags.model,tagsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+                            
+                            </span>
+                      </p> 
+                      <p class="filter-list" ng-if="organizationsSelected.length">
+                            <span class="facet" >Organizaciones: </span>
+                            <span class="filtered pill" ng-repeat="organization in organizationsSelected | orderBy:'name':false"  >{{organization.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,organization.model,organizationsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+                            
+                            </span>
+                      </p>
+                      <p class="filter-list" ng-if="formatsSelected.length">
+                             <span class="facet" >Formatos: </span>
+                            <span class="filtered pill" ng-repeat="format in formatsSelected | orderBy:'name':false">{{format.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,format.model,formatsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+                            
+                            </span>
+                      </p>
+                      <p class="filter-list" ng-if="statusSelected.length">
+
+                            <span class="facet" >Status: </span>
+                            <span class="filtered pill" ng-repeat="status in statusSelected | orderBy:'name':false">{{status.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,status.model,statusSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+                            
+                            </span>
+                      </p>
+
+                     
                      <a class="show-filters btn">Filtrar Resultados</a>
                   </div>
 
                   <ul class="dataset-list unstyled">
-       				<result-dataset></result-dataset>
+       				     <result-datasets></result-datasets>
                   </ul>
                </div>
-               <!---<div class="pagination pagination-centered">
-                  <ul>
-                     <li class="active"><a href="/ckan/dataset?q=&amp;page=1">1</a>
-                     </li>
-                     <li><a href="/ckan/dataset?q=&amp;page=2">2</a>
-                     </li>
-                     <li><a href="/ckan/dataset?q=&amp;page=3">3</a>
-                     </li>
-                     <li class="disabled"><a href="#">...</a>
-                     </li>
-                     <li><a href="/ckan/dataset?q=&amp;page=9">9</a>
-                     </li>
-                     <li><a href="/ckan/dataset?q=&amp;page=2">»</a>
-                     </li>
-                  </ul>
-               </div>-->
-            <p class="module-footer" ng-if="resultDatasets.data.length">
-               <a href="javascript:void(0)" ng-click="loadResults(20)" class="read-more">Mostrar Datasets</a>
+            <div class="row center-spin" ng-if="showLoading">
+               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" ></i>
+            </div>
+            <p class="module-footer read-more-datasets" ng-click="loadResults(20)"  ng-if="resultDatasetsSearch.data.length" >
+               <a href="javascript:void(0)" class="read-more">Mostrar Datasets</a>
             </p>
             </section>
             <section class="module">

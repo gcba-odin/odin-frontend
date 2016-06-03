@@ -6,9 +6,8 @@
    <nav>
    
       <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item" ng-repeat="status in statuses">
-
-            <a ng-href="#/datasets/?status={{status.slug}}" title="{{status.name}}">
+         <li class="nav-item" ng-repeat="status in statuses"  ng-class="status.selected ? 'active' : '' ">
+            <a class="tags-item" ng-href="javascript:void(0)" ng-click="addFilterSearch(status.id,status.name,status,$index,statusSelected)" title="{{status.name}}">
             <span>{{status.name | truncString}}</span>
             </a>
          </li> 

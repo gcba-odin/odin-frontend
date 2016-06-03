@@ -7,8 +7,9 @@
    <nav>
    
       <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item" ng-repeat="format in filetypes">
-            <a ng-href="#/datasets/?format={{format.slug}}" title="{{format.name}}">
+         <li class="nav-item" ng-repeat="format in filetypes" ng-class="format.selected ? 'active' : '' ">
+            <a class="tags-item" ng-href="javascript:void(0)" ng-click="addFilterSearch(format.id,format.name,format,$index,formatsSelected)" title="{{format.name}}">
+
             <span>{{format.name | truncString}}</span>
             </a>
          </li> 

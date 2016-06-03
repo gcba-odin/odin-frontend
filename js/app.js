@@ -21,8 +21,6 @@
 
 
     function controllerHome($scope,$location,$sce,$filter) {
-
-
         $scope.search = function() {
     		$location.url('/datasets?q='+$scope.term);
     	}
@@ -35,25 +33,6 @@
         };
     }
 
-    function controllerDataset($scope, datasetF, $routeParams) {
-    	$scope.loading=false;
-		datasetF.getDataset(function(data){
-			datasetF.setDataset(data);
-			$scope.loading=true;
-			$scope.info=datasetF.getInfo();
-		});
-    }
-
-    function controllerDatasets($scope, datasetsF, $routeParams,$location) {
-    	$scope.loading=false;
-		datasetsF.getDataset(function(data){
-			datasetsF.setDataset(data);
-			$scope.loading=true;
-			$scope.countResults=datasetsF.countResults();
-		});
-		$scope.search = function() {
-			$location.url('/datasets?q='+$scope.term);
-		}
-    }
+ 
 
 })();

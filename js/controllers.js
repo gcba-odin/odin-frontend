@@ -8,8 +8,6 @@
     
 
     function controllerDataset($scope, datasetF, $routeParams) {
-        console.log($routeParams);
-
         var datasetRest = {
             name: "Zonas recolección residuos sólidos secos",
             description: "Zonas asignadas a cada cooperativa de recuperadores urbanos para recolectar los residuos sólidos secos.",
@@ -82,7 +80,6 @@
 
         datasetF.getDataset(datasetRest);
 
-        console.log(datasetF.getSocial());
 
     }
 

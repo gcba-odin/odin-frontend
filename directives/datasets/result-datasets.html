@@ -3,14 +3,14 @@
    <li class="dataset-item" ng-repeat="result in datasets">
       <div class="dataset-content">
          <h3 class="dataset-heading">
-            <a ng-href="#/dataset/{{result.slug | lowercase}}" ng-title="{{result.name | uppercase}}">{{result.name | uppercase}}</a>
+            <a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name | uppercase}}">{{result.name | uppercase}}</a>
          </h3>
                   <div ng-bind-html="getHtml(result.description)"></div>
 
       </div>
       <ul class="dataset-resources unstyled">
          <li ng-repeat="resource in result.files">
-            <a ng-href="#/dataset/{{result.id | lowercase}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.name | uppercase}}</a> 
+            <a ng-href="#/dataset/{{result.id | lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a> 
          </li>
       </ul>
    </li>

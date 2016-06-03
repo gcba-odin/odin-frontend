@@ -2,10 +2,10 @@
 
 <section id="dataset-resources" class="resources" ng-if="info.files.length">
    <h3>Datos y Recursos </h3>  
-   <ul class="resource-list">
+   <ul class="resource-list">    
       <li class="resource-item"  ng-repeat="resource in info.files">
          <a class="heading" ng-href="{{resource.url}}" title="{{resource.name}}">
-           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.format}}">{{resource.format | uppercase}}</span>
+           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.url | returnFormat}}">{{resource.format | uppercase}}  </span>
          </a>
          <p class="description">
             {{resource.description}}

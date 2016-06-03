@@ -1,23 +1,27 @@
 (function() {
     var app = angular.module('store-directives', ["store-directives-home","store-directives-dataset","store-directives-datasets"]);
-
-
-
     app.directive('brandingData', function() {
       return {
         restrict: 'E',
         templateUrl: '/directives/main/branding-data.html',
-        controller:function (){
-            console.log("desdeladirectiva");
-        }
       };
     });
     app.directive('auxiliarBar', function() {
       return {
         restrict: 'E',
         templateUrl: '/directives/main/auxiliar-bar.html',
-        controller:function (){
-            console.log("desdeladirectiva");
+        controller:function (rest,$scope){
+         rest().count({
+              type: "datasets"
+          },function (resp){
+            $scope.countDatasets=resp.data.count;
+          });
+
+          rest().count({
+              type: "files"
+          },function (resp){
+            $scope.countFiles=resp.data.count;
+          });
         }
       };
     });
@@ -25,12 +29,22 @@
       return {
         restrict: 'E',
         templateUrl: '/directives/main/footer-bar.html',
-        controller:function (){
-            console.log("desdeladirectiva");
-        }
       };
     });
+app.filter('returnFormat', function() {
+        return function(input) {
+          var extension=input.split('.').pop();
+          if(extension=="jpg" || extension== "png"){
+            return "img";
+          }else{
+            return extension;
+          }
+        }
+    });
 
+
+
+    
     app.filter('urlEncode', [function() {
         return window.encodeURIComponent;
     }]);

@@ -8,16 +8,8 @@
             restrict: "E",
             templateUrl: "/directives/dataset/resources-datasets.html",
       
-            controller: function($scope,datasetF) {
-            var data={};
+            controller: function($scope) {
 
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetF.getResources();
-                    $scope.resources=data;
-
-                }
-              });
             },
             controllerAs: "resources"
         };
@@ -29,15 +21,8 @@
             restrict: "E",
             templateUrl: "/directives/dataset/tags-datasets.html",
       
-            controller: function($scope,datasetF) {
-            var data={};
+            controller: function($scope) {
 
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetF.getTags();
-                    $scope.tags=data;
-                }
-              });
             },
             controllerAs: "tags"
         };
@@ -48,15 +33,8 @@
             restrict: "E",
             templateUrl: "/directives/dataset/aditional-info-dataset.html",
       
-            controller: function($scope,datasetF) {
-            var data={};
+            controller: function($scope) {
 
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetF.getAditionalInformation();
-                    $scope.aditionalinfo=data;
-                }
-              });
             },
             controllerAs: "aditionalinfo"
         };
@@ -67,15 +45,8 @@
             restrict: "E",
             templateUrl: "/directives/dataset/organizations-dataset.html",
       
-            controller: function($scope,datasetF) {
-            var data={};
+            controller: function($scope) {
 
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetF.getOrganizations();
-                    $scope.organizations=data;
-                }
-              });
             },
             controllerAs: "organizations"
         };
@@ -86,15 +57,8 @@
             restrict: "E",
             templateUrl: "/directives/dataset/socials-dataset.html",
       
-            controller: function($scope,datasetF) {
-            var data={};
+            controller: function($scope) {
 
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetF.getSocial();
-                    $scope.socials=data;
-                }
-              });
             },
             controllerAs: "socials"
         };

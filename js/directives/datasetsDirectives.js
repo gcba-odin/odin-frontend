@@ -1,24 +1,15 @@
 (function() {
     var app = angular.module('store-directives-datasets', []);
 
-
-
-   app.directive("resultDataset", function() {
+   app.directive("resultDatasets", function() {
         return {
             restrict: "E",
             templateUrl: "/directives/datasets/result-datasets.html",
       
-            controller: function($scope,datasetsF) {
-            var data={};
-
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetsF.showDatasets();
-                    $scope.results=data;
-                }
-              });
+            controller: function($scope,rest) {
+    
             },
-            controllerAs: "results"
+            controllerAs: "dataset"
         };
     });
 
@@ -39,7 +30,6 @@
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                             $scope.organizations.push($scope.resultOrganizations.data[i])
                         }
-                    console.log($scope.resultOrganizations.data); 
                     }); 
                     
                 }
@@ -49,23 +39,6 @@
         };
     });
 
-   app.directive("groupsResult", function() {
-        return {
-            restrict: "E",
-            templateUrl: "/directives/datasets/groups-results.html",
-            controller: function($scope,datasetsF) {
-            var data={};
-
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetsF.getGroups();
-                    $scope.groups=data;
-                }
-              });
-            },
-            controllerAs: "groups"
-        };
-    });
 
     app.directive("tagsResult", function() {
         return {
@@ -84,7 +57,6 @@
                         for (var i = 0; i < $scope.resultTags.data.length; i++) {
                             $scope.tags.push($scope.resultTags.data[i])
                         }
-                    console.log($scope.resultTags.data); 
                     }); 
                      
                 }
@@ -110,7 +82,6 @@
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                             $scope.filetypes.push($scope.resultFormats.data[i])
                         }
-                    console.log($scope.resultFormats.data); 
                     }); 
                     
                 }
@@ -120,23 +91,6 @@
         };
     });
 
-        app.directive("licencesResult", function() {
-        return {
-            restrict: "E",
-            templateUrl: "/directives/datasets/licences-results.html",
-            controller: function($scope,datasetsF) {
-            var data={};
-
-              $scope.$watch('loading', function (val) {
-                if(val){
-                    data=datasetsF.getFormats();
-                    $scope.licences=data;
-                }
-              });
-            },
-            controllerAs: "licences"
-        };
-    });
     app.directive("statusesResult", function() {
         return {
             restrict: "E",
@@ -147,14 +101,12 @@
                 $scope.resultStatuses=[];
                 $scope.loadStatuses=function (limit){
                     $scope.limitStatuses+=limit; 
-                    console.log("sort=name ASC&limit=5&skip="+$scope.limitStatuses);
                      $scope.resultStatuses= rest().get({
                         type: "statuses" ,params:"sort=name ASC&limit=5&skip="+$scope.limitStatuses
                     },function (){
                         for (var i = 0; i < $scope.resultStatuses.data.length; i++) {
                             $scope.statuses.push($scope.resultStatuses.data[i])
                         }
-                    console.log($scope.resultStatuses.data); 
                     }); 
                     
                 }

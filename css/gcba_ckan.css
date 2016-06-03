@@ -762,3 +762,14 @@ a.shortcut:hover, a.shortcut:focus {
   background-color: white !important;
   color: white!important
 }
+
+.read-more-datasets{
+  text-align: center;
+  cursor: pointer;
+}
+.center-spin{
+  text-align: center
+}
+.read-more-datasets:hover{
+  background-color: #F3F3F3
+}

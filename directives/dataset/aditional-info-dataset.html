@@ -16,11 +16,11 @@
          </tr>
          <tr ng-if="info.owner">
             <th scope="row" class="dataset-label">{{'Owner' | capitalize}}</th>
-            <td class="dataset-details" property="dc:creator">{{info.owner}}</td>
+            <td class="dataset-details" property="dc:creator">{{info.owner.firstName}} {{info.owner.lastName}}</td>
          </tr>
          <tr ng-if="info.createdAt">
             <th scope="row" class="dataset-label">{{'createdAt' | capitalize}}</th>
-            <td class="dataset-details" property="dc:creator">{{info.createdAt}}</td>
+            <td class="dataset-details" property="dc:creator">{{info.createdAt | date}}</td>
          </tr>
          <tr ng-if="info.optional1">
             <th scope="row" class="dataset-label">{{'Optional 1' | capitalize}}</th>
