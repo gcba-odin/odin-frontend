@@ -6157,6 +6157,7 @@ a.tag:hover {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
+  padding-top: 4px;
 }
 .module-narrow .nav-item.image,
 .module-narrow .nav-aside li.image {

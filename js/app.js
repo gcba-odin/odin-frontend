@@ -12,15 +12,26 @@
             }).when("/datasets", {
                 templateUrl: "views/datasets.html",
                 controller: DatasetListController
+            }).when("/resource/:id", {
+                templateUrl: "views/resource.html",
+                controller: FileListController
             }).otherwise({
                 redirectTo: '/'
             });
  
     });
 
+    app.factory('Page', function() {
+       var title = 'default';
+       return {
+         title: function() { return title; },
+         setTitle: function(newTitle) { title = newTitle }
+       };
+    });
 
+    function controllerHome($scope,$location,$sce,$filter,$rootScope) {
+        $rootScope.header = "Odin"; 
 
-    function controllerHome($scope,$location,$sce,$filter) {
         $scope.search = function() {
     		$location.url('/datasets?q='+$scope.term);
     	}

@@ -42,6 +42,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         type: $scope.type,
         params: "include=tags,files"
     }, function() {
+        $rootScope.header = $scope.info.name; 
+
         var tags = [];
         for (var i = 0; i < $scope.info.tags.length; i++) {
             tags.push({
@@ -66,6 +68,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     //Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
+    $rootScope.header = "Datasets List"; 
 
     $scope.sorting = "name asc";
     $scope.term = $routeParams.q;

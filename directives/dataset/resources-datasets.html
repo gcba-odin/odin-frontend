@@ -4,11 +4,11 @@
    <h3>Datos y Recursos </h3>  
    <ul class="resource-list">    
       <li class="resource-item"  ng-repeat="resource in info.files">
-         <a class="heading" ng-href="{{resource.url}}" title="{{resource.name}}">
-           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.url | returnFormat}}">{{resource.format | uppercase}}  </span>
+         <a class="heading" ng-href="#/resource/{{resource.id}}" title="{{resource.name}}">
+           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.url | returnFormat}}">{{resource.format | uppercase}} </span>
          </a>
          <p class="description">
-            {{resource.description}}
+            {{resource.description}}  {{resource.id}}
          </p>
          <div class="dropdown btn-group">
             <a ng-href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
