@@ -10,7 +10,7 @@
       </div>
       <ul class="dataset-resources unstyled">
          <li ng-repeat="resource in result.files">
-            <a ng-href="#/dataset/{{result.id | lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a> 
+            <a ng-href="#/resource/{{resource.id | lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a> 
          </li>
       </ul>
    </li>

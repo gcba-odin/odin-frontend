@@ -3,13 +3,13 @@
     app.directive('brandingData', function() {
       return {
         restrict: 'E',
-        templateUrl: '../directives/main/branding-data.html',
+        templateUrl: 'directives/main/branding-data.html',
       };
     });
     app.directive('auxiliarBar', function() {
       return {
         restrict: 'E',
-        templateUrl: '../directives/main/auxiliar-bar.html',
+        templateUrl: 'directives/main/auxiliar-bar.html',
         controller:function (rest,$scope){
          rest().count({
               type: "datasets"
@@ -28,7 +28,7 @@
     app.directive('footerBar', function() {
       return {
         restrict: 'E',
-        templateUrl: '../directives/main/footer-bar.html',
+        templateUrl: 'directives/main/footer-bar.html',
       };
     });
 app.filter('returnFormat', function() {

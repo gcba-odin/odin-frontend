@@ -73,7 +73,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.sorting = "name asc";
     $scope.term = $routeParams.q;
     var query = "";
-    if ($routeParams.q) {
+    if (!!$routeParams.q) {
         query += '&where={"name":{"contains":"' + $routeParams.q + '"}}';
     }
 
@@ -133,6 +133,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     }
     $scope.deleteFilterSelected = function(index, elementFilter, modelSelected) {
         elementFilter.selected = false;
+        console.log(index);
+        console.log(modelSelected)
         modelSelected.splice(index, 1);
     }
     $scope.view = function(model) {

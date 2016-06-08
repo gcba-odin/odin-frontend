@@ -4,7 +4,7 @@
     app.directive("datasetsCategories", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/home/datasets-categories.html",
+            templateUrl: "directives/home/datasets-categories.html",
             controller:CategoryListController,
             controllerAs: "category"
         };
@@ -15,7 +15,7 @@
     app.directive("latestDatasets", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/home/datasets-latest.html",
+            templateUrl: "directives/home/datasets-latest.html",
             controller:DatasetLatestController, 
             /*controller: function($scope, datasetF) {
                 var items = [{
@@ -41,7 +41,7 @@
     app.directive("popularDatasets", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/home/popular-datasets.html",
+            templateUrl: "directives/home/popular-datasets.html",
             controller: DatasetPopularController,
             controllerAs: "populardatasets"
         };
