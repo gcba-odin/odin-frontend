@@ -4,7 +4,7 @@
    app.directive("resultDatasets", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/datasets/result-datasets.html",
+            templateUrl: "directives/datasets/result-datasets.html",
       
             controller: function($scope,rest) {
     
@@ -16,7 +16,7 @@
    app.directive("organizationsResult", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/datasets/organizations-results.html",
+            templateUrl: "directives/datasets/organizations-results.html",
       
             controller: function($scope,rest) {
                 $scope.limitorganizations=0;
@@ -43,7 +43,7 @@
     app.directive("tagsResult", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/datasets/tags-results.html",
+            templateUrl: "directives/datasets/tags-results.html",
             controller: function($scope,rest) {
               
                 $scope.limitTags=0;
@@ -69,7 +69,7 @@
     app.directive("formatsResult", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/datasets/formats-results.html",
+            templateUrl: "directives/datasets/formats-results.html",
             controller: function($scope,rest) {
                 $scope.limitFormats=0;
                 $scope.filetypes=[];
@@ -94,7 +94,7 @@
     app.directive("statusesResult", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/datasets/statuses-results.html",
+            templateUrl: "directives/datasets/statuses-results.html",
             controller: function($scope,rest) {
                 $scope.limitStatuses=0;
                 $scope.statuses=[];

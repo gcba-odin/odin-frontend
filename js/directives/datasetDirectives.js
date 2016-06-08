@@ -6,7 +6,7 @@
    app.directive("resourcesDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/dataset/resources-datasets.html",
+            templateUrl: "directives/dataset/resources-datasets.html",
       
             controller: function($scope) {
 
@@ -19,7 +19,7 @@
     app.directive("tagsDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/dataset/tags-datasets.html",
+            templateUrl: "directives/dataset/tags-datasets.html",
       
             controller: function($scope) {
 
@@ -31,7 +31,7 @@
     app.directive("aditionalInfoDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/dataset/aditional-info-dataset.html",
+            templateUrl: "directives/dataset/aditional-info-dataset.html",
       
             controller: function($scope) {
 
@@ -43,7 +43,7 @@
     app.directive("organizationsDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/dataset/organizations-dataset.html",
+            templateUrl: "directives/dataset/organizations-dataset.html",
       
             controller: function($scope) {
 
@@ -55,7 +55,7 @@
         app.directive("socialsDataset", function() {
         return {
             restrict: "E",
-            templateUrl: "/directives/dataset/socials-dataset.html",
+            templateUrl: "directives/dataset/socials-dataset.html",
       
             controller: function($scope) {
 
