@@ -13,7 +13,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "sort=updatedAt DESC&limit=3"
+        params: "orderBy=updatedAt&sort=DESC&limit=3"
     });
 
 
@@ -27,7 +27,7 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.popularDataset = rest().get({
         type: $scope.type,
-        params: "sort=updatedAt DESC&limit=3"
+        params: "orderBy=updatedAt&sort=DESC&limit=3"
     });
 
 
@@ -42,7 +42,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         type: $scope.type,
         params: "include=tags,files"
     }, function() {
-        $rootScope.header = $scope.info.name; 
+        $rootScope.header = $scope.info.name;
 
         var tags = [];
         for (var i = 0; i < $scope.info.tags.length; i++) {
@@ -68,7 +68,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     //Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
-    $rootScope.header = "Datasets List"; 
+    $rootScope.header = "Datasets List";
 
     $scope.sorting = "name asc";
     $scope.term = $routeParams.q;
