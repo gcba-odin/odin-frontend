@@ -768,7 +768,8 @@ a.shortcut:focus {
 /**RESPONSIVE****/
 
 @media (min-width: 992px) {
-  .container {
+  .container,
+  .navbar .container {
     width: 50%;
   }
 }
