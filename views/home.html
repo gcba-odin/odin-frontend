@@ -1,46 +1,50 @@
 <div class="homepage layout-1">
-   <div class="container">
-      <div class="panel-panel row">
-         <div class="col-md-12">
-            <div class="module-content search-form search-home" >
-               <section id="search" class="search-input">
-                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
-                  <input id="search-input" name="q" ng-model="term" class="form-control input-lg" placeholder="Buscar Dataset" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
-                  <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-               </section>
+    <div class="container">
+        <div class="panel-panel row">
+            <div class="col-md-12">
+                <div class="search-home-text">
+                    <h3>Buscá entre {{countDatasets}} Datasets</h3>
+                </div>
+                <div class="module-content search-form search-home">
+                    <section id="search" class="search-input">
+                        <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>
+                        <input id="search-input" name="q" ng-model="term" class="form-control input-lg" placeholder="Buscar Dataset" autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                        <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+                    </section>
+                </div>
             </div>
-         </div>
-         <div class="col-md-12">
-            <datasets-categories ></datasets-categories>
-         </div>
-         <div class="container-footer col-md-12">
-            <div class="row">
-               <div class="col-md-4">
-                  <h2 class="title-container-home">Últimos datos</h2>
-                  <latest-datasets></latest-datasets>
-               </div>
-               <div class="col-md-4">
-                  <h2 class="title-container-home">Destacados</h2>
-                  <popular-datasets></popular-datasets>
-               </div>
-               <div class="col-md-4">
-                  <h2 class="title-container-home">Redes Sociales</h2>
-                  <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 400px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" data-widget-id="728577944629616640"></iframe>
-                  <script>
-                     ! function(d, s, id) {
-                         var js, fjs = d.getElementsByTagName(s)[0],
-                             p = /^http:/.test(d.location) ? 'http' : 'https';
-                         if (!d.getElementById(id)) {
-                             js = d.createElement(s);
-                             js.id = id;
-                             js.src = p + "://platform.twitter.com/widgets.js";
-                             fjs.parentNode.insertBefore(js, fjs);
-                         }
-                     }(document, "script", "twitter-wjs");
-                  </script>
-               </div>
+            <div class="col-md-12">
+                <datasets-categories></datasets-categories>
             </div>
-         </div>
-      </div>
-   </div>
+            <div class="container-footer col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="title-container-home">Últimos datos</h2>
+                        <latest-datasets></latest-datasets>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="title-container-home">Destacados</h2>
+                        <popular-datasets></popular-datasets>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="title-container-home">Redes Sociales</h2>
+                        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 400px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                            data-widget-id="728577944629616640"></iframe>
+                        <script>
+                            ! function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0],
+                                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                                if (!d.getElementById(id)) {
+                                    js = d.createElement(s);
+                                    js.id = id;
+                                    js.src = p + "://platform.twitter.com/widgets.js";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }
+                            }(document, "script", "twitter-wjs");
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

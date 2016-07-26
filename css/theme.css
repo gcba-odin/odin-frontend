@@ -257,7 +257,7 @@ ul {
 .branding-data:after {
   content: "";
   height: 5px;
-  background: linear-gradient(to right, #FFC107 0%, yellow 70%, #00BCD4 100%);
+  background: linear-gradient(to right, #FFC107 0%, #FDD305 60%, #00B9F1 100%);
   display: block;
   margin-top: 10px;
 }
@@ -279,6 +279,10 @@ ul {
 .search-home {
   padding-right: 0px;
   padding-left: 0px
+}
+
+.search-home-text h3 {
+  text-align: center;
 }
 
 .link-header-data li a {
@@ -763,7 +767,13 @@ a.shortcut:focus {
 
 /**RESPONSIVE****/
 
-@media (max-width: 979px) {
+@media (min-width: 992px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 991px) {
   .navbar-fixed-top {
     margin-bottom: 0;
   }
