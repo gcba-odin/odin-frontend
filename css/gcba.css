@@ -636,21 +636,13 @@ article figcaption,
 }
 
 .shortcut {
-  background-color: transparent;
-  border-radius: 6px;
-  color: #333;
-  display: block;
+  width: 10%;
+  display: inline-block;
   padding-bottom: 12px;
   padding-top: 24px;
   position: relative;
   text-align: center;
-  text-decoration: none !important;
-  height: 250px
-}
-
-.shortcut p {
-  color: #888 !important;
-  margin-bottom: 24px;
+  text-decoration: none;
 }
 
 .shortcut span {
@@ -661,7 +653,7 @@ article figcaption,
   margin: 0 auto 24px;
   position: relative;
   text-align: center;
-  width: 150px
+  width: inherit;
 }
 
 .homepage .box-stats {

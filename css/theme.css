@@ -1,33 +1,15 @@
-/*FONTS*/
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/gotham.eot') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Gotham';
-  src: url('../fonts/gotham.woff') format('woff'), url('../fonts/gotham.ttf') format('truetype'), url('../fonts/gotham.svg#Gotham') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-/********/
-
 body {
-  color: #333333;
-  font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
+  font-weight: 400;
   line-height: 20px;
-  background-color: #FFF;
+  background-color: #f2f2f2;
   background-image: none;
 }
 
 input {
-  font-family: "Open Sans", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1,
@@ -41,8 +23,8 @@ h6 .panel-title,
 .navbar-brand,
 h2.slogan {
   color: inherit;
-  font-family: "Gotham", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  : 700;
   margin: 10px 0;
   text-rendering: optimizelegibility;
 }
@@ -68,8 +50,8 @@ a:hover {
 
 .btn,
 .btn:hover {
-  font-family: "Gotham", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-weight: 500;
   text-shadow: none;
 }
 
@@ -138,10 +120,12 @@ a:hover {
 /****NAV****/
 
 .navbar-theme {
-  height: 30px;
-  padding: 10px 0;
+  color: white;
+  background: linear-gradient(to right, #ffb600 0%, #ff386a 100%);
+  min-height: 20px;
+  padding: 5px 0;
   overflow: visible;
-  background: #FFC107;
+  border: none;
 }
 
 .header-tag {
@@ -184,7 +168,7 @@ li a.last-item {
 
 .breadcrumb-header a {
   color: black;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 ul {
@@ -208,10 +192,8 @@ ul {
 
 .navbar-theme #logo {
   float: left;
-  height: 30px;
   width: 170px;
-  background: url(../images/bac-header.svg);
-  text-indent: -100%;
+  text-indent: -1000%;
 }
 
 .navbar-theme #logo-slogan {
@@ -245,11 +227,9 @@ ul {
 }
 
 .branding-data {
-  color: white;
-  background-color: #00BCD4;
-  border-top: solid white;
-  border-width: 4px 0px 8px 0px;
-  margin-top: 50px;
+  color: #4D4D4D;
+  background-color: white;
+  margin-top: 30px;
   display: block;
   overflow: hidden;
 }
@@ -257,7 +237,7 @@ ul {
 .branding-data:after {
   content: "";
   height: 5px;
-  background: linear-gradient(to right, #FFC107 0%, #FDD305 60%, #00B9F1 100%);
+  background: linear-gradient(to right, #ffb600 0%, #ff386a 100%);
   display: block;
   margin-top: 10px;
 }
@@ -277,12 +257,32 @@ ul {
 }
 
 .search-home {
-  padding-right: 0px;
-  padding-left: 0px
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+}
+
+.search-home h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #FF386a;
 }
 
 .search-home-text h3 {
   text-align: center;
+}
+
+.search-home .input-group input {
+  font-size: 1.4em;
+}
+
+.search-home .input-group button {
+  margin-top: 0;
+  color: #4D4D4D;
+  background: linear-gradient(to top, #e6e8e8 0%, white 100%);
+}
+
+.search-form {
+  border: 0px
 }
 
 .link-header-data li a {
@@ -291,87 +291,57 @@ ul {
   font-weight: 600;
 }
 
-.search-form .search-input button {
-  margin-top: -15px;
-  left: 15px;
-  height: 30px;
-}
-
-.title-shortcut {
-  color: #6D6D6D;
-  font-size: 13px;
+.shortcut-title {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
   width: 100px;
   margin: auto;
 }
 
-.rojo {
-  background-color: #B53E39
-}
-
-.naranja {
-  background-color: #E79333
-}
-
-.amarillo {
-  background-color: #F6D02C
-}
-
-.verde {
-  background-color: #A4BE3F
-}
-
-.celeste {
-  background-color: #71B3AF
-}
-
-.azul {
-  background-color: #4F65B8
-}
-
-.morado {
-  background-color: #884498
-}
-
-.violeta {
-  background-color: #AF4A7A
-}
-
-.verdeoscuro {
-  background-color: #82A73D
-}
-
-.vinotinto {
-  background-color: #A2292B
-}
-
-.gris {
-  background-color: #868686
-}
-
 .container-shorcut {
+  width: calc(100% + 50px);
   margin-bottom: 70px;
-  display: table
 }
 
-.search-form .search-input button i {
-  font-size: 18px;
-  width: 28px;
-  color: black;
+.urbanismo-e-infraestructura {
+  background-image: url("../images/urbanismo-e-infraestructura.svg")
 }
 
-.search-form .search-input input {
-  background: #F1F1F1;
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: none;
-  padding-left: 55px;
-  -webkit-box-shadow: none;
-  font-size: 21px;
-  font-weight: 500;
+.shortcut:hover .urbanismo-e-infraestructura {
+  background-image: url("../images/urbanismo-e-infraestructura-hover.svg");
 }
 
-.search-form {
-  border: 0px
+.transporte {
+  background-image: url("../images/transporte.svg")
+}
+
+.seguridad {
+  background-image: url("../images/seguridad.svg")
+}
+
+.salud {
+  background-image: url("../images/salud.svg")
+}
+
+.medio-ambiente {
+  background-image: url("../images/medio-ambiente.svg")
+}
+
+.gobierno-y-administracion-publica {
+  background-image: url("../images/gobierno-y-administracion-publica.svg")
+}
+
+.educacion {
+  background-image: url("../images/educacion.svg")
+}
+
+.economia-negocio-y-comercio {
+  background-image: url("../images/economia-negocio-y-comercio.svg")
+}
+
+.cultura-recreacion-y-turismo {
+  background-image: url("../images/cultura-recreacion-y-turismo.svg")
 }
 
 .link-header-data {
@@ -402,9 +372,9 @@ ul {
 
 .branding-data h1 {
   color: inherit;
-  font-size: 55px;
-  font-weight: bold;
-  letter-spacing: -2px;
+  font-size: 3em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   padding-top: 20px;
   text-align: left;
 }
@@ -417,12 +387,10 @@ ul {
 .branding-data .lead {
   color: inherit;
   display: block;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 1.2em;
+  font-weight: 500;
   line-height: 20px;
-  padding-left: 5px;
-  padding-top: 6px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
 }
 
 .navbar-search {
@@ -448,13 +416,13 @@ h2 {
 
 .more-info a {
   color: #777777;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 12px
 }
 
 .more-info-black a {
   color: #000000;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 12px
 }
 
@@ -471,7 +439,7 @@ h2 {
 
 .title-features {
   color: #737373;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer
 }
 
@@ -496,7 +464,7 @@ h2 {
   border: 1px solid #D4AC28;
   padding-left: 15px;
   color: #867B6A;
-  font-weight: bold;
+  font-weight: 600;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 5px;
@@ -527,7 +495,7 @@ h2 {
 .menu-footer li {
   float: left;
   margin-right: 15px;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 .menu-footer li a {
@@ -587,10 +555,6 @@ h2 {
 
 /***HOME****/
 
-.homepage {
-  background-color: #FFF;
-}
-
 article figure,
 .row-grid figure {
   border-radius: 6px;
@@ -636,16 +600,14 @@ article figcaption,
 }
 
 .shortcut {
-  background-color: transparent;
-  border-radius: 6px;
-  color: #333;
-  display: block;
-  padding-bottom: 12px;
-  padding-top: 24px;
+  width: 100px;
+  margin-right: 25px;
+  margin-left: 25px;
+  display: inline-block;
+  margin-bottom: 25px;
   position: relative;
-  text-align: center;
-  text-decoration: none !important;
-  height: 250px
+  vertical-align: top;
+  color: #FF386a;
 }
 
 .shortcut p {
@@ -654,14 +616,23 @@ article figcaption,
 }
 
 .shortcut span {
-  border-radius: 150px;
-  color: #fff;
   display: block;
-  height: 150px;
-  margin: 0 auto 24px;
+  height: 70px;
   position: relative;
   text-align: center;
-  width: 150px
+  background-size: 55px;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.shortcut:hover {
+   filter: grayscale(100%);
+}
+
+.homepage .panel-panel> .col-md-12 {
+  padding: 0px;
+  margin-left: -25px;
+  margin-right: -25px;
 }
 
 .homepage .box-stats {
@@ -732,20 +703,9 @@ article figcaption,
   text-decoration: none;
 }
 
-a.shortcut:hover,
-a.shortcut:focus {
-  background: #f5f5f5 none repeat scroll 0 0 !important;
-}
-
 .shortcut:hover,
 .shortcut:focus {
-  background: transparent none repeat scroll 0 0;
-}
-
-.shortcut:hover,
-.shortcut:focus {
-  background: #e5e5e5 none repeat scroll 0 0;
-  color: #333;
+  color: #FFb600;
   text-decoration: none;
 }
 
@@ -808,12 +768,6 @@ a.shortcut:focus {
     padding-right: 20px;
     padding-left: 20px;
   }
-}
-
-#search button {
-  margin-top: -15px;
-  left: 15px;
-  height: 30px;
 }
 
 .input-lg {

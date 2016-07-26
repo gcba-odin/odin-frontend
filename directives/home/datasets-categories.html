@@ -1,12 +1,10 @@
-<div class="container-shorcut" >
-        <a href="#/datasets/?cat={{ item.name | slug }}" class="col-md-3 col-lg-3 col-sm-4  col-xs-6 shortcut" ng-repeat="item in categories.data">
-            <span class="rojo">
-                <span class="imagen-menu-home {{ item.name | slug }}"></span>
-            </span>
-            <h4 class="title-shortcut">{{item.name}}</h4>
-        </a>  
+<div class="container-shorcut">
+    <a href="#/datasets/?cat={{ item.name | slug }}" class="shortcut" ng-repeat="item in categories.data">
+        <span class="shortcut-image {{ item.name | slug }}"></span>
+        <h4 class="shortcut-title">{{item.name}}</h4>
+    </a>
 </div>
 
 <div class="row center-spin" ng-if="showCategories">
-   <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" ></i>
+    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
 </div>

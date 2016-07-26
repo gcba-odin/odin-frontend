@@ -6487,8 +6487,8 @@ a.tag:hover {
 }
 
 .module-content {
-  padding: 0 25px;
-  margin: 20px 0;
+  padding: 0px;
+  margin: 20px 0px;
 }
 
 @media (min-width: 768px) {
@@ -11203,42 +11203,6 @@ iframe {
 
 .page-header {
   padding-bottom: 0px !important
-}
-
-.urbanismo-e-infraestructura {
-  background-image: url("../images/educacion.png")
-}
-
-.transporte {
-  background-image: url("../images/educacion.png")
-}
-
-.seguridad {
-  background-image: url("../images/educacion.png")
-}
-
-.salud {
-  background-image: url("../images/educacion.png")
-}
-
-.medio-ambiente {
-  background-image: url("../images/educacion.png")
-}
-
-.gobierno-y-administracion-publica {
-  background-image: url("../images/educacion.png")
-}
-
-.educacion {
-  background-image: url("../images/educacion.png")
-}
-
-.economia-negocio-y-comercio {
-  background-image: url("../images/educacion.png")
-}
-
-.cultura-recreacion-y-turismo {
-  background-image: url("../images/educacion.png")
 }
 
 .tags-item:focus {
