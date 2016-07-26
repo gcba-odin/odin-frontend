@@ -236,7 +236,7 @@ ul {
 
 .branding-data:after {
   content: "";
-  height: 5px;
+  height: 3px;
   background: linear-gradient(to right, #ffb600 0%, #ff386a 100%);
   display: block;
   margin-top: 10px;
@@ -258,7 +258,7 @@ ul {
 
 .search-home {
   margin-top: 7vh;
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 .search-home h3 {
