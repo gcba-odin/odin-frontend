@@ -70,7 +70,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.type = "datasets";
     $rootScope.header = "Datasets List";
 
-    $scope.sorting = "name asc";
+    $scope.sorting = "ASC";
     $scope.term = $routeParams.q;
     var query = "";
     if (!!$routeParams.q) {
