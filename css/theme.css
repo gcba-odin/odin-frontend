@@ -316,32 +316,64 @@ ul {
   background-image: url("../images/transporte.svg")
 }
 
+.shortcut:hover .transporte {
+  background-image: url("../images/transporte-hover.svg");
+}
+
 .seguridad {
   background-image: url("../images/seguridad.svg")
+}
+
+.shortcut:hover .seguridad {
+  background-image: url("../images/seguridad-hover.svg");
 }
 
 .salud {
   background-image: url("../images/salud.svg")
 }
 
+.shortcut:hover .salud {
+  background-image: url("../images/salud-hover.svg");
+}
+
 .medio-ambiente {
   background-image: url("../images/medio-ambiente.svg")
+}
+
+.shortcut:hover .medio-ambiente {
+  background-image: url("../images/medio-ambiente-hover.svg");
 }
 
 .gobierno-y-administracion-publica {
   background-image: url("../images/gobierno-y-administracion-publica.svg")
 }
 
+.shortcut:hover .gobierno-y-administracion-publica {
+  background-image: url("../images/gobierno-y-administracion-publica-hover.svg");
+}
+
 .educacion {
   background-image: url("../images/educacion.svg")
+}
+
+.shortcut:hover .educacion {
+  background-image: url("../images/educacion-hover.svg");
 }
 
 .economia-negocio-y-comercio {
   background-image: url("../images/economia-negocio-y-comercio.svg")
 }
 
+.shortcut:hover .economia-negocio-y-comercio {
+  background-image: url("../images/economia-negocio-y-comercio-hover.svg");
+}
+
 .cultura-recreacion-y-turismo {
   background-image: url("../images/cultura-recreacion-y-turismo.svg")
+}
+
+.shortcut:hover .cultura-recreacion-y-turismo {
+  background-image: url("../images/cultura-recreacion-y-turismo-hover.svg");
 }
 
 .link-header-data {
