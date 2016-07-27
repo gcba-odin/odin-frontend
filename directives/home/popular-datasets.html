@@ -1,15 +1,13 @@
-
-<div ng-repeat="item in popularDataset.data">
-<div class="container-features-home" >
-	<div   ng-click="goToUrl()"   class="title-features">
-	{{item.name}}
-
-	</div>
-	<div class="description-features">
-			<p ng-bind-html="getHtml(item.description)"></p>
-	</div>
-	<span class="more-info-black">
-		<a ng-href="#/dataset/{{ item.id | slug }}">+ Info</a>
-	</span>
-</div>
-</div>
+    <div ng-repeat="item in popularDataset.data">
+        <div class="container-features-home">
+            <div ng-click="goToUrl()" class="title-features">
+                {{item.name}}
+            </div>
+            <div class="description-features">
+                <p ng-bind-html="getHtml(item.description)"></p>
+            </div>
+            <span class="more-info-black">
+		        <a ng-href="#/dataset/{{ item.id | slug }}">+ Info</a>
+	        </span>
+        </div>
+    </div>

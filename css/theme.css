@@ -388,7 +388,7 @@ ul {
   background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 100%);
   background: -webkit-linear-gradient(top, #f7f7f7 0%, #ededed 100%);
   background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed', GradientType=0);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#ededed', GradientType=0);
   border: 1px solid #EAEAEA;
   color: #696969;
 }
@@ -655,10 +655,6 @@ article figcaption,
   background-size: 55px;
   background-position: center top;
   background-repeat: no-repeat;
-}
-
-.shortcut:hover {
-   filter: grayscale(100%);
 }
 
 .homepage .panel-panel> .col-md-12 {
