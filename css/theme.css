@@ -259,6 +259,8 @@ ul {
 .search-home {
   margin-top: 7vh;
   margin-bottom: 4vh;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .search-home h3 {
@@ -299,9 +301,9 @@ ul {
   margin: auto;
 }
 
-.container-shorcut {
+.shorcut-container {
   width: calc(100% + 50px);
-  margin-bottom: 70px;
+  margin-bottom: 1.3vh;
 }
 
 .urbanismo-e-infraestructura {
@@ -383,23 +385,81 @@ ul {
   margin-bottom: 20px;
 }
 
-.auxiliar-bar-header {
-  background: #f7f7f7;
-  background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 100%);
-  background: -webkit-linear-gradient(top, #f7f7f7 0%, #ededed 100%);
-  background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f7f7f7', endColorstr='#ededed', GradientType=0);
-  border: 1px solid #EAEAEA;
-  color: #696969;
+.auxiliar-bar {
+  border-bottom: 1px #999999 solid;
+  padding-bottom: 8px;
+  margin-bottom: 5vh;
 }
 
-.auxiliar-bar-header span {}
-
 .text-auxiliar-bar {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 13px;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFb600;
+  width: 50%;
+}
+
+.text-auxiliar-bar:first-of-type {
+  text-align: left;
+}
+
+.auxiliar-bar li:hover {
+  color: #FF386a;
+}
+
+.auxiliar-bar li a:before {
+  content: "";
+  height: 2em;
+  width: 2em;
+  display: inline-block;
+  margin-left: 12px;
+  margin-right: 10px;
+  margin-top: -7px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 110%;
+  position: relative;
+  top: 8px;
+}
+
+.text-auxiliar-bar:first-of-type {
+  float: left;
+}
+
+.text-auxiliar-bar a {
+  color: inherit;
+}
+
+.text-auxiliar-bar a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-auxiliar-bar a:visited {
+  color: inherit;
+}
+
+.text-auxiliar-bar:first-of-type a:before {
+  background-image: url( '../images/complete-catalog.svg' );
+}
+
+.text-auxiliar-bar:hover:first-of-type a:before {
+  background-image: url( '../images/complete-catalog-hover.svg' );
+}
+
+.text-auxiliar-bar:last-of-type {
+  float: right;
+  text-align: right;
+  margin-right: 10px;
+  width: calc(50% - 10px);
+}
+
+.text-auxiliar-bar:last-of-type a:before {
+  background-image: url( '../images/viz-collection.svg' );
+}
+
+.text-auxiliar-bar:hover:last-of-type a:before {
+  background-image: url( '../images/viz-collection-hover.svg' );
 }
 
 .branding-data h1 {

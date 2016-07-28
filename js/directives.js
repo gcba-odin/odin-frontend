@@ -28,6 +28,13 @@
       };
     });
 
+    app.directive('auxiliarBar', function () {
+      return {
+        restrict: 'E',
+        templateUrl: 'directives/home/auxiliar-bar.html',
+      };
+    });
+
     app.directive('footerBar', function() {
       return {
         restrict: 'E',
