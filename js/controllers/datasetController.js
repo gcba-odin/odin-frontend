@@ -1,4 +1,4 @@
-var app = angular.module('odin.datasetControllers', []);
+var app = angular.module( 'odin.datasetControllers', [] );
 
 app.factory('model', function($resource) {
     return $resource();
@@ -13,6 +13,11 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
         type: $scope.type,
         params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
     });
+
+    $scope.url = function ( id )
+    {
+        return $location.absUrl().split('#')[0] + 'api/datasets/' + id + '/download'
+    };
 }
 
 function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
@@ -24,6 +29,11 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
         type: $scope.type,
         params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
     });
+
+    $scope.url = function ( id )
+    {
+        return $location.absUrl().split('#')[0] + 'api/datasets/' + id + '/download'
+    };
 }
 
 function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
