@@ -678,11 +678,11 @@ h2 {
     width: 17px;
     height: 17px;
     float: left;
-    -webkit-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    -o-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%) opacity(80%);
+    -moz-filter: grayscale(100%) opacity(80%);
+    -o-filter: grayscale(100%) opacity(80%);
+    -ms-filter: grayscale(100%) opacity(80%);
+    filter: grayscale(100%) opacity(80%);
     position: relative;
 }
 
