@@ -260,6 +260,7 @@ ul {
 .search-home {
   margin-top: 7vh;
   margin-bottom: 4vh;
+  margin-left: 10px;
   padding-left: 0px;
   padding-right: 0px;
 }
@@ -302,9 +303,18 @@ ul {
   margin: auto;
 }
 
+.container-navigation {
+    padding-left: 0px;
+    padding-right: 0px;
+    width: calc(100% + 30px);
+    margin-left: -10px;
+}
+
 .shorcut-container {
-  width: calc(100% + 50px);
-  margin-bottom: 1.3vh;
+    width: calc(100% + 60px);
+    margin-bottom: 1.3vh;
+    margin-left: -30px;
+    margin-right: 30px;
 }
 
 .urbanismo-e-infraestructura {
@@ -565,6 +575,15 @@ h2 {
   margin-bottom: 10px;
 }
 
+.container-widgets {
+  padding: 0px;
+  margin-bottom: 10vh;
+  margin-top: 2vh;
+  margin: 3vh, -25px, 4vh, -25px;
+  width: calc(100% + 15px);
+  margin-left: -10px;
+}
+
 .datasets-showcase-item-title {
   color: #4D4D4D;
   font-size: 16px;
@@ -758,12 +777,6 @@ article figcaption,
   background-size: 55px;
   background-position: center top;
   background-repeat: no-repeat;
-}
-
-.homepage .panel-panel> .col-md-12 {
-  padding: 0px;
-  margin-left: -25px;
-  margin-right: -25px;
 }
 
 .homepage .box-stats {
