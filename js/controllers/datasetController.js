@@ -4,7 +4,6 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-
 function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     // Flash.clear();
@@ -13,7 +12,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=3"
+        params: "orderBy=updatedAt&sort=DESC&limit=3&include=tags"
     });
 
 
@@ -27,7 +26,7 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.popularDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=3"
+        params: "orderBy=updatedAt&sort=DESC&limit=3&include=tags"
     });
 
 
@@ -60,8 +59,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         return $sce.trustAsHtml(html);
     };
 }
-
-
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams) {
 

@@ -16,7 +16,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/home/datasets-latest.html",
-            controller:DatasetLatestController, 
+            controller:DatasetLatestController,
             /*controller: function($scope, datasetF) {
                 var items = [{
                     url: "#/dataset/zonas-recoleccion-residuos-solidos-secos",
@@ -46,6 +46,4 @@
             controllerAs: "populardatasets"
         };
     });
-
-
 })();
