@@ -402,6 +402,7 @@ ul {
   padding-bottom: 8px;
   margin-bottom: 5vh;
   height: 40px;
+  width: calc(100% - 10px);
 }
 
 .text-auxiliar-bar {
