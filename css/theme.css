@@ -306,7 +306,7 @@ ul {
 .container-navigation {
     padding-left: 0px;
     padding-right: 0px;
-    width: calc(100% + 30px);
+    width: calc(100% + 40px);
     margin-left: -10px;
 }
 
@@ -318,7 +318,7 @@ ul {
 }
 
 .urbanismo-e-infraestructura {
-  background-image: url("../images/urbanismo-e-infraestructura.svg")
+  background-image: url("../images/urbanismo-e-infraestructura.svg");
 }
 
 .shortcut:hover .urbanismo-e-infraestructura {
@@ -326,7 +326,7 @@ ul {
 }
 
 .transporte {
-  background-image: url("../images/transporte.svg")
+  background-image: url("../images/transporte.svg");
 }
 
 .shortcut:hover .transporte {
@@ -334,7 +334,7 @@ ul {
 }
 
 .seguridad {
-  background-image: url("../images/seguridad.svg")
+  background-image: url("../images/seguridad.svg");
 }
 
 .shortcut:hover .seguridad {
@@ -342,7 +342,7 @@ ul {
 }
 
 .salud {
-  background-image: url("../images/salud.svg")
+  background-image: url("../images/salud.svg");
 }
 
 .shortcut:hover .salud {
@@ -350,7 +350,7 @@ ul {
 }
 
 .medio-ambiente {
-  background-image: url("../images/medio-ambiente.svg")
+  background-image: url("../images/medio-ambiente.svg");
 }
 
 .shortcut:hover .medio-ambiente {
@@ -358,7 +358,7 @@ ul {
 }
 
 .gobierno-y-administracion-publica {
-  background-image: url("../images/gobierno-y-administracion-publica.svg")
+  background-image: url("../images/gobierno-y-administracion-publica.svg");
 }
 
 .shortcut:hover .gobierno-y-administracion-publica {
@@ -366,7 +366,7 @@ ul {
 }
 
 .educacion {
-  background-image: url("../images/educacion.svg")
+  background-image: url("../images/educacion.svg");
 }
 
 .shortcut:hover .educacion {
@@ -374,7 +374,7 @@ ul {
 }
 
 .economia-negocio-y-comercio {
-  background-image: url("../images/economia-negocio-y-comercio.svg")
+  background-image: url("../images/economia-negocio-y-comercio.svg");
 }
 
 .shortcut:hover .economia-negocio-y-comercio {
@@ -382,7 +382,7 @@ ul {
 }
 
 .cultura-recreacion-y-turismo {
-  background-image: url("../images/cultura-recreacion-y-turismo.svg")
+  background-image: url("../images/cultura-recreacion-y-turismo.svg");
 }
 
 .shortcut:hover .cultura-recreacion-y-turismo {
@@ -532,6 +532,10 @@ h2 {
 
 /********/
 
+.widgets-first-row {
+    width: calc(100% + 55px);
+}
+
 .datasets-showcase {
   border-right: 1px #999999 solid;
   padding-bottom: 30px;
@@ -554,7 +558,7 @@ h2 {
   margin-bottom: 5px;
   border-bottom: 1px #999999 solid;
   color: #4D4D4D;
-  font-size: 27px;
+  font-size: 1.8vw;
   font-weight: 700;
   text-align: center;
 }
@@ -563,7 +567,7 @@ h2 {
   margin-right: -30px;
 }
 
-.title-features {
+ .title-features {
   color: #737373;
   font-weight: 600;
   cursor: pointer
@@ -611,10 +615,10 @@ h2 {
   padding: 0px 5px;
 }
 
-.datasets-showcase-item-footer-tags {
+ .datasets-showcase-item-footer-tags {
   font-size: 7px;
   font-weight: 500;
-  padding: 2px 2px 0px 2px;
+  padding: 2px 2px 1px 2px;
   margin-right: 9px;
   color: white;
   background-color: #999999;
@@ -631,6 +635,52 @@ h2 {
     height: 20px;
     float: right;
     margin-right: -1px;
+}
+
+.widgets-second-row {
+  margin-top: 15vh;
+  width: calc(100% + 55px);
+}
+
+.widgets-second-row .datasets-showcase {
+  border: none;
+}
+
+.widgets-second-row .popular-datasets-list-item-icon {
+    background-image: url("../images/urbanismo-e-infraestructura.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+    float: left;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    position: relative;
+}
+
+.popular-datasets-list {
+    padding-top: 0.6vh;
+}
+
+.popular-datasets-list-item-bar {
+    width: 30%;
+    height: 0.79vw;
+    background: linear-gradient(to right, #FF386a 0%, #FF386a 80%, #999999 80%, #999999 100%);
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0px 15px;
+}
+
+.popular-datasets-list-item-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: #999999;
+    position: relative;
+    top: -1px;
 }
 
 /**FOOTER*/

@@ -11,20 +11,31 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=3&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
     });
 
 
 }
 
-function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
+function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
     // Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
 
+    $scope.starredDataset = rest().get({
+        type: $scope.type,
+        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
+    });
+}
+
+function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
+    // Flash.clear();
+    $scope.modelName = "Statistics";
+    $scope.type = "statistics";
+
     $scope.popularDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=3&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4"
     });
 }
 

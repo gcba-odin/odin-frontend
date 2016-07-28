@@ -10,8 +10,6 @@
         };
     });
 
-
-
     app.directive("latestDatasets", function() {
         return {
             restrict: "E",
@@ -37,6 +35,14 @@
         };
     });
 
+    app.directive("starredDatasets", function() {
+        return {
+            restrict: "E",
+            templateUrl: "directives/home/starred-datasets.html",
+            controller: DatasetStarredController,
+            controllerAs: "starreddatasets"
+        };
+    });
 
     app.directive("popularDatasets", function() {
         return {

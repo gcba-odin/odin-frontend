@@ -1,19 +1,9 @@
 <div class="datasets-showcase-container">
-    <div ng-repeat="item in popularDataset.data">
-        <div class="datasets-showcase-item">
-            <div ng-click="goToUrl()" class="datasets-showcase-item-title">
-                {{item.name}}
-            </div>
-            <div class="datasets-showcase-item-description">
-                <p ng-bind-html="getHtml(item.description)"></p>
-            </div>
-            <div class="datasets-showcase-item-footer">
-                <span ng-repeat="tag in item.tags" class="datasets-showcase-item-footer-tags">
-					{{ tag.name }}
-				</span>
-                <a href="{{}}"><span class="datasets-showcase-item-footer-download">
-				</span></a>
-            </div>
-        </div>
-    </div>
+    <ul class="popular-datasets-list">
+        <li class="popular-datasets-list-item">
+            <span class="popular-datasets-list-item-icon"></span>
+            <span class="popular-datasets-list-item-bar"></span>
+            <span class="popular-datasets-list-item-count">1230</span>
+        </li>
+    </ul>
 </div>
