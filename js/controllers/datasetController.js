@@ -16,7 +16,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.url = function ( id )
     {
-        return $location.absUrl().split('#')[0] + 'api/datasets/' + id + '/download'
+        return $rootScope.url + '/datasets/' + id + '/download'
     };
 }
 
@@ -32,7 +32,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.url = function ( id )
     {
-        return $location.absUrl().split('#')[0] + 'api/datasets/' + id + '/download'
+        return $rootScope.url + '/datasets/' + id + '/download'
     };
 }
 
