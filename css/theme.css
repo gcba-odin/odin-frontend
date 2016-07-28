@@ -401,6 +401,7 @@ ul {
   border-bottom: 1px #999999 solid;
   padding-bottom: 8px;
   margin-bottom: 5vh;
+  height: 40px;
 }
 
 .text-auxiliar-bar {
@@ -483,7 +484,7 @@ ul {
     background-repeat: no-repeat;
     background-size: 100%;
     position: relative;
-    top: 6vh;
+    top: 3.7vh;
     left: calc(50% + 5px);
     margin-left: -2em;
 }
