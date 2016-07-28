@@ -4,11 +4,14 @@
             <div ng-click="datasets.goToUrl()" class="datasets-showcase-item-title"><a ng-href="#/dataset/{{ item.id | slug }}">{{item.name}}</a></div>
             <div class="datasets-showcase-item-description">
                 <p ng-bind-html="getHtml(item.description)"></p>
-                <div class="datasets-showcase-item-footer">
-					<span ng-repeat="tag in item.tags" class="datasets-showcase-item-footer-tags">
-						{{ tag.name }}
-					</span>
-				</div>
+
+            </div>
+            <div class="datasets-showcase-item-footer">
+                <span ng-repeat="tag in item.tags" class="datasets-showcase-item-footer-tags">
+					{{ tag.name }}
+				</span>
+				<a href="{{}}"><span class="datasets-showcase-item-footer-download">
+				</span></a>
             </div>
         </div>
     </div>

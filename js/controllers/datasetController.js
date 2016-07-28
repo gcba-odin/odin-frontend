@@ -5,7 +5,6 @@ app.factory('model', function($resource) {
 });
 
 function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
-
     // Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
@@ -19,7 +18,6 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 }
 
 function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
-
     // Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
@@ -28,13 +26,10 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
         type: $scope.type,
         params: "orderBy=updatedAt&sort=DESC&limit=3&include=tags"
     });
-
-
 }
 
 function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams) {
     $scope.type = "datasets";
-
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
@@ -44,6 +39,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $rootScope.header = $scope.info.name;
 
         var tags = [];
+
         for (var i = 0; i < $scope.info.tags.length; i++) {
             tags.push({
                 name: $scope.info.tags[i].name,
@@ -51,6 +47,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 selected: false
             })
         }
+
         $scope.tags = tags;
     });
 
