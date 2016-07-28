@@ -1,5 +1,5 @@
 body {
-  color: black;
+  color: #6d6e70;
   font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -263,6 +263,7 @@ ul {
   margin-left: 10px;
   padding-left: 0px;
   padding-right: 0px;
+  width: calc(100% + 35px);
 }
 
 .search-home h3 {
@@ -306,7 +307,7 @@ ul {
 .container-navigation {
     padding-left: 0px;
     padding-right: 0px;
-    width: calc(100% + 40px);
+    width: calc(100% + 65px);
     margin-left: -10px;
 }
 
@@ -473,6 +474,20 @@ ul {
   background-image: url( '../images/viz-collection-hover.svg' );
 }
 
+.auxiliar-bar:after {
+    background-image: url('../images/triangle.svg');
+    content: "";
+    height: 2em;
+    width: 2em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    top: 6vh;
+    left: calc(50% + 5px);
+    margin-left: -2em;
+}
+
 .branding-data h1 {
   color: inherit;
   font-size: 3em;
@@ -533,7 +548,7 @@ h2 {
 /********/
 
 .widgets-first-row {
-    width: calc(100% + 55px);
+  width: calc(100% + 80px);
 }
 
 .datasets-showcase {
@@ -582,8 +597,7 @@ h2 {
 .container-widgets {
   padding: 0px;
   margin-bottom: 10vh;
-  margin-top: 2vh;
-  margin: 3vh, -25px, 4vh, -25px;
+  margin-top: 3vh;
   width: calc(100% + 15px);
   margin-left: -10px;
 }
@@ -621,7 +635,7 @@ h2 {
   padding: 2px 2px 1px 2px;
   margin-right: 9px;
   color: white;
-  background-color: #999999;
+  background-color: #B3B3B3;
   border-radius: 2px;
   text-transform: uppercase;
 }
@@ -638,7 +652,7 @@ h2 {
 }
 
 .widgets-second-row {
-  margin-top: 15vh;
+  margin-top: 12vh;
   width: calc(100% + 55px);
 }
 
@@ -646,13 +660,16 @@ h2 {
   border: none;
 }
 
+.widgets-second-row .popular-datasets-list-item {
+  margin-bottom: 3px;
+}
+
 .widgets-second-row .popular-datasets-list-item-icon {
-    background-image: url("../images/urbanismo-e-infraestructura.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 15px;
-    width: 15px;
-    height: 15px;
+    background-size: 17px;
+    width: 17px;
+    height: 17px;
     float: left;
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -681,6 +698,11 @@ h2 {
     color: #999999;
     position: relative;
     top: -1px;
+}
+
+.social-networks-heading {
+  color: #999999;
+  font-size: 12px;
 }
 
 /**FOOTER*/

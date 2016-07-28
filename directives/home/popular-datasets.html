@@ -1,9 +1,11 @@
 <div class="datasets-showcase-container">
     <ul class="popular-datasets-list">
-        <li class="popular-datasets-list-item">
-            <span class="popular-datasets-list-item-icon"></span>
-            <span class="popular-datasets-list-item-bar"></span>
-            <span class="popular-datasets-list-item-count">1230</span>
-        </li>
+        <div ng-repeat="item in categories.data">
+            <li class="popular-datasets-list-item">
+                <span class="popular-datasets-list-item-icon {{ item.name | slug }}"></span>
+                <span class="popular-datasets-list-item-bar"></span>
+                <span class="popular-datasets-list-item-count">1230</span>
+            </li>
+        </div>
     </ul>
 </div>

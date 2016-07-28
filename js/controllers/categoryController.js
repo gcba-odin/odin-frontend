@@ -6,7 +6,6 @@ app.factory('model', function($resource) {
 
 
 function CategoryListController($scope, $location, rest, $rootScope) {
-
     // Flash.clear();
     $scope.modelName = "Category";
     $scope.type = "categories";
@@ -17,5 +16,4 @@ function CategoryListController($scope, $location, rest, $rootScope) {
     }, function() {
         $scope.showCategories = false;
     });
-
 }

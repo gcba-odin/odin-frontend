@@ -13,8 +13,6 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
         type: $scope.type,
         params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
     });
-
-
 }
 
 function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
@@ -30,12 +28,27 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
 
 function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
     // Flash.clear();
-    $scope.modelName = "Statistics";
-    $scope.type = "statistics";
-
-    $scope.popularDataset = rest().get({
+    $scope.modelName = "Category";
+    $scope.type = "categories";
+    $scope.showCategories = true;
+    $scope.categories = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4"
+        params: "orderBy=createdAt&sort=DESC"
+    }, function() {
+        $scope.showCategories = false;
+    });
+}
+
+function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
+    // Flash.clear();
+    $scope.modelName = "Category";
+    $scope.type = "categories";
+    $scope.showCategories = true;
+    $scope.categories = rest().get({
+        type: $scope.type,
+        params: "orderBy=createdAt&sort=DESC"
+    }, function() {
+        $scope.showCategories = false;
     });
 }
 
@@ -77,7 +90,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
     $scope.sorting = "ASC";
     $scope.term = $routeParams.q;
+
     var query = "";
+
     if (!!$routeParams.q) {
         query += '&where={"name":{"contains":"' + $routeParams.q + '"}}';
     }
