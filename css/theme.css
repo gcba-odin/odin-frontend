@@ -124,6 +124,20 @@ a:hover {
 
 /****NAV****/
 
+.navbar-site-logo {
+    color: white;
+}
+
+.navbar-ba-logo {
+    background-image: url("../images/ba-logo.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 110px;
+    height: 20px;
+    float: right;
+}
+
 .navbar-theme {
     color: white;
     background: linear-gradient(to right, #ffb600 0%, #ff386a 100%);
@@ -678,6 +692,7 @@ h2 {
     height: 20px;
     float: right;
     margin-right: -1px;
+    cursor: pointer;
 }
 
 .widgets-second-row {
@@ -857,6 +872,29 @@ h2 {
     margin-top: 75px;
 }
 
+.footer-social-networks {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.footer-social-networks-icon span {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.footer-social-networks-icon-twitter {
+    background-image: url("../images/footer/twitter.svg");
+}
+
+.footer-social-networks-icon-github {
+    background-image: url("../images/footer/github.svg");
+}
+
 .footer-gcba {
     background-color: #252120;
     padding-top: 30px;
@@ -878,9 +916,8 @@ h2 {
 
 .odin-branding {
     position: relative;
-    top: 3.7vh;
-    left: calc(50% - 70px);
-    margin-left: -10px;
+    margin-left: calc(50% - 70px);
+    margin-top: 6.7vh;
     display: block;
     width: 140px;
 }
