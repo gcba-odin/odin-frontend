@@ -6,12 +6,32 @@
         restrict: 'E',
         templateUrl: 'directives/main/branding-data.html',
       };
-    });
+  });
 
-    app.directive('searchBar', function() {
+  app.directive('searchBar', function() {
       return {
         restrict: 'E',
         templateUrl: 'directives/main/search-bar.html',
+        controller:function (rest,$scope){
+         rest().count({
+              type: "datasets"
+          },function (resp){
+            $scope.countDatasets=resp.data.count;
+          });
+
+          rest().count({
+              type: "files"
+          },function (resp){
+            $scope.countFiles=resp.data.count;
+          });
+        }
+      };
+    });
+
+    app.directive('searchBarHome', function() {
+      return {
+        restrict: 'E',
+        templateUrl: 'directives/main/search-bar-home.html',
         controller:function (rest,$scope){
          rest().count({
               type: "datasets"

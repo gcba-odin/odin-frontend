@@ -18,7 +18,7 @@
             }).otherwise({
                 redirectTo: '/'
             });
- 
+
     });
 
     app.factory('Page', function() {
@@ -30,20 +30,22 @@
     });
 
     function controllerHome($scope,$location,$sce,$filter,$rootScope) {
-        $rootScope.header = "Odin"; 
+        $rootScope.header = "Odin";
 
         $scope.search = function() {
     		$location.url('/datasets?q='+$scope.term);
-    	}
+        }
+
         $scope.getHtml = function(html){
             return $sce.trustAsHtml(html);
         };
+
         $scope.goToUrl = function(url) {
             $filter('slug')(this.item.name);
             window.location = "#/dataset/"+$filter('slug')(this.item.id);
         };
     }
 
- 
+
 
 })();
