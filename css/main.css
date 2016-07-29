@@ -6623,7 +6623,6 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../images/bg.png");
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -6797,7 +6796,6 @@ a.tag:hover {
   *zoom: 1;
   margin: 0 -25px;
   padding-bottom: 15px;
-  background: #fbfbfb url("../images/bg.png");
   border: 1px solid #dddddd;
   border-width: 1px 0;
 }
@@ -7056,7 +7054,6 @@ a.tag:hover {
     right: -6px;
     width: 6px;
     height: 34px;
-    background-image: url("../images/nav-active.png?1");
   }
 }
 
