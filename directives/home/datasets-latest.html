@@ -9,8 +9,10 @@
                 <span ng-repeat="tag in item.tags" class="widget-item-footer-tags">
 					{{ tag.name }}
 				</span>
-				<a href="{{url(item.id)}}"><span class="widget-item-footer-download">
-				</span></a>
+				<a href="{{url(item.id)}}" title="Descargar ZIP" class="widget-item-footer-download-link">
+                    <span class="widget-item-footer-download-icon">
+				    </span>
+                </a>
             </div>
         </div>
     </div>
