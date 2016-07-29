@@ -651,7 +651,25 @@ h2 {
     text-transform: uppercase;
 }
 
-.widget-item-footer-download {
+.widget-item-footer-download-link {
+    display: inline;
+    position: relative;
+}
+
+.widget-item-footer-download-link:hover:after{
+    background: #FFb600;
+    color: white;
+    border-radius: 2px;
+    bottom: -30px;
+    content: attr(data-tooltip);
+    position: absolute;
+    z-index: 98;
+    width: 80px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.widget-item-footer-download-icon {
     background-image: url("../images/download.svg");
     background-size: 100%;
     background-repeat: no-repeat;
