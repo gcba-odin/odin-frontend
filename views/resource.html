@@ -4,7 +4,7 @@
       </div>
       <div class="toolbar">
          <ol class="breadcrumb">
-            <li class="home"><a href="#/"><i class="fa fa-home"></i><span> Inicio</span></a></li>
+            <li class="home"><a href="#/"><span> Inicio</span></a></li>
             <li><a href="#/organizations">Organizaciones</a></li>
             <li><a href="#/organization/{{file.organization.id | slug}}">{{file.organization.name}}</a></li>
             <li><a href="#/dataset/{{file.dataset.id | slug}}">{{file.dataset.name | truncString}}</a></li>
@@ -23,11 +23,11 @@
                      </li>
                      <li>
                      </li>
-                  </ul> 
+                  </ul>
                </div>
                <h1 class="page-heading">{{file.name}}</h1>
 
-               
+
                <p class="muted ellipsis">URL: <a target="_blank" ng-href="{{file.url}}" title="{{file.name}}">{{file.url}}</a></p>
                <div class="prose notes" property="rdfs:label">
                   <h3>Del resumen del conjunto de datos</h3>
@@ -35,7 +35,7 @@
                   <p>Fuente: <a href="#/dataset/{{file.dataset.id}}">{{file.dataset.name}}</a>
                   </p>
                </div>
-            </div> 
+            </div>
           <!--  <ul class="nav nav-tabs nav-tabs-plain">
                <li class="active" data-id="dd6832e5-787d-40c9-bed7-c0d99009c69c">
                   <a href="/es/dataset/fee-100006-valor-adicionado-bruto-a-precos-basicos-agropecuaria/resource/8e561d42-14bc-4f4a-a7d6-94934261e470?view_id=dd6832e5-787d-40c9-bed7-c0d99009c69c" data-id="dd6832e5-787d-40c9-bed7-c0d99009c69c">
@@ -160,7 +160,7 @@
          <aside class="secondary col-xs-3">
 
             <section class="module module-narrow social">
-               <h2 class="module-heading"><i class="fa fa-external-link"></i> Social</h2> 
+               <h2 class="module-heading"><i class="fa fa-external-link"></i> Social</h2>
                <ul class="nav nav-simple">
                   <li class="nav-item"><a href="https://plus.google.com/share?url={{absUrl}}" target="_blank"><i class="fa fa-google-plus-square"></i> Google+</a></li>
                   <li class="nav-item"><a href="https://twitter.com/share?url={{absUrl}}" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a></li>

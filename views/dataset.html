@@ -5,13 +5,13 @@
       <div class="toolbar">
          <ol class="breadcrumb">
             <!-- Snippet snippets/home_breadcrumb_item.html start -->
-            <li class="home"><a ng-href="#/"><i class="fa fa-home"></i><span> Inicio</span></a></li>
-            <li><a ng-href="#/datasets">Conjuntos de datos</a></li> 
+            <li class="home"><a ng-href="#/"><span> Inicio</span></a></li>
+            <li><a ng-href="#/datasets">Conjuntos de datos</a></li>
             <!-- Snippet snippets/home_breadcrumb_item.html end -->
             <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
             <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
             <li class="active"><a class=" active" ng-href="#/dataset/{{info.id | lowercase}}">{{info.name | truncString}}</a></li>
-         </ol> 
+         </ol>
       </div>
       <div class=" wrapper">
          <div class="primary col-md-12">
@@ -51,7 +51,7 @@
                   </div>
                </div>
             </section>
-        
+
             <organizations-dataset></organizations-dataset>
             <socials-dataset></socials-dataset>
 

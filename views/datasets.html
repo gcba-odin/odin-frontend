@@ -4,7 +4,7 @@
       </div>
       <div class="toolbar">
          <ol class="breadcrumb">
-            <li class="home"><a href="#/"><i class="fa fa-home"></i><span> Inicio</span></a>
+            <li class="home"><a href="#/"><span> Inicio</span></a>
             </li>
             <li class="active"><a href="#/datasets">Conjuntos de datos</a>
 
@@ -16,10 +16,7 @@
             <section class="module">
                <div class="module-content">
                   <div id="dataset-search-form" class="search-form"  data-module="select-switch">
-                     <h2>
-                        {{datasets.length}} conjuntos de datos encontrados
-                        <axiliar-bar></axiliar-bar>
-                     </h2>
+                  <axiliar-bar></axiliar-bar>
 
                      <p class="filter-list" ng-if="statusSelected.length">
                             <span class="facet">Ordenar: </span>
@@ -70,15 +67,9 @@
             <div class="row center-spin" ng-if="showLoading">
                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" ></i>
             </div>
-            <p class="module-footer read-more-datasets" ng-click="loadResults(20)"  ng-if="resultDatasetsSearch.data.length" >
-               <a href="javascript:void(0)" class="read-more">Mostrar Datasets</a>
-            </p>
             </section>
             <section class="module">
                <div class="module-content">
-                  <small>
-                  Usted también puede acceder a este registro utilizando los <a href="">API</a> (ver <a href="">API Docs</a>).
-                  </small>
                </div>
             </section>
          </div>

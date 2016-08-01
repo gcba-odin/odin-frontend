@@ -1,19 +1,18 @@
 <section class="module module-narrow module-shallow" ng-if="groups.length">
    <h2 class="module-heading">
-      <i class="icon-medium fa fa-filter"></i>
       Licencias
    </h2>
    <nav>
-   
+
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="licence in licences">
             <a ng-href="#/datasets/?licence={{licence.slug}}" title="{{licence.name}}">
             <span>{{licence.name | truncString}} ({{licence.datasetsCount}})</span>
             </a>
-         </li> 
+         </li>
       </ul>
    </nav>
    <p class="module-footer">
-      <a href="#/datasets/?q=&amp;_licence_limit=0" class="read-more">Mostrar Más Licencias</a>
+      <a href="#/datasets/?q=&amp;_licence_limit=0" class="read-more">Ver más</a>
    </p>
 </section>

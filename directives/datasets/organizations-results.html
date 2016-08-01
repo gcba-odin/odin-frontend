@@ -1,6 +1,5 @@
 <section class="module module-narrow module-shallow">
    <h2 class="module-heading">
-      <i class="icon-medium fa fa-filter"></i>
       Organizaciones
    </h2>
    <nav>
@@ -9,10 +8,10 @@
             <a class="tags-item" ng-href="javascript:void(0)" title="{{organization.name}}"  ng-click="addFilterSearch(organization.id,organization.name,organization,$index,organizationsSelected)" >
             <span>{{organization.name | truncString}}</span>
             </a>
-         </li> 
+         </li>
       </ul>
    </nav>
   <p class="module-footer" ng-if="resultStatuses.length">
-      <a href="javascript:void(0)" ng-click="loadOrganizations(5)" class="read-more">Mostrar Más Organizaciones</a>
+      <a href="javascript:void(0)" ng-click="loadOrganizations(5)" class="read-more">Ver más</a>
    </p>
 </section>
