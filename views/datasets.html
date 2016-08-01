@@ -11,71 +11,55 @@
             </li>
          </ol>
       </div>
-      <div class="row wrapper"> 
+      <div class="row wrapper">
          <div class="primary col-md-9">
             <section class="module">
                <div class="module-content">
                   <div id="dataset-search-form" class="search-form"  data-module="select-switch">
-  		 				       <section id="search" class="search-input">
-  		                  <button type="button" ng-click="search()"><i class="fa fa-search icon-search"></i></button>       
-  		                  <input ng-model="term" id="search-input" class="form-control input-lg" placeholder="Buscar conjuntos de datos..." autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
-  		                  <a id="search-clear" href="javascript:void(0)" ng-click="loadResults()" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-  		               </section>
-                     <div class="form-select control-group control-order-by">
-                        <label for="field-order-by">Ordenar por </label>
-                        <select ng-model="sorting"  id="field-order-by" name="sort">
-                           <option value="name asc" selected="selected">Nombre Ascendente</option>
-                           <option value="name desc">Nombre Descendente</option>
-                           <option value="updatedAt desc">Última modificación</option>
-                        </select>
-                        <button class="btn js-hide" type="button" ng-click="loadResults()">Ir</button>
-                     </div>
                      <h2>
                         {{datasets.length}} conjuntos de datos encontrados
-                                        <axiliar-bar></axiliar-bar>
-
+                        <axiliar-bar></axiliar-bar>
                      </h2>
-                     <p class="filter-list">
-                     </p>
-                     <p class="filter-list" ng-if="tagsSelected.length">
-                          <span class="facet" >Etiquetas: </span>
-                            <span class="filtered pill" ng-repeat="tags in tagsSelected">{{tags.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,tags.model,tagsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-                            
-                            </span>
-                      </p> 
-                      <p class="filter-list" ng-if="organizationsSelected.length">
-                            <span class="facet" >Organizaciones: </span>
-                            <span class="filtered pill" ng-repeat="organization in organizationsSelected"  >{{organization.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,organization.model,organizationsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-                            
-                            </span>
-                      </p>
-                      <p class="filter-list" ng-if="formatsSelected.length">
-                             <span class="facet" >Formatos: </span>
-                            <span class="filtered pill" ng-repeat="format in formatsSelected">{{format.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,format.model,formatsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-                            
-                            </span>
-                      </p>
-                      <p class="filter-list" ng-if="statusSelected.length">
 
-                            <span class="facet" >Status: </span>
+                     <p class="filter-list" ng-if="statusSelected.length">
+                            <span class="facet">Ordenar: </span>
                             <span class="filtered pill" ng-repeat="status in statusSelected">{{status.name}}
                               <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,status.model,statusSelected)" class="remove" title="Quitar">
                                 <i class="fa fa-remove"></i>
                               </a>
-                            
+
                             </span>
                       </p>
 
-                     
+                     <p class="filter-list" ng-if="tagsSelected.length">
+                          <span class="facet">Etiquetas: </span>
+                            <span class="filtered pill" ng-repeat="tags in tagsSelected">{{tags.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,tags.model,tagsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+
+                            </span>
+                      </p>
+
+                      <p class="filter-list" ng-if="formatsSelected.length">
+                             <span class="facet">Formatos: </span>
+                            <span class="filtered pill" ng-repeat="format in formatsSelected">{{format.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,format.model,formatsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+
+                            </span>
+                      </p>
+
+                      <p class="filter-list" ng-if="organizationsSelected.length">
+                            <span class="facet">Organizaciones: </span>
+                            <span class="filtered pill" ng-repeat="organization in organizationsSelected"  >{{organization.name}}
+                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,organization.model,organizationsSelected)" class="remove" title="Quitar">
+                                <i class="fa fa-remove"></i>
+                              </a>
+
+                            </span>
+                      </p>
                      <a class="show-filters btn">Filtrar Resultados</a>
                   </div>
 
@@ -101,13 +85,12 @@
          <aside class="secondary col-md-3">
             <div class="filters">
                <div>
-            	<organizations-result></organizations-result>
-                <groups-result></groups-result>
+                <statuses-result></statuses-result>
                 <tags-result></tags-result>
                 <formats-result></formats-result>
+            	  <organizations-result></organizations-result>
+                <groups-result></groups-result>
                 <licences-result></licences-result>
-                <statuses-result></statuses-result>
-
                </div>
             </div>
          </aside>

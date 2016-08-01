@@ -1,19 +1,15 @@
 <section class="module module-narrow module-shallow" ng-if="statuses.length">
    <h2 class="module-heading">
       <i class="icon-medium fa fa-filter"></i>
-      Status
+      Ordenar
    </h2>
    <nav>
-   
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="status in statuses"  ng-class="status.selected ? 'active' : '' ">
             <a class="tags-item" ng-href="javascript:void(0)" ng-click="addFilterSearch(status.id,status.name,status,$index,statusSelected)" title="{{status.name}}">
             <span>{{status.name | truncString}}</span>
             </a>
-         </li> 
+         </li>
       </ul>
    </nav>
-   <p class="module-footer" ng-if="resultStatuses.data.length">
-      <a href="javascript:void(0)" ng-click="loadStatuses(5)" class="read-more">Mostrar Más Licencias</a>
-   </p>
 </section>
