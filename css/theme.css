@@ -1053,8 +1053,9 @@ h2 {
     font-size: 10px;
 }
 
-.read-more-datasets.module-footer {
-    border-top: 1px solid #999999;
+.module-footer {
+    border-top: none;
+    padding: 10px 25px 10px;
 }
 
 .dataset-item:last-of-type {
@@ -1292,7 +1293,8 @@ article figcaption,
 
 .secondary {
     padding: 0px;
-    border: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
 }
 
 #ngProgress-container {
