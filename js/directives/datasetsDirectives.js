@@ -6,8 +6,39 @@
             restrict: "E",
             templateUrl: "directives/datasets/result-datasets.html",
 
-            controller: function($scope, rest) {
+            controller: function ($scope, rest) {
+                $scope.stats = {};
 
+                rest().get({
+                        type: "datasets",
+                        params: "include=files,tags,categories"
+                    }, function(datasets) {
+                        angular.forEach( datasets.data, function ( element )
+                        {
+                            rest().get({
+                                type: "statistics",
+                                params: "resource=Dataset&endpoint=" + element['id'] + "/download&match=ENDS&condition=AND"
+                            }, function(result) {
+                                $scope.stats[element['id']] = { downloads: (result.meta.count ? result.meta.count : 0) };
+                            });
+                        });
+                    });
+
+                $scope.toggleDropdown = function ( event )
+                {
+                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
+                    {
+                        $(event.target).next().addClass( 'dataset-additional-info-table-active');
+                        $( event.target ).next().removeClass( 'dataset-additional-info-table-inactive' );
+                        $( event.target ).addClass('dataset-additional-info-active');
+                    }
+                    else
+                    {
+                        $(event.target).next().addClass('dataset-additional-info-table-inactive');
+                        $( event.target ).next().removeClass( 'dataset-additional-info-table-active' );
+                        $( event.target ).removeClass('dataset-additional-info-active');
+                    }
+                };
             },
             controllerAs: "dataset"
         };
@@ -19,20 +50,19 @@
             templateUrl: "directives/datasets/organizations-results.html",
 
             controller: function($scope, rest) {
-                $scope.limitorganizations = 0;
+                $scope.limitOrganizations = 0;
                 $scope.organizations = [];
                 $scope.resultOrganizations = [];
                 $scope.loadOrganizations = function(limit) {
-                    $scope.limitorganizations += limit;
+                    $scope.limitOrganizations += limit;
                     $scope.resultOrganizations = rest().get({
                         type: "organizations",
-                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitorganizations
+                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
                     }, function() {
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                             $scope.organizations.push($scope.resultOrganizations.data[i])
                         }
                     });
-
                 }
                 $scope.loadOrganizations(0);
             },
@@ -46,7 +76,6 @@
             restrict: "E",
             templateUrl: "directives/datasets/tags-results.html",
             controller: function($scope, rest) {
-
                 $scope.limitTags = 0;
                 $scope.tags = [];
                 $scope.resultTags = [];

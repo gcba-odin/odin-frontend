@@ -499,20 +499,6 @@ ul {
     background-image: url('../images/viz-collection-hover.svg');
 }
 
-.auxiliar-bar:after {
-    background-image: url('../images/triangle.svg');
-    content: "";
-    height: 2em;
-    width: 2em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: relative;
-    top: 3.7vh;
-    left: calc(50% + 5px);
-    margin-left: -2em;
-}
-
 .branding-data h1 {
     color: inherit;
     font-size: 3em;
@@ -666,24 +652,7 @@ h2 {
 }
 
 .widget-item-footer-download-link {
-    display: inline;
     position: relative;
-}
-
-.widget-item-footer-download-link:hover:after{
-    background: #FFb600;
-    color: white;
-    border-radius: 2px;
-    bottom: -30px;
-    content: attr(data-tooltip);
-    position: absolute;
-    z-index: 98;
-    width: 80px;
-    text-align: center;
-    font-size: 10px;
-}
-
-.widget-item-footer-download-icon {
     background-image: url("../images/download.svg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -951,6 +920,23 @@ h2 {
     padding-left: 25px;
 }
 
+[data-tooltip]:hover:after {
+    background: #FFb600;
+    color: white;
+    border-radius: 2px;
+    content: attr(data-tooltip);
+    position: absolute;
+    z-index: 98;
+    min-width: 80px;
+    padding: 0px 7px;
+    max-width: 500px;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
 .row.wrapper {
     background-color: inherit;
     border: none;
@@ -965,9 +951,14 @@ h2 {
     margin-bottom: 0px;
 }
 
+.module-narrow .module-footer:last-of-type {
+    border-bottom: 1px solid #cccccc;
+}
+
 .module-content:first-child {
     margin-top: 0;
-    padding-top: 5px;
+    padding-top: 0px;
+    margin-top: -13px;
 }
 
 .module:first-child .module-heading {
@@ -982,12 +973,11 @@ h2 {
     padding-bottom: 4px;
 }
 
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li>a:hover {
     text-decoration: none;
-    background-color: #FFb600;
+    background-color: #FFb600 !important;
     color: white;
     font-weight: 600;
-    font-size: 13px;
     cursor: pointer;
 }
 
@@ -998,12 +988,38 @@ h2 {
 
 .nav-item> a, .nav-aside li a {
     color: black;
-    font-size: 12px;
+    font-size: 13px;
+}
+
+.nav-item.active, .nav-aside li.active, .nav-item.active a, .nav-aside li.active a {
+    color: white;
+    background-color: #FFb600;
+    font-weight: 600;
+}
+
+.nav-facet .nav-item> a:hover:after, .nav-facet .nav-item.active> a:after {
+    background: none;
+    content: '\f067';
+    font-family: 'FontAwesome';
+    padding-left: 2px;
+    right: 4px;
+}
+
+.nav-facet .nav-item.active> a:after {
+    content: '\f068';
 }
 
 .tags-item {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
+}
+
+.dataset-category-icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: 100%;
+    margin-right: 1px;
 }
 
 .dataset-heading {
@@ -1018,13 +1034,18 @@ h2 {
     font-size: 14px;
     color: #4D4D4D;
     font-weight: 500;
+    margin-top: 3px;
+}
+
+.dataset-resources {
     margin-top: 5px;
 }
 
 .dataset-resources .label {
+    background-color: #999999;
     display: inline;
-    padding: .2em .6em .3em;
-    padding-top: .5em;
+    padding: .0em .4em .1em;
+    padding-top: .3em;
     font-size: 75%;
     font-weight: 700;
     line-height: 1;
@@ -1032,11 +1053,100 @@ h2 {
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
+    border-radius: .1em;
 }
 
-.dataset-resources li a:hover {
+.dataset-resources li .label:hover {
     background-color: #FF386a;
+}
+
+.dataset-resources li a {
+    background-color: inherit;
+}
+
+.dataset-additional-info {
+    font-size: 10px;
+    font-weight: 600;
+    color: #4D4D4D;
+    cursor: pointer;
+}
+
+.dataset-additional-info:after {
+    font-family: "FontAwesome";
+    content: "\f04b";
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.dataset-additional-info-active {
+    color: #FF386a;
+}
+.dataset-additional-info-active:after {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.dataset-additional-info-table {
+    margin: 10px 0px;
+}
+
+.dataset-additional-info-table td, .dataset-additional-info-table th {
+    padding: 2px 7px 1px 7px;
+    width: 12vw;
+}
+
+.dataset-additional-info-table td {
+    color: #4d4d4d;
+    font-size: 12px;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+}
+
+.dataset-additional-info-table th {
+    background-color: #999999;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    border-right: 1px solid white;
+    padding: 3px 7px 2px 7px;
+}
+
+.dataset-additional-info-table th:last-of-type {
+    border-right: 1px solid #999999;
+}
+
+.dataset-additional-info-table-active {
+    overflow-y: hidden;
+	max-height: 500px;
+}
+
+.dataset-additional-info-table-inactive {
+    overflow-y: hidden;
+	max-height: 0px;
+    display: none;
+}
+
+.dataset-additional-info:hover, .dataset-additional-info:hover:after {
+    color: #FF386a;
+}
+
+.dataset-statistics {
+    float: right;
+    margin-right: 7px;
+    color: #FF386a;
+    font-weight: 600;
+    font-size: 11px;
+    margin-top: 2px;
 }
 
 .dataset-list li.dataset-item {
@@ -1048,7 +1158,7 @@ h2 {
     border-bottom: 1px solid #4D4D4D;
 }
 
-.dataset-content .dataset-lastest-update {
+.dataset-content .dataset-latest-update {
     color: #FF386a;
     font-size: 10px;
 }
