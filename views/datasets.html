@@ -4,10 +4,11 @@
       </div>
       <div class="toolbar">
          <ol class="breadcrumb">
-            <li class="home"><a href="#/"><span> Inicio</span></a>
+            <li class="home">
+              <a href="#/"><span> Inicio</span></a>
             </li>
-            <li class="active"><a href="#/datasets">Conjuntos de datos</a>
-
+            <li class="active">
+              <a href="#/datasets">Conjuntos de datos</a>
             </li>
          </ol>
       </div>
@@ -15,57 +16,12 @@
          <div class="primary col-md-9">
             <section class="module">
                <div class="module-content">
-                  <div id="dataset-search-form" class="search-form"  data-module="select-switch">
-                  <axiliar-bar></axiliar-bar>
-
-                     <p class="filter-list" ng-if="statusSelected.length">
-                            <span class="facet">Ordenar: </span>
-                            <span class="filtered pill" ng-repeat="status in statusSelected">{{status.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,status.model,statusSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-
-                            </span>
-                      </p>
-
-                     <p class="filter-list" ng-if="tagsSelected.length">
-                          <span class="facet">Etiquetas: </span>
-                            <span class="filtered pill" ng-repeat="tags in tagsSelected">{{tags.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,tags.model,tagsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-
-                            </span>
-                      </p>
-
-                      <p class="filter-list" ng-if="formatsSelected.length">
-                             <span class="facet">Formatos: </span>
-                            <span class="filtered pill" ng-repeat="format in formatsSelected">{{format.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,format.model,formatsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-
-                            </span>
-                      </p>
-
-                      <p class="filter-list" ng-if="organizationsSelected.length">
-                            <span class="facet">Organizaciones: </span>
-                            <span class="filtered pill" ng-repeat="organization in organizationsSelected"  >{{organization.name}}
-                              <a href="javascript:void(0)" ng-click="deleteFilterSelected($index,organization.model,organizationsSelected)" class="remove" title="Quitar">
-                                <i class="fa fa-remove"></i>
-                              </a>
-
-                            </span>
-                      </p>
-                     <a class="show-filters btn">Filtrar Resultados</a>
-                  </div>
-
                   <ul class="dataset-list unstyled">
        				     <result-datasets></result-datasets>
                   </ul>
                </div>
             <div class="row center-spin" ng-if="showLoading">
-               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" ></i>
+               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
             </div>
             </section>
             <section class="module">
