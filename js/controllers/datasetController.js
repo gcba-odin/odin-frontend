@@ -68,7 +68,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.info = rest().findOne({
         id: $routeParams.id,
         type: $scope.type,
-        params: "include=tags,files"
+        params: "include=tags,files,categories"
     }, function() {
         $rootScope.header = $scope.info.name;
 
@@ -127,7 +127,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         }
         $scope.resultDatasetsSearch = rest().get({
             type: $scope.type,
-            params: "sort=" + $scope.sorting + "&include=files,tags&limit=20&skip=" + $scope.limitResults + query
+            params: "sort=" + $scope.sorting + "&include=files,tags,categories&limit=20&skip=" + $scope.limitResults + query
         }, function() {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 $scope.datasets.push($scope.resultDatasetsSearch.data[i])
@@ -147,7 +147,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     }
 
     $scope.addFilterSearch = function(id, name, model, index, modelSelected) {
-
         var finArrayIndex = findInArray(id, modelSelected);
         if (!finArrayIndex) {
             modelSelected.push({
