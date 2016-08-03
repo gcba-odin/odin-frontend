@@ -6,13 +6,17 @@
       </div>
       <div class="toolbar">
          <ol class="breadcrumb">
-            <li class="home">
-              <a href="#/"><span>Inicio</span></a>
+            <li class="breadcrumb-item">
+              <a href="#/">INICIO</a>
             </li>
-            <li class="active">
-              <a href="#/datasets">Conjuntos de datos</a>
+            <li class="breadcrumb-item">
+              <a href="#/datasets">DATASETS</a>
             </li>
          </ol>
+      </div>
+      <div class="datasets-counter">
+        <span class="datasets-counter-count">{{count}}</span>
+        <span class="datasets-counter-label">Datasets</span>
       </div>
       <div class="row wrapper">
          <div class="primary col-md-9">
@@ -32,12 +36,10 @@
          <aside class="secondary col-md-3">
             <div class="filters">
                <div>
-                <statuses-result></statuses-result>
+                <order-result></order-result>
                 <tags-result></tags-result>
                 <formats-result></formats-result>
             	  <organizations-result></organizations-result>
-                <groups-result></groups-result>
-                <licences-result></licences-result>
                </div>
             </div>
          </aside>

@@ -92,7 +92,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 }
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams) {
-
     //Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
@@ -128,11 +127,12 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         $scope.resultDatasetsSearch = rest().get({
             type: $scope.type,
             params: "sort=" + $scope.sorting + "&include=files,tags,categories&limit=20&skip=" + $scope.limitResults + query
-        }, function() {
+        }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 $scope.datasets.push($scope.resultDatasetsSearch.data[i])
             }
             $scope.showLoading = false;
+            $scope.count = result.meta.count;
         });
     }
 

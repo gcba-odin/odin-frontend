@@ -50,6 +50,10 @@ a:hover {
     outline: 0 none;
 }
 
+ul {
+    list-style: none;
+    margin-left: 5px;
+}
 
 /****BUTTONS****/
 
@@ -178,7 +182,7 @@ a:hover {
 
 .last-item:after {
     content: " ";
-    display: none
+    display: none;
 }
 
 li a.last-item {
@@ -190,9 +194,18 @@ li a.last-item {
     font-weight: 700;
 }
 
-ul {
-    list-style: none;
-    margin-left: 5px;
+.datasets-counter {
+    color: #FF386a;
+    font-size: 18px;
+    float: right;
+    width: 70px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.datasets-counter-count {
+    font-size: 40px;
+    font-weight: 700;
 }
 
 .gcba-fixed-top {
@@ -276,7 +289,7 @@ ul {
 }
 
 .search-bar {
-    margin-top: 7vh;
+    margin-top: 7.5vh;
     margin-left: 5px;
     padding-left: 0px;
     padding-right: 0px;
@@ -308,7 +321,9 @@ ul {
 }
 
 .search-form {
-    border: 0px
+    border: 0px;
+    margin-bottom: 0px !important;
+    padding-bottom: 12px !important;
 }
 
 .link-header-data li a {
@@ -325,6 +340,7 @@ ul {
 .categories-row-container {
     width: calc(100% + 40px);
     padding: 0px 15px;
+    text-align: center;
 }
 
 .categories-item-title {
@@ -995,6 +1011,20 @@ h2 {
     padding-bottom: 4px;
 }
 
+.module-heading-clear-icon {
+    background-image: url("../images/clear.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 1px;
+}
+
 .nav>li>a:hover {
     text-decoration: none;
     background-color: #FFb600 !important;
@@ -1036,7 +1066,7 @@ h2 {
     padding-bottom: 5px !important;
 }
 
-.dataset-categories-icon {
+.dataset-category-icon {
     width: 15px;
     height: 15px;
     display: inline-block;
@@ -1196,8 +1226,32 @@ h2 {
     margin-bottom: 20px;
 }
 
+.toolbar {
+    margin-bottom: 45px;
+    width: calc(100% - 70px);
+    float: left;
+}
+
 .toolbar .breadcrumb li:after {
-    content: none;
+    content: '|';
+    font-size: 12px;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    font-weight: 500;
+}
+
+.toolbar .breadcrumb-item {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.toolbar .breadcrumb .active a, .toolbar .breadcrumb a.active {
+    font-weight: normal;
+}
+
+.toolbar .breadcrumb li:last-of-type:after {
+    content: initial;
 }
 
 .module .read-more {
@@ -1273,8 +1327,7 @@ article figcaption,
 }
 
 .categories-row-item {
-    width: 5.34vw;
-    margin-bottom: 20px;
+    width: 5.3vw;
 }
 
 .categories-item p {

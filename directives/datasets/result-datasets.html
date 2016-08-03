@@ -6,7 +6,7 @@
          <h3 class="dataset-heading">
             <a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>
          </h3>
-         <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt}}<span class="dataset-latest-update-date"></span></div>
+         <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
          <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
       </div>
       <ul class="dataset-resources unstyled">

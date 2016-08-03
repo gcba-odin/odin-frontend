@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('store-directives-datasets', []);
+    var app = angular.module('store-directives-datasets', ['angularMoment']);
 
     app.directive("resultDatasets", function() {
         return {
@@ -123,27 +123,27 @@
         };
     });
 
-    app.directive("statusesResult", function() {
+    app.directive("orderResult", function() {
         return {
             restrict: "E",
-            templateUrl: "directives/datasets/statuses-results.html",
+            templateUrl: "directives/datasets/order-results.html",
             controller: function($scope, rest) {
-                $scope.limitStatuses = 0;
-                $scope.statuses = [];
-                $scope.resultStatuses = [];
-                $scope.loadStatuses = function(limit) {
-                    $scope.limitStatuses += limit;
-                    $scope.resultStatuses = rest().get({
-                        type: "statuses",
-                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitStatuses
+                $scope.limitOrder = 0;
+                $scope.order = [];
+                $scope.resultOrder = [];
+                $scope.loadOrder = function(limit) {
+                    $scope.limitOrder += limit;
+                    $scope.resultOrder = rest().get({
+                        type: "datasets",
+                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrder
                     }, function() {
-                        for (var i = 0; i < $scope.resultStatuses.data.length; i++) {
-                            $scope.statuses.push($scope.resultStatuses.data[i])
+                        for (var i = 0; i < $scope.resultOrder.data.length; i++) {
+                            $scope.order.push($scope.resultOrder.data[i])
                         }
                     });
 
                 }
-                $scope.loadStatuses(0);
+                $scope.loadOrder(0);
 
             },
             controllerAs: "licences"
