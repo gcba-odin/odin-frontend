@@ -317,35 +317,35 @@ ul {
     font-weight: 600;
 }
 
-.category-grid-container {
+.categories-container {
     width: calc(100% + 75px);
     margin-left: -20px;
 }
 
-.category-row-container {
-    width: calc(100% + 75px);
-    margin-left: -20px;
+.categories-row-container {
+    width: calc(100% + 40px);
+    padding: 0px 15px;
 }
 
-.category-grid-item-title {
+.categories-item-title {
     font-size: 15px;
     font-weight: 700;
     text-align: center;
+}
+
+.categories-grid-item-title {
     width: 100px;
     margin: auto;
 }
 
-.category-row-item-title {
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
+.categories-row-item-title {
     width: 7vw;
     visibility: hidden;
-    margin-left: -0.6vw;
+    margin-left: -0.8vw;
     overflow: visible;
 }
 
-.category-row-item:hover .category-row-item-title {
+.categories-row-item:hover .categories-row-item-title {
     visibility: visible;
 }
 
@@ -367,7 +367,7 @@ ul {
     background-image: url("../images/categories/urbanismo-e-infraestructura.svg");
 }
 
-.category-grid-item:hover .urbanismo-e-infraestructura, .category-row-item:hover .urbanismo-e-infraestructura {
+.categories-grid-item:hover .urbanismo-e-infraestructura, .categories-row-item:hover .urbanismo-e-infraestructura {
     background-image: url("../images/categories/urbanismo-e-infraestructura-hover.svg");
 }
 
@@ -375,7 +375,7 @@ ul {
     background-image: url("../images/categories/transporte.svg");
 }
 
-.category-grid-item:hover .transporte, .category-row-item:hover .transporte {
+.categories-grid-item:hover .transporte, .categories-row-item:hover .transporte {
     background-image: url("../images/categories/transporte-hover.svg");
 }
 
@@ -383,7 +383,7 @@ ul {
     background-image: url("../images/categories/seguridad.svg");
 }
 
-.category-grid-item:hover .seguridad, .category-row-item:hover .seguridad {
+.categories-grid-item:hover .seguridad, .categories-row-item:hover .seguridad {
     background-image: url("../images/categories/seguridad-hover.svg");
 }
 
@@ -391,7 +391,7 @@ ul {
     background-image: url("../images/categories/salud.svg");
 }
 
-.category-grid-item:hover .salud, .category-row-item:hover .salud {
+.categories-grid-item:hover .salud, .categories-row-item:hover .salud {
     background-image: url("../images/categories/salud-hover.svg");
 }
 
@@ -399,7 +399,7 @@ ul {
     background-image: url("../images/categories/medio-ambiente.svg");
 }
 
-.category-grid-item:hover .medio-ambiente, .category-row-item:hover .medio-ambiente {
+.categories-grid-item:hover .medio-ambiente, .categories-row-item:hover .medio-ambiente {
     background-image: url("../images/categories/medio-ambiente-hover.svg");
 }
 
@@ -407,7 +407,7 @@ ul {
     background-image: url("../images/categories/gobierno-y-administracion-publica.svg");
 }
 
-.category-grid-item:hover .gobierno-y-administracion-publica, .category-row-item:hover .gobierno-y-administracion-publica {
+.categories-grid-item:hover .gobierno-y-administracion-publica, .categories-row-item:hover .gobierno-y-administracion-publica {
     background-image: url("../images/categories/gobierno-y-administracion-publica-hover.svg");
 }
 
@@ -415,7 +415,7 @@ ul {
     background-image: url("../images/categories/educacion.svg");
 }
 
-.category-grid-item:hover .educacion, .category-row-item:hover .educacion {
+.categories-grid-item:hover .educacion, .categories-row-item:hover .educacion {
     background-image: url("../images/categories/educacion-hover.svg");
 }
 
@@ -423,7 +423,7 @@ ul {
     background-image: url("../images/categories/economia-negocio-y-comercio.svg");
 }
 
-.category-grid-item:hover .economia-negocio-y-comercio, .category-row-item:hover .economia-negocio-y-comercio {
+.categories-grid-item:hover .economia-negocio-y-comercio, .categories-row-item:hover .economia-negocio-y-comercio {
     background-image: url("../images/categories/economia-negocio-y-comercio-hover.svg");
 }
 
@@ -431,7 +431,7 @@ ul {
     background-image: url("../images/categories/cultura-recreacion-y-turismo.svg");
 }
 
-.category-grid-item:hover .cultura-recreacion-y-turismo, .category-row-item:hover .cultura-recreacion-y-turismo {
+.categories-grid-item:hover .cultura-recreacion-y-turismo, .categories-row-item:hover .cultura-recreacion-y-turismo {
     background-image: url("../images/categories/cultura-recreacion-y-turismo-hover.svg");
 }
 
@@ -1036,7 +1036,7 @@ h2 {
     padding-bottom: 5px !important;
 }
 
-.dataset-category-icon {
+.dataset-categories-icon {
     width: 15px;
     height: 15px;
     display: inline-block;
@@ -1257,39 +1257,32 @@ article figcaption,
     z-index: 10;
 }
 
-.category-grid-item {
+.categories-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    vertical-align: top;
+    color: #FF386a;
+}
+
+.categories-grid-item {
     width: 100px;
     margin-right: 25px;
     margin-left: 25px;
-    display: inline-block;
     margin-bottom: 25px;
-    position: relative;
-    vertical-align: top;
-    color: #FF386a;
-    cursor: pointer;
 }
 
-.category-row-item {
-    width: 5.6vw;
-    display: inline-block;
-    margin-bottom: 25px;
-    position: relative;
-    vertical-align: top;
-    color: #FF386a;
-    cursor: pointer;
+.categories-row-item {
+    width: 5.34vw;
+    margin-bottom: 20px;
 }
 
-.category-grid-item p {
+.categories-item p {
     color: #888 !important;
     margin-bottom: 24px;
 }
 
-.category-row-item p {
-    color: #888 !important;
-    margin-bottom: 24px;
-}
-
-.category-grid-item span {
+.categories-item span {
     display: block;
     height: 70px;
     position: relative;
@@ -1299,14 +1292,7 @@ article figcaption,
     background-repeat: no-repeat;
 }
 
-.category-row-item span {
-    display: block;
-    height: 70px;
-    position: relative;
-    text-align: center;
-    background-size: 55px;
-    background-position: center top;
-    background-repeat: no-repeat;
+.categories-row-item span {
     border-bottom: 1px #cccccc solid;
 }
 
@@ -1378,14 +1364,14 @@ article figcaption,
     text-decoration: none;
 }
 
-.category-grid-item:hover,
-.category-grid-item:focus {
+.categories-grid-item:hover,
+.categories-grid-item:focus {
     color: #FFb600;
     text-decoration: none;
 }
 
-.category-row-item:hover,
-.category-row-item:focus {
+.categories-row-item:hover,
+.categories-row-item:focus {
     color: #FFb600;
     text-decoration: none;
 }

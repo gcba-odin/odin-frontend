@@ -1,7 +1,7 @@
-    <div class="category-row-container">
-        <a href="#/datasets/?cat={{ item.name | slug }}" class="category-row-item" ng-repeat="item in categories.data">
-            <span class="category-row-item-image {{ item.name | slug }}"></span>
-            <h4 class="category-row-item-title">{{item.name}}</h4>
+    <div class="categories-container categories-row-container">
+        <a href="#/datasets/?cat={{ item.name | slug }}" class="categories-item categories-row-item" ng-repeat="item in categories.data">
+            <span class="categories-row-item-image {{ item.name | slug }}"></span>
+            <h4 class="categories-item-title categories-row-item-title">{{item.name}}</h4>
         </a>
     </div>
 
