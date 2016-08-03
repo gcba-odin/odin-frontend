@@ -1,4 +1,3 @@
-
 <section class="module module-narrow module-shallow" ng-if="filetypes.length">
    <h2 class="module-heading">
       Formatos
@@ -9,7 +8,7 @@
          <li class="nav-item" ng-repeat="format in filetypes" ng-class="format.selected ? 'active' : '' ">
             <a class="tags-item" ng-href="javascript:void(0)" ng-click="addFilterSearch(format.id,format.name,format,$index,formatsSelected)" title="{{format.name}}">
 
-            <span>{{format.name | truncString}}</span>
+            <span>{{format.name | truncString | uppercase}} (1)</span>
             </a>
          </li>
       </ul>

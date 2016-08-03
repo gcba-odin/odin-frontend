@@ -6,7 +6,7 @@
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="organization in organizations" ng-class="organization.selected ? 'active' : '' ">
             <a class="tags-item" ng-href="javascript:void(0)" title="{{organization.name}}"  ng-click="addFilterSearch(organization.id,organization.name,organization,$index,organizationsSelected)" >
-            <span>{{organization.name | truncString}}</span>
+            <span>{{organization.name | truncString}} (1)</span>
             </a>
          </li>
       </ul>

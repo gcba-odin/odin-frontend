@@ -1,10 +1,19 @@
 (function() {
     var app = angular.module('store-directives-home', []);
 
-    app.directive("datasetsCategories", function() {
+    app.directive("categoriesGrid", function() {
         return {
             restrict: "E",
-            templateUrl: "directives/home/datasets-categories.html",
+            templateUrl: "directives/home/categories-grid.html",
+            controller:CategoryListController,
+            controllerAs: "category"
+        };
+    });
+
+    app.directive("categoriesRow", function() {
+        return {
+            restrict: "E",
+            templateUrl: "directives/main/categories-row.html",
             controller:CategoryListController,
             controllerAs: "category"
         };

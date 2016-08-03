@@ -275,30 +275,33 @@ ul {
     float: left;
 }
 
-.search-home {
+.search-bar {
     margin-top: 7vh;
-    margin-bottom: 4vh;
     margin-left: 5px;
     padding-left: 0px;
     padding-right: 0px;
     width: calc(100% - 15px);
 }
 
-.search-home h3 {
+.search-bar-home {
+    margin-bottom: 4vh;
+}
+
+.search-bar h3 {
     font-size: 1.2em;
     font-weight: 500;
     color: #FF386a;
 }
 
-.search-home-text h3 {
+.search-bar h3 {
     text-align: center;
 }
 
-.search-home .input-group input {
+.search-bar .input-group input {
     font-size: 1.4em;
 }
 
-.search-home .input-group button {
+.search-bar .input-group button {
     margin-top: 0;
     color: #4D4D4D;
     background: linear-gradient(to top, #e6e8e8 0%, white 100%);
@@ -314,17 +317,36 @@ ul {
     font-weight: 600;
 }
 
-.shortcut-container {
+.category-grid-container {
     width: calc(100% + 75px);
     margin-left: -20px;
 }
 
-.shortcut-title {
+.category-row-container {
+    width: calc(100% + 75px);
+    margin-left: -20px;
+}
+
+.category-grid-item-title {
     font-size: 15px;
     font-weight: 700;
     text-align: center;
     width: 100px;
     margin: auto;
+}
+
+.category-row-item-title {
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    width: 7vw;
+    visibility: hidden;
+    margin-left: -0.6vw;
+    overflow: visible;
+}
+
+.category-row-item:hover .category-row-item-title {
+    visibility: visible;
 }
 
 .container-navigation {
@@ -345,7 +367,7 @@ ul {
     background-image: url("../images/categories/urbanismo-e-infraestructura.svg");
 }
 
-.shortcut:hover .urbanismo-e-infraestructura {
+.category-grid-item:hover .urbanismo-e-infraestructura, .category-row-item:hover .urbanismo-e-infraestructura {
     background-image: url("../images/categories/urbanismo-e-infraestructura-hover.svg");
 }
 
@@ -353,7 +375,7 @@ ul {
     background-image: url("../images/categories/transporte.svg");
 }
 
-.shortcut:hover .transporte {
+.category-grid-item:hover .transporte, .category-row-item:hover .transporte {
     background-image: url("../images/categories/transporte-hover.svg");
 }
 
@@ -361,7 +383,7 @@ ul {
     background-image: url("../images/categories/seguridad.svg");
 }
 
-.shortcut:hover .seguridad {
+.category-grid-item:hover .seguridad, .category-row-item:hover .seguridad {
     background-image: url("../images/categories/seguridad-hover.svg");
 }
 
@@ -369,7 +391,7 @@ ul {
     background-image: url("../images/categories/salud.svg");
 }
 
-.shortcut:hover .salud {
+.category-grid-item:hover .salud, .category-row-item:hover .salud {
     background-image: url("../images/categories/salud-hover.svg");
 }
 
@@ -377,7 +399,7 @@ ul {
     background-image: url("../images/categories/medio-ambiente.svg");
 }
 
-.shortcut:hover .medio-ambiente {
+.category-grid-item:hover .medio-ambiente, .category-row-item:hover .medio-ambiente {
     background-image: url("../images/categories/medio-ambiente-hover.svg");
 }
 
@@ -385,7 +407,7 @@ ul {
     background-image: url("../images/categories/gobierno-y-administracion-publica.svg");
 }
 
-.shortcut:hover .gobierno-y-administracion-publica {
+.category-grid-item:hover .gobierno-y-administracion-publica, .category-row-item:hover .gobierno-y-administracion-publica {
     background-image: url("../images/categories/gobierno-y-administracion-publica-hover.svg");
 }
 
@@ -393,7 +415,7 @@ ul {
     background-image: url("../images/categories/educacion.svg");
 }
 
-.shortcut:hover .educacion {
+.category-grid-item:hover .educacion, .category-row-item:hover .educacion {
     background-image: url("../images/categories/educacion-hover.svg");
 }
 
@@ -401,7 +423,7 @@ ul {
     background-image: url("../images/categories/economia-negocio-y-comercio.svg");
 }
 
-.shortcut:hover .economia-negocio-y-comercio {
+.category-grid-item:hover .economia-negocio-y-comercio, .category-row-item:hover .economia-negocio-y-comercio {
     background-image: url("../images/categories/economia-negocio-y-comercio-hover.svg");
 }
 
@@ -409,7 +431,7 @@ ul {
     background-image: url("../images/categories/cultura-recreacion-y-turismo.svg");
 }
 
-.shortcut:hover .cultura-recreacion-y-turismo {
+.category-grid-item:hover .cultura-recreacion-y-turismo, .category-row-item:hover .cultura-recreacion-y-turismo {
     background-image: url("../images/categories/cultura-recreacion-y-turismo-hover.svg");
 }
 
@@ -1235,7 +1257,7 @@ article figcaption,
     z-index: 10;
 }
 
-.shortcut {
+.category-grid-item {
     width: 100px;
     margin-right: 25px;
     margin-left: 25px;
@@ -1247,12 +1269,27 @@ article figcaption,
     cursor: pointer;
 }
 
-.shortcut p {
+.category-row-item {
+    width: 5.6vw;
+    display: inline-block;
+    margin-bottom: 25px;
+    position: relative;
+    vertical-align: top;
+    color: #FF386a;
+    cursor: pointer;
+}
+
+.category-grid-item p {
     color: #888 !important;
     margin-bottom: 24px;
 }
 
-.shortcut span {
+.category-row-item p {
+    color: #888 !important;
+    margin-bottom: 24px;
+}
+
+.category-grid-item span {
     display: block;
     height: 70px;
     position: relative;
@@ -1260,6 +1297,17 @@ article figcaption,
     background-size: 55px;
     background-position: center top;
     background-repeat: no-repeat;
+}
+
+.category-row-item span {
+    display: block;
+    height: 70px;
+    position: relative;
+    text-align: center;
+    background-size: 55px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    border-bottom: 1px #cccccc solid;
 }
 
 .homepage .box-stats {
@@ -1330,8 +1378,14 @@ article figcaption,
     text-decoration: none;
 }
 
-.shortcut:hover,
-.shortcut:focus {
+.category-grid-item:hover,
+.category-grid-item:focus {
+    color: #FFb600;
+    text-decoration: none;
+}
+
+.category-row-item:hover,
+.category-row-item:focus {
     color: #FFb600;
     text-decoration: none;
 }

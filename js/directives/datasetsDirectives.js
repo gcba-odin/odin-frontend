@@ -112,10 +112,10 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitFormats
                     }, function() {
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
-                            $scope.filetypes.push($scope.resultFormats.data[i])
+                            $scope.filetypes.push($scope.resultFormats.data[i]);
                         }
-                    });
-
+                        });
+                    $scope.datasetCount = {};
                 }
                 $scope.loadFormats(0);
             },
@@ -149,5 +149,4 @@
             controllerAs: "licences"
         };
     });
-
 })();

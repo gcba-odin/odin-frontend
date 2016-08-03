@@ -1,0 +1,10 @@
+    <div class="category-row-container">
+        <a href="#/datasets/?cat={{ item.name | slug }}" class="category-row-item" ng-repeat="item in categories.data">
+            <span class="category-row-item-image {{ item.name | slug }}"></span>
+            <h4 class="category-row-item-title">{{item.name}}</h4>
+        </a>
+    </div>
+
+    <div class="row center-spin" ng-if="showCategories">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+    </div>
