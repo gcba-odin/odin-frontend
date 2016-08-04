@@ -62,14 +62,15 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams) {
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams )
+{
     $scope.type = "datasets";
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
         type: $scope.type,
         params: "include=tags,files,categories"
-    }, function() {
+    }, function(result) {
         $rootScope.header = $scope.info.name;
 
         var tags = [];
@@ -83,8 +84,33 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         }
 
         $scope.tags = tags;
-    });
+        $scope.fileTypes = {};
 
+        result.files.forEach(function (element) {
+            rest().findOne({
+                id: element.type,
+                type: 'filetypes'
+            }, function (resultFileType) {
+                    $scope.fileTypes[element.type] = resultFileType.name;
+                });
+        }, this );
+        });
+
+    $scope.toggleDropdown = function ( event )
+                {
+                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
+                    {
+                        $(event.target).next().addClass( 'dataset-additional-info-table-active');
+                        $( event.target ).next().removeClass( 'dataset-additional-info-table-inactive' );
+                        $( event.target ).addClass('dataset-additional-info-active');
+                    }
+                    else
+                    {
+                        $(event.target).next().addClass('dataset-additional-info-table-inactive');
+                        $( event.target ).next().removeClass( 'dataset-additional-info-table-active' );
+                        $( event.target ).removeClass('dataset-additional-info-active');
+                    }
+                };
 
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);

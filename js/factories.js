@@ -1,40 +1,41 @@
 (function() {
     var app = angular.module('store-factories', []);
-   
+
    app.factory('rest', ['$resource', '$location','$rootScope','ngProgressFactory', function($resource, $location,$rootScope,ngProgressFactory) {
         $rootScope.progressbar = ngProgressFactory.createInstance();
        return function($url) {
             $rootScope.progressbar.start();
            // var token=$rootScope.globals.currentUser.token;
-            var token="token";
-            $url = ($url == null) ? $rootScope.url+'/:type' : $url;
+            var token = "token";
+
+            $url = ( $url == null ) ? $rootScope.url + '/:type' : $url;
+
             return $resource($url, {type: ''}, {
-                update: { method:'PUT' },
-                get : {
-                    url: $url+"?:params",
+                get: {
+                    url: $url + "?:params",
                     method: 'GET',
                     headers: { 'Authorization': 'JWT '+token},
-                    transformResponse:function (data){
+                    transformResponse: function (data){
                         $rootScope.progressbar.complete();
                         return angular.fromJson(data);
                     },
                     interceptor: {responseError: handError}
                 },
-                count : {
-                    url: $url+"/count",
+                count: {
+                    url: $url + "/count",
                     method: 'GET',
-                    headers: { 'Authorization': 'JWT '+token},
-                    transformResponse:function (data){
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
                         $rootScope.progressbar.complete();
                         return angular.fromJson(data);
                     },
                     interceptor: {responseError: handError}
                 },
-                getArray : {
-                    url: $url+"/:id/:asociate",
+                getArray: {
+                    url: $url + "/:id/:asociate",
                     method: 'GET',
-                    headers: { 'Authorization': 'JWT '+token},
-                    transformResponse:function (data){
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
                         $rootScope.progressbar.complete();
                         var json= JSON.parse(data);
                         return json.data;
@@ -42,11 +43,11 @@
                     isArray: true,
                     interceptor: {responseError: handError}
                 },
-                findOne : {
-                    url: $url+"/:id?:params",
+                findOne: {
+                    url: $url + "/:id?:params",
                     method: 'GET',
-                    headers: { 'Authorization': 'JWT '+token},
-                    transformResponse:function (data){
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
                         if(data){
                             $rootScope.progressbar.complete();
                             var json= JSON.parse(data)
@@ -56,13 +57,13 @@
                         }
                     },
                     interceptor: {responseError: handError}
-                }, 
-                'save': {  
+                },
+                'save': {
                       url: $url,
                       method: 'POST',
-                      headers: { 'Authorization': 'JWT '+token },
+                      headers: { 'Authorization': 'JWT ' + token },
                       interceptor: {responseError: handError},
-                      transformResponse:function (data){
+                      transformResponse: function (data){
                             if(data){
                                     $rootScope.progressbar.complete();
                                     return angular.fromJson(data);
@@ -70,8 +71,8 @@
                                 $rootScope.progressbar.complete();
                             }
                         }
-                    }, 
-                'saveWithData': {  
+                },
+                'saveWithData': {
                       url: $url,
                       method: 'POST',
                       headers: { 'Authorization': 'JWT '+token ,'Content-Type':undefined},
@@ -129,8 +130,8 @@
                         return fd;
                       },
                       interceptor: {responseError: handError},
-                    }, 
-                'delete': {  
+                    },
+                'delete': {
                       url: $url+"/:id",
                       method: 'DELETE',
                       headers: { 'Authorization': 'JWT '+token },
@@ -139,8 +140,8 @@
                         $rootScope.progressbar.complete();
                         return angular.fromJson(data);
                         }
-                    }, 
-                'update': {  
+                    },
+                'update': {
                       url: $url+"/:id",
                       method: 'PATCH',
                       headers: { 'Authorization': 'JWT '+token },
@@ -156,7 +157,7 @@
                         }
                     }
             });
-        } 
+        }
 
 
         function handError(e){

@@ -1,8 +1,9 @@
 <ul class="dataset-list unstyled">
-   <li class="dataset-item clearfix" ng-repeat="result in datasets">
+   <h2 class="list-heading">Recursos y descargas</h2>
+   <li class="dataset-item clearfix" ng-repeat="result in info.files">
       <div class="dataset-content">
-          <span class="dataset-category-icon {{category.name | slug }}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
-          </span>
+         <span class="dataset-category-icon {{category.name | slug}}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
+         </span>
          <h3 class="dataset-heading">
             <a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>
          </h3>
@@ -10,8 +11,8 @@
          <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
       </div>
       <ul class="dataset-resources unstyled">
-         <li ng-repeat="resource in result.files">
-            <a ng-href="#/resource/{{resource.id | lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>
+         <li ng-repeat="resource in info.files">
+            <a ng-href="#/resource/{{resource.id | lowercase}}" data-format="{{fileTypes[resource.type]}}" class="label" data-format="{{fileTypes[resource.type] || lowercase}}">{{fileTypes[resource.type] | uppercase}}</a>
          </li>
          <li class="dataset-additional-info" ng-click="toggleDropdown($event)">Info adicional</li>
          <table class="dataset-additional-info-table dataset-additional-info-table-inactive">
@@ -28,9 +29,8 @@
                 </tr>
              </tbody>
          </table>
-
          <a href="{{result.id}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
-         <span class="dataset-statistics">{{stats[result.id].downloads}} descargas / 10 vistas</span>
+         <a href="{{result.id}}" class="widget-item-footer-link widget-item-footer-preview-link"></a>
       </ul>
    </li>
 </ul>

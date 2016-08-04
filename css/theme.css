@@ -290,14 +290,16 @@ ul {
 
 .search-bar {
     margin-top: 7.5vh;
-    margin-left: 5px;
+    margin-left: 15px;
     padding-left: 0px;
     padding-right: 0px;
-    width: calc(100% - 15px);
+    width: calc(100% - 30px);
 }
 
 .search-bar-home {
     margin-bottom: 4vh;
+    margin-left: 5px;
+    width: calc(100% - 15px);
 }
 
 .search-bar h3 {
@@ -339,7 +341,6 @@ ul {
 
 .categories-row-container {
     width: calc(100% + 40px);
-    padding: 0px 15px;
     text-align: center;
 }
 
@@ -689,17 +690,29 @@ h2 {
     text-transform: uppercase;
 }
 
-.widget-item-footer-download-link {
+.widget-item-footer-link {
     position: relative;
-    background-image: url("../images/download.svg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     width: 20px;
     height: 20px;
     float: right;
-    margin-right: -1px;
+    margin-right: 5px;
     cursor: pointer;
+}
+
+.widget-item-footer-link:first-of-type {
+    margin-right: -1px;
+}
+
+.widget-item-footer-preview-link {
+    background-image: url("../images/preview.svg");
+}
+
+
+.widget-item-footer-download-link {
+    background-image: url("../images/download.svg");
 }
 
 .widgets-second-row {
@@ -1082,6 +1095,15 @@ h2 {
     line-height: 14px;
 }
 
+.list-heading {
+    color: #4D4D4D;
+    font-size: 20px;
+    margin-top: -50px;
+    margin-bottom: 25px;
+    padding-bottom: 6px;
+    border-bottom: 1px #cccccc solid;
+}
+
 .dataset-description {
     font-size: 14px;
     color: #4D4D4D;
@@ -1201,6 +1223,10 @@ h2 {
     margin-top: 2px;
 }
 
+.dataset-item {
+    clear: both;
+}
+
 .dataset-list li.dataset-item {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
@@ -1213,6 +1239,39 @@ h2 {
 .dataset-content .dataset-latest-update {
     color: #FF386a;
     font-size: 10px;
+}
+
+.dataset-single {
+    clear: both;
+    border-bottom: 1px #cccccc solid;
+}
+
+.dataset-single .dataset-heading {
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.dataset-single .dataset-latest-update {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dataset-single .dataset-description {
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.dataset-single-tags {
+    margin-bottom: 80px;
+    margin-top: 5px;
+}
+
+.dataset-single-tags-item.label {
+    margin-right: 5px;
+    background-color: #FFb600;
+    text-shadow: none;
+    font-size: 9px;
+    font-weight: 400;
 }
 
 .module-footer {

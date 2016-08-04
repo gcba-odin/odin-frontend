@@ -3,11 +3,11 @@
 
 
 
-   app.directive("resourcesDataset", function() {
+   app.directive("resultResources", function() {
         return {
             restrict: "E",
-            templateUrl: "directives/dataset/resources-datasets.html",
-      
+            templateUrl: "directives/datasets/result-resources.html",
+
             controller: function($scope) {
 
             },
@@ -20,7 +20,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/tags-datasets.html",
-      
+
             controller: function($scope) {
 
             },
@@ -32,7 +32,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/aditional-info-dataset.html",
-      
+
             controller: function($scope) {
 
             },
@@ -44,7 +44,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/organizations-dataset.html",
-      
+
             controller: function($scope) {
 
             },
@@ -56,7 +56,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/socials-dataset.html",
-      
+
             controller: function($scope) {
 
             },
