@@ -1,55 +1,5 @@
 <search-bar></search-bar>
 <div role="main">
-<<<<<<< HEAD
-   <div id="content" class="container">
-      <categories-row></categories-row>
-      <div class="flash-messages">
-      </div>
-      <div class="toolbar">
-         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="#/">INICIO</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="#/datasets">DATASETS</a>
-            </li>
-         </ol>
-      </div>
-      <div class="dataset-single clearfix">
-        <div class="dataset-content">
-            <h3 class="dataset-heading">
-                <a ng-href="#/dataset/{{info.id | lowercase}}" ng-title="{{info.name}}">{{info.name}}</a>
-            </h3>
-            <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
-            <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
-        </div>
-        <ul class="dataset-resources unstyled">
-            <li class="dataset-additional-info" ng-click="toggleDropdown($event)">Info adicional</li>
-            <table class="dataset-additional-info-table dataset-additional-info-table-inactive">
-                <thead>
-                    <tr>
-                        <th>Campo</th>
-                        <th>Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="(key, value) in info">
-                        <td>{{key}}</td>
-                        <td>{{value}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </ul>
-      </div>
-      <div class="dataset-single-tags">
-          <span class="dataset-single-tags-item label" ng-repeat="tag in info.tags">{{tag.name}}</span>
-      </div>
-      <div class="row wrapper">
-         <div class="primary col-md-9">
-            <section class="module">
-               <div class="module-content">
-       				<result-resources></result-resources>
-=======
     <div id="content" class="container">
         <div class="flash-messages">
         </div>
@@ -123,7 +73,6 @@
                      <div class="follow_button">
                      </div>
                   </div>
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
                </div>
             <div class="row center-spin" ng-if="showLoading">
                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
@@ -133,7 +82,6 @@
                <div class="module-content">
                </div>
             </section>
-<<<<<<< HEAD
          </div>
          <aside class="secondary col-md-3">
             <div class="filters">
@@ -148,9 +96,7 @@
       </div>
    </div>
 </div>
-=======
          </aside>-->
         </div>
     </div>
 </div>
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
