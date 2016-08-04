@@ -1,6 +1,48 @@
 <section id="dataset-resources" class="resources" ng-if="info.files.length">
-    <h3>Recursos y descargas </h3>
-    <div class="resource-list">
+<<<<<<< HEAD
+   <h3>Datos y Recursos </h3>
+   <ul class="resource-list">
+      <li class="resource-item"  ng-repeat="resource in info.files">
+         <a class="heading" ng-href="#/resource/{{resource.id}}" title="{{resource.name}}">
+           {{resource.name}}<span class="format-label" property="dc:format" data-format="{{resource.url | returnFormat}}">{{resource.format | uppercase}} </span>
+         </a>
+         <p class="description">
+            {{resource.description}} {{resource.id}}
+         </p>
+         <div class="dropdown btn-group">
+            <a ng-href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-share"></i>
+            Explorar
+            <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+               <li >
+                     <a target="_blank" ng-href="{{resource.url}}">
+                        <span>
+                           <i class="fa fa-bar-chart" ></i>
+                           Previsualización
+                        </span>
+                        <span ng-if="explore.type == 'download'">
+                           <i class="fa fa-download"></i>
+                           Descargar
+                        </span>
+                        <span ng-if="explore.type == 'info'">
+                           <i class="fa fa-info-circle"></i>
+                           Más información
+                        </span>
+                        <span ng-if="explore.type == 'goto'">
+                           <i class="fa fa-external-link"></i>
+                           Ir al recurso
+                        </span>
+                     </a>
+               </li>
+            </ul>
+         </div>
+      </li>
+   </ul>
+=======
+    <h3>Recursos y descargas </h3>  
+    <div class="resource-list">    
         <div class="resource-item"  ng-repeat="resource in info.files">
             <h3>{{resource.name}}</h3>
             <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt}}<span class="dataset-latest-update-date"></span></div>
@@ -65,4 +107,5 @@
             </div>
         </div>
     </div>
+>>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
 </section>

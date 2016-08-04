@@ -1,6 +1,56 @@
 (function() {
     var app = angular.module('store-factories', []);
 
+<<<<<<< HEAD
+   app.factory('rest', ['$resource', '$location','$rootScope','ngProgressFactory', function($resource, $location,$rootScope,ngProgressFactory) {
+        $rootScope.progressbar = ngProgressFactory.createInstance();
+       return function($url) {
+            $rootScope.progressbar.start();
+           // var token=$rootScope.globals.currentUser.token;
+            var token = "token";
+
+            $url = ( $url == null ) ? $rootScope.url + '/:type' : $url;
+
+            return $resource($url, {type: ''}, {
+                get: {
+                    url: $url + "?:params",
+                    method: 'GET',
+                    headers: { 'Authorization': 'JWT '+token},
+                    transformResponse: function (data){
+                        $rootScope.progressbar.complete();
+                        return angular.fromJson(data);
+                    },
+                    interceptor: {responseError: handError}
+                },
+                count: {
+                    url: $url + "/count",
+                    method: 'GET',
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
+                        $rootScope.progressbar.complete();
+                        return angular.fromJson(data);
+                    },
+                    interceptor: {responseError: handError}
+                },
+                getArray: {
+                    url: $url + "/:id/:asociate",
+                    method: 'GET',
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
+                        $rootScope.progressbar.complete();
+                        var json= JSON.parse(data);
+                        return json.data;
+                    },
+                    isArray: true,
+                    interceptor: {responseError: handError}
+                },
+                findOne: {
+                    url: $url + "/:id?:params",
+                    method: 'GET',
+                    headers: { 'Authorization': 'JWT ' + token},
+                    transformResponse: function (data){
+                        if(data){
+=======
     app.factory('rest', ['$resource', '$location', '$rootScope', 'ngProgressFactory', function($resource, $location, $rootScope, ngProgressFactory) {
             $rootScope.progressbar = ngProgressFactory.createInstance();
             return function($url) {
@@ -9,6 +59,7 @@
                 var token = "token";
                 $url = ($url == null) ? $rootScope.url + '/:type' : $url;
                 return $resource($url, {type: ''}, {
+                    update: {method: 'PUT'},
                     get: {
                         url: $url + "?:params",
                         method: 'GET',
@@ -24,6 +75,7 @@
                         method: 'GET',
                         headers: {'Authorization': 'JWT ' + token},
                         transformResponse: function(data) {
+>>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
                             $rootScope.progressbar.complete();
                             return angular.fromJson(data);
                         },
@@ -43,6 +95,38 @@
                             responseError: handError
                         }
                     },
+<<<<<<< HEAD
+                    interceptor: {responseError: handError}
+                },
+                'save': {
+                      url: $url,
+                      method: 'POST',
+                      headers: { 'Authorization': 'JWT ' + token },
+                      interceptor: {responseError: handError},
+                      transformResponse: function (data){
+                            if(data){
+                                    $rootScope.progressbar.complete();
+                                    return angular.fromJson(data);
+                            }else{
+                                $rootScope.progressbar.complete();
+                            }
+                        }
+                },
+                'saveWithData': {
+                      url: $url,
+                      method: 'POST',
+                      headers: { 'Authorization': 'JWT '+token ,'Content-Type':undefined},
+                      transformRequest: function(data, headersGetter) {
+                        // Here we set the Content-Type header to null.
+                        var headers = headersGetter();
+                        headers['Content-Type'] = undefined;
+
+                        // And here begins the logic which could be used somewhere else
+                        // as noted above.
+                        if (data == undefined) {
+                          return data;
+                        }
+=======
                     getArray: {
                         url: $url + "/:id/:asociate",
                         method: 'GET',
@@ -98,6 +182,7 @@
                             if (data == undefined) {
                                 return data;
                             }
+>>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
 
                             var fd = new FormData();
 
@@ -137,6 +222,35 @@
                                 });
                             }
 
+<<<<<<< HEAD
+                        addToFd(data, []);
+
+                        return fd;
+                      },
+                      interceptor: {responseError: handError},
+                    },
+                'delete': {
+                      url: $url+"/:id",
+                      method: 'DELETE',
+                      headers: { 'Authorization': 'JWT '+token },
+                      interceptor: {responseError: handError},
+                      transformResponse:function (data){
+                        $rootScope.progressbar.complete();
+                        return angular.fromJson(data);
+                        }
+                    },
+                'update': {
+                      url: $url+"/:id",
+                      method: 'PATCH',
+                      headers: { 'Authorization': 'JWT '+token },
+                      interceptor: {responseError: handError},
+                      transformResponse:function (data){
+                            if(data){
+
+                                    $rootScope.progressbar.complete();
+                                    return angular.fromJson(data);
+                            }else{
+=======
                             addToFd(data, []);
 
                             return fd;
@@ -164,12 +278,18 @@
                                 $rootScope.progressbar.complete();
                                 return angular.fromJson(data);
                             } else {
+>>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
                                 $rootScope.progressbar.complete();
                             }
                         }
                     }
+<<<<<<< HEAD
+            });
+        }
+=======
                 });
             }
+>>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
 
 
             function handError(e) {
@@ -197,5 +317,6 @@
             }
         }]);
 })();
+
 
 
