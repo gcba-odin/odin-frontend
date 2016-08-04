@@ -1,15 +1,41 @@
 (function() {
     var app = angular.module('store-directives-dataset', []);
 
-
-
-   app.directive("resourcesDataset", function() {
+    app.directive("resourcesDataset", function() {
         return {
             restrict: "E",
             templateUrl: "directives/dataset/resources-datasets.html",
-      
             controller: function($scope) {
+                $scope.toggleDropdown = function(event)
+                {
+                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
+                    {
+                        $(event.target).next().addClass('dataset-additional-info-table-active');
+                        $(event.target).next().removeClass('dataset-additional-info-table-inactive');
+                        $(event.target).addClass('dataset-additional-info-active');
+                    }
+                    else
+                    {
+                        $(event.target).next().addClass('dataset-additional-info-table-inactive');
+                        $(event.target).next().removeClass('dataset-additional-info-table-active');
+                        $(event.target).removeClass('dataset-additional-info-active');
+                    }
+                };
 
+                $scope.type_resource = 'charts';
+                $scope.toogleTypeResource = function(type, obj) {
+                    obj.type_resource = type;
+                }
+
+                $scope.toogleTypeChart = function(type, obj) {
+                    obj.type_chart = type;
+                };
+
+                $scope.center = {
+                    lat: -34.603722,
+                    lng: -58.381592,
+                    zoom: 13
+                };
             },
             controllerAs: "resources"
         };
@@ -20,7 +46,6 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/tags-datasets.html",
-      
             controller: function($scope) {
 
             },
@@ -32,7 +57,6 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/aditional-info-dataset.html",
-      
             controller: function($scope) {
 
             },
@@ -44,7 +68,6 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/organizations-dataset.html",
-      
             controller: function($scope) {
 
             },
@@ -52,11 +75,10 @@
         };
     });
 
-        app.directive("socialsDataset", function() {
+    app.directive("socialsDataset", function() {
         return {
             restrict: "E",
             templateUrl: "directives/dataset/socials-dataset.html",
-      
             controller: function($scope) {
 
             },
@@ -64,5 +86,10 @@
         };
     });
 
+    app.filter('trustUrl', ['$sce', function($sce) {
+            return function(url) {
+                return $sce.trustAsResourceUrl(url);
+            };
+        }])
 
 })();

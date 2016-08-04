@@ -5,38 +5,37 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/result-datasets.html",
-
-            controller: function ($scope, rest) {
+            controller: function($scope, rest) {
                 $scope.stats = {};
 
                 rest().get({
-                        type: "datasets",
-                        params: "include=files,tags,categories"
-                    }, function(datasets) {
-                        angular.forEach( datasets.data, function ( element )
-                        {
-                            rest().get({
-                                type: "statistics",
-                                params: "resource=Dataset&endpoint=" + element['id'] + "/download&match=ENDS&condition=AND"
-                            }, function(result) {
-                                $scope.stats[element['id']] = { downloads: (result.meta.count ? result.meta.count : 0) };
-                            });
+                    type: "datasets",
+                    params: "include=files,tags,categories"
+                }, function(datasets) {
+                    angular.forEach(datasets.data, function(element)
+                    {
+                        rest().get({
+                            type: "statistics",
+                            params: "resource=Dataset&endpoint=" + element['id'] + "/download&match=ENDS&condition=AND"
+                        }, function(result) {
+                            $scope.stats[element['id']] = {downloads: (result.meta.count ? result.meta.count : 0)};
                         });
                     });
+                });
 
-                $scope.toggleDropdown = function ( event )
+                $scope.toggleDropdown = function(event)
                 {
                     if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
                     {
-                        $(event.target).next().addClass( 'dataset-additional-info-table-active');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-inactive' );
-                        $( event.target ).addClass('dataset-additional-info-active');
+                        $(event.target).next().addClass('dataset-additional-info-table-active');
+                        $(event.target).next().removeClass('dataset-additional-info-table-inactive');
+                        $(event.target).addClass('dataset-additional-info-active');
                     }
                     else
                     {
                         $(event.target).next().addClass('dataset-additional-info-table-inactive');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-active' );
-                        $( event.target ).removeClass('dataset-additional-info-active');
+                        $(event.target).next().removeClass('dataset-additional-info-table-active');
+                        $(event.target).removeClass('dataset-additional-info-active');
                     }
                 };
             },
@@ -48,7 +47,6 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/organizations-results.html",
-
             controller: function($scope, rest) {
                 $scope.limitOrganizations = 0;
                 $scope.organizations = [];
@@ -114,7 +112,7 @@
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                             $scope.filetypes.push($scope.resultFormats.data[i]);
                         }
-                        });
+                    });
                     $scope.datasetCount = {};
                 }
                 $scope.loadFormats(0);

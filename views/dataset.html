@@ -1,41 +1,64 @@
 <div role="main">
-   <div id="content" class="container">
-      <div class="flash-messages">
-      </div>
-      <div class="toolbar">
-         <ol class="breadcrumb">
-            <!-- Snippet snippets/home_breadcrumb_item.html start -->
-            <li class="breadcrumb-item"><a ng-href="#/">INICIO</a></li>
-            <li class="breadcrumb-item"><a ng-href="#/datasets">DATASETS</a></li>
-            <!-- Snippet snippets/home_breadcrumb_item.html end -->
-            <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
-            <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
-            <li class="active"><a class=" active" ng-href="#/dataset/{{info.id | lowercase}}">{{info.name | truncString}}</a></li>
-         </ol>
-      </div>
-      <div class=" wrapper">
-         <div class="primary col-md-12">
-            <article class="module">
-               <header class="module-content page-header">
-                  <ul class="nav nav-tabs">
-                     <li class="active"><a ng-href="#/dataset/{{info.id | lowercase}}"><i class="fa fa-sitemap"></i> Conjunto de datos</a></li>
-                  </ul>
-               </header>
-               <div class="module-content">
-                  <h1>
-                     {{info.name}}
-                  </h1>
-                  <div class="notes embedded-content">
-                     <p ng-bind-html="getHtml(info.description)"></p>
-                  </div>
-                  <span class="insert-comment-thread"></span>
-                    <resources-dataset></resources-dataset>
-					<tags-dataset></tags-dataset>
-	                <aditional-info-dataset></aditional-info-dataset>
-               </div>
-            </article>
-         </div>
-        <!-- <aside class="secondary col-md-3">
+    <div id="content" class="container">
+        <div class="flash-messages">
+        </div>
+        <div class="toolbar">
+            <ol class="breadcrumb">
+                <!-- Snippet snippets/home_breadcrumb_item.html start -->
+                <li class="breadcrumb-item"><a ng-href="#/">INICIO</a></li>
+                <li class="breadcrumb-item"><a ng-href="#/datasets">DATASETS</a></li>
+                <!-- Snippet snippets/home_breadcrumb_item.html end -->
+                <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
+                <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
+                <li class="active"><a class=" active" ng-href="#/dataset/{{info.id| lowercase}}">{{info.name| truncString}}</a></li>
+            </ol>
+        </div>
+        <div class=" wrapper">
+            <div class="primary col-md-12">
+                <article class="module">
+                    <header class="module-content page-header">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a ng-href="#/dataset/{{info.id| lowercase}}"><i class="fa fa-sitemap"></i> Conjunto de datos</a></li>
+                        </ul>
+                    </header>
+                    <div class="module-content">
+                        <h1>
+                            {{info.name}}
+                        </h1>
+                        <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt}}<span class="dataset-latest-update-date"></span></div>
+                        <div class="notes embedded-content">
+                            <p ng-bind-html="getHtml(info.description)"></p>
+                        </div>
+                        <ul class="dataset-resources unstyled">
+                            <!--<li ng-repeat="resource in result.files">
+                                <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name|| lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>
+                            </li>-->
+                            <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
+                                <thead>
+                                    <tr>
+                                        <th>Campo</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="adt_info in info.additional_info">
+                                        <td>{{adt_info.clave}}</td>
+                                        <td>{{adt_info.valor}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ul>
+                        <span class="insert-comment-thread"></span>
+                        <tags-dataset></tags-dataset>
+                        <span class="insert-comment-thread"></span>
+                        <resources-dataset></resources-dataset>
+
+                        <!--<aditional-info-dataset></aditional-info-dataset>-->
+                    </div>
+                </article>
+            </div>
+            <!-- <aside class="secondary col-md-3">
             <section class="module module-narrow">
                <div class="module context-info">
                   <div class="module-content">
@@ -62,6 +85,6 @@
                </p>
             </section>
          </aside>-->
-      </div>
-   </div>
+        </div>
+    </div>
 </div>

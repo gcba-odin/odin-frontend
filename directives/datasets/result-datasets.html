@@ -1,36 +1,38 @@
 <ul class="dataset-list unstyled">
-   <li class="dataset-item clearfix" ng-repeat="result in datasets">
-      <div class="dataset-content">
-          <span class="dataset-category-icon {{category.name | slug }}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
-          </span>
-         <h3 class="dataset-heading">
-            <a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>
-         </h3>
-         <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
-         <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
-      </div>
-      <ul class="dataset-resources unstyled">
-         <li ng-repeat="resource in result.files">
-            <a ng-href="#/resource/{{resource.id | lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name || lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>
-         </li>
-         <li class="dataset-additional-info" ng-click="toggleDropdown($event)">Info adicional</li>
-         <table class="dataset-additional-info-table dataset-additional-info-table-inactive">
-             <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                </tr>
-             </thead>
-             <tbody>
-                 <tr ng-repeat="(key, value) in result">
-                    <td>{{key}}</td>
-                    <td>{{value}}</td>
-                </tr>
-             </tbody>
-         </table>
+    <li class="dataset-item clearfix" ng-repeat="result in datasets">
+        <div class="dataset-content">
+            <span class="dataset-category-icon {{category.name| slug }}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
+            </span>
+            <h3 class="dataset-heading">
+                <a ng-href="#/dataset/{{result.id| lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>
+            </h3>
+            <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
+            <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
+            <div class="dataset-latest-update">Publicado por {{getHtml(result.owner.fullName)}}</div>
+            <div ng-if="result.notes" class="dataset-description" ng-bind-html="getHtml(result.notes)"></div>
+        </div>
+        <ul class="dataset-resources unstyled">
+            <!--<li ng-repeat="resource in result.files">
+                <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name|| lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>
+            </li>-->
+            <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="result.additional_info && result.additional_info.length > 0">Info adicional</li>
+            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="result.additional_info && result.additional_info.length > 0">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="adt_info in result.additional_info">
+                        <td>{{adt_info.clave}}</td>
+                        <td>{{adt_info.valor}}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-         <a href="{{result.id}}" data-tooltip="Descargar ZIP" class="widget-item-footer-download-link"></a>
-         <span class="dataset-statistics">{{stats[result.id].downloads}} descargas / 10 vistas</span>
-      </ul>
-   </li>
+            <a href="{{result.url_api + '/' + result.id + '/download'}}" data-tooltip="Descargar ZIP" class="widget-item-footer-download-link"></a>
+            <span class="dataset-statistics">{{stats[result.id].downloads}} descargas / 10 vistas</span>
+        </ul>
+    </li>
 </ul>

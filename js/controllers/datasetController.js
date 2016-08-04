@@ -1,4 +1,4 @@
-var app = angular.module( 'odin.datasetControllers', [] );
+var app = angular.module('odin.datasetControllers', []);
 
 app.factory('model', function($resource) {
     return $resource();
@@ -14,7 +14,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
         params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
     });
 
-    $scope.url = function ( id )
+    $scope.url = function(id)
     {
         return $rootScope.url + '/datasets/' + id + '/download'
     };
@@ -30,7 +30,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
         params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
     });
 
-    $scope.url = function ( id )
+    $scope.url = function(id)
     {
         return $rootScope.url + '/datasets/' + id + '/download'
     };
@@ -83,6 +83,28 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         }
 
         $scope.tags = tags;
+
+        $scope.info.additional_info = [];
+        for (obj in $scope.info) {
+            if (obj.indexOf("optional") != -1) {
+                if (!!$scope.info[obj]) {
+                    var valores = $scope.info[obj].split("|");
+                    $scope.info.additional_info.push({
+                        clave: valores[0],
+                        valor: valores[1],
+                    });
+                }
+            }
+        }
+
+        for (obj in $scope.info.files) {
+            if (!!$scope.info.files[obj]) {
+                $scope.info.files[obj].resources = rest().resources({
+                    id: $scope.info.files[obj].id,
+                    type: 'files'
+                });
+            }
+        }
     });
 
 
@@ -129,7 +151,21 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             params: "sort=" + $scope.sorting + "&include=files,tags,categories&limit=20&skip=" + $scope.limitResults + query
         }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
-                $scope.datasets.push($scope.resultDatasetsSearch.data[i])
+                var dataset = $scope.resultDatasetsSearch.data[i];
+                dataset.additional_info = [];
+                for (obj in $scope.resultDatasetsSearch.data[i]) {
+                    if (obj.indexOf("optional") != -1) {
+                        if (!!$scope.resultDatasetsSearch.data[i][obj]) {
+                            var valores = $scope.resultDatasetsSearch.data[i][obj].split("|");
+                            dataset.additional_info.push({
+                                clave: valores[0],
+                                valor: valores[1],
+                            });
+                        }
+                    }
+                }
+                dataset.url_api = $scope.resultDatasetsSearch.links.all;
+                $scope.datasets.push(dataset);
             }
             $scope.showLoading = false;
             $scope.count = result.meta.count;

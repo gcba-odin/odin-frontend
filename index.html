@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="odin">
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/default-theme/typography.css">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/default-theme/typography.css">
+        <link rel="stylesheet" href="css/dataset.css">
 
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="theme-color" content="#ffffff">
-    <title ng-bind="header"></title>
-</head>
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+        <title ng-bind="header"></title>
+    </head>
 
-<body>
-    <nav class="navbar navbar-fixed-top navbar-theme">
-        <div class="container">
-            <a href="/">
-                <span class="navbar-site-logo">Espacio para logo institucional</span>
-            </a>
-            <a href="/">
-                <span class="navbar-ba-logo"></span>
-            </a>
-        </div>
-    </nav>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-theme">
+            <div class="container">
+                <a ng-href="#/">
+                    <span class="navbar-site-logo">Espacio para logo institucional</span>
+                </a>
+                <a ng-href="#/">
+                    <span class="navbar-ba-logo"></span>
+                </a>
+            </div>
+        </nav>
 
     <branding-data></branding-data>
     <div ng-view></div>
@@ -59,7 +60,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
 
-    </script>
+    <script src="plugins/chartjs/Chart.min.js"></script>
+    <script src="plugins/chartjs/angular-chart.min.js"></script>
+
+    <script src="plugins/leaflet/leaflet.js"></script>
+    <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
+
+</script>
 </body>
 
 </html>
