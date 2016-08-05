@@ -1143,6 +1143,7 @@ h2 {
     font-weight: 600;
     color: #4D4D4D;
     cursor: pointer;
+    margin-left: 2px;
 }
 
 .dataset-additional-info:after {
