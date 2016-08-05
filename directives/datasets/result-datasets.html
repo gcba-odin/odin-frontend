@@ -8,7 +8,6 @@
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
             <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
-            <div class="dataset-latest-update">Publicado por {{getHtml(result.owner.fullName)}}</div>
             <div ng-if="result.notes" class="dataset-description" ng-bind-html="getHtml(result.notes)"></div>
         </div>
         <ul class="dataset-resources unstyled">
