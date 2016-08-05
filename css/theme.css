@@ -132,12 +132,12 @@ ul {
     color: white;
 }
 
-.navbar-ba-logo {
-    background-image: url("../images/ba-logo.svg");
+.navbar-odin-logo {
+    background-image: url("../images/odin-logo.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    width: 110px;
+    width: 62px;
     height: 20px;
     float: right;
 }
