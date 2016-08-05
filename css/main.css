@@ -9352,7 +9352,6 @@ h4 small {
   [role=main],
   .main {
     padding-top: 10px;
-    background: #eeeeee url("../images/bg.png");
   }
 }
 
@@ -9762,7 +9761,6 @@ h4 small {
   *zoom: 1;
   min-height: 30px;
   color: #ffffff;
-  background: #003647 url("../images/bg.png");
 }
 
 .account-masthead:before,
@@ -9864,7 +9862,6 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../images/bg.png");
 }
 
 .masthead:before,
@@ -10023,7 +10020,6 @@ h4 small {
   *zoom: 1;
   min-height: 55px;
   color: #ffffff;
-  background: #005d7a url("../images/bg.png");
   padding: 20px 0;
 }
 
@@ -10776,10 +10772,6 @@ h4 small {
   color: #009900;
 }
 
-body {
-  background: #005d7a url("../images/bg.png");
-}
-
 [hidden] {
   display: none;
 }
@@ -10957,7 +10949,6 @@ iframe {
 .ie8 .main,
 .ie7 .main {
   padding-top: 10px;
-  background: #eeeeee url("../images/bg.png");
 }
 
 .ie8 .hero,
