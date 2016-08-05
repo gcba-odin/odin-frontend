@@ -1,36 +1,62 @@
-<ul class="dataset-list unstyled">
-   <h2 class="list-heading">Recursos y descargas</h2>
-   <li class="dataset-item clearfix" ng-repeat="result in info.files">
-      <div class="dataset-content">
-         <span class="dataset-category-icon {{category.name | slug}}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
-         </span>
-         <h3 class="dataset-heading">
-            <a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>
-         </h3>
-         <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
-         <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
-      </div>
-      <ul class="dataset-resources unstyled">
-         <li ng-repeat="resource in info.files">
-            <a ng-href="#/resource/{{resource.id | lowercase}}" data-format="{{fileTypes[resource.type]}}" class="label" data-format="{{fileTypes[resource.type] || lowercase}}">{{fileTypes[resource.type] | uppercase}}</a>
-         </li>
-         <li class="dataset-additional-info" ng-click="toggleDropdown($event)">Info adicional</li>
-         <table class="dataset-additional-info-table dataset-additional-info-table-inactive">
-             <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                </tr>
-             </thead>
-             <tbody>
-                 <tr ng-repeat="(key, value) in result">
-                    <td>{{key}}</td>
-                    <td>{{value}}</td>
-                </tr>
-             </tbody>
-         </table>
-         <a href="{{result.id}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
-         <a href="{{result.id}}" class="widget-item-footer-link widget-item-footer-preview-link"></a>
-      </ul>
-   </li>
-</ul>
+<div class="dataset-list unstyled">
+    <h2 class="list-heading">Recursos y descargas</h2>
+    <div class="dataset-item clearfix"  ng-repeat="resource in info.files">
+        <div class="dataset-content">
+            <!--<span class="dataset-category-icon {{category.name| slug}}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
+            </span>-->
+            <h3 class="dataset-heading">
+                {{resource.name}}
+                <!--<a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>-->
+            </h3>
+            <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
+            <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
+        </div>
+        <div class="dataset-resources unstyled">
+            <div ng-repeat="resource in info.files">
+                <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" class="label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+            </div>
+            <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
+            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="adt_info in resource.additional_info">
+                        <td>{{adt_info.clave}}</td>
+                        <td>{{adt_info.valor}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{{resource.url}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
+            <a ng-click="toggleDropdown($event)" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link"></a>
+            
+                <div class="dataset-additional-info-table dataset-additional-info-table-inactive">
+                    <span ng-if="!!resource.resources.data.charts" ng-click="toogleTypeResource('charts', resource)">Gráfico</span>
+                    <span ng-if="!!resource.resources.data.maps" ng-click="toogleTypeResource('maps', resource)">Mapa</span>
+                    <span ng-if="!!resource.resources.data.tables" ng-click="toogleTypeResource('tables', resource)">Tabla</span>
+                    <div>
+                        <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+                            <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
+                        </div>
+                        <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+                            <leaflet ng-if="!map.link" lf-center="center" id="iframeDiv" geojson="map.geojson"></leaflet>
+                            <iframe id="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+                            <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
+                        </div>
+                        <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+                            <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
+                            <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type"
+                                    chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
