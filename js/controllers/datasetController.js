@@ -84,7 +84,6 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         }
 
         $scope.tags = tags;
-<<<<<<< HEAD
         $scope.fileTypes = {};
 
         result.files.forEach(function (element) {
@@ -95,8 +94,6 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
                     $scope.fileTypes[element.type] = resultFileType.name;
                 });
         }, this );
-        });
-=======
 
         $scope.info.additional_info = [];
         for (obj in $scope.info) {
@@ -120,7 +117,6 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
             }
         }
     });
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
 
     $scope.toggleDropdown = function ( event )
                 {

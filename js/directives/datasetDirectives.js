@@ -1,20 +1,10 @@
 (function() {
     var app = angular.module('store-directives-dataset', []);
 
-<<<<<<< HEAD
-
-
    app.directive("resultResources", function() {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/result-resources.html",
-
-=======
-    app.directive("resourcesDataset", function() {
-        return {
-            restrict: "E",
-            templateUrl: "directives/dataset/resources-datasets.html",
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
             controller: function($scope) {
                 $scope.toggleDropdown = function(event)
                 {
@@ -56,10 +46,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/tags-datasets.html",
-<<<<<<< HEAD
 
-=======
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
             controller: function($scope) {
 
             },
@@ -71,10 +58,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/aditional-info-dataset.html",
-<<<<<<< HEAD
 
-=======
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
             controller: function($scope) {
 
             },
@@ -86,10 +70,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/organizations-dataset.html",
-<<<<<<< HEAD
 
-=======
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
             controller: function($scope) {
 
             },
@@ -101,10 +82,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/socials-dataset.html",
-<<<<<<< HEAD
 
-=======
->>>>>>> 26652dc0b62f68e995e2149400fc56d377b3b011
             controller: function($scope) {
 
             },
