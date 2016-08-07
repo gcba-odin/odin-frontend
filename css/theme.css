@@ -1305,8 +1305,6 @@ h2 {
 
 .toolbar {
     margin-bottom: 45px;
-    width: calc(100% - 70px);
-    float: left;
 }
 
 .toolbar .breadcrumb li:after {
@@ -1316,7 +1314,7 @@ h2 {
     position: relative;
     top: -2px;
     left: 4px;
-    margin-right: 4px;
+    margin-right: 6px;
     font-weight: 500;
 }
 
