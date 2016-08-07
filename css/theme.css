@@ -1399,10 +1399,8 @@ article figcaption,
 }
 
 .categories-grid-item {
-    width: 100px;
-    margin-right: 25px;
-    margin-left: 25px;
-    margin-bottom: 25px;
+    display: block;
+    margin: 0 auto 25px;
 }
 
 .categories-row-item {
