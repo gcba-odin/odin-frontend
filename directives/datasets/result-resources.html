@@ -29,7 +29,7 @@
             </table>
             <div class="resource-actions pull-right">
                 <div class="dropdown no-hover">
-                    <a ng-if="true || !!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+                    <a ng-if="true || !!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-class="{'active': resource.type_resource}"></a>
                     <ul class="dropdown-menu">
                         <li ng-if="true || !!resource.resources.data.tables">
                             <a ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>

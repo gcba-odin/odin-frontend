@@ -3,6 +3,10 @@
   height: 150px;
 }
 
+.widget-item-footer-preview-link.active {
+  color: #FF386a;
+}
+
 .resource-actions .dropdown {
   display: inline-block;
 }
