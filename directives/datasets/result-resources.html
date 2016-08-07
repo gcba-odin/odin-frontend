@@ -12,9 +12,6 @@
             <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
         </div>
         <div class="dataset-resources unstyled">
-            <div ng-repeat="resource in info.files">
-                <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" class="label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
-            </div>
             <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
                 <thead>
@@ -30,33 +27,50 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="{{resource.url}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
-            <a ng-click="toggleDropdown($event)" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link"></a>
-            
-                <div class="dataset-additional-info-table dataset-additional-info-table-inactive">
-                    <span ng-if="!!resource.resources.data.charts" ng-click="toogleTypeResource('charts', resource)">Gráfico</span>
-                    <span ng-if="!!resource.resources.data.maps" ng-click="toogleTypeResource('maps', resource)">Mapa</span>
-                    <span ng-if="!!resource.resources.data.tables" ng-click="toogleTypeResource('tables', resource)">Tabla</span>
-                    <div>
-                        <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
-                            <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
-                        </div>
-                        <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
-                            <leaflet ng-if="!map.link" lf-center="center" id="iframeDiv" geojson="map.geojson"></leaflet>
-                            <iframe id="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
-                        </div>
-                    </div>
-                    <div>
-                        <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
-                            <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
-                        </div>
-                        <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
-                            <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
-                            <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type"
-                                    chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
-                        </div>
-                    </div>
+            <div class="resource-actions pull-right">
+                <div class="dropdown no-hover">
+                    <a ng-if="true || !!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
+                    <ul class="dropdown-menu">
+                        <li ng-if="true || !!resource.resources.data.charts">
+                            <a ng-click="toogleTypeResource('charts', resource)">Gráfico</a>
+                        </li>
+                        <li ng-if="true || !!resource.resources.data.maps">
+                            <a ng-click="toogleTypeResource('maps', resource)">Mapa</a>
+                        </li>
+                        <li ng-if="true || !!resource.resources.data.tables">
+                            <a ng-click="toogleTypeResource('tables', resource)">Gráfico</a>
+                        </li>
+                    </ul>
                 </div>
+                <div class="dropdown no-hover">
+                  <a class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li ng-repeat="resource in info.files">
+                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+            <div>
+                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+                    <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
+                </div>
+                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+                    <leaflet ng-if="!map.link" lf-center="center" id="iframeDiv" geojson="map.geojson"></leaflet>
+                    <iframe id="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
+                </div>
+            </div>
+            <div>
+                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+                    <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
+                </div>
+                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+                    <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
+                    <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type"
+                            chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </div>

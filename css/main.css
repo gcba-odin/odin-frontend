@@ -1,6 +1,7 @@
 a {
   color: #187794;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .module-content {
@@ -10519,12 +10520,8 @@ h4 small {
   background-color: #8ba669;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
 .js .dropdown .dropdown-menu,
-.js .dropdown:hover .dropdown-menu {
+.js .dropdown:hover .dropdown-menu{
   display: none;
 }
 
@@ -11180,7 +11177,7 @@ iframe {
   display: none
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover:not(.no-hover) .dropdown-menu {
   display: block;
   margin: 0px;
 }
