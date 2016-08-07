@@ -31,14 +31,14 @@
                 <div class="dropdown no-hover">
                     <a ng-if="true || !!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
                     <ul class="dropdown-menu">
+                        <li ng-if="true || !!resource.resources.data.tables">
+                            <a ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>
+                        </li>
                         <li ng-if="true || !!resource.resources.data.charts">
-                            <a ng-click="toogleTypeResource('charts', resource)">Gráfico</a>
+                            <a ng-click="toogleTypeResource('charts', resource)">Ver gráfico</a>
                         </li>
                         <li ng-if="true || !!resource.resources.data.maps">
-                            <a ng-click="toogleTypeResource('maps', resource)">Mapa</a>
-                        </li>
-                        <li ng-if="true || !!resource.resources.data.tables">
-                            <a ng-click="toogleTypeResource('tables', resource)">Tabla</a>
+                            <a ng-click="toogleTypeResource('maps', resource)">Ver mapa</a>
                         </li>
                     </ul>
                 </div>
