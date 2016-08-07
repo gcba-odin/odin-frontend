@@ -19,9 +19,15 @@
   padding: 0;
 }
 
+.resource-actions .dropdown-menu a {
+  font-weight: bold;
+  padding: 3px 8px;
+}
+
 .resource-actions .dropdown-menu a:hover {
   background-color: #FFb600;
   background-image: none;
+  color: white;
   margin-left: -1px;
   margin-right: -1px;
 }
