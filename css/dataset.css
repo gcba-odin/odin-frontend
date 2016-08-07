@@ -11,3 +11,25 @@
   display: block;
   float: none;
 }
+
+.resource-actions .dropdown-menu {
+  border: 1px black solid;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.resource-actions .dropdown-menu a:hover {
+  background-color: #FFb600;
+  background-image: none;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.resource-actions .dropdown-menu a:first-child:hover {
+  margin-top: -1px;
+}
+
+.resource-actions .dropdown-menu a:last-child:hover {
+  margin-bottom: -1px;
+}
