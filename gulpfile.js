@@ -20,6 +20,7 @@ gulp.task('serve', ['ngConfig'], function() {
 
 gulp.task('watch', ['serve'], function () {
   gulp.watch([
+    'index.html',
     'directives/**/*.html',
     'views/**/*.html',
     'js/**/*.js',

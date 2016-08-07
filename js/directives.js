@@ -1,6 +1,17 @@
 (function() {
   var app = angular.module( 'store-directives', [ "store-directives-home", "store-directives-dataset", "store-directives-datasets" ] );
 
+  app.directive('threeDots', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attributes) {
+        $(element).dotdotdot({
+          height: 100, wrap: 'letter'
+        });
+      }
+    };
+  });
+
     app.directive('brandingData', function() {
       return {
         restrict: 'E',
