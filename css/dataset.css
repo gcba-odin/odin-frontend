@@ -28,8 +28,10 @@
 
 .resource-actions .dropdown-menu a:first-child:hover {
   margin-top: -1px;
+  padding-top: 4px;
 }
 
 .resource-actions .dropdown-menu a:last-child:hover {
   margin-bottom: -1px;
+  padding-bottom: 4px;
 }
