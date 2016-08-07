@@ -1,0 +1,7 @@
+{
+  "name": "odin-frontend",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-ng-config": "^1.3.1"
+  }
+}

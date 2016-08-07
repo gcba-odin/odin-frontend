@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "config-odin","ngResource","ngProgress","odin.controllers","store-directives", "store-factories", "chart.js", "leaflet-directive"]);
+    var app = angular.module('odin', ["ngRoute", "odin.config","ngResource","ngProgress","odin.controllers","store-directives", "store-factories", "chart.js", "leaflet-directive"]);
     app.config(function($routeProvider) {
         $routeProvider
             .when("/", {
@@ -46,6 +46,10 @@
         };
     }
 
+    app.run(run);
 
-
+    function run($rootScope, $location, $http, EnvironmentConfig) {
+        $rootScope.url = EnvironmentConfig.api;
+        $rootScope.absUrl = $location.absUrl();
+    }
 })();
