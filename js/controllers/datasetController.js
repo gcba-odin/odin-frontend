@@ -62,8 +62,9 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams )
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService)
 {
+    LocationSearchService.init();
     $scope.type = "datasets";
 
     $scope.info = rest().findOne({
@@ -139,8 +140,9 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     };
 }
 
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams) {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService) {
     //Flash.clear();
+    LocationSearchService.init();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
     $rootScope.header = "Datasets List";

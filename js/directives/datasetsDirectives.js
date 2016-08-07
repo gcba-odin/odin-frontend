@@ -121,28 +121,33 @@
         };
     });
 
-    app.directive("orderResult", function() {
+    app.directive("orderResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/order-results.html",
-            controller: function($scope, rest) {
-                $scope.limitOrder = 0;
-                $scope.order = [];
-                $scope.resultOrder = [];
-                $scope.loadOrder = function(limit) {
-                    $scope.limitOrder += limit;
-                    $scope.resultOrder = rest().get({
-                        type: "datasets",
-                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrder
-                    }, function() {
-                        for (var i = 0; i < $scope.resultOrder.data.length; i++) {
-                            $scope.order.push($scope.resultOrder.data[i])
-                        }
-                    });
-
-                }
-                $scope.loadOrder(0);
-
+            controller: function($scope) {
+                $scope.orderings = [
+                    {
+                        name: 'Nombre',
+                        property: 'name',
+                        active: LocationSearchService.isActive('order', 'name')
+                    }, {
+                        name: 'Fecha de publicación',
+                        property: 'createdAt',
+                        active: LocationSearchService.isActive('order', 'createdAt')
+                    }, {
+                        name: 'Más visitados',
+                        property: 'GoogleAnalytics',
+                        active: LocationSearchService.isActive('order', 'GoogleAnalytics')
+                    }
+                ];
+                $scope.selectOrder = function(order) {
+                    if(order.active) {
+                        LocationSearchService.deleteFilter('order');
+                    } else {
+                        LocationSearchService.setFilter('order', order.property);
+                    }
+                };
             },
             controllerAs: "licences"
         };
