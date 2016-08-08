@@ -96,18 +96,19 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
                 });
         }, this );
 
-        $scope.info.additional_info = [];
-        for (obj in $scope.info) {
-            if (obj.indexOf("optional") != -1) {
-                if (!!$scope.info[obj]) {
-                    var valores = $scope.info[obj].split("|");
-                    $scope.info.additional_info.push({
-                        clave: valores[0],
-                        valor: valores[1],
-                    });
-                }
-            }
-        }
+        //TODO: this code below isn't working with the updated api
+        // $scope.info.additional_info = [];
+        // for (obj in $scope.info) {
+        //     if (obj.indexOf("optional") != -1) {
+        //         if (!!$scope.info[obj]) {
+        //             var valores = $scope.info[obj].split("|");
+        //             $scope.info.additional_info.push({
+        //                 clave: valores[0],
+        //                 valor: valores[1],
+        //             });
+        //         }
+        //     }
+        // }
 
         for (obj in $scope.info.files) {
             if (!!$scope.info.files[obj]) {
@@ -174,18 +175,19 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];
-                dataset.additional_info = [];
-                for (obj in $scope.resultDatasetsSearch.data[i]) {
-                    if (obj.indexOf("optional") != -1) {
-                        if (!!$scope.resultDatasetsSearch.data[i][obj]) {
-                            var valores = $scope.resultDatasetsSearch.data[i][obj].split("|");
-                            dataset.additional_info.push({
-                                clave: valores[0],
-                                valor: valores[1],
-                            });
-                        }
-                    }
-                }
+                //TODO: this code below isn't working with the updated api
+                // dataset.additional_info = [];
+                // for (obj in $scope.resultDatasetsSearch.data[i]) {
+                //     if (obj.indexOf("optional") != -1) {
+                //         if (!!$scope.resultDatasetsSearch.data[i][obj]) {
+                //             var valores = $scope.resultDatasetsSearch.data[i][obj].split("|");
+                //             dataset.additional_info.push({
+                //                 clave: valores[0],
+                //                 valor: valores[1],
+                //             });
+                //         }
+                //     }
+                // }
                 dataset.url_api = $scope.resultDatasetsSearch.links.all;
                 $scope.datasets.push(dataset);
             }
