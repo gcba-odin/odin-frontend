@@ -73,7 +73,7 @@
                     }
                 };
                 $scope.removeAll = function() {
-                    LocationSearchService.deleteFilter('tags');
+                    LocationSearchService.deleteFilter('organizations');
                 };
             },
             controllerAs: "organizations"

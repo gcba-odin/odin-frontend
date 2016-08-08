@@ -1,10 +1,10 @@
-    <div class="categories-container categories-row-container">
-        <a href="#/datasets/?cat={{ item.name | slug }}" class="categories-item categories-row-item" ng-repeat="item in categories.data">
-            <span class="categories-row-item-image {{ item.name | slug }}"></span>
-            <h4 class="categories-item-title categories-row-item-title">{{item.name}}</h4>
-        </a>
-    </div>
+<div class="categories-container categories-row-container">
+    <a href="#/datasets?category={{ item.name | slug }}" class="categories-item categories-row-item" ng-repeat="item in categories.data">
+        <span class="categories-row-item-image {{ item.name | slug }}"></span>
+        <h4 class="categories-item-title categories-row-item-title">{{item.name}}</h4>
+    </a>
+</div>
 
-    <div class="row center-spin" ng-if="showCategories">
-        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-    </div>
+<div class="row center-spin" ng-if="showCategories">
+    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+</div>

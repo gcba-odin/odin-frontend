@@ -141,37 +141,36 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
 }
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService) {
-    //Flash.clear();
     LocationSearchService.init();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
     $rootScope.header = "Datasets List";
-
-    $scope.sorting = "ASC";
-    $scope.term = $routeParams.q;
-
-    var query = "";
+    $scope.params = {
+        sort: 'ASC',
+        // include: 'files,tags,categories',
+        limit: 20,
+        skip: 0
+    };
 
     if ($routeParams.query) {
-        query += '&where={"name":{"contains":"' + $routeParams.query + '"}}';
+        $scope.params.query = 'where={"name":{"contains":"' + $routeParams.query + '"}}';
     }
 
     $scope.datasets = [];
-    $scope.limitResults = 0;
     $scope.resultDatasetsSearch = [];
     $scope.showLoading = true;
 
     $scope.loadResults = function(limit) {
         $scope.showLoading = true;
         if (limit) {
-            $scope.limitResults += limit;
+            $scope.params.skip += limit;
         } else {
-            $scope.limitResults = 0;
+            $scope.params.skip = 0;
             $scope.datasets = [];
         }
         $scope.resultDatasetsSearch = rest().get({
             type: $scope.type,
-            params: "sort=" + $scope.sorting + "&include=files,tags,categories&limit=20&skip=" + $scope.limitResults + query
+            params: $.param($scope.params) //TODO: check why it's not accepting an object
         }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];
@@ -200,9 +199,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     };
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
-    };
-    $scope.search = function() {
-        $location.url('/datasets?q=' + $scope.term);
     };
     $scope.loadResults(0);
 }
