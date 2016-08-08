@@ -401,7 +401,11 @@ ul {
     background-image: url("../images/categories/urbanismo-e-infraestructura.svg");
 }
 
-.categories-grid-item:hover .urbanismo-e-infraestructura, .categories-row-item:hover .urbanismo-e-infraestructura {
+.categories-grid-item:hover .urbanismo-e-infraestructura,
+.categories-row-item:hover .urbanismo-e-infraestructura,
+.categories-grid-item.active .urbanismo-e-infraestructura,
+.categories-row-item.active .urbanismo-e-infraestructura
+{
     background-image: url("../images/categories/urbanismo-e-infraestructura-hover.svg");
 }
 
@@ -409,7 +413,11 @@ ul {
     background-image: url("../images/categories/transporte.svg");
 }
 
-.categories-grid-item:hover .transporte, .categories-row-item:hover .transporte {
+.categories-grid-item:hover .transporte,
+.categories-row-item:hover .transporte,
+.categories-grid-item.active .transporte,
+.categories-row-item.active .transporte
+{
     background-image: url("../images/categories/transporte-hover.svg");
 }
 
@@ -417,7 +425,11 @@ ul {
     background-image: url("../images/categories/seguridad.svg");
 }
 
-.categories-grid-item:hover .seguridad, .categories-row-item:hover .seguridad {
+.categories-grid-item:hover .seguridad,
+.categories-row-item:hover .seguridad,
+.categories-grid-item.active .seguridad,
+.categories-row-item.active .seguridad
+{
     background-image: url("../images/categories/seguridad-hover.svg");
 }
 
@@ -425,7 +437,11 @@ ul {
     background-image: url("../images/categories/salud.svg");
 }
 
-.categories-grid-item:hover .salud, .categories-row-item:hover .salud {
+.categories-grid-item:hover .salud,
+.categories-row-item:hover .salud,
+.categories-grid-item.active .salud,
+.categories-row-item.active .salud
+{
     background-image: url("../images/categories/salud-hover.svg");
 }
 
@@ -433,7 +449,11 @@ ul {
     background-image: url("../images/categories/medio-ambiente.svg");
 }
 
-.categories-grid-item:hover .medio-ambiente, .categories-row-item:hover .medio-ambiente {
+.categories-grid-item:hover .medio-ambiente,
+.categories-row-item:hover .medio-ambiente,
+.categories-grid-item.active .medio-ambiente,
+.categories-row-item.active .medio-ambiente,
+{
     background-image: url("../images/categories/medio-ambiente-hover.svg");
 }
 
@@ -441,7 +461,11 @@ ul {
     background-image: url("../images/categories/gobierno-y-administracion-publica.svg");
 }
 
-.categories-grid-item:hover .gobierno-y-administracion-publica, .categories-row-item:hover .gobierno-y-administracion-publica {
+.categories-grid-item:hover .gobierno-y-administracion-publica,
+.categories-row-item:hover .gobierno-y-administracion-publica,
+.categories-grid-item.active .gobierno-y-administracion-publica,
+.categories-row-item.active .gobierno-y-administracion-publica
+{
     background-image: url("../images/categories/gobierno-y-administracion-publica-hover.svg");
 }
 
@@ -449,7 +473,11 @@ ul {
     background-image: url("../images/categories/educacion.svg");
 }
 
-.categories-grid-item:hover .educacion, .categories-row-item:hover .educacion {
+.categories-grid-item:hover .educacion,
+.categories-row-item:hover .educacion,
+.categories-grid-item.active .educacion,
+.categories-row-item.active .educacion
+{
     background-image: url("../images/categories/educacion-hover.svg");
 }
 
@@ -457,7 +485,11 @@ ul {
     background-image: url("../images/categories/economia-negocio-y-comercio.svg");
 }
 
-.categories-grid-item:hover .economia-negocio-y-comercio, .categories-row-item:hover .economia-negocio-y-comercio {
+.categories-grid-item:hover .economia-negocio-y-comercio,
+.categories-row-item:hover .economia-negocio-y-comercio,
+.categories-grid-item.active .economia-negocio-y-comercio,
+.categories-row-item.active .economia-negocio-y-comercio
+{
     background-image: url("../images/categories/economia-negocio-y-comercio-hover.svg");
 }
 
@@ -465,7 +497,11 @@ ul {
     background-image: url("../images/categories/cultura-recreacion-y-turismo.svg");
 }
 
-.categories-grid-item:hover .cultura-recreacion-y-turismo, .categories-row-item:hover .cultura-recreacion-y-turismo {
+.categories-grid-item:hover .cultura-recreacion-y-turismo,
+.categories-row-item:hover .cultura-recreacion-y-turismo,
+.categories-grid-item.active .cultura-recreacion-y-turismo,
+.categories-row-item.active .cultura-recreacion-y-turismo
+{
     background-image: url("../images/categories/cultura-recreacion-y-turismo-hover.svg");
 }
 
