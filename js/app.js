@@ -32,10 +32,6 @@
     function controllerHome($scope,$location,$sce,$filter,$rootScope) {
         $rootScope.header = "Odin";
 
-        $scope.search = function() {
-    		$location.url('/datasets?q='+$scope.term);
-        }
-
         $scope.getHtml = function(html){
             return $sce.trustAsHtml(html);
         };

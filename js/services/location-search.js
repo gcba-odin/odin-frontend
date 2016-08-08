@@ -5,7 +5,7 @@ angular.module('store-factories')
     init: function() {
       locationSearch = $location.search();
       $.each(locationSearch, function(filter, value) {
-        var values = $.isArray(value) ? value : value.split(',');
+        var values = $.isArray(value) ? value : [value];
         locationSearch[filter] = values;
       });
     },
@@ -16,7 +16,7 @@ angular.module('store-factories')
       var filterValues = locationSearch[filter];
       if(filterValues === [value]) return;
       filterValues = [value];
-      $location.search(filter, filterValues.join());
+      $location.search(filter, filterValues);
     },
     deleteFilter: function(filter) {
       if(!locationSearch[filter]) return;
@@ -28,14 +28,17 @@ angular.module('store-factories')
       locationSearch[filter] = filterValues;
       if(this.isActive(filter, value)) return;
       filterValues.push(value);
-      $location.search(filter, filterValues.join());
+      $location.search(filter, filterValues);
     },
     removeFilterValue: function(filter, value) {
       var filterValues = locationSearch[filter];
       filterValues = filterValues.filter(function(valueInArray){
         return valueInArray !== value;
       });
-      $location.search(filter, filterValues.join());
+      $location.search(filter, filterValues);
+    },
+    searchParams: function() {
+      return locationSearch;
     }
   };
 });

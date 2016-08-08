@@ -141,21 +141,17 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     };
 }
 
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService) {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
     LocationSearchService.init();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
     $rootScope.header = "Datasets List";
-    $scope.params = {
+    $scope.params = $.extend(LocationSearchService.searchParams(), {
         sort: 'ASC',
-        // include: 'files,tags,categories',
+        include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0
-    };
-
-    if ($routeParams.query) {
-        $scope.params.query = 'where={"name":{"contains":"' + $routeParams.query + '"}}';
-    }
+    });
 
     $scope.datasets = [];
     $scope.resultDatasetsSearch = [];
@@ -171,7 +167,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         }
         $scope.resultDatasetsSearch = rest().get({
             type: $scope.type,
-            params: $.param($scope.params) //TODO: check why it's not accepting an object
+            params: $httpParamSerializer($scope.params)
         }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];

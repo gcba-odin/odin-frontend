@@ -1,5 +1,5 @@
 <div class="categories-container categories-row-container">
-    <a href="#/datasets?category={{ category.name | slug }}" class="categories-item categories-row-item" ng-class="{'active': {{(category.name | slug) === activeCategory}}}" ng-repeat="category in categories.data">
+    <a href="#/datasets?categories.name={{ category.name | slug }}" class="categories-item categories-row-item" ng-class="{'active': {{(category.name | slug) === activeCategory}}}" ng-repeat="category in categories.data">
         <span class="categories-row-item-image {{ category.name | slug }}"></span>
         <h4 class="categories-item-title categories-row-item-title">{{category.name}}</h4>
     </a>

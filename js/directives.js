@@ -25,7 +25,11 @@
         templateUrl: 'directives/main/search-bar.html',
         controller:function ($scope, LocationSearchService){
           $scope.search = function() {
-            LocationSearchService.setFilter('query', $scope.query);
+            if ($scope.query) {
+              LocationSearchService.setFilter('name', $scope.query);
+            } else {
+              LocationSearchService.deleteFilter('name');
+            }
           };
         }
       };
@@ -37,7 +41,11 @@
         templateUrl: 'directives/main/search-bar-home.html',
         controller:function ($scope, LocationSearchService){
           $scope.search = function() {
-            LocationSearchService.setFilter('query', $scope.query);
+            if ($scope.query) {
+              LocationSearchService.setFilter('name', $scope.query);
+            } else {
+              LocationSearchService.deleteFilter('name');
+            }
           };
         }
       };
