@@ -47,6 +47,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/organizations-results.html",
+            scope: {},
             controller: function($scope, rest) {
                 $scope.limitOrganizations = 0;
                 $scope.organizations = [];
@@ -85,6 +86,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/tags-results.html",
+            scope: {},
             controller: function($scope, rest) {
                 $scope.limitTags = 0;
                 $scope.tags = [];
@@ -123,6 +125,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/formats-results.html",
+            scope: {},
             controller: function($scope, rest) {
                 $scope.limitFormats = 0;
                 $scope.filetypes = [];
@@ -161,6 +164,7 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/order-results.html",
+            scope: {},
             controller: function($scope) {
                 $scope.orderings = [
                     {
