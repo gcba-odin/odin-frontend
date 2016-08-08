@@ -60,7 +60,7 @@
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                             var organization = $scope.resultOrganizations.data[i];
                             organization.active = LocationSearchService.isActive('organizations', organization.name);
-                            $scope.tags.push(organization);
+                            $scope.organizations.push(organization);
                         }
                     });
                 }

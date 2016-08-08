@@ -156,12 +156,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         query += '&where={"name":{"contains":"' + $routeParams.q + '"}}';
     }
 
-    $scope.tagsSelected = [];
-    $scope.organizationsSelected = [];
-    $scope.formatsSelected = [];
-    $scope.statusSelected = [];
     $scope.datasets = [];
-
     $scope.limitResults = 0;
     $scope.resultDatasetsSearch = [];
     $scope.showLoading = true;
@@ -198,48 +193,16 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             $scope.showLoading = false;
             $scope.count = result.meta.count;
         });
-    }
-
-    var findInArray = function(id, modelSelected) {
-        var returnArray = false;
-        for (var i = 0; i < modelSelected.length; i++) {
-            if (modelSelected[i].id == id) {
-                returnArray = i + 1;
-            }
-        }
-        return returnArray;
-    }
-
-    $scope.addFilterSearch = function(id, name, model, index, modelSelected) {
-        var finArrayIndex = findInArray(id, modelSelected);
-        if (!finArrayIndex) {
-            modelSelected.push({
-                id: id,
-                name: name,
-                model: model
-            });
-            model.selected = true;
-        } else {
-            modelSelected.splice(finArrayIndex - 1, 1);
-            model.selected = false;
-        }
-    }
-    $scope.deleteFilterSelected = function(index, elementFilter, modelSelected) {
-        elementFilter.selected = false;
-        console.log(index);
-        console.log(modelSelected)
-        modelSelected.splice(index, 1);
-    }
+    };
     $scope.view = function(model) {
         var url = '/' + $scope.type + '/' + model.id + "/view";
         $location.path(url);
-    }
+    };
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
     $scope.search = function() {
         $location.url('/datasets?q=' + $scope.term);
-    }
-
+    };
     $scope.loadResults(0);
 }
