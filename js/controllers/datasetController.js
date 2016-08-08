@@ -152,8 +152,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
     var query = "";
 
-    if (!!$routeParams.q) {
-        query += '&where={"name":{"contains":"' + $routeParams.q + '"}}';
+    if ($routeParams.query) {
+        query += '&where={"name":{"contains":"' + $routeParams.query + '"}}';
     }
 
     $scope.datasets = [];
