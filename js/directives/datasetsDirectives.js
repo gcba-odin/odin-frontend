@@ -141,20 +141,17 @@
                 $scope.orderings = [
                     {
                         name: 'Nombre',
-                        property: 'name',
-                        active: LocationSearchService.isActive('order', 'name')
+                        property: 'name'
                     }, {
                         name: 'Fecha de publicación',
-                        property: 'createdAt',
-                        active: LocationSearchService.isActive('order', 'createdAt')
+                        property: 'createdAt'
                     }, {
                         name: 'Más visitados',
-                        property: 'GoogleAnalytics',
-                        active: LocationSearchService.isActive('order', 'GoogleAnalytics')
+                        property: 'GoogleAnalytics'
                     }
-                ];
-                $.each($scope.orderings, function(order) {
-                    order.active = LocationSearchService.isActive('order', order.property)
+                ].map(function(order) {
+                    order.active = LocationSearchService.isActive('order', order.property);
+                    return order;
                 });
                 $scope.selectOrder = function(order) {
                     if(order.active) {
