@@ -43,7 +43,7 @@
         };
     });
 
-    app.directive("organizationsResult", function() {
+    app.directive("organizationsResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/organizations-results.html",
@@ -58,18 +58,30 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
                     }, function() {
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
-                            $scope.organizations.push($scope.resultOrganizations.data[i])
+                            var organization = $scope.resultOrganizations.data[i];
+                            organization.active = LocationSearchService.isActive('organizations', organization.name);
+                            $scope.tags.push(organization);
                         }
                     });
                 }
                 $scope.loadOrganizations(0);
+                $scope.selectOrganization = function(organization) {
+                    if(organization.active) {
+                        LocationSearchService.removeFilterValue('organizations', organization.name);
+                    } else {
+                        LocationSearchService.addFilterValue('organizations', organization.name);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter('tags');
+                };
             },
             controllerAs: "organizations"
         };
     });
 
 
-    app.directive("tagsResult", function() {
+    app.directive("tagsResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/tags-results.html",
@@ -84,12 +96,24 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitTags
                     }, function() {
                         for (var i = 0; i < $scope.resultTags.data.length; i++) {
-                            $scope.tags.push($scope.resultTags.data[i])
+                            var tag = $scope.resultTags.data[i];
+                            tag.active = LocationSearchService.isActive('tags', tag.name);
+                            $scope.tags.push(tag);
                         }
                     });
 
                 }
                 $scope.loadTags(0);
+                $scope.selectTag = function(tag) {
+                    if(tag.active) {
+                        LocationSearchService.removeFilterValue('tags', tag.name);
+                    } else {
+                        LocationSearchService.addFilterValue('tags', tag.name);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter('tags');
+                };
             },
             controllerAs: "tags"
         };
