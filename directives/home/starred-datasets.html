@@ -6,9 +6,7 @@
                 <p three-dots ng-bind-html="getHtml(item.description)"></p>
             </div>
             <div class="widget-item-footer">
-                <span ng-repeat="tag in item.tags" class="widget-item-footer-tags">
-					{{ tag.name }}
-				</span>
+                <a class="widget-item-footer-tags" ng-repeat="tag in item.tags" ng-href="#/dataset/{{item.id| slug}}?tags.name={{tag.name}}">{{tag.name}}</a>
                 <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link">
                 </a>
             </div>
