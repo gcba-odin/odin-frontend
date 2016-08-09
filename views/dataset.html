@@ -7,12 +7,18 @@
         <div class="toolbar">
             <ol class="breadcrumb">
                 <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                <li class="breadcrumb-item"><a ng-href="#/">INICIO</a></li>
-                <li class="breadcrumb-item"><a ng-href="#/datasets">DATASETS</a></li>
+                <li class="breadcrumb-item">
+                    <a ng-href="#/">INICIO</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a ng-href="#/datasets">DATASETS</a>
+                </li>
                 <!-- Snippet snippets/home_breadcrumb_item.html end -->
                 <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
                 <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
-                <li class="breadcrumb-item"><a ng-href="#/dataset/{{info.id| lowercase}}">{{info.name| truncString | uppercase}}</a></li>
+                <li class="breadcrumb-item">
+                    <a ng-href="#/dataset/{{info.id| lowercase}}">{{info.name| truncString | uppercase}}</a>
+                </li>
             </ol>
         </div>
         <div class="dataset-single clearfix">
