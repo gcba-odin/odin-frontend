@@ -96,18 +96,14 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         }, this );
 
         $scope.info.additional_info = [];
-        for (obj in $scope.info) {
-            if (obj.indexOf("optional") != -1) {
-                if (!!$scope.info[obj]) {
-                    var valores = $scope.info[obj].split("|");
-                    $scope.info.additional_info.push({
-                        clave: valores[0],
-                        valor: valores[1],
-                    });
-                }
-            }
-        }
-
+        
+        angular.forEach($scope.info.optionals, function(val, key) {
+            $scope.info.additional_info.push({
+                clave: key,
+                valor: val
+            });
+        });
+                
         for (obj in $scope.info.files) {
             if (!!$scope.info.files[obj]) {
                 $scope.info.files[obj].resources = rest().resources({
@@ -179,17 +175,14 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];
                 dataset.additional_info = [];
-                for (obj in $scope.resultDatasetsSearch.data[i]) {
-                    if (obj.indexOf("optional") != -1) {
-                        if (!!$scope.resultDatasetsSearch.data[i][obj]) {
-                            var valores = $scope.resultDatasetsSearch.data[i][obj].split("|");
-                            dataset.additional_info.push({
-                                clave: valores[0],
-                                valor: valores[1],
-                            });
-                        }
-                    }
-                }
+                
+                angular.forEach($scope.resultDatasetsSearch.data[i].optionals, function(val, key) {
+                    dataset.additional_info.push({
+                        clave: key,
+                        valor: val
+                    });
+                });
+                
                 dataset.url_api = $scope.resultDatasetsSearch.links.all;
                 $scope.datasets.push(dataset);
             }
