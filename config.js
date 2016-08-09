@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('config-odin', []);
+    var app = angular.module('odin.config', []);
     app.run(run);
 
     function run($rootScope, $location, $http) {
