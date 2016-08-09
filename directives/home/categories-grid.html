@@ -1,5 +1,5 @@
-<div class="categories-container row">
-    <div class="col-md-4" ng-repeat="item in categories.data">
+<div class="categories-container row" ng-repeat="rows in chunkedCategories">
+    <div class="col-md-4" ng-repeat="item in rows">
         <a href="#/datasets?categories.name={{ item.name | slug }}" class="categories-item categories-grid-item">
             <span class="categories-grid-item-image {{ item.name | slug }}"></span>
             <h4 class="categories-item-title categories-grid-item-title">{{item.name}}</h4>
