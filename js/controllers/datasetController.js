@@ -62,7 +62,7 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService)
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
 {
     LocationSearchService.init();
     $scope.type = "datasets";
@@ -70,7 +70,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.info = rest().findOne({
         id: $routeParams.id,
         type: $scope.type,
-        params: "include=tags,files,categories"
+        params: 'include=files,tags,categories'
     }, function(result) {
         $rootScope.header = $scope.info.name;
 
@@ -90,7 +90,8 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         result.files.forEach(function (element) {
             rest().findOne({
                 id: element.type,
-                type: 'filetypes'
+                type: 'filetypes',
+                params: $httpParamSerializer(LocationSearchService.searchParams())
             }, function (resultFileType) {
                     $scope.fileTypes[element.type] = resultFileType.name;
                 });
@@ -146,12 +147,12 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
     $rootScope.header = "Datasets List";
-    $scope.params = $.extend(LocationSearchService.searchParams(), {
+    $scope.params = $.extend({
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0
-    });
+    }, LocationSearchService.searchParams());
 
     $scope.datasets = [];
     $scope.resultDatasetsSearch = [];
