@@ -62,9 +62,10 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams )
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams)
 {
     $scope.type = "datasets";
+    $scope.limit = 10;
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
@@ -86,49 +87,70 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         $scope.tags = tags;
         $scope.fileTypes = {};
 
-        result.files.forEach(function (element) {
+        result.files.forEach(function(element) {
             rest().findOne({
                 id: element.type,
                 type: 'filetypes'
-            }, function (resultFileType) {
-                    $scope.fileTypes[element.type] = resultFileType.name;
-                });
-        }, this );
+            }, function(resultFileType) {
+                $scope.fileTypes[element.type] = resultFileType.name;
+            });
+        }, this);
 
         $scope.info.additional_info = [];
-        
+
         angular.forEach($scope.info.optionals, function(val, key) {
             $scope.info.additional_info.push({
                 clave: key,
                 valor: val
             });
         });
-                
+
         for (obj in $scope.info.files) {
             if (!!$scope.info.files[obj]) {
-                $scope.info.files[obj].resources = rest().resources({
+                $scope.info.files[obj] = rest().findOne({
                     id: $scope.info.files[obj].id,
                     type: 'files'
+                }, function() {
+
+                    $scope.info.files[obj].resources = rest().resources({
+                        id: $scope.info.files[obj].id,
+                        type: 'files'
+                    });
+                    $scope.info.files[obj].contents = rest().contents({
+                        id: $scope.info.files[obj].id,
+                        type: 'files',
+                        params: 'limit=' + $scope.limit
+                    });
                 });
             }
         }
     });
 
-    $scope.toggleDropdown = function ( event )
-                {
-                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
-                    {
-                        $(event.target).next().addClass( 'dataset-additional-info-table-active');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-inactive' );
-                        $( event.target ).addClass('dataset-additional-info-active');
-                    }
-                    else
-                    {
-                        $(event.target).next().addClass('dataset-additional-info-table-inactive');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-active' );
-                        $( event.target ).removeClass('dataset-additional-info-active');
-                    }
-                };
+    $scope.paging = function(event, page, pageSize, total, resource) {
+        var skip = (page - 1) * $scope.limit;
+        //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
+        resource.contents = rest().contents({
+            id: resource.id,
+            type: 'files',
+            params: "skip=" + skip + "&limit=" + $scope.limit
+        });
+    };
+
+    $scope.toggleDropdown = function(event)
+    {
+        if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
+        {
+            $(event.target).next().addClass('dataset-additional-info-table-active');
+            $(event.target).next().removeClass('dataset-additional-info-table-inactive');
+            $(event.target).addClass('dataset-additional-info-active');
+        }
+        else
+        {
+            $(event.target).next().addClass('dataset-additional-info-table-inactive');
+            $(event.target).next().removeClass('dataset-additional-info-table-active');
+            $(event.target).removeClass('dataset-additional-info-active');
+        }
+    };
 
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
@@ -175,14 +197,14 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];
                 dataset.additional_info = [];
-                
+
                 angular.forEach($scope.resultDatasetsSearch.data[i].optionals, function(val, key) {
                     dataset.additional_info.push({
                         clave: key,
                         valor: val
                     });
                 });
-                
+
                 dataset.url_api = $scope.resultDatasetsSearch.links.all;
                 $scope.datasets.push(dataset);
             }
