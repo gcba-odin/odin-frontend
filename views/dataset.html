@@ -42,13 +42,13 @@
             </ul>
         </div>
         <div class="dataset-single-tags">
-            <span class="dataset-single-tags-item label" ng-repeat="tag in info.tags">{{tag.name}}</span>
+            <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="#/datasets?tags.name={{tag.name}}">{{tag.name}}</a>
         </div>
         <div class="row wrapper">
          <div class="primary col-md-9">
             <section class="module">
                <div class="module-content">
-       				<result-resources></result-resources>
+                    <result-resources></result-resources>
                </div>
             <div class="row center-spin" ng-if="showLoading">
                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>

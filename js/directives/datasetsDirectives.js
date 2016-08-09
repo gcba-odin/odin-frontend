@@ -43,11 +43,13 @@
         };
     });
 
-    app.directive("organizationsResult", function() {
+    app.directive("organizationsResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/organizations-results.html",
+            scope: {},
             controller: function($scope, rest) {
+                var filterName = 'organizations.name';
                 $scope.limitOrganizations = 0;
                 $scope.organizations = [];
                 $scope.resultOrganizations = [];
@@ -58,22 +60,36 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
                     }, function() {
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
-                            $scope.organizations.push($scope.resultOrganizations.data[i])
+                            var organization = $scope.resultOrganizations.data[i];
+                            organization.active = LocationSearchService.isActive(filterName, organization.name);
+                            $scope.organizations.push(organization);
                         }
                     });
                 }
                 $scope.loadOrganizations(0);
+                $scope.selectOrganization = function(organization) {
+                    if(organization.active) {
+                        LocationSearchService.removeFilterValue(filterName, organization.name);
+                    } else {
+                        LocationSearchService.addFilterValue(filterName, organization.name);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter(filterName);
+                };
             },
             controllerAs: "organizations"
         };
     });
 
 
-    app.directive("tagsResult", function() {
+    app.directive("tagsResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/tags-results.html",
+            scope: {},
             controller: function($scope, rest) {
+                var filterName = 'tags.name';
                 $scope.limitTags = 0;
                 $scope.tags = [];
                 $scope.resultTags = [];
@@ -84,22 +100,36 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitTags
                     }, function() {
                         for (var i = 0; i < $scope.resultTags.data.length; i++) {
-                            $scope.tags.push($scope.resultTags.data[i])
+                            var tag = $scope.resultTags.data[i];
+                            tag.active = LocationSearchService.isActive(filterName, tag.name);
+                            $scope.tags.push(tag);
                         }
                     });
 
                 }
                 $scope.loadTags(0);
+                $scope.selectTag = function(tag) {
+                    if(tag.active) {
+                        LocationSearchService.removeFilterValue(filterName, tag.name);
+                    } else {
+                        LocationSearchService.addFilterValue(filterName, tag.name);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter(filterName);
+                };
             },
             controllerAs: "tags"
         };
     });
 
-    app.directive("formatsResult", function() {
+    app.directive("formatsResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/formats-results.html",
+            scope: {},
             controller: function($scope, rest) {
+                var filterName = 'filetypes.name';
                 $scope.limitFormats = 0;
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
@@ -110,39 +140,61 @@
                         params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitFormats
                     }, function() {
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
-                            $scope.filetypes.push($scope.resultFormats.data[i]);
+                            var filetype = $scope.resultFormats.data[i];
+                            filetype.active = LocationSearchService.isActive(filterName, filetype.name);
+                            $scope.filetypes.push(filetype);
                         }
                     });
                     $scope.datasetCount = {};
                 }
                 $scope.loadFormats(0);
+                $scope.selectFiletype = function(filetype) {
+                    if(filetype.active) {
+                        LocationSearchService.removeFilterValue(filterName, filetype.name);
+                    } else {
+                        LocationSearchService.addFilterValue(filterName, filetype.name);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter(filterName);
+                };
             },
             controllerAs: "formats"
         };
     });
 
-    app.directive("orderResult", function() {
+    app.directive("orderResult", function(LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/order-results.html",
-            controller: function($scope, rest) {
-                $scope.limitOrder = 0;
-                $scope.order = [];
-                $scope.resultOrder = [];
-                $scope.loadOrder = function(limit) {
-                    $scope.limitOrder += limit;
-                    $scope.resultOrder = rest().get({
-                        type: "datasets",
-                        params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrder
-                    }, function() {
-                        for (var i = 0; i < $scope.resultOrder.data.length; i++) {
-                            $scope.order.push($scope.resultOrder.data[i])
-                        }
-                    });
-
-                }
-                $scope.loadOrder(0);
-
+            scope: {},
+            controller: function($scope) {
+                var filterName = 'orderBy';
+                $scope.orderings = [
+                    {
+                        name: 'Nombre',
+                        property: 'name'
+                    }, {
+                        name: 'Fecha de publicación',
+                        property: 'createdAt'
+                    }, {
+                        name: 'Más visitados',
+                        property: 'GoogleAnalytics'
+                    }
+                ].map(function(order) {
+                    order.active = LocationSearchService.isActive(filterName, order.property);
+                    return order;
+                });
+                $scope.selectOrder = function(order) {
+                    if(order.active) {
+                        LocationSearchService.deleteFilter(filterName);
+                    } else {
+                        LocationSearchService.setFilter(filterName, order.property);
+                    }
+                };
+                $scope.removeAll = function() {
+                    LocationSearchService.deleteFilter(filterName);
+                };
             },
             controllerAs: "licences"
         };

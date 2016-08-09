@@ -13,16 +13,16 @@
               <a href="#/datasets">DATASETS</a>
             </li>
          </ol>
-      </div>
-      <div class="datasets-counter">
-        <span class="datasets-counter-count">{{count}}</span>
-        <span class="datasets-counter-label">Datasets</span>
+         <div class="datasets-counter">
+          <span class="datasets-counter-count">{{count}}</span>
+          <span class="datasets-counter-label">Datasets</span>
+        </div>
       </div>
       <div class="row wrapper">
          <div class="primary col-md-9">
             <section class="module">
                <div class="module-content">
-       				     <result-datasets></result-datasets>
+                  <result-datasets></result-datasets>
                </div>
             <div class="row center-spin" ng-if="showLoading">
                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
@@ -39,7 +39,7 @@
                 <order-result></order-result>
                 <tags-result></tags-result>
                 <formats-result></formats-result>
-            	  <organizations-result></organizations-result>
+                <organizations-result></organizations-result>
                </div>
             </div>
          </aside>

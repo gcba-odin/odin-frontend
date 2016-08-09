@@ -1,18 +1,18 @@
 <section class="module module-narrow module-shallow">
    <h2 class="module-heading">
       Organizaciones
-      <span class="module-heading-clear-icon"></span>
+      <span class="module-heading-clear-icon" ng-click="removeAll()"></span>
    </h2>
    <nav>
       <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item" ng-repeat="organization in organizations" ng-class="organization.selected ? 'active' : '' ">
-            <a class="tags-item" ng-href="javascript:void(0)" title="{{organization.name}}"  ng-click="addFilterSearch(organization.id,organization.name,organization,$index,organizationsSelected)" >
+         <li class="nav-item" ng-repeat="organization in organizations" ng-class="{'active': organization.active}">
+            <a class="tags-item" title="{{organization.name}}" ng-click="selectOrganization(organization)" >
             <span>{{organization.name | truncString}} (1)</span>
             </a>
          </li>
       </ul>
    </nav>
   <p class="module-footer" ng-if="resultOrganizations.data.length">
-      <a href="javascript:void(0)" ng-click="loadOrganizations(5)" class="read-more">Ver más</a>
+      <a ng-click="loadOrganizations(5)" class="read-more">Ver más</a>
    </p>
 </section>

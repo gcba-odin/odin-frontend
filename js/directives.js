@@ -1,6 +1,17 @@
 (function() {
   var app = angular.module( 'store-directives', [ "store-directives-home", "store-directives-dataset", "store-directives-datasets" ] );
 
+  app.directive('threeDots', function() {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attributes) {
+        $(element).dotdotdot({
+          height: 100, wrap: 'letter'
+        });
+      }
+    };
+  });
+
     app.directive('brandingData', function() {
       return {
         restrict: 'E',
@@ -12,18 +23,14 @@
       return {
         restrict: 'E',
         templateUrl: 'directives/main/search-bar.html',
-        controller:function (rest,$scope){
-         rest().count({
-              type: "datasets"
-          },function (resp){
-            $scope.countDatasets=resp.data.count;
-          });
-
-          rest().count({
-              type: "files"
-          },function (resp){
-            $scope.countFiles=resp.data.count;
-          });
+        controller:function ($scope, LocationSearchService){
+          $scope.search = function() {
+            if ($scope.query) {
+              LocationSearchService.setFilter('name', $scope.query);
+            } else {
+              LocationSearchService.deleteFilter('name');
+            }
+          };
         }
       };
     });
@@ -32,18 +39,14 @@
       return {
         restrict: 'E',
         templateUrl: 'directives/main/search-bar-home.html',
-        controller:function (rest,$scope){
-         rest().count({
-              type: "datasets"
-          },function (resp){
-            $scope.countDatasets=resp.data.count;
-          });
-
-          rest().count({
-              type: "files"
-          },function (resp){
-            $scope.countFiles=resp.data.count;
-          });
+        controller:function ($scope, LocationSearchService){
+          $scope.search = function() {
+            if ($scope.query) {
+              LocationSearchService.setFilter('name', $scope.query);
+            } else {
+              LocationSearchService.deleteFilter('name');
+            }
+          };
         }
       };
     });

@@ -1,4 +1,5 @@
 #iframeDiv {
+
     width: 100%;
     height: 350px;
 }
@@ -29,3 +30,47 @@
     background-color: #FFb600;
     border-color: #FFb600;
 }
+
+.widget-item-footer-preview-link.active {
+  color: #FF386a;
+}
+
+.resource-actions .dropdown {
+  display: inline-block;
+}
+
+.resource-actions .dropdown .widget-item-footer-link {
+  display: block;
+  float: none;
+}
+
+.resource-actions .dropdown-menu {
+  border: 1px black solid;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.resource-actions .dropdown-menu a {
+  font-weight: bold;
+  padding: 3px 8px;
+}
+
+.resource-actions .dropdown-menu a:hover {
+  background-color: #FFb600;
+  background-image: none;
+  color: white;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.resource-actions .dropdown-menu a:first-child:hover {
+  margin-top: -1px;
+  padding-top: 4px;
+}
+
+.resource-actions .dropdown-menu a:last-child:hover {
+  margin-bottom: -1px;
+  padding-bottom: 4px;
+}
+
