@@ -66,11 +66,15 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
 {
     LocationSearchService.init();
     $scope.type = "datasets";
+    $scope.params = $.extend({
+        dataset: $routeParams.id
+    }, LocationSearchService.searchParams());
+    console.log($httpParamSerializer($scope.params));
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
         type: $scope.type,
-        params: 'include=files,tags,categories'
+        params: 'include=tags,categories'
     }, function(result) {
         $rootScope.header = $scope.info.name;
 
@@ -87,15 +91,28 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         $scope.tags = tags;
         $scope.fileTypes = {};
 
-        result.files.forEach(function (element) {
-            rest().findOne({
-                id: element.type,
-                type: 'filetypes',
-                params: $httpParamSerializer(LocationSearchService.searchParams())
-            }, function (resultFileType) {
+        $scope.filesResults = rest().get({
+            type: 'files',
+            params: $httpParamSerializer($scope.params)
+        }, function (result){
+            $scope.files = $scope.filesResults.data;
+            $scope.files.forEach(function (element) {
+                rest().findOne({
+                    id: element.type.id,
+                    type: 'filetypes'
+                }, function (resultFileType) {
                     $scope.fileTypes[element.type] = resultFileType.name;
                 });
-        }, this );
+            });
+            for (obj in $scope.files) {
+                if (!!$scope.files[obj]) {
+                    $scope.files[obj].resources = rest().resources({
+                        id: $scope.files[obj].id,
+                        type: 'files'
+                    });
+                }
+            }
+        });
 
         //TODO: this code below isn't working with the updated api
         // $scope.info.additional_info = [];
@@ -110,15 +127,6 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         //         }
         //     }
         // }
-
-        for (obj in $scope.info.files) {
-            if (!!$scope.info.files[obj]) {
-                $scope.info.files[obj].resources = rest().resources({
-                    id: $scope.info.files[obj].id,
-                    type: 'files'
-                });
-            }
-        }
     });
 
     $scope.toggleDropdown = function ( event )

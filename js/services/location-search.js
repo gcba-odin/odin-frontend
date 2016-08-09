@@ -38,7 +38,7 @@ angular.module('store-factories')
       $location.search(filter, filterValues);
     },
     searchParams: function() {
-      return locationSearch;
+      return angular.copy(locationSearch);
     }
   };
 });

@@ -1,6 +1,6 @@
 <div class="dataset-list unstyled">
     <h2 class="list-heading">Recursos y descargas</h2>
-    <div class="dataset-item clearfix"  ng-repeat="resource in info.files">
+    <div class="dataset-item clearfix"  ng-repeat="resource in files">
         <div class="dataset-content">
             <!--<span class="dataset-category-icon {{category.name| slug}}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
             </span>-->
@@ -46,7 +46,7 @@
                   <a class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   </a>
                   <ul class="dropdown-menu">
-                    <li ng-repeat="resource in info.files">
+                    <li ng-repeat="resource in files">
                         <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                     </li>
                   </ul>
