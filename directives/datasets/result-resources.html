@@ -12,7 +12,10 @@
             <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
         </div>
         <div class="dataset-resources unstyled">
+            <div ng-repeat="resource in files" class="label resource-format-label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</div>
+        
             <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
+            
             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
                 <thead>
                     <tr>
