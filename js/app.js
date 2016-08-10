@@ -1,7 +1,9 @@
 (function() {
     var app = angular.module('odin', ["ngRoute", "odin.config", "ngResource", "ngProgress", "odin.controllers", "store-directives", "store-factories", "chart.js", "leaflet-directive", "bw.paging"]);
 
-    app.config(function($routeProvider) {
+    app.config(function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
+        
         $routeProvider
                 .when("/", {
                     templateUrl: "views/home.html",
@@ -43,14 +45,15 @@
 
         $scope.goToUrl = function(url) {
             $filter('slug')(this.item.name);
-            window.location = "#/dataset/" + $filter('slug')(this.item.id);
+            window.location = "/dataset/" + $filter('slug')(this.item.id);
         };
     }
 
     app.run(run);
 
-    function run($rootScope, $location, $http, EnvironmentConfig) {
+    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
+        $rootScope.baseHtml5 = BaseHTML5.url;
     }
 })();

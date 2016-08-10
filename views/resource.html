@@ -4,10 +4,10 @@
       </div>
       <div class="toolbar">
          <ol class="breadcrumb">
-            <li class="home"><a href="#/"><span> Inicio</span></a></li>
-            <li><a href="#/organizations">Organizaciones</a></li>
-            <li><a href="#/organization/{{file.organization.id | slug}}">{{file.organization.name}}</a></li>
-            <li><a href="#/dataset/{{file.dataset.id | slug}}">{{file.dataset.name | truncString}}</a></li>
+            <li class="home"><a href="{{baseHtml5}}"><span> Inicio</span></a></li>
+            <li><a href="#organizations">Organizaciones</a></li>
+            <li><a href="organization/{{file.organization.id | slug}}">{{file.organization.name}}</a></li>
+            <li><a href="dataset/{{file.dataset.id | slug}}">{{file.dataset.name | truncString}}</a></li>
             <li class="active"><a href="">{{file.name}}</a></li>
          </ol>
       </div>
@@ -32,7 +32,7 @@
                <div class="prose notes" property="rdfs:label">
                   <h3>Del resumen del conjunto de datos</h3>
                   <blockquote>{{file.organization.name}}</blockquote>
-                  <p>Fuente: <a href="#/dataset/{{file.dataset.id}}">{{file.dataset.name}}</a>
+                  <p>Fuente: <a href="dataset/{{file.dataset.id}}">{{file.dataset.name}}</a>
                   </p>
                </div>
             </div>

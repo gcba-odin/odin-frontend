@@ -47,7 +47,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li ng-repeat="resource in files">
-                            <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
+                            <a ng-href="resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
                         </li>
                     </ul>
                 </div>

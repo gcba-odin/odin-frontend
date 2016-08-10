@@ -2,6 +2,7 @@
 <html lang="en" ng-app="odin">
 
     <head>
+        <base href="/odin-frontend/">
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,10 +23,10 @@
     <body>
         <nav class="navbar navbar-fixed-top navbar-theme">
             <div class="container">
-                <a ng-href="#/">
+                <a ng-href="{{baseHtml5}}">
                     <span class="navbar-site-logo">Espacio para logo institucional</span>
                 </a>
-                <a ng-href="#/">
+                <a ng-href="{{baseHtml5}}">
                     <span class="navbar-odin-logo"></span>
                 </a>
             </div>
