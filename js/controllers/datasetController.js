@@ -69,7 +69,6 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.params = $.extend({
         dataset: $routeParams.id
     }, LocationSearchService.searchParams());
-    //console.log($httpParamSerializer($scope.params));
 
     $scope.info = rest().findOne({
         id: $routeParams.id,

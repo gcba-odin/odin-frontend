@@ -173,13 +173,16 @@
                 $scope.orderings = [
                     {
                         name: 'Nombre',
-                        property: 'name'
+                        property: 'name',
+                        sort: 'ASC'
                     }, {
                         name: 'Fecha de publicación',
-                        property: 'createdAt'
+                        property: 'createdAt',
+                        sort: 'DESC'
                     }, {
                         name: 'Más descargados',
-                        property: ''
+                        property: '',
+                        sort: 'DESC'
                     }
                 ].map(function(order) {
                     order.active = LocationSearchService.isActive(filterName, order.property);
@@ -188,12 +191,15 @@
                 $scope.selectOrder = function(order) {
                     if(order.active) {
                         LocationSearchService.deleteFilter(filterName);
+                        LocationSearchService.deleteFilter('sort');
                     } else {
                         LocationSearchService.setFilter(filterName, order.property);
+                        LocationSearchService.setFilter('sort', order.sort);
                     }
                 };
                 $scope.removeAll = function() {
                     LocationSearchService.deleteFilter(filterName);
+                    LocationSearchService.deleteFilter('sort');
                 };
             },
             controllerAs: "licences"
