@@ -12,7 +12,7 @@
             <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
         </div>
         <div class="dataset-resources unstyled">
-            <div ng-repeat="resource in files" class="label resource-format-label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</div>
+            <div class="label resource-format-label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</div>
         
             <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
             
@@ -49,7 +49,7 @@
                   <a class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   </a>
                   <ul class="dropdown-menu">
-                    <li ng-repeat="resource in files">
+                    <li>
                         <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                     </li>
                   </ul>
