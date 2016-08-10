@@ -178,8 +178,8 @@
                         name: 'Fecha de publicación',
                         property: 'createdAt'
                     }, {
-                        name: 'Más visitados',
-                        property: 'GoogleAnalytics'
+                        name: 'Más descargados',
+                        property: ''
                     }
                 ].map(function(order) {
                     order.active = LocationSearchService.isActive(filterName, order.property);
