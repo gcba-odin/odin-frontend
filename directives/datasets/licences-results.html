@@ -6,13 +6,13 @@
 
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="licence in licences">
-            <a ng-href="/datasets/?licence={{licence.slug}}" title="{{licence.name}}">
+            <a ng-href="datasets/?licence={{licence.slug}}" title="{{licence.name}}">
             <span>{{licence.name | truncString}} ({{licence.datasetsCount}})</span>
             </a>
          </li>
       </ul>
    </nav>
    <p class="module-footer">
-      <a href="/datasets/?q=&amp;_licence_limit=0" class="read-more">Ver más</a>
+      <a href="datasets/?q=&amp;_licence_limit=0" class="read-more">Ver más</a>
    </p>
 </section>

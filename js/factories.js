@@ -5,14 +5,14 @@
             $rootScope.progressbar = ngProgressFactory.createInstance();
             return function($url) {
                 $rootScope.progressbar.start();
-                // var token=$rootScope.globals.currentUser.token;
-                var token = "token";
+                //var token=$rootScope.globals.currentUser.token;
+                var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OWFmYzU3ZmRiYzA0YzZjYjJkZDRiYTU2OTBlNDM0NiJ9.Uo0I98Fu3BX8XlOgSnIvfeFx2Z_LdqM8WNT4hSMdDDM";
                 $url = ($url == null) ? $rootScope.url + '/:type' : $url;
                 return $resource($url, {type: ''}, {
                     get: {
                         url: $url + "?:params",
                         method: 'GET',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         transformResponse: function(data) {
                             $rootScope.progressbar.complete();
                             return angular.fromJson(data);
@@ -32,18 +32,32 @@
                     count: {
                         url: $url + "/count",
                         method: 'GET',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         transformResponse: function(data) {
                             $rootScope.progressbar.complete();
                             return angular.fromJson(data);
                         },
                         interceptor: {responseError: handError}
                     },
+                    contents: {
+                        url: $url + "/:id/contents?:params",
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer ' + token
+                        },
+                        transformResponse: function(data) {
+                            $rootScope.progressbar.complete();
+                            return angular.fromJson(data);
+                        },
+                        interceptor: {
+                            responseError: handError
+                        }
+                    },
                     resources: {
                         url: $url + "/:id/resources?:params",
                         method: 'GET',
                         headers: {
-                            'Authorization': 'JWT ' + token
+                            'Authorization': 'Bearer ' + token
                         },
                         transformResponse: function(data) {
                             $rootScope.progressbar.complete();
@@ -56,7 +70,7 @@
                     getArray: {
                         url: $url + "/:id/:asociate",
                         method: 'GET',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         transformResponse: function(data) {
                             $rootScope.progressbar.complete();
                             var json = JSON.parse(data);
@@ -68,7 +82,7 @@
                     findOne: {
                         url: $url + "/:id?:params",
                         method: 'GET',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         transformResponse: function(data) {
                             if (data) {
                                 $rootScope.progressbar.complete();
@@ -83,7 +97,7 @@
                     'save': {
                         url: $url,
                         method: 'POST',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         interceptor: {responseError: handError},
                         transformResponse: function(data) {
                             if (data) {
@@ -97,7 +111,7 @@
                     'saveWithData': {
                         url: $url,
                         method: 'POST',
-                        headers: {'Authorization': 'JWT ' + token, 'Content-Type': undefined},
+                        headers: {'Authorization': 'Bearer ' + token, 'Content-Type': undefined},
                         transformRequest: function(data, headersGetter) {
                             // Here we set the Content-Type header to null.
                             var headers = headersGetter();
@@ -155,7 +169,7 @@
                     'delete': {
                         url: $url + "/:id",
                         method: 'DELETE',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         interceptor: {responseError: handError},
                         transformResponse: function(data) {
                             $rootScope.progressbar.complete();
@@ -165,7 +179,7 @@
                     'update': {
                         url: $url + "/:id",
                         method: 'PATCH',
-                        headers: {'Authorization': 'JWT ' + token},
+                        headers: {'Authorization': 'Bearer ' + token},
                         interceptor: {responseError: handError},
                         transformResponse: function(data) {
                             if (data) {

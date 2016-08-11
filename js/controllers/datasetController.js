@@ -70,6 +70,14 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         dataset: $routeParams.id
     }, LocationSearchService.searchParams());
 
+    $scope.limit = 10;
+
+    $scope.params = $.extend({
+        dataset: $routeParams.id
+    }, LocationSearchService.searchParams());
+    //console.log($httpParamSerializer($scope.params));
+
+
     $scope.info = rest().findOne({
         id: $routeParams.id,
         type: $scope.type,
@@ -105,46 +113,59 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
                     $scope.fileTypes[element.type] = resultFileType.name;
                 });
             });
+
+            $scope.info.additional_info = [];
+
+            angular.forEach($scope.info.optionals, function(val, key) {
+                $scope.info.additional_info.push({
+                    clave: key,
+                    valor: val
+                });
+            });
+
             for (obj in $scope.files) {
                 if (!!$scope.files[obj]) {
+
                     $scope.files[obj].resources = rest().resources({
                         id: $scope.files[obj].id,
                         type: 'files'
                     });
+                    $scope.files[obj].contents = rest().contents({
+                        id: $scope.files[obj].id,
+                        type: 'files',
+                        params: 'limit=' + $scope.limit
+                    });
+
                 }
             }
         });
-
-        //TODO: this code below isn't working with the updated api
-        // $scope.info.additional_info = [];
-        // for (obj in $scope.info) {
-        //     if (obj.indexOf("optional") != -1) {
-        //         if (!!$scope.info[obj]) {
-        //             var valores = $scope.info[obj].split("|");
-        //             $scope.info.additional_info.push({
-        //                 clave: valores[0],
-        //                 valor: valores[1],
-        //             });
-        //         }
-        //     }
-        // }
     });
 
-    $scope.toggleDropdown = function ( event )
-                {
-                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
-                    {
-                        $(event.target).next().addClass( 'dataset-additional-info-table-active');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-inactive' );
-                        $( event.target ).addClass('dataset-additional-info-active');
-                    }
-                    else
-                    {
-                        $(event.target).next().addClass('dataset-additional-info-table-inactive');
-                        $( event.target ).next().removeClass( 'dataset-additional-info-table-active' );
-                        $( event.target ).removeClass('dataset-additional-info-active');
-                    }
-                };
+    $scope.paging = function(event, page, pageSize, total, resource) {
+        var skip = (page - 1) * $scope.limit;
+        //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
+        resource.contents = rest().contents({
+            id: resource.id,
+            type: 'files',
+            params: "skip=" + skip + "&limit=" + $scope.limit
+        });
+    };
+
+    $scope.toggleDropdown = function(event)
+    {
+        if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
+        {
+            $(event.target).next().addClass('dataset-additional-info-table-active');
+            $(event.target).next().removeClass('dataset-additional-info-table-inactive');
+            $(event.target).addClass('dataset-additional-info-active');
+        }
+        else
+        {
+            $(event.target).next().addClass('dataset-additional-info-table-inactive');
+            $(event.target).next().removeClass('dataset-additional-info-table-active');
+            $(event.target).removeClass('dataset-additional-info-active');
+        }
+    };
 
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
@@ -189,19 +210,15 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         }, function(result) {
             for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
                 var dataset = $scope.resultDatasetsSearch.data[i];
-                //TODO: this code below isn't working with the updated api
-                // dataset.additional_info = [];
-                // for (obj in $scope.resultDatasetsSearch.data[i]) {
-                //     if (obj.indexOf("optional") != -1) {
-                //         if (!!$scope.resultDatasetsSearch.data[i][obj]) {
-                //             var valores = $scope.resultDatasetsSearch.data[i][obj].split("|");
-                //             dataset.additional_info.push({
-                //                 clave: valores[0],
-                //                 valor: valores[1],
-                //             });
-                //         }
-                //     }
-                // }
+
+                dataset.additional_info = [];
+
+                angular.forEach($scope.resultDatasetsSearch.data[i].optionals, function(val, key) {
+                    dataset.additional_info.push({
+                        clave: key,
+                        valor: val
+                    });
+                });
                 dataset.url_api = $scope.resultDatasetsSearch.links.all;
                 $scope.datasets.push(dataset);
             }
@@ -216,6 +233,5 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
-
     $scope.loadResults(0);
 }

@@ -45,7 +45,7 @@
         controller:function ($scope, $location, LocationSearchService){
           $scope.search = function() {
             if ($scope.query) {
-              $location.path('/datasets').search('query', $scope.query);
+              $location.path('datasets').search('query', $scope.query);
             } else {
               LocationSearchService.deleteFilter('query');
             }
@@ -61,7 +61,7 @@
         controller:function ($scope, $location, LocationSearchService){
           $scope.search = function() {
             if ($scope.query) {
-              $location.path('/datasets').search('query', $scope.query);
+              $location.path('datasets').search('query', $scope.query);
             } else {
               LocationSearchService.deleteFilter('query');
             }

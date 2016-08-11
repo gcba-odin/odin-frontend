@@ -13,7 +13,6 @@
         </div>
         <div class="dataset-resources unstyled">
             <div class="label resource-format-label" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</div>
-        
             <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
             
             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
@@ -50,16 +49,16 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
+                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
+                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
+                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
                     </li>
                   </ul>
                 </div>
@@ -81,6 +80,30 @@
                     <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
                     <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type"
                             chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
+                </div>
+            </div>
+            <div>
+                <div ng-if="resource.type_resource == 'tables'" class="div-table">
+                    <div class="table-responsive">
+                        <table class="table dataset-additional-info-table">
+                            <thead>
+                                <tr>
+                                    <th ng-repeat="(key, val) in resource.contents.data[0]" ng-if="key !== '_id' && key !== 'GEOJSON'">{{key}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="field in resource.contents.data">
+                                    <td ng-repeat="(key, val) in field" ng-if="key !== '_id' && key !== 'GEOJSON'">{{val}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="paging">
+                        <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count"
+                                paging-action="paging('pageClick', page, pageSize, total, resource)" 
+                                show-prev-next="true"
+                                show-first-last="true" hide-if-empty="true"></paging> 
+                    </div>
                 </div>
             </div>
         </div>
