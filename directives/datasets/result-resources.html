@@ -50,7 +50,16 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                        <a href ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                    </li>
+                    <li ng-if="resource.type.api">
+                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
+                    </li>
+                    <li ng-if="resource.type.api">
+                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
+                    </li>
+                    <li ng-if="resource.type.api">
+                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
                     </li>
                   </ul>
                 </div>
