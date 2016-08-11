@@ -42,12 +42,12 @@
       return {
         restrict: 'E',
         templateUrl: 'directives/main/search-bar.html',
-        controller:function ($scope, LocationSearchService){
+        controller:function ($scope, $location, LocationSearchService){
           $scope.search = function() {
             if ($scope.query) {
-              LocationSearchService.setFilter('name', $scope.query);
+              $location.path('/datasets').search('query', $scope.query);
             } else {
-              LocationSearchService.deleteFilter('name');
+              LocationSearchService.deleteFilter('query');
             }
           };
         }
@@ -58,12 +58,12 @@
       return {
         restrict: 'E',
         templateUrl: 'directives/main/search-bar-home.html',
-        controller:function ($scope, LocationSearchService){
+        controller:function ($scope, $location, LocationSearchService){
           $scope.search = function() {
             if ($scope.query) {
-              LocationSearchService.setFilter('name', $scope.query);
+              $location.path('/datasets').search('query', $scope.query);
             } else {
-              LocationSearchService.deleteFilter('name');
+              LocationSearchService.deleteFilter('query');
             }
           };
         }

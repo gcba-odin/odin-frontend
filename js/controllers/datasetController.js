@@ -90,7 +90,9 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         $scope.tags = tags;
         $scope.fileTypes = {};
 
-        $scope.filesResults = rest().get({
+        $scope.filesResults = rest()[
+            $scope.params.query ? 'search' : 'get'
+        ]({
             type: 'files',
             params: $httpParamSerializer($scope.params)
         }, function (result){
@@ -173,7 +175,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             $scope.params.skip = 0;
             $scope.datasets = [];
         }
-        $scope.resultDatasetsSearch = rest().get({
+        $scope.resultDatasetsSearch = rest()[
+            $scope.params.query ? 'search' : 'get'
+        ]({
             type: $scope.type,
             params: $httpParamSerializer($scope.params)
         }, function(result) {

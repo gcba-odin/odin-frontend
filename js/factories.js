@@ -19,6 +19,16 @@
                         },
                         interceptor: {responseError: handError}
                     },
+                    search: {
+                        url: $url + "/search?:params",
+                        method: 'GET',
+                        // headers: {'Authorization': 'JWT ' + token},
+                        transformResponse: function(data) {
+                            $rootScope.progressbar.complete();
+                            return angular.fromJson(data);
+                        },
+                        interceptor: {responseError: handError}
+                    },
                     count: {
                         url: $url + "/count",
                         method: 'GET',
