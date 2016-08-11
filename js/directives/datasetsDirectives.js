@@ -167,7 +167,9 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/order-results.html",
-            scope: {},
+            scope: {
+                filesView: '='
+            },
             controller: function($scope) {
                 var filterName = 'orderBy';
                 $scope.orderings = [
@@ -177,12 +179,17 @@
                         sort: 'ASC'
                     }, {
                         name: 'Fecha de publicación',
-                        property: 'createdAt',
+                        property: 'publishedAt',
                         sort: 'DESC'
                     }, {
                         name: 'Más descargados',
                         property: '',
                         sort: 'DESC'
+                    }, {
+                        name: 'Última actualización',
+                        property: 'updateDate',
+                        sort: 'DESC',
+                        filesOnly: true
                     }
                 ].map(function(order) {
                     order.active = LocationSearchService.isActive(filterName, order.property);

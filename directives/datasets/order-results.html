@@ -5,7 +5,7 @@
    </h2>
    <nav>
       <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item ng-scope" ng-class="{'active': order.active}" ng-repeat="order in orderings">
+         <li class="nav-item ng-scope" ng-class="{'active': order.active}" ng-repeat="order in orderings" ng-if="!order.filesOnly || filesView">
             <a class="tags-item" ng-click="selectOrder(order)" title="{{order.name}}">
                <span class="ng-binding">{{order.name}}</span>
             </a>
