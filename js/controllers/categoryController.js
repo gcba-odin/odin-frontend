@@ -15,6 +15,7 @@ function chunk(arr, size) {
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
     $scope.activeCategory = $routeParams['categories.name'];
+    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $scope.activeCategory;
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;
