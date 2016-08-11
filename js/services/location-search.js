@@ -40,7 +40,9 @@ angular.module('store-factories')
     searchParams: function() {
       var searchParams = angular.copy(locationSearch);
       $.each(searchParams, function(key, value) {
-        searchParams[key] = $.isArray(value) ? value.join() : value;
+        if (value.length > 0) {
+          searchParams[key] = $.isArray(value) ? value.join() : value;
+        }
       });
       return searchParams;
     }
