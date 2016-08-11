@@ -5,13 +5,13 @@
    <nav>
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="group in groups">
-            <a ng-href="#/datasets/?group={{group.slug}}" title="{{group.name}}">
+            <a ng-href="/datasets/?group={{group.slug}}" title="{{group.name}}">
             <span>{{group.name | truncString}} ({{group.datasetsCount}})</span>
             </a>
          </li>
       </ul>
    </nav>
    <p class="module-footer">
-      <a href="#/datasets/?q=&amp;_group_limit=0" class="read-more">Ver más</a>
+      <a href="/datasets/?q=&amp;_group_limit=0" class="read-more">Ver más</a>
    </p>
 </section>

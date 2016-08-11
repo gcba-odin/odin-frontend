@@ -1,6 +1,6 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "odin.config","ngResource","ngProgress","odin.controllers","store-directives", "store-factories", "chart.js", "leaflet-directive"]);
-    app.config(function($routeProvider) {
+    var app = angular.module('odin', ["ngRoute", "odin.config","ngResource","ngProgress","odin.controllers","store-directives", "store-factories", "chart.js", "leaflet-directive", "angularUtils.directives.dirDisqus"]);
+    app.config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "views/home.html",
@@ -19,6 +19,7 @@
                 redirectTo: '/'
             });
 
+        $locationProvider.html5Mode(true);
     });
 
     app.factory('Page', function() {

@@ -2,6 +2,7 @@
 <html lang="en" ng-app="odin">
 
     <head>
+        <base href="/">
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,10 +23,10 @@
     <body>
         <nav class="navbar navbar-fixed-top navbar-theme">
             <div class="container">
-                <a ng-href="#/">
+                <a ng-href="/">
                     <span class="navbar-site-logo">Espacio para logo institucional</span>
                 </a>
-                <a ng-href="#/">
+                <a ng-href="/">
                     <span class="navbar-odin-logo"></span>
                 </a>
             </div>
@@ -58,6 +59,8 @@
     <script src="js/directives/homeDirectives.js"></script>
     <script src="js/directives/datasetDirectives.js"></script>
     <script src="js/directives/datasetsDirectives.js"></script>
+    <script src="js/directives/disqusDirectives.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
@@ -68,7 +71,7 @@
     <script src="plugins/leaflet/leaflet.js"></script>
     <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
 
-</script>
+    <script id="dsq-count-scr" src="//badataodin.disqus.com/count.js" async></script>
 </body>
 
 </html>

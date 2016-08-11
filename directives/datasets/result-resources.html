@@ -6,7 +6,7 @@
             </span>-->
             <h3 class="dataset-heading">
                 {{resource.name}}
-                <!--<a ng-href="#/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>-->
+                <!--<a ng-href="/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>-->
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
             <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
@@ -50,16 +50,16 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
+                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
+                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
                     </li>
                     <li ng-if="resource.type.api">
-                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
+                        <a ng-href="/resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
                     </li>
                   </ul>
                 </div>

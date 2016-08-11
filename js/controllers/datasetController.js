@@ -149,6 +149,12 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
+
+    $scope.disqusConfig = {
+        disqus_shortname: 'badataodin',
+        disqus_identifier: $routeParams.id,
+        disqus_url: $location.absUrl()
+    };
 }
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
@@ -210,5 +216,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
+
     $scope.loadResults(0);
 }
