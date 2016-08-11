@@ -1,13 +1,32 @@
 (function() {
   var app = angular.module( 'store-directives', [ "store-directives-home", "store-directives-dataset", "store-directives-datasets" ] );
 
-  app.directive('threeDots', function() {
+  app.directive('threeDots', function($compile) {
+    // http://stackoverflow.com/questions/17417607/angular-ng-bind-html-and-directive-within-it
     return {
       restrict: 'A',
-      link: function(scope, element, attributes) {
-        $(element).dotdotdot({
-          height: 100, wrap: 'letter'
-        });
+      link: function(scope, element, attrs) {
+        var ensureCompileRunsOnce = scope.$watch(
+            function(scope) {
+                // watch the 'compile' expression for changes
+                return scope.$eval(attrs.threeDots);
+            },
+            function(value) {
+                // when the 'compile' expression changes
+                // assign it into the current DOM
+                element.html(value);
+
+                // compile the new DOM and link it to the current
+                // scope.
+                // NOTE: we only compile .childNodes so that
+                // we don't get into infinite loop compiling ourselves
+                $compile(element.contents())(scope);
+                ensureCompileRunsOnce();
+                $(element).dotdotdot({
+                  height: 100, wrap: 'letter'
+                });
+            }
+        );
       }
     };
   });

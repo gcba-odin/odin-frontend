@@ -3,7 +3,7 @@
         <div class="widget-item">
             <div ng-click="datasets.goToUrl()" class="widget-item-title"><a ng-href="#/dataset/{{ item.id | slug }}">{{item.name}}</a></div>
             <div class="widget-item-description">
-                <p three-dots ng-bind-html="getHtml(item.description)"></p>
+                <p three-dots="getHtml(item.description)"></p>
             </div>
             <div class="widget-item-footer">
                 <a class="widget-item-footer-tags" ng-repeat="tag in item.tags" ng-href="#/datasets?tags.name={{tag.name}}">{{tag.name}}</a>

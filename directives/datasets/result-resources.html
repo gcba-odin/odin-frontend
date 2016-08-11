@@ -32,25 +32,25 @@
             </table>
             <div class="resource-actions pull-right">
                 <div class="dropdown no-hover">
-                    <a ng-if="true || !!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-class="{'active': resource.type_resource}"></a>
+                    <a href ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-class="{'active': resource.type_resource}"></a>
                     <ul class="dropdown-menu">
-                        <li ng-if="true || !!resource.resources.data.tables">
-                            <a ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>
+                        <li ng-if="!!resource.resources.data.tables">
+                            <a href ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>
                         </li>
-                        <li ng-if="true || !!resource.resources.data.charts">
-                            <a ng-click="toogleTypeResource('charts', resource)">Ver gráfico</a>
+                        <li ng-if="!!resource.resources.data.charts">
+                            <a href ng-click="toogleTypeResource('charts', resource)">Ver gráfico</a>
                         </li>
-                        <li ng-if="true || !!resource.resources.data.maps">
-                            <a ng-click="toogleTypeResource('maps', resource)">Ver mapa</a>
+                        <li ng-if="!!resource.resources.data.maps">
+                            <a href ng-click="toogleTypeResource('maps', resource)">Ver mapa</a>
                         </li>
                     </ul>
                 </div>
                 <div class="dropdown no-hover">
-                  <a class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <a href class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                        <a ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                        <a href ng-href="#/resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                     </li>
                   </ul>
                 </div>
