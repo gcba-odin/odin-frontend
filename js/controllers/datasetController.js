@@ -73,10 +73,9 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.limit = 10;
 
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        dataset: $routeParams.id,
+        status: 'qWRhpRV'
     }, LocationSearchService.searchParams());
-    //console.log($httpParamSerializer($scope.params));
-
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
@@ -187,7 +186,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
-        skip: 0
+        skip: 0,
+        status: 'qWRhpRV'
     }, LocationSearchService.searchParams());
 
     $scope.datasets = [];
