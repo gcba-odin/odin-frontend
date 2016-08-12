@@ -106,7 +106,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
             $scope.files = $scope.filesResults.data.filter(function(file){
                 //TODO: status filter should be handled in the api
                 // with AND condition
-                return file.status.id === 'qWRhpRV';
+                return file.status.name === 'Publicado';
             });
             $scope.files.forEach(function (element) {
                 rest().findOne({
@@ -191,7 +191,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        status: 'qWRhpRV'
+        'status.name': 'Publicado'
     }, LocationSearchService.searchParams());
 
     $scope.datasets = [];
