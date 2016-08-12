@@ -5,8 +5,8 @@
             $rootScope.progressbar = ngProgressFactory.createInstance();
             return function($url) {
                 $rootScope.progressbar.start();
-                //var token=$rootScope.globals.currentUser.token;
-                var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OWFmYzU3ZmRiYzA0YzZjYjJkZDRiYTU2OTBlNDM0NiJ9.Uo0I98Fu3BX8XlOgSnIvfeFx2Z_LdqM8WNT4hSMdDDM";
+                var token=$rootScope.globals.currentUser.token;
+                //var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OWFmYzU3ZmRiYzA0YzZjYjJkZDRiYTU2OTBlNDM0NiJ9.Uo0I98Fu3BX8XlOgSnIvfeFx2Z_LdqM8WNT4hSMdDDM";
                 $url = ($url == null) ? $rootScope.url + '/:type' : $url;
                 return $resource($url, {type: ''}, {
                     get: {

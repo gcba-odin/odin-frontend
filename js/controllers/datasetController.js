@@ -126,11 +126,13 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                         id: $scope.files[obj].id,
                         type: 'files'
                     });
-                    $scope.files[obj].contents = rest().contents({
-                        id: $scope.files[obj].id,
-                        type: 'files',
-                        params: 'limit=' + $scope.limit
-                    });
+                    if ($scope.files[obj].type.api) {
+                        $scope.files[obj].contents = rest().contents({
+                            id: $scope.files[obj].id,
+                            type: 'files',
+                            params: 'limit=' + $scope.limit
+                        });
+                    }
 
                 }
             }
