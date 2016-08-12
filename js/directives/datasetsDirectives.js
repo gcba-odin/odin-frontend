@@ -53,6 +53,7 @@
                 $scope.limitOrganizations = 0;
                 $scope.organizations = [];
                 $scope.resultOrganizations = [];
+                $scope.lessThanLimit;
                 $scope.loadOrganizations = function(limit) {
                     $scope.limitOrganizations += limit;
                     $scope.resultOrganizations = rest().get({
@@ -64,8 +65,18 @@
                             organization.active = LocationSearchService.isActive(filterName, organization.id);
                             $scope.organizations.push(organization);
                         }
+                        $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
                     });
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countOrganizations = $scope.organizations.length;
+                    var minCount = Math.min(countOrganizations, limit);
+                    $scope.organizations.splice(minCount, countOrganizations - minCount);
+                    $scope.limitOrganizations = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadOrganizations(0);
                 $scope.selectOrganization = function(organization) {
                     if(organization.active) {
@@ -93,6 +104,7 @@
                 $scope.limitTags = 0;
                 $scope.tags = [];
                 $scope.resultTags = [];
+                $scope.lessThanLimit;
                 $scope.loadTags = function(limit) {
                     $scope.limitTags += limit;
                     $scope.resultTags = rest().get({
@@ -104,9 +116,19 @@
                             tag.active = LocationSearchService.isActive(filterName, tag.name);
                             $scope.tags.push(tag);
                         }
+                        $scope.lessThanLimit = $scope.resultTags.data.length < limit;
                     });
 
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countTags = $scope.tags.length;
+                    var minCount = Math.min(countTags, limit);
+                    $scope.tags.splice(minCount, countTags - minCount);
+                    $scope.limitTags = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadTags(0);
                 $scope.selectTag = function(tag) {
                     if(tag.active) {
@@ -133,6 +155,7 @@
                 $scope.limitFormats = 0;
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
+                $scope.lessThanLimit;
                 $scope.loadFormats = function(limit) {
                     $scope.limitFormats += limit;
                     $scope.resultFormats = rest().get({
@@ -144,9 +167,19 @@
                             filetype.active = LocationSearchService.isActive(filterName, filetype.id);
                             $scope.filetypes.push(filetype);
                         }
+                        $scope.lessThanLimit = $scope.resultFormats.data.length < limit;
                     });
                     $scope.datasetCount = {};
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countFormats = $scope.filetypes.length;
+                    var minCount = Math.min(countFormats, limit);
+                    $scope.filetypes.splice(minCount, countFormats - minCount);
+                    $scope.limitFormats = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadFormats(0);
                 $scope.selectFiletype = function(filetype) {
                     if(filetype.active) {
