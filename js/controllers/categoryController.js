@@ -4,15 +4,6 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-
-function chunk(arr, size) {
-  var newArr = [];
-  for (var i=0; i<arr.length; i+=size) {
-    newArr.push(arr.slice(i, i+size));
-  }
-  return newArr;
-}
-
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
     $scope.activeCategory = $routeParams['categories.name'];
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $scope.activeCategory;
@@ -23,9 +14,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function(categories) {
-        $scope.categories = categories;
-        $scope.chunkedCategories = chunk($scope.categories.data,3);
+        $scope.categories = categories.data;
         $scope.showCategories = false;
-    });
-            
+    });        
 }
