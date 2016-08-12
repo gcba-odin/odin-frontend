@@ -11,7 +11,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
@@ -27,7 +27,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.starredDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
@@ -73,10 +73,9 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.limit = 10;
 
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        dataset: $routeParams.id,
+        // status: 'qWRhpRV'
     }, LocationSearchService.searchParams());
-    //console.log($httpParamSerializer($scope.params));
-
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
@@ -104,7 +103,11 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
             type: 'files',
             params: $httpParamSerializer($scope.params)
         }, function (result){
-            $scope.files = $scope.filesResults.data;
+            $scope.files = $scope.filesResults.data.filter(function(file){
+                //TODO: status filter should be handled in the api
+                // with AND condition
+                return file.status.name === 'Publicado';
+            });
             $scope.files.forEach(function (element) {
                 rest().findOne({
                     id: element.type.id,
@@ -187,7 +190,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
-        skip: 0
+        skip: 0,
+        'status.name': 'Publicado'
     }, LocationSearchService.searchParams());
 
     $scope.datasets = [];

@@ -397,114 +397,6 @@ ul {
     margin-right: 30px;
 }
 
-.urbanismo-e-infraestructura {
-    background-image: url("../images/categories/urbanismo-e-infraestructura.svg");
-}
-
-.categories-grid-item:hover .urbanismo-e-infraestructura,
-.categories-row-item:hover .urbanismo-e-infraestructura,
-.categories-grid-item.active .urbanismo-e-infraestructura,
-.categories-row-item.active .urbanismo-e-infraestructura
-{
-    background-image: url("../images/categories/urbanismo-e-infraestructura-hover.svg");
-}
-
-.transporte {
-    background-image: url("../images/categories/transporte.svg");
-}
-
-.categories-grid-item:hover .transporte,
-.categories-row-item:hover .transporte,
-.categories-grid-item.active .transporte,
-.categories-row-item.active .transporte
-{
-    background-image: url("../images/categories/transporte-hover.svg");
-}
-
-.seguridad {
-    background-image: url("../images/categories/seguridad.svg");
-}
-
-.categories-grid-item:hover .seguridad,
-.categories-row-item:hover .seguridad,
-.categories-grid-item.active .seguridad,
-.categories-row-item.active .seguridad
-{
-    background-image: url("../images/categories/seguridad-hover.svg");
-}
-
-.salud {
-    background-image: url("../images/categories/salud.svg");
-}
-
-.categories-grid-item:hover .salud,
-.categories-row-item:hover .salud,
-.categories-grid-item.active .salud,
-.categories-row-item.active .salud
-{
-    background-image: url("../images/categories/salud-hover.svg");
-}
-
-.medio-ambiente {
-    background-image: url("../images/categories/medio-ambiente.svg");
-}
-
-.categories-grid-item:hover .medio-ambiente,
-.categories-row-item:hover .medio-ambiente,
-.categories-grid-item.active .medio-ambiente,
-.categories-row-item.active .medio-ambiente,
-{
-    background-image: url("../images/categories/medio-ambiente-hover.svg");
-}
-
-.gobierno-y-administracion-publica {
-    background-image: url("../images/categories/gobierno-y-administracion-publica.svg");
-}
-
-.categories-grid-item:hover .gobierno-y-administracion-publica,
-.categories-row-item:hover .gobierno-y-administracion-publica,
-.categories-grid-item.active .gobierno-y-administracion-publica,
-.categories-row-item.active .gobierno-y-administracion-publica
-{
-    background-image: url("../images/categories/gobierno-y-administracion-publica-hover.svg");
-}
-
-.educacion {
-    background-image: url("../images/categories/educacion.svg");
-}
-
-.categories-grid-item:hover .educacion,
-.categories-row-item:hover .educacion,
-.categories-grid-item.active .educacion,
-.categories-row-item.active .educacion
-{
-    background-image: url("../images/categories/educacion-hover.svg");
-}
-
-.economia-negocio-y-comercio {
-    background-image: url("../images/categories/economia-negocio-y-comercio.svg");
-}
-
-.categories-grid-item:hover .economia-negocio-y-comercio,
-.categories-row-item:hover .economia-negocio-y-comercio,
-.categories-grid-item.active .economia-negocio-y-comercio,
-.categories-row-item.active .economia-negocio-y-comercio
-{
-    background-image: url("../images/categories/economia-negocio-y-comercio-hover.svg");
-}
-
-.cultura-recreacion-y-turismo {
-    background-image: url("../images/categories/cultura-recreacion-y-turismo.svg");
-}
-
-.categories-grid-item:hover .cultura-recreacion-y-turismo,
-.categories-row-item:hover .cultura-recreacion-y-turismo,
-.categories-grid-item.active .cultura-recreacion-y-turismo,
-.categories-row-item.active .cultura-recreacion-y-turismo
-{
-    background-image: url("../images/categories/cultura-recreacion-y-turismo-hover.svg");
-}
-
 .link-header-data {
     list-style: none;
     margin-left: 5px;
@@ -1140,6 +1032,15 @@ h2 {
     margin-right: 1px;
 }
 
+.categories-item .category-image {
+    margin-bottom: 10px;
+}
+
+.category-image svg {
+    display: block;
+    margin: 0 auto;
+}
+
 .dataset-heading {
     color: #4D4D4D;
     font-size: 18px;
@@ -1168,7 +1069,7 @@ h2 {
     margin-top: 5px;
 }
 
-.dataset-resources .label {
+.dataset-resources .label, .category.label {
     background-color: #999999;
     display: inline;
     padding: .0em .4em .1em;
@@ -1181,6 +1082,10 @@ h2 {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .1em;
+}
+
+.category.label {
+    margin-right: 5px;
 }
 
 .dataset-resources li .label:hover {
@@ -1530,13 +1435,11 @@ article figcaption,
 
 .categories-grid-item:hover,
 .categories-grid-item:focus {
-    color: #FFb600;
     text-decoration: none;
 }
 
 .categories-row-item:hover,
 .categories-row-item:focus {
-    color: #FFb600;
     text-decoration: none;
 }
 

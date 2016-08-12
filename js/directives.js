@@ -31,6 +31,72 @@
     };
   });
 
+  app.directive('ngEnter', function() {
+      return function(scope, element, attrs) {
+          element.bind("keydown keypress", function(event) {
+              if(event.which === 13) {
+                  scope.$apply(function(){
+                      scope.$eval(attrs.ngEnter, {'event': event});
+                  });
+
+                  event.preventDefault();
+              }
+          });
+      };
+  });
+
+  app.directive('svgImg', function(){
+    return {
+      restrict: 'A',
+      scope: {
+        svgImg: '=',
+        hoverColor: '='
+      },
+      link: function(scope, element, attrs) {
+        var $element = jQuery(element);
+        var attributes = $element.prop("attributes");
+
+        $.get(scope.svgImg, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+
+            // Remove any invalid XML tags
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Loop through IMG attributes and apply on SVG
+            $.each(attributes, function() {
+                $svg.attr(this.name, this.value);
+            });
+
+            // Replace IMG with SVG
+            $element.append($svg);
+        }, 'xml');
+      }
+    };
+  });
+
+  app.directive('svgHoverColor', function(){
+    return {
+      restrict: 'A',
+      scope: {
+        svgHoverColor: '='
+      },
+      link: function(scope, element, attrs) {
+        var $element = $(element);
+        $element.mouseenter(function() {
+            $(this).find("path, polygon, circle, rect").attr("fill", "#" + scope.svgHoverColor);
+            $(this).find("path, polygon, circle, rect").attr("stroke", "#" + scope.svgHoverColor);
+            $(this).find("h4").css("color", "#" + scope.svgHoverColor);
+         });
+        $element.mouseleave(function() {
+            $(this).find("path, polygon, circle, rect").attr("fill", "#FF386A");
+            $(this).find("path, polygon, circle, rect").attr("stroke", "#FF386A");
+            $(this).find("h4").css("color", "#FF386A");
+         });
+      }
+    };
+  });
+
     app.directive('brandingData', function() {
       return {
         restrict: 'E',
