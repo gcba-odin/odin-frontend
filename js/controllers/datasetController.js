@@ -11,7 +11,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
@@ -27,7 +27,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.starredDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
