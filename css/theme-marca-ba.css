@@ -80,3 +80,19 @@
 .categories-item {
     color: #FABF2C;
 }
+
+.text-auxiliar-bar:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:hover:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}
+
+.text-auxiliar-bar:hover:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}
