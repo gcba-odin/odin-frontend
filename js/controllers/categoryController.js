@@ -4,23 +4,6 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-
-function chunk(arr, size) {
-    var newArr = [];
-    for (var i = 0; i < arr.length; i += size) {
-        newArr.push(arr.slice(i, i + size));
-    }
-    return newArr;
-}
-
-function getPorcentualStatistics(dic) {
-    // console.log(dic[0]);
-    for (var key in dic) {
-        console.log(dic[key]);
-        // console.log(dic[key]);
-    }
-}
-
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
     $scope.activeCategory = $routeParams['categories.name'];
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $scope.activeCategory;
@@ -34,7 +17,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
-    }, function(categories) {
+    }, function(categories) { << << << < HEAD
         $scope.categories = categories;
         $scope.chunkedCategories = chunk($scope.categories.data, 3);
         $scope.showCategories = false;
@@ -59,5 +42,8 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
                 $scope.porcentual[key] = $scope.statistics[key] * 100 / $scope.totalStatistics;
             });
         });
+
+        $scope.categories = categories.data;
+        $scope.showCategories = false;
     });
 }
