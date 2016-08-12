@@ -74,7 +74,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
 
     $scope.params = $.extend({
         dataset: $routeParams.id,
-        status: 'qWRhpRV'
+        // status: 'qWRhpRV'
     }, LocationSearchService.searchParams());
 
     $scope.info = rest().findOne({
@@ -103,7 +103,11 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
             type: 'files',
             params: $httpParamSerializer($scope.params)
         }, function (result){
-            $scope.files = $scope.filesResults.data;
+            $scope.files = $scope.filesResults.data.filter(function(file){
+                //TODO: status filter should be handled in the api
+                // with AND condition
+                return file.status.id === 'qWRhpRV';
+            });
             $scope.files.forEach(function (element) {
                 rest().findOne({
                     id: element.type.id,
