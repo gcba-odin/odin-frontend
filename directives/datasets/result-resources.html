@@ -47,20 +47,16 @@
                 <div class="dropdown no-hover">
                   <a href class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
-                    </li>
-                    <li ng-if="resource.type.api">
-                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="xls" data-format="XLS">XLS</a>
-                    </li>
-                    <li ng-if="resource.type.api">
-                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="xlsx" data-format="XLSX">XLSX</a>
-                    </li>
-                    <li ng-if="resource.type.api">
-                        <a ng-href="resource/{{resource.id| lowercase}}" data-format="csv" data-format="CSV">CSV</a>
-                    </li>
-                  </ul>
+                    <ul class="dropdown-menu" ng-if="!resource.type.api">
+                        <li>
+                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
+                        </li>
+                    </ul>
+                    <ul class="dropdown-menu" ng-if="resource.type.api">
+                        <li ng-repeat="i in ['xls','xlsx','csv']">
+                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div>
