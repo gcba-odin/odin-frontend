@@ -1,5 +1,5 @@
 <ul class="dataset-list unstyled">
-    <li class="dataset-item clearfix" ng-repeat="result in datasets">
+    <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'">
         <div class="dataset-content">
             <span class="dataset-category-icon {{category.name| slug }}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
             </span>

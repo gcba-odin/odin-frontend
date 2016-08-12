@@ -216,8 +216,8 @@
                         sort: 'DESC'
                     }, {
                         name: 'Más descargados',
-                        property: '',
-                        sort: 'DESC'
+                        property: 'downloads',
+                        datasetsOnly: true
                     }, {
                         name: 'Última actualización',
                         property: 'updateDate',
@@ -229,6 +229,13 @@
                     return order;
                 });
                 $scope.selectOrder = function(order) {
+                    if(order.property === 'downloads') {
+                        if(order.active) {
+                            LocationSearchService.deleteFilter('downloads');
+                        } else {
+                            LocationSearchService.setFilter('downloads');
+                        }
+                    }
                     if(order.active) {
                         LocationSearchService.deleteFilter(filterName);
                         LocationSearchService.deleteFilter('sort');
@@ -240,6 +247,7 @@
                 $scope.removeAll = function() {
                     LocationSearchService.deleteFilter(filterName);
                     LocationSearchService.deleteFilter('sort');
+                    LocationSearchService.deleteFilter('downloads');
                 };
             },
             controllerAs: "licences"
