@@ -34,3 +34,5 @@ node_modules
 
 # Generated config file
 js/config.js
+
+.DS_STORE

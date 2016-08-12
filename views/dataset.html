@@ -7,12 +7,18 @@
         <div class="toolbar">
             <ol class="breadcrumb">
                 <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                <li class="breadcrumb-item"><a ng-href="{{baseHtml5}}">INICIO</a></li>
-                <li class="breadcrumb-item"><a ng-href="datasets">DATASETS</a></li>
+                <li class="breadcrumb-item">
+                    <a ng-href="{{baseHtml5}}">INICIO</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a ng-href="datasets">DATASETS</a>
+                </li>
                 <!-- Snippet snippets/home_breadcrumb_item.html end -->
-                <!--<li><a ng-href="#/organizations">Organizaciones</a></li>
-                <li><a ng-href="#/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
-                <li class="breadcrumb-item"><a ng-href="dataset/{{info.id| lowercase}}">{{info.name| truncString | uppercase}}</a></li>
+                <!--<li><a ng-href="/organizations">Organizaciones</a></li>
+                <li><a ng-href="/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
+                <li class="breadcrumb-item">
+                    <a ng-href="dataset/{{info.id| lowercase}}">{{info.name| truncString | uppercase}}</a>
+                </li>
             </ol>
         </div>
         <div class="dataset-single clearfix">
@@ -58,14 +64,20 @@
                <div class="module-content">
                </div>
             </section>
+            <section class="module">
+                    <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
+                    <!-- <div id="disqus_thread"></div> -->
+                    <dir-disqus config="disqusConfig"
+                        disqus-shortname="{{ disqusConfig.disqus_shortname }}"
+                        disqus-identifier="{{ disqusConfig.disqus_identifier }}"
+                        disqus-url="{{ disqusConfig.disqus_url }}">
+                    </dir-disqus>
+                </section>
          </div>
          <aside class="secondary col-md-3">
             <div class="filters">
                 <div>
-                    <order-result></order-result>
-                    <tags-result></tags-result>
-                    <formats-result></formats-result>
-                    <organizations-result></organizations-result>
+                    <order-result files-view="true"></order-result>
                 </div>
             </div>
          </aside>

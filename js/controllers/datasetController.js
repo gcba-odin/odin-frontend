@@ -11,7 +11,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
@@ -27,7 +27,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.starredDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags"
+        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags&status.name=Publicado"
     });
 
     $scope.url = function(id)
@@ -62,20 +62,20 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
-
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
 {
     LocationSearchService.init();
     $scope.type = "datasets";
+    $scope.params = $.extend({
+        dataset: $routeParams.id
+    }, LocationSearchService.searchParams());
 
     $scope.limit = 10;
 
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        dataset: $routeParams.id,
+        // status: 'qWRhpRV'
     }, LocationSearchService.searchParams());
-    //console.log($httpParamSerializer($scope.params));
-
 
     $scope.info = rest().findOne({
         id: $routeParams.id,
@@ -97,19 +97,26 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.tags = tags;
         $scope.fileTypes = {};
 
-        $scope.filesResults = rest().get({
+        $scope.filesResults = rest()[
+            $scope.params.query ? 'search' : 'get'
+        ]({
             type: 'files',
             params: $httpParamSerializer($scope.params)
-        }, function(result) {
-            $scope.files = $scope.filesResults.data;
-            $scope.files.forEach(function(element) {
+        }, function (result){
+            $scope.files = $scope.filesResults.data.filter(function(file){
+                //TODO: status filter should be handled in the api
+                // with AND condition
+                return file.status.name === 'Publicado';
+            });
+            $scope.files.forEach(function (element) {
                 rest().findOne({
                     id: element.type.id,
                     type: 'filetypes'
-                }, function(resultFileType) {
-                    $scope.fileTypes[element.type.id] = resultFileType.name;
+                }, function (resultFileType) {
+                    $scope.fileTypes[element.type] = resultFileType.name;
                 });
             });
+
             $scope.info.additional_info = [];
 
             angular.forEach($scope.info.optionals, function(val, key) {
@@ -137,7 +144,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 }
             }
         });
-
     });
 
     $scope.paging = function(event, page, pageSize, total, resource) {
@@ -169,6 +175,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
+
+    $scope.disqusConfig = {
+        disqus_shortname: 'badataodin',
+        disqus_identifier: $routeParams.id,
+        disqus_url: $location.absUrl()
+    };
 }
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
@@ -180,7 +192,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
-        skip: 0
+        skip: 0,
+        'status.name': 'Publicado'
     }, LocationSearchService.searchParams());
 
     $scope.datasets = [];
@@ -195,7 +208,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             $scope.params.skip = 0;
             $scope.datasets = [];
         }
-        $scope.resultDatasetsSearch = rest().get({
+        $scope.resultDatasetsSearch = rest()[
+            $scope.params.query ? 'search' : 'get'
+        ]({
             type: $scope.type,
             params: $httpParamSerializer($scope.params)
         }, function(result) {
@@ -223,7 +238,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     };
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
-    }
-    ;
+    };
     $scope.loadResults(0);
 }

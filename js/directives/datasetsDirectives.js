@@ -49,10 +49,11 @@
             templateUrl: "directives/datasets/organizations-results.html",
             scope: {},
             controller: function($scope, rest) {
-                var filterName = 'organizations.name';
+                var filterName = 'files.organization';
                 $scope.limitOrganizations = 0;
                 $scope.organizations = [];
                 $scope.resultOrganizations = [];
+                $scope.lessThanLimit;
                 $scope.loadOrganizations = function(limit) {
                     $scope.limitOrganizations += limit;
                     $scope.resultOrganizations = rest().get({
@@ -61,17 +62,27 @@
                     }, function() {
                         for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                             var organization = $scope.resultOrganizations.data[i];
-                            organization.active = LocationSearchService.isActive(filterName, organization.name);
+                            organization.active = LocationSearchService.isActive(filterName, organization.id);
                             $scope.organizations.push(organization);
                         }
+                        $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
                     });
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countOrganizations = $scope.organizations.length;
+                    var minCount = Math.min(countOrganizations, limit);
+                    $scope.organizations.splice(minCount, countOrganizations - minCount);
+                    $scope.limitOrganizations = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadOrganizations(0);
                 $scope.selectOrganization = function(organization) {
                     if(organization.active) {
-                        LocationSearchService.removeFilterValue(filterName, organization.name);
+                        LocationSearchService.removeFilterValue(filterName, organization.id);
                     } else {
-                        LocationSearchService.addFilterValue(filterName, organization.name);
+                        LocationSearchService.addFilterValue(filterName, organization.id);
                     }
                 };
                 $scope.removeAll = function() {
@@ -93,6 +104,7 @@
                 $scope.limitTags = 0;
                 $scope.tags = [];
                 $scope.resultTags = [];
+                $scope.lessThanLimit;
                 $scope.loadTags = function(limit) {
                     $scope.limitTags += limit;
                     $scope.resultTags = rest().get({
@@ -104,9 +116,19 @@
                             tag.active = LocationSearchService.isActive(filterName, tag.name);
                             $scope.tags.push(tag);
                         }
+                        $scope.lessThanLimit = $scope.resultTags.data.length < limit;
                     });
 
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countTags = $scope.tags.length;
+                    var minCount = Math.min(countTags, limit);
+                    $scope.tags.splice(minCount, countTags - minCount);
+                    $scope.limitTags = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadTags(0);
                 $scope.selectTag = function(tag) {
                     if(tag.active) {
@@ -129,10 +151,11 @@
             templateUrl: "directives/datasets/formats-results.html",
             scope: {},
             controller: function($scope, rest) {
-                var filterName = 'filetypes.name';
+                var filterName = 'files.type';
                 $scope.limitFormats = 0;
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
+                $scope.lessThanLimit;
                 $scope.loadFormats = function(limit) {
                     $scope.limitFormats += limit;
                     $scope.resultFormats = rest().get({
@@ -141,18 +164,28 @@
                     }, function() {
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                             var filetype = $scope.resultFormats.data[i];
-                            filetype.active = LocationSearchService.isActive(filterName, filetype.name);
+                            filetype.active = LocationSearchService.isActive(filterName, filetype.id);
                             $scope.filetypes.push(filetype);
                         }
+                        $scope.lessThanLimit = $scope.resultFormats.data.length < limit;
                     });
                     $scope.datasetCount = {};
-                }
+                };
+
+                $scope.showLess = function(limit) {
+                    var countFormats = $scope.filetypes.length;
+                    var minCount = Math.min(countFormats, limit);
+                    $scope.filetypes.splice(minCount, countFormats - minCount);
+                    $scope.limitFormats = 0;
+                    $scope.lessThanLimit = false;
+                };
+
                 $scope.loadFormats(0);
                 $scope.selectFiletype = function(filetype) {
                     if(filetype.active) {
-                        LocationSearchService.removeFilterValue(filterName, filetype.name);
+                        LocationSearchService.removeFilterValue(filterName, filetype.id);
                     } else {
-                        LocationSearchService.addFilterValue(filterName, filetype.name);
+                        LocationSearchService.addFilterValue(filterName, filetype.id);
                     }
                 };
                 $scope.removeAll = function() {
@@ -167,19 +200,29 @@
         return {
             restrict: "E",
             templateUrl: "directives/datasets/order-results.html",
-            scope: {},
+            scope: {
+                filesView: '='
+            },
             controller: function($scope) {
                 var filterName = 'orderBy';
                 $scope.orderings = [
                     {
                         name: 'Nombre',
-                        property: 'name'
+                        property: 'name',
+                        sort: 'ASC'
                     }, {
                         name: 'Fecha de publicación',
-                        property: 'createdAt'
+                        property: 'publishedAt',
+                        sort: 'DESC'
                     }, {
-                        name: 'Más visitados',
-                        property: 'GoogleAnalytics'
+                        name: 'Más descargados',
+                        property: '',
+                        sort: 'DESC'
+                    }, {
+                        name: 'Última actualización',
+                        property: 'updateDate',
+                        sort: 'DESC',
+                        filesOnly: true
                     }
                 ].map(function(order) {
                     order.active = LocationSearchService.isActive(filterName, order.property);
@@ -188,12 +231,15 @@
                 $scope.selectOrder = function(order) {
                     if(order.active) {
                         LocationSearchService.deleteFilter(filterName);
+                        LocationSearchService.deleteFilter('sort');
                     } else {
                         LocationSearchService.setFilter(filterName, order.property);
+                        LocationSearchService.setFilter('sort', order.sort);
                     }
                 };
                 $scope.removeAll = function() {
                     LocationSearchService.deleteFilter(filterName);
+                    LocationSearchService.deleteFilter('sort');
                 };
             },
             controllerAs: "licences"

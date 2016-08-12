@@ -12,7 +12,10 @@
          </li>
       </ul>
    </nav>
-  <p class="module-footer" ng-if="resultFormats.data.length">
+  <p class="module-footer" ng-if="(resultFormats.data.length || limitFormats == 0) && !lessThanLimit">
       <a ng-click="loadFormats(5)" class="read-more">Ver más</a>
+   </p>
+   <p class="module-footer" ng-if="(resultFormats.data.length == 0 && limitFormats != 0) || lessThanLimit">
+      <a ng-click="showLess(5)" class="read-more">Ver menos</a>
    </p>
 </section>

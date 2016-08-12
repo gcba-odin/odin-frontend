@@ -2,11 +2,17 @@
   "local": {
     "EnvironmentConfig": {
       "api": "http://localhost:3000"
+    }, 
+    "BaseHTML5": {
+        "url": "/"
     }
   },
   "staging": {
     "EnvironmentConfig": {
       "api": "http://104.208.247.131/api"
+    },
+    "BaseHTML5": {
+        "url": "/"
     }
   }
 }

@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "odin.config", "ngResource", "ngProgress", "odin.controllers", "store-directives", "store-factories", "chart.js", "leaflet-directive", "bw.paging", "ngCookies", "authentication-service", "ngRoute.middleware"]);
+    var app = angular.module('odin', ["ngRoute", "odin.config", "ngResource", "ngProgress", "odin.controllers", "store-directives", "store-factories", "chart.js", "leaflet-directive", "bw.paging", "ngCookies", "authentication-service", "ngRoute.middleware", "angularUtils.directives.dirDisqus"]);
 
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider) {
 
@@ -45,6 +45,7 @@
         });
 
         $middlewareProvider.global('everyone');
+
     });
 
     app.factory('Page', function() {
