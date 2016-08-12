@@ -356,6 +356,16 @@ ul {
     margin-left: -20px;
 }
 
+.categories-grid-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.category-box {
+    width: 20%;
+}
+
 .categories-row-container {
     width: calc(100% + 40px);
     text-align: center;

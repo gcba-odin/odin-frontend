@@ -1,8 +1,8 @@
-<div class="categories-container row" ng-repeat="rows in chunkedCategories">
-    <div class="col-md-4" ng-repeat="item in rows">
-        <a href="datasets?categories.name={{ item.name | slug }}" class="categories-item categories-grid-item" svg-hover-color="item.color">
-            <div class="category-image" svg-img="item.image"></div>
-            <h4 class="categories-item-title categories-grid-item-title">{{item.name}}</h4>
+<div class="categories-container categories-grid-container row">
+    <div class="category-box" ng-repeat="category in categories">
+        <a href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-grid-item" svg-hover-color="category.color">
+            <div class="category-image" svg-img="category.image"></div>
+            <h4 class="categories-item-title categories-grid-item-title">{{category.name}}</h4>
         </a>
     </div>
 </div>
