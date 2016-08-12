@@ -52,9 +52,9 @@
                             <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type]}}" data-format="{{fileTypes[resource.type]|| lowercase}}">{{fileTypes[resource.type]| uppercase}}</a>
                         </li>
                     </ul>
-                    <ul class="dropdown-menu" ng-if="resource.type.api">
+                    <ul class="dropdown-menu" ng-if="resource.type.api && i!=resource.type.name">
                         <li ng-repeat="i in ['xls','xlsx','csv']">
-                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
+                            <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
                         </li>
                     </ul>
                 </div>
