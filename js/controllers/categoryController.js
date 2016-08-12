@@ -17,11 +17,12 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
-    }, function(categories) { << << << < HEAD
+    }, function(categories) {
         $scope.categories = categories;
-        $scope.chunkedCategories = chunk($scope.categories.data, 3);
+        $scope.categories = categories.data;
         $scope.showCategories = false;
-        $scope.categories.data.forEach(function(element) {
+
+        $scope.categories.forEach(function(element) {
             $scope.statistics[element.id] = 0;
         });
 
@@ -42,8 +43,5 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
                 $scope.porcentual[key] = $scope.statistics[key] * 100 / $scope.totalStatistics;
             });
         });
-
-        $scope.categories = categories.data;
-        $scope.showCategories = false;
     });
 }
