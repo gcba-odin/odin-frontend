@@ -1140,6 +1140,15 @@ h2 {
     margin-right: 1px;
 }
 
+.categories-grid-item .category-image {
+    margin-bottom: 10px;
+}
+
+.category-image svg {
+    display: block;
+    margin: 0 auto;
+}
+
 .dataset-heading {
     color: #4D4D4D;
     font-size: 18px;
