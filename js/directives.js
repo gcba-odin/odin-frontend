@@ -72,12 +72,12 @@
         $element.mouseenter(function() {
             $(this).find("path, polygon, circle, rect").attr("fill", "#" + scope.svgHoverColor);
             $(this).find("path, polygon, circle, rect").attr("stroke", "#" + scope.svgHoverColor);
-            $(this).attr("color", "#" + scope.svgHoverColor);
+            $(this).find("h4").css("color", "#" + scope.svgHoverColor);
          });
         $element.mouseleave(function() {
             $(this).find("path, polygon, circle, rect").attr("fill", "#FF386A");
             $(this).find("path, polygon, circle, rect").attr("stroke", "#FF386A");
-            $(this).attr("color", "#FF386A");
+            $(this).find("h4").css("color", "#FF386A");
          });
       }
     };
