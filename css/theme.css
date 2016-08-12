@@ -1168,7 +1168,7 @@ h2 {
     margin-top: 5px;
 }
 
-.dataset-resources .label {
+.dataset-resources .label, .category.label {
     background-color: #999999;
     display: inline;
     padding: .0em .4em .1em;
@@ -1181,6 +1181,10 @@ h2 {
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .1em;
+}
+
+.category.label {
+    margin-right: 5px;
 }
 
 .dataset-resources li .label:hover {

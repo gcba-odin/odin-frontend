@@ -9,6 +9,9 @@
             <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
             <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
             <!--<div ng-if="result.notes" class="dataset-description" ng-bind-html="getHtml(result.notes)"></div>-->
+            <div class="categories">
+                <span class="label category" ng-repeat="category in result.categories">{{category.name}}</span>
+            </div>
         </div>
         <ul class="dataset-resources unstyled">
             <!--<li ng-repeat="resource in result.files">
