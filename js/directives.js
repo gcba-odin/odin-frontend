@@ -45,18 +45,17 @@
       };
   });
 
-  app.directive('svgImg', function(){
+  app.directive('svgImg', function($rootScope){
     return {
       restrict: 'A',
       scope: {
-        svgImg: '=',
-        hoverColor: '='
+        svgImg: '='
       },
       link: function(scope, element, attrs) {
         var $element = jQuery(element);
         var attributes = $element.prop("attributes");
 
-        $.get(scope.svgImg, function(data) {
+        $.get($rootScope.url + '/categories/' + scope.svgImg + '/image', function(data) {
             // Get the SVG tag, ignore the rest
             var $svg = jQuery(data).find('svg');
 

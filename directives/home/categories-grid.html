@@ -1,7 +1,7 @@
 <div class="categories-container categories-grid-container row">
     <div class="category-box" ng-repeat="category in categories">
         <a href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-grid-item" svg-hover-color="category.color">
-            <div class="category-image" svg-img="category.image"></div>
+            <div class="category-image" svg-img="category.id"></div>
             <h4 class="categories-item-title categories-grid-item-title">{{category.name}}</h4>
         </a>
     </div>
