@@ -77,20 +77,26 @@
   app.directive('svgHoverColor', function(){
     return {
       restrict: 'A',
-      scope: {
-        svgHoverColor: '='
-      },
       link: function(scope, element, attrs) {
         var $element = $(element);
+        
+        var defaultColor = "#FF386A";
+        var hoverColor = "#FFb600";
+        
+        if ($("link[href='css/theme-marca-ba.css']").length){
+          defaultColor = "#FFb600";
+          hoverColor = "rgba(32, 149, 242, 0.8)";
+        }
+        
         $element.mouseenter(function() {
-            $(this).find("path, polygon, circle, rect").attr("fill", "#" + scope.svgHoverColor);
-            $(this).find("path, polygon, circle, rect").attr("stroke", "#" + scope.svgHoverColor);
-            $(this).find("h4").css("color", "#" + scope.svgHoverColor);
+            $(this).find("path, polygon, circle, rect").attr("fill", hoverColor);
+            $(this).find("path, polygon, circle, rect").attr("stroke", hoverColor);
+            $(this).find("h4").css("color", hoverColor);
          });
         $element.mouseleave(function() {
-            $(this).find("path, polygon, circle, rect").attr("fill", "#FF386A");
-            $(this).find("path, polygon, circle, rect").attr("stroke", "#FF386A");
-            $(this).find("h4").css("color", "#FF386A");
+            $(this).find("path, polygon, circle, rect").attr("fill", defaultColor);
+            $(this).find("path, polygon, circle, rect").attr("stroke", defaultColor);
+            $(this).find("h4").css("color", defaultColor);
          });
       }
     };
