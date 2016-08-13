@@ -70,6 +70,9 @@
 
                     // Replace IMG with SVG
                     $element.append($svg);
+
+                    // Removes opacity
+                    $element.find("g[opacity='0.75']").css("opacity", 0);
                 }, 'xml');
             }
         };
