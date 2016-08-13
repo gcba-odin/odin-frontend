@@ -256,13 +256,6 @@
                     return order;
                 });
                 $scope.selectOrder = function(order) {
-                    if(order.property === 'downloads') {
-                        if(order.active) {
-                            LocationSearchService.deleteFilter('downloads');
-                        } else {
-                            LocationSearchService.setFilter('downloads');
-                        }
-                    }
                     if(order.active) {
                         LocationSearchService.deleteFilter(filterName);
                         LocationSearchService.deleteFilter('sort');
@@ -274,7 +267,6 @@
                 $scope.removeAll = function() {
                     LocationSearchService.deleteFilter(filterName);
                     LocationSearchService.deleteFilter('sort');
-                    LocationSearchService.deleteFilter('downloads');
                 };
             },
             controllerAs: "licences"

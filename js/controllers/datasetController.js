@@ -191,26 +191,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         'status.name': 'Publicado'
     }, LocationSearchService.searchParams());
     $scope.modelName = "Dataset";
-    $scope.type = "datasets";
     $rootScope.header = "Datasets List";
-
-    if ($scope.params.downloads) {
-        $scope.downloadsResults = rest().statistics({
-            type: $scope.type
-        }, function() {
-            $scope.downloads = $scope.downloadsResults.data
-                .filter(function(download) {
-                    return download.resource === 'Dataset';
-                })
-                .map(function(download) {
-                    return {
-                        dataset: download.item,
-                        count: download.count.GET
-                    };
-                });
-        });
-    }
-
+    $scope.downloads = [];
     $scope.datasets = [];
     $scope.resultDatasetsSearch = [];
     $scope.showLoading = true;
@@ -225,11 +207,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         $scope.resultDatasetsSearch = rest()[
             $scope.params.query ? 'search' : 'get'
         ]({
-            type: $scope.type,
+            type: 'datasets',
             params: $httpParamSerializer($scope.params)
         }, function(result) {
             $scope.datasets = $scope.resultDatasetsSearch.data.map(function(dataset) {
-                if ($scope.downloads) {
+                if ($scope.downloads.length) {
                     var downloadsCount = $scope.downloads
                         .filter(function(download) {
                             return download.dataset === dataset.id;
@@ -237,7 +219,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                         .map(function(download) {
                             return download.count;
                         });
-                    dataset.downloads = downloadsCount.length && downloadsCount[0];
+                    dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
                 }
 
                 dataset.additional_info = [];
@@ -251,17 +233,50 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 dataset.url_api = $scope.resultDatasetsSearch.links.all;
 
                 return dataset;
-            });
+            })
+            .sort(downloadsDesc);
+
             $scope.showLoading = false;
             $scope.count = result.meta.count;
         });
     };
+
+    if ($scope.params.orderBy === 'downloads') {
+        delete $scope.params.orderBy;
+        $scope.downloadsResults = rest().statistics({
+            type: 'datasets'
+        }, function() {
+            var items = $scope.downloadsResults.data.items;
+            $.each(items, function(key, value){
+                if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
+                    $scope.downloads.push({
+                        dataset: value.item,
+                        downloads: value.count.GET
+                    });
+                }
+            });
+            $scope.loadResults(0);
+        });
+    } else {
+        $scope.loadResults(0);
+    }
+
     $scope.view = function(model) {
-        var url = '/' + $scope.type + '/' + model.id + "/view";
+        var url = '/datasets/' + model.id + "/view";
         $location.path(url);
     };
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
-    $scope.loadResults(0);
+    function downloadsDesc(a, b){
+        // sort DESC
+        if (a.downloads < b.downloads) {
+            return 1;
+        }
+        if (a.downloads > b.downloads) {
+            return -1;
+        }
+        // a must be equal to b
+        return 0;
+    }
 }
