@@ -56,6 +56,11 @@
                 var $element = jQuery(element);
                 var attributes = $element.prop("attributes");
 
+                var hoverColor = "#FFb600";
+                if ($("link[href='css/theme-marca-ba.css']").length) {
+                    hoverColor = "rgba(32, 149, 242, 0.8)";
+                }
+
                 $.get($rootScope.url + '/categories/' + scope.svgImg + '/image', function(data) {
                     // Get the SVG tag, ignore the rest
                     var $svg = jQuery(data).find('svg');
@@ -73,6 +78,13 @@
 
                     // Removes opacity
                     $element.find("g[opacity='0.75']").css("opacity", 0);
+
+                    if (attrs.active == "true") {
+                        $element.find("path, polygon, circle, rect").attr("fill", hoverColor);
+                        $element.find("path, polygon, circle, rect").attr("stroke", hoverColor);
+                        $element.css("color", hoverColor);
+                    }
+
                 }, 'xml');
             }
         };
@@ -83,7 +95,6 @@
             restrict: 'A',
             link: function(scope, element, attrs) {
                 var $element = $(element);
-
                 var defaultColor = "#FF386A";
                 var hoverColor = "#FFb600";
 
@@ -93,13 +104,17 @@
                 }
 
                 $element.mouseenter(function() {
-                    $(this).find("path, polygon, circle, rect").attr("fill", hoverColor);
-                    $(this).find("path, polygon, circle, rect").attr("stroke", hoverColor);
+                    if (attrs.active != "true") {
+                        $(this).find("path, polygon, circle, rect").attr("fill", hoverColor);
+                        $(this).find("path, polygon, circle, rect").attr("stroke", hoverColor);
+                    }
                     $(this).find("h4").css("color", hoverColor);
                 });
                 $element.mouseleave(function() {
-                    $(this).find("path, polygon, circle, rect").attr("fill", defaultColor);
-                    $(this).find("path, polygon, circle, rect").attr("stroke", defaultColor);
+                    if (attrs.active != "true") {
+                        $(this).find("path, polygon, circle, rect").attr("fill", defaultColor);
+                        $(this).find("path, polygon, circle, rect").attr("stroke", defaultColor);
+                    }
                     $(this).find("h4").css("color", defaultColor);
                 });
             }
@@ -122,7 +137,6 @@
             replace: true,
             link: function postlink(scope, element, attrs) {
                 scope.$watch("categoryPercent", function(newVal, oldVal) {
-                    // console.log('from directive', scope.categoryPercent);
                     var $element = $(element);
                     $element.css({
                         background: "linear-gradient(to right, #FF386a 0%, #FF386a " + scope.categoryPercent + "%, #999999 " + scope.categoryPercent + "%, #999999 100%)"
