@@ -76,7 +76,7 @@
                 $scope.loadOrganizationCount = function(organizationId){
                     rest().get({
                         type: "datasets",
-                        params: "status.name=Publicado&files.organization=" + organizationId
+                        params: "include=files&status.name=Publicado&files.organization=" + organizationId
                     }, function(results) {
                         $scope.organizationsCount[organizationId] = results.meta.count;
                     });                    
@@ -193,7 +193,7 @@
                 $scope.loadFileTypeCount = function(fileTypeId){
                     rest().get({
                         type: "datasets",
-                        params: "status.name=Publicado&files.type=" + fileTypeId
+                        params: "include=files&status.name=Publicado&files.type=" + fileTypeId
                     }, function(results) {
                         $scope.fileTypesCount[fileTypeId] = results.meta.count;
                     });                    
