@@ -234,10 +234,13 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
                 return dataset;
             })
+            .filter(function(dataset) {
+                return dataset.status.name === 'Publicado';
+            })
             .sort(downloadsDesc);
 
             $scope.showLoading = false;
-            $scope.count = result.meta.count;
+            $scope.count = $scope.datasets.length;
         });
     };
 
