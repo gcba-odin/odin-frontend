@@ -54,6 +54,7 @@
                 $scope.organizations = [];
                 $scope.resultOrganizations = [];
                 $scope.lessThanLimit;
+                $scope.organizationsCount = {}
                 $scope.loadOrganizations = function(limit) {
                     $scope.limitOrganizations += limit;
                     $scope.resultOrganizations = rest().get({
@@ -64,9 +65,21 @@
                             var organization = $scope.resultOrganizations.data[i];
                             organization.active = LocationSearchService.isActive(filterName, organization.id);
                             $scope.organizations.push(organization);
+                            $scope.organizationsCount[organization.id] = 0;    
+                            $scope.loadOrganizationCount(organization.id);
                         }
                         $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
                     });
+                };
+
+                //This won't scale. TODO: Change to /count
+                $scope.loadOrganizationCount = function(organizationId){
+                    rest().get({
+                        type: "datasets",
+                        params: "status.name=Publicado&files.organization=" + organizationId
+                    }, function(results) {
+                        $scope.organizationsCount[organizationId] = results.meta.count;
+                    });                    
                 };
 
                 $scope.showLess = function(limit) {
@@ -105,6 +118,7 @@
                 $scope.tags = [];
                 $scope.resultTags = [];
                 $scope.lessThanLimit;
+                
                 $scope.loadTags = function(limit) {
                     $scope.limitTags += limit;
                     $scope.resultTags = rest().get({
@@ -156,6 +170,7 @@
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
                 $scope.lessThanLimit;
+                $scope.fileTypesCount = {}
                 $scope.loadFormats = function(limit) {
                     $scope.limitFormats += limit;
                     $scope.resultFormats = rest().get({
@@ -166,10 +181,22 @@
                             var filetype = $scope.resultFormats.data[i];
                             filetype.active = LocationSearchService.isActive(filterName, filetype.id);
                             $scope.filetypes.push(filetype);
+                            $scope.fileTypesCount[filetype.id] = 0;    
+                            $scope.loadFileTypeCount(filetype.id);
                         }
                         $scope.lessThanLimit = $scope.resultFormats.data.length < limit;
                     });
                     $scope.datasetCount = {};
+                };
+
+                //This won't scale. TODO: Change to /count
+                $scope.loadFileTypeCount = function(fileTypeId){
+                    rest().get({
+                        type: "datasets",
+                        params: "status.name=Publicado&files.type=" + fileTypeId
+                    }, function(results) {
+                        $scope.fileTypesCount[fileTypeId] = results.meta.count;
+                    });                    
                 };
 
                 $scope.showLess = function(limit) {

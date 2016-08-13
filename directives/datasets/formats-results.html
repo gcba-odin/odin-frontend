@@ -7,7 +7,7 @@
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="filetype in filetypes" ng-class="{'active': filetype.active}">
             <a class="tags-item" ng-click="selectFiletype(filetype)" title="{{filetype.name}}">
-               <span>{{filetype.name | truncString | uppercase}} (1)</span>
+               <span>{{filetype.name | truncString | uppercase}} ({{fileTypesCount[filetype.id]}})</span>
             </a>
          </li>
       </ul>
