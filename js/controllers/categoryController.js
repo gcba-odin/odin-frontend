@@ -24,6 +24,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
 
         $scope.categories.forEach(function(element) {
             $scope.statistics[element.id] = 0;
+            $scope.porcentual[element.id] = 0;
         });
 
         rest().statistics({
@@ -33,15 +34,12 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
             for (element in statistics.data) {
                 var cat = statistics.data[element];
                 $scope.statistics[element] = cat.count.GET;
+                $scope.totalStatistics += cat.count.GET;
             }
 
-            Object.keys($scope.statistics).forEach(function(key) {
-                $scope.totalStatistics += $scope.statistics[key];
-            });
-
-            Object.keys($scope.statistics).forEach(function(key) {
-                $scope.porcentual[key] = $scope.statistics[key] * 100 / $scope.totalStatistics;
-            });
+            for (element in statistics.data) {
+                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;;
+            }
         });
     });
 }
