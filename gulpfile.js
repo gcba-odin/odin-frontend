@@ -13,7 +13,7 @@ gulp.task('ngConfig', function () {
 gulp.task('serve', ['ngConfig'], function() {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: './'
     }
   });
 });
