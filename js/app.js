@@ -1,5 +1,18 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "odin.config","ngResource","ngProgress","odin.controllers","store-directives", "store-factories", "chart.js", "leaflet-directive", "bw.paging", "angularUtils.directives.dirDisqus"]);
+    var app = angular.module('odin', [
+        "ngRoute",
+        "odin.config",
+        "ngResource",
+        "ngProgress",
+        "odin.controllers",
+        "store-directives",
+        "store-factories",
+        "chart.js",
+        "leaflet-directive",
+        "bw.paging",
+        "angularUtils.directives.dirDisqus",
+        "720kb.socialshare"
+    ]);
     app.config(function($routeProvider, $locationProvider) {
         
         $locationProvider.html5Mode(true);
