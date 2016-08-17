@@ -1,14 +1,17 @@
 <section class="module module-narrow social-share">
   <h2 class="module-heading">
     Compartir
-    <i class="fa fa-caret-down module-action" ng-click="vm.toggleCollapse()"></i>
+    <i class="fa module-action"
+      ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
+      ng-click="toggleCollapse()"
+    ></i>
   </h2>
-  <ul class="nav nav-simple">
+  <ul ng-hide="collapsed" class="nav nav-simple">
     <li class="nav-item">
       <a href
         socialshare
         socialshare-provider="facebook"
-        socialshare-url="vm.shareUrl">
+        socialshare-url="{{shareUrl}}">
         <i class="fa fa-facebook-square"></i> Facebook
       </a>
     </li>
@@ -16,7 +19,7 @@
       <a href
         socialshare
         socialshare-provider="twitter"
-        socialshare-url="vm.shareUrl">
+        socialshare-url="{{shareUrl}}">
         <i class="fa fa-twitter-square"></i> Twitter
       </a>
     </li>
@@ -24,7 +27,7 @@
       <a href
         socialshare
         socialshare-provider="pinterest"
-        socialshare-url="vm.shareUrl">
+        socialshare-url="{{shareUrl}}">
         <i class="fa fa-pinterest-square"></i> Pinterest
       </a>
     </li>
@@ -32,7 +35,7 @@
       <a href
         socialshare
         socialshare-provider="linkedin"
-        socialshare-url="vm.shareUrl">
+        socialshare-url="{{shareUrl}}">
         <i class="fa fa-linkedin-square"></i> Linkedin
       </a>
     </li>

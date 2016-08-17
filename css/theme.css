@@ -733,6 +733,10 @@ h2 {
     padding-bottom: 5px;
 }
 
+.social-share .nav .nav-item a:focus {
+    background: none;
+}
+
 .social-share .fa-facebook-square {
     color: #3b5998;
 }
