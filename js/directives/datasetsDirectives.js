@@ -170,7 +170,7 @@
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
                 $scope.lessThanLimit;
-                $scope.fileTypesCount = {}
+                $scope.fileTypesCount = {};
                 $scope.loadFormats = function(limit) {
                     $scope.limitFormats += limit;
                     $scope.resultFormats = rest().get({
@@ -181,7 +181,6 @@
                             var filetype = $scope.resultFormats.data[i];
                             filetype.active = LocationSearchService.isActive(filterName, filetype.id);
                             $scope.filetypes.push(filetype);
-                            $scope.fileTypesCount[filetype.id] = 0;    
                             $scope.loadFileTypeCount(filetype.id);
                         }
                         $scope.lessThanLimit = $scope.resultFormats.data.length < limit;
@@ -193,10 +192,15 @@
                 $scope.loadFileTypeCount = function(fileTypeId){
                     rest().get({
                         type: "datasets",
-                        params: "include=files&status.name=Publicado&files.type=" + fileTypeId
+                        params: "include=files&files.type=" + fileTypeId
                     }, function(results) {
-                        $scope.fileTypesCount[fileTypeId] = results.meta.count;
-                    });                    
+                        var count = results.meta.count;
+                        if (count && results.data[0].status.name  === 'Publicado') {
+                            $scope.fileTypesCount[fileTypeId] = count;
+                        } else {
+                            $scope.fileTypesCount[fileTypeId] = 0;
+                        }
+                    });
                 };
 
                 $scope.showLess = function(limit) {
