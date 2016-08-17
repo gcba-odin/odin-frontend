@@ -244,6 +244,7 @@
                     }, {
                         name: 'Más descargados',
                         property: 'downloads',
+                        sort: null,
                         datasetsOnly: true
                     }, {
                         name: 'Última actualización',

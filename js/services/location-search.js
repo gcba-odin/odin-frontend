@@ -16,7 +16,7 @@ angular.module('store-factories')
       var filterValues = locationSearch[filter];
       if(filterValues === [value]) return;
       filterValues = [value];
-      $location.search(filter, filterValues);
+      $location.search(filter, value);
     },
     deleteFilter: function(filter) {
       if(!locationSearch[filter]) return;

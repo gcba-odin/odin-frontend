@@ -217,7 +217,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                             return download.dataset === dataset.id;
                         })
                         .map(function(download) {
-                            return download.count;
+                            return download.downloads;
                         });
                     dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
                 }
