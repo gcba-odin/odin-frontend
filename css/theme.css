@@ -721,6 +721,34 @@ h2 {
     top: -1px;
 }
 
+.social-share .module-action {
+    cursor: pointer;
+    padding: 0 5px;
+    position: absolute;
+    right: 5px;
+}
+
+.social-share .nav .nav-item a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.social-share .fa-facebook-square {
+    color: #3b5998;
+}
+
+.social-share .fa-twitter-square {
+    color: #00aced;
+}
+
+.social-share .fa-pinterest-square {
+    color: #cb2027;
+}
+
+.social-share .fa-linkedin-square {
+    color: #007bb6;
+}
+
 .social-networks {
     padding-top: 1vh;
 }
