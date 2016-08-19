@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     ngConfig = require('gulp-ng-config'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('ngConfig', function () {
   gulp.src('config.json')
@@ -14,7 +15,8 @@ gulp.task('serve', ['ngConfig'], function() {
   browserSync.init({
     server: {
       baseDir: './'
-    }
+    },
+    middleware: [require("connect-logger")(), historyApiFallback()]
   });
 });
 
