@@ -1082,6 +1082,7 @@ h2 {
 
 .category-image svg {
     display: block;
+    height: 50px;
     margin: 0 auto;
 }
 
