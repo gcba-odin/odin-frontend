@@ -62,25 +62,21 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter)
 {
     LocationSearchService.init();
     $scope.type = "datasets";
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        name: $filter('unslug')($routeParams.id),
+        include: 'tags,categories'
     }, LocationSearchService.searchParams());
-
     $scope.limit = 10;
 
-    $scope.params = $.extend({
-        dataset: $routeParams.id
-    }, LocationSearchService.searchParams());
-
-    $scope.info = rest().findOne({
-        id: $routeParams.id,
+    $scope.info = rest().get({
         type: $scope.type,
-        params: 'include=tags,categories'
+        params: $httpParamSerializer($scope.params)
     }, function(result) {
+        $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
 
         var tags = [];
