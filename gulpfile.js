@@ -11,7 +11,7 @@ gulp.task('ngConfig', function () {
   .pipe(gulp.dest('js'));
 });
 
-gulp.task('serve', ['ngConfig'], function() {
+gulp.task('serve', ['build'], function() {
   browserSync.init({
     server: {
       baseDir: './'
@@ -29,5 +29,7 @@ gulp.task('watch', ['serve'], function () {
     'css/**/*.css'
   ], browserSync.reload);
 });
+
+gulp.task('build', ['ngConfig']);
 
 gulp.task('default', ['watch']);
