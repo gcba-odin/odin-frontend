@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
+function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer) {
     $scope.activeCategories = [];
     $scope.activeCategory = $routeParams['categories.name'];
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.name'];
@@ -15,12 +15,11 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
 
-    rest().findOne({
-      id: $routeParams.id,
+    rest().get({
       type: "datasets",
-      params: "include=categories"
+      params: $httpParamSerializer($scope.params)
     }, function(dataset) {
-      dataset.categories.forEach(category => {
+      dataset.data[0].categories.forEach(category => {
         $scope.activeCategories.push(category.name);
       });
     });
