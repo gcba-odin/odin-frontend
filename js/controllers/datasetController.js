@@ -96,7 +96,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
             $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
-            params: $httpParamSerializer($scope.params)
+            params: 'include=tags&dataset=' + $scope.info.id
         }, function (result){
             $scope.files = $scope.filesResults.data.filter(function(file){
                 //TODO: status filter should be handled in the api
