@@ -11,7 +11,8 @@
         "leaflet-directive",
         "bw.paging",
         "angularUtils.directives.dirDisqus",
-        "720kb.socialshare"
+        "720kb.socialshare",
+        "pdf"
     ]);
     app.config(function($routeProvider, $locationProvider) {
         
