@@ -5,6 +5,8 @@ app.factory('model', function($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
+    $scope.activeCategories = [];
+    $scope.activeCategory = $routeParams['categories.name'];
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.name'];
     $scope.modelName = "Category";
     $scope.type = "categories";
@@ -12,6 +14,16 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.statistics = {};
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
+
+    rest().findOne({
+      id: $routeParams.id,
+      type: "datasets",
+      params: "include=categories"
+    }, function(dataset) {
+      dataset.categories.forEach(category => {
+        $scope.activeCategories.push(category.name);
+      });
+    });
 
     rest().get({
         type: $scope.type,
