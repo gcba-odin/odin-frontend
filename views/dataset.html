@@ -13,18 +13,15 @@
                 <li class="breadcrumb-item">
                     <a ng-href="datasets">DATASETS</a>
                 </li>
-                <!-- Snippet snippets/home_breadcrumb_item.html end -->
-                <!--<li><a ng-href="/organizations">Organizaciones</a></li>
-                <li><a ng-href="/organization/{{info.organizations[0].slug}}">{{info.organizations[0].name}}</a></li>-->
                 <li class="breadcrumb-item">
-                    <a ng-href="dataset/{{info.id| lowercase}}">{{info.name| truncString | uppercase}}</a>
+                    <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString | uppercase}}</a>
                 </li>
             </ol>
         </div>
         <div class="dataset-single clearfix">
             <div class="dataset-content">
                 <h3 class="dataset-heading">
-                    <a ng-href="dataset/{{info.id | lowercase}}" ng-title="{{info.name}}">{{info.name}}</a>
+                    <a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">{{info.name}}</a>
                 </h3>
                 <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
                 <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
@@ -78,7 +75,7 @@
             <div class="filters">
                 <div>
                     <order-result files-view="true"></order-result>
-                    <socials-dataset></socials-dataset>
+                    <socials-dataset dataset="info"></socials-dataset>
                 </div>
             </div>
          </aside>

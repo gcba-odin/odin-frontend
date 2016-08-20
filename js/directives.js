@@ -231,6 +231,12 @@
         };
     });
 
+    app.filter('unslug', function() {
+        return function(slug) {
+            return slug.replace(/\-/g,' ');
+        };
+    })
+
     app.filter("sanitize", ['$sce', function($sce) {
         return function(htmlCode) {
             return $sce.trustAsHtml(htmlCode);

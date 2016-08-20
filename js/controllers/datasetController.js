@@ -60,24 +60,21 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
+function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter)
+{
     LocationSearchService.init();
     $scope.type = "datasets";
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        name: $filter('unslug')($routeParams.id),
+        include: 'tags,categories'
     }, LocationSearchService.searchParams());
-
     $scope.limit = 10;
 
-    $scope.params = $.extend({
-        dataset: $routeParams.id
-    }, LocationSearchService.searchParams());
-
-    $scope.info = rest().findOne({
-        id: $routeParams.id,
+    $scope.info = rest().get({
         type: $scope.type,
-        params: 'include=tags,categories'
+        params: $httpParamSerializer($scope.params)
     }, function(result) {
+        $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
 
         var tags = [];
@@ -97,9 +94,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
-            params: $httpParamSerializer($scope.params)
-        }, function(result) {
-            $scope.files = $scope.filesResults.data.filter(function(file) {
+            params: 'include=tags&dataset=' + $scope.info.id
+        }, function (result){
+            $scope.files = $scope.filesResults.data.filter(function(file){
                 //TODO: status filter should be handled in the api
                 // with AND condition
                 return file.status.name === 'Publicado';
@@ -195,13 +192,13 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
     LocationSearchService.init();
-    $scope.params = $.extend({
+    $scope.params = $.extend(LocationSearchService.searchParams(), {
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        'status.name': 'Publicado'
-    }, LocationSearchService.searchParams());
+        'categories.name': $routeParams['categories.name'] // This is the only filter that accepts slug name :(
+    });
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";
     $scope.downloads = [];
@@ -216,13 +213,15 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         } else {
             $scope.params.skip = 0;
         }
+        console.log($httpParamSerializer($scope.params));
         $scope.resultDatasetsSearch = rest()[
             $scope.params.query ? 'search' : 'get'
         ]({
             type: 'datasets',
             params: $httpParamSerializer($scope.params)
         }, function(result) {
-            $scope.datasets = $scope.resultDatasetsSearch.data.map(function(dataset) {
+            $scope.datasets = $scope.resultDatasetsSearch.data
+                .map(function(dataset) {
                     if ($scope.downloads.length) {
                         var downloadsCount = $scope.downloads
                             .filter(function(download) {
@@ -247,7 +246,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                     return dataset;
                 })
                 .filter(function(dataset) {
-                    return dataset.status.name === 'Publicado';
+                    return dataset.files.filter(function(file) {
+                        return !$scope.params['files.type'] || file.status === 'qWRhpRV';
+                    }).length && dataset.status.name === 'Publicado';
                 })
                 .sort(downloadsDesc);
 
