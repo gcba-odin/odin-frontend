@@ -1583,3 +1583,15 @@ article figcaption,
 .read-more-datasets:hover {
     background-color: #F3F3F3
 }
+
+.pdf-controls input {
+    width: 35px;
+}
+
+.pdf-controls .pdf-container {
+    margin: 0px 10px 0px 10px;
+}
+
+.pdf-controls .pdf-right {
+    line-height: 54px;
+}

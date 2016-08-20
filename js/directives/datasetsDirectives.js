@@ -107,7 +107,7 @@
     });
 
 
-    app.directive("tagsResult", function(LocationSearchService) {
+    app.directive("tagsResult", function($filter, LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/tags-results.html",
@@ -127,7 +127,8 @@
                     }, function() {
                         for (var i = 0; i < $scope.resultTags.data.length; i++) {
                             var tag = $scope.resultTags.data[i];
-                            tag.active = LocationSearchService.isActive(filterName, tag.name);
+                            tag.slug = $filter('slug')(tag.name);
+                            tag.active = LocationSearchService.isActive(filterName, tag.slug);
                             $scope.tags.push(tag);
                         }
                         $scope.lessThanLimit = $scope.resultTags.data.length < limit;
@@ -146,9 +147,9 @@
                 $scope.loadTags(0);
                 $scope.selectTag = function(tag) {
                     if(tag.active) {
-                        LocationSearchService.removeFilterValue(filterName, tag.name);
+                        LocationSearchService.removeFilterValue(filterName, tag.slug);
                     } else {
-                        LocationSearchService.addFilterValue(filterName, tag.name);
+                        LocationSearchService.addFilterValue(filterName, tag.slug);
                     }
                 };
                 $scope.removeAll = function() {
@@ -159,7 +160,7 @@
         };
     });
 
-    app.directive("formatsResult", function(LocationSearchService) {
+    app.directive("formatsResult", function($filter, LocationSearchService) {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/formats-results.html",
@@ -180,6 +181,7 @@
                         for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                             var filetype = $scope.resultFormats.data[i];
                             filetype.active = LocationSearchService.isActive(filterName, filetype.id);
+                            filetype.slug = $filter('slug')(filetype.name);
                             $scope.filetypes.push(filetype);
                             $scope.loadFileTypeCount(filetype.id);
                         }
@@ -198,16 +200,12 @@
                             .filter(function(dataset) {
                                 return dataset.status.name === 'Publicado';
                             })
-                            .map(function(dataset) {
-                                return dataset.files;
-                            })
-                            .reduce(function(memo, files) {
-                                return memo.concat(files);
-                            }, [])
-                            .filter(function(file) {
-                                return file.status === 'qWRhpRV';
-                            })
-                            .length;
+                            .filter(function(dataset) {
+                                return dataset.files.filter(function(file) {
+                                    return file.status === 'qWRhpRV';
+                                })
+                                .length;
+                            }).length;
                         $scope.fileTypesCount[fileTypeId] = count || 0;
                     });
                 };

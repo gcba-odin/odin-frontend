@@ -82,7 +82,9 @@
         return {
             restrict: "E",
             templateUrl: "directives/dataset/socials-dataset.html",
-            scope: {},
+            scope: {
+                dataset: '='
+            },
             controller: function($scope) {
                 $scope.shareUrl = $location.absUrl();
                 $scope.collapsed = true;

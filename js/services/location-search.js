@@ -1,5 +1,5 @@
 angular.module('store-factories')
-.service('LocationSearchService', function($location, $window) {
+.service('LocationSearchService', function($location, $window, $filter) {
   var locationSearch = {};
   return {
     init: function() {
@@ -41,7 +41,13 @@ angular.module('store-factories')
       var searchParams = angular.copy(locationSearch);
       $.each(searchParams, function(key, value) {
         if (value.length > 0) {
-          searchParams[key] = $.isArray(value) ? value.join() : value;
+          if ($.isArray(value)) {
+            searchParams[key] = value.map(function(slug){
+              return $filter('unslug')(slug);
+            }).join();
+          } else {
+            searchParams[key] = $filter('unslug')(value);
+          }
         }
       });
       return searchParams;
