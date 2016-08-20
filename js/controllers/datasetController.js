@@ -178,13 +178,13 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
     LocationSearchService.init();
-    $scope.params = $.extend({
+    $scope.params = $.extend(LocationSearchService.searchParams(), {
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        'status.name': 'Publicado'
-    }, LocationSearchService.searchParams());
+        'categories.name': $routeParams['categories.name'] // This is the only filter that accepts slug name :(
+    });
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";
     $scope.downloads = [];
@@ -199,42 +199,44 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         } else {
             $scope.params.skip = 0;
         }
+        console.log($httpParamSerializer($scope.params));
         $scope.resultDatasetsSearch = rest()[
             $scope.params.query ? 'search' : 'get'
         ]({
             type: 'datasets',
             params: $httpParamSerializer($scope.params)
         }, function(result) {
-            $scope.datasets = $scope.resultDatasetsSearch.data.map(function(dataset) {
-                if ($scope.downloads.length) {
-                    var downloadsCount = $scope.downloads
-                        .filter(function(download) {
-                            return download.dataset === dataset.id;
-                        })
-                        .map(function(download) {
-                            return download.downloads;
+            $scope.datasets = $scope.resultDatasetsSearch.data
+                .map(function(dataset) {
+                    if ($scope.downloads.length) {
+                        var downloadsCount = $scope.downloads
+                            .filter(function(download) {
+                                return download.dataset === dataset.id;
+                            })
+                            .map(function(download) {
+                                return download.downloads;
+                            });
+                        dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
+                    }
+
+                    dataset.additional_info = [];
+                    angular.forEach(dataset.optionals, function(val, key) {
+                        dataset.additional_info.push({
+                            clave: key,
+                            valor: val
                         });
-                    dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
-                }
-
-                dataset.additional_info = [];
-                angular.forEach(dataset.optionals, function(val, key) {
-                    dataset.additional_info.push({
-                        clave: key,
-                        valor: val
                     });
-                });
 
-                dataset.url_api = $scope.resultDatasetsSearch.links.all;
+                    dataset.url_api = $scope.resultDatasetsSearch.links.all;
 
-                return dataset;
-            })
-            .filter(function(dataset) {
-                return dataset.files.filter(function(file) {
-                    return !$scope.params['files.type'] || file.status === 'qWRhpRV';
-                }).length && dataset.status.name === 'Publicado';
-            })
-            .sort(downloadsDesc);
+                    return dataset;
+                })
+                .filter(function(dataset) {
+                    return dataset.files.filter(function(file) {
+                        return !$scope.params['files.type'] || file.status === 'qWRhpRV';
+                    }).length && dataset.status.name === 'Publicado';
+                })
+                .sort(downloadsDesc);
 
             $scope.showLoading = false;
             $scope.count = $scope.datasets.length;

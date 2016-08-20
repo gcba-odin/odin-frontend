@@ -5,8 +5,7 @@ app.factory('model', function($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
-    $scope.activeCategory = $routeParams['categories.name'];
-    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $scope.activeCategory;
+    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.name'];
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;

@@ -167,7 +167,6 @@
             scope: {},
             controller: function($scope, rest) {
                 var filterName = 'files.type';
-                // var filterName = 'files.type.name';
                 $scope.limitFormats = 0;
                 $scope.filetypes = [];
                 $scope.resultFormats = [];
@@ -223,10 +222,8 @@
                 $scope.selectFiletype = function(filetype) {
                     if(filetype.active) {
                         LocationSearchService.removeFilterValue(filterName, filetype.id);
-                        // LocationSearchService.removeFilterValue(filterName, filetype.slug);
                     } else {
                         LocationSearchService.addFilterValue(filterName, filetype.id);
-                        // LocationSearchService.addFilterValue(filterName, filetype.slug);
                     }
                 };
                 $scope.removeAll = function() {
