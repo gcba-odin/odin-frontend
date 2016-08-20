@@ -1,6 +1,6 @@
 <div class="categories-container categories-row-container">
-    <a href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-row-item" ng-repeat="category in categories" svg-hover-color active="{{(category.name | slug) === activeCategory}}">
-        <div class="category-image" svg-img="category.id" active="{{(category.name | slug) === activeCategory}}"></div>
+    <a href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-row-item" ng-repeat="category in categories" svg-hover-color active="{{(category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}}">
+        <div class="category-image" svg-img="category.id" active="{{(category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}}"></div>
         <h4 class="categories-item-title categories-row-item-title">{{category.name}}</h4>
     </a>
 </div>
