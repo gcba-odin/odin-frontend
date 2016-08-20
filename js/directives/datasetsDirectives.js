@@ -194,12 +194,21 @@
                         type: "datasets",
                         params: "include=files&files.type=" + fileTypeId
                     }, function(results) {
-                        var count = results.meta.count;
-                        if (count && results.data[0].status.name  === 'Publicado') {
-                            $scope.fileTypesCount[fileTypeId] = count;
-                        } else {
-                            $scope.fileTypesCount[fileTypeId] = 0;
-                        }
+                        var count = results.data
+                            .filter(function(dataset) {
+                                return dataset.status.name === 'Publicado';
+                            })
+                            .map(function(dataset) {
+                                return dataset.files;
+                            })
+                            .reduce(function(memo, files) {
+                                return memo.concat(files);
+                            }, [])
+                            .filter(function(file) {
+                                return file.status === 'qWRhpRV';
+                            })
+                            .length;
+                        $scope.fileTypesCount[fileTypeId] = count || 0;
                     });
                 };
 

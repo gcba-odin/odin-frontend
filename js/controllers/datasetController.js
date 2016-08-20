@@ -73,8 +73,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
     $scope.limit = 10;
 
     $scope.params = $.extend({
-        dataset: $routeParams.id,
-        // status: 'qWRhpRV'
+        dataset: $routeParams.id
     }, LocationSearchService.searchParams());
 
     $scope.info = rest().findOne({

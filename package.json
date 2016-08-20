@@ -2,6 +2,8 @@
   "name": "odin-frontend",
   "devDependencies": {
     "browser-sync": "^2.14.0",
+    "connect-history-api-fallback": "^1.3.0",
+    "connect-logger": "0.0.1",
     "gulp": "^3.9.1",
     "gulp-ng-config": "^1.3.1"
   }
