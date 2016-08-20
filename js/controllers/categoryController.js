@@ -16,15 +16,6 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.totalStatistics = 0;
 
     rest().get({
-      type: "datasets",
-      params: $httpParamSerializer($scope.params)
-    }, function(dataset) {
-      dataset.data[0].categories.forEach(category => {
-        $scope.activeCategories.push(category.name);
-      });
-    });
-
-    rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function(categories) {

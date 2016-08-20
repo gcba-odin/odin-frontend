@@ -63,6 +63,7 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
 function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter)
 {
     LocationSearchService.init();
+    $scope.activeCategories = [];
     $scope.type = "datasets";
     $scope.params = $.extend({
         name: $filter('unslug')($routeParams.id),
@@ -74,6 +75,9 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
     }, function(result) {
+        result.data[0].categories.forEach(category => {
+          $scope.activeCategories.push(category.name);
+        });
         $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
 
