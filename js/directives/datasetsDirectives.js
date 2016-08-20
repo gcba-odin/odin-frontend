@@ -198,16 +198,12 @@
                             .filter(function(dataset) {
                                 return dataset.status.name === 'Publicado';
                             })
-                            .map(function(dataset) {
-                                return dataset.files;
-                            })
-                            .reduce(function(memo, files) {
-                                return memo.concat(files);
-                            }, [])
-                            .filter(function(file) {
-                                return file.status === 'qWRhpRV';
-                            })
-                            .length;
+                            .filter(function(dataset) {
+                                return dataset.files.filter(function(file) {
+                                    return file.status === 'qWRhpRV';
+                                })
+                                .length;
+                            }).length;
                         $scope.fileTypesCount[fileTypeId] = count || 0;
                     });
                 };

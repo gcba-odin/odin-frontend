@@ -234,7 +234,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 return dataset;
             })
             .filter(function(dataset) {
-                return dataset.status.name === 'Publicado';
+                return dataset.files.filter(function(file) {
+                    return !$scope.params['files.type'] || file.status === 'qWRhpRV';
+                }).length && dataset.status.name === 'Publicado';
             })
             .sort(downloadsDesc);
 
