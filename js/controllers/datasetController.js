@@ -249,9 +249,15 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                     return dataset;
                 })
                 .filter(function(dataset) {
-                    return dataset.files.filter(function(file) {
-                        return !$scope.params['files.type'] || file.status === 'qWRhpRV';
-                    }).length && dataset.status.name === 'Publicado';
+                    var fileTypes = !LocationSearchService.isSet('files.type') || dataset.files
+                        .filter(function(file) {
+                            return LocationSearchService.isActive('files.type', file.type);
+                        })
+                        .filter(function(file) {
+                            return file.status === 'qWRhpRV';
+                        })
+                        .length;
+                    return fileTypes && dataset.status.name === 'Publicado';
                 })
                 .sort(downloadsDesc);
 

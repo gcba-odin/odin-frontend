@@ -12,6 +12,10 @@ angular.module('store-factories')
     isActive: function(filter, value) {
       return $.inArray(value, locationSearch[filter]) !== -1;
     },
+    isSet: function(filter) {
+      var filterValues = locationSearch[filter];
+      return $.isArray(filterValues) ? filterValues.length : !!filterValues;
+    },
     setFilter: function(filter, value) {
       var filterValues = locationSearch[filter];
       if(filterValues === [value]) return;
