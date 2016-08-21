@@ -1,6 +1,6 @@
 <div class="categories-container categories-grid-container row">
     <div class="category-box" ng-repeat="category in categories">
-        <a href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-grid-item">
+        <a ng-href="datasets?categories.name={{ category.name | slug }}" class="categories-item categories-grid-item">
             <div class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
             <h4 class="categories-item-title categories-grid-item-title">{{category.name}}</h4>
         </a>
