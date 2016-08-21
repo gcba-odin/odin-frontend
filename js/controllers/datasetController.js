@@ -249,7 +249,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                     return dataset;
                 })
                 .filter(function(dataset) {
-                    var fileTypes = !LocationSearchService.isSet('files.type') || dataset.files
+                    return dataset.status.name === 'Publicado';
+                })
+                .filter(function(dataset) {
+                    // Filter datasets that have unpublished files of filtered types
+                    return !LocationSearchService.isSet('files.type') || dataset.files
                         .filter(function(file) {
                             return LocationSearchService.isActive('files.type', file.type);
                         })
@@ -257,7 +261,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                             return file.status === 'qWRhpRV';
                         })
                         .length;
-                    return fileTypes && dataset.status.name === 'Publicado';
                 })
                 .sort(downloadsDesc);
 

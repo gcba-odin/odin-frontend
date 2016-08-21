@@ -202,7 +202,8 @@
                             })
                             .filter(function(dataset) {
                                 return dataset.files.filter(function(file) {
-                                    return file.status === 'qWRhpRV';
+                                    return file.status === 'qWRhpRV'
+                                        && file.type === fileTypeId;
                                 })
                                 .length;
                             }).length;
