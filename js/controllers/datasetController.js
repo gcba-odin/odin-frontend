@@ -217,7 +217,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         } else {
             $scope.params.skip = 0;
         }
-        console.log($httpParamSerializer($scope.params));
         $scope.resultDatasetsSearch = rest()[
             $scope.params.query ? 'search' : 'get'
         ]({
