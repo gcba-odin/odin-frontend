@@ -28,6 +28,30 @@
     font-weight: 500;
 }
 
+.categories-item.active path,
+.categories-item.active polygon,
+.categories-item.active circle,
+.categories-item.active rect {
+  fill: #FFb600;
+  stroke: #FFb600;
+}
+
+.categories-item:hover path,
+.categories-item:hover polygon,
+.categories-item:hover circle,
+.categories-item:hover rect {
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item.active h4 {
+  color: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item:hover h4 {
+  color: rgba(32, 149, 242, 0.8);
+}
+
 .text-auxiliar-bar {
     font-weight: 500;
 }

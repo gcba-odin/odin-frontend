@@ -56,12 +56,7 @@
                 var $element = jQuery(element);
                 var attributes = $element.prop("attributes");
 
-                var hoverColor = "#FFb600";
-                if ($("link[href='css/theme-marca-ba.css']").length) {
-                    hoverColor = "rgba(32, 149, 242, 0.8)";
-                }
-
-                $.get($rootScope.url + '/categories/' + scope.svgImg + '/image', function(data) {
+                $.get(scope.svgImg, function(data) {
                     // Get the SVG tag, ignore the rest
                     var $svg = jQuery(data).find('svg');
 
@@ -78,45 +73,7 @@
 
                     // Removes opacity
                     $element.find("g[opacity='0.75']").css("opacity", 0);
-
-                    if (attrs.active == "true") {
-                        $element.find("path, polygon, circle, rect").attr("fill", hoverColor);
-                        $element.find("path, polygon, circle, rect").attr("stroke", hoverColor);
-                        $element.css("color", hoverColor);
-                    }
-
                 }, 'xml');
-            }
-        };
-    });
-
-    app.directive('svgHoverColor', function() {
-        return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
-                var $element = $(element);
-                var defaultColor = "#FF386A";
-                var hoverColor = "#FFb600";
-
-                if ($("link[href='css/theme-marca-ba.css']").length) {
-                    defaultColor = "#FFb600";
-                    hoverColor = "rgba(32, 149, 242, 0.8)";
-                }
-
-                $element.mouseenter(function() {
-                    if (attrs.active != "true") {
-                        $(this).find("path, polygon, circle, rect").attr("fill", hoverColor);
-                        $(this).find("path, polygon, circle, rect").attr("stroke", hoverColor);
-                    }
-                    $(this).find("h4").css("color", hoverColor);
-                });
-                $element.mouseleave(function() {
-                    if (attrs.active != "true") {
-                        $(this).find("path, polygon, circle, rect").attr("fill", defaultColor);
-                        $(this).find("path, polygon, circle, rect").attr("stroke", defaultColor);
-                    }
-                    $(this).find("h4").css("color", defaultColor);
-                });
             }
         };
     });

@@ -14,7 +14,7 @@
         <div class="dataset-resources unstyled">
             <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
             <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
-            
+
             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
                 <thead>
                     <tr>
@@ -31,7 +31,9 @@
             </table>
             <div class="resource-actions pull-right">
                 <div class="dropdown no-hover">
-                    <a href ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="widget-item-footer-link widget-item-footer-preview-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" ng-class="{'active': resource.type_resource}"></a>
+                    <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      <a href class="widget-item-footer-link" ng-class="{'active': resource.type_resource}" svg-img="'/images/preview.svg'"></a>
+                    </div>
                     <ul class="dropdown-menu">
                         <li ng-if="!!resource.resources.data.tables">
                             <a href ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>
@@ -105,9 +107,9 @@
                     </div>
                     <div class="paging">
                         <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count"
-                                paging-action="paging('pageClick', page, pageSize, total, resource)" 
+                                paging-action="paging('pageClick', page, pageSize, total, resource)"
                                 show-prev-next="true"
-                                show-first-last="true" hide-if-empty="true"></paging> 
+                                show-first-last="true" hide-if-empty="true"></paging>
                     </div>
                 </div>
             </div>

@@ -367,6 +367,30 @@ ul {
     width: 20%;
 }
 
+.categories-item.active path,
+.categories-item.active polygon,
+.categories-item.active circle,
+.categories-item.active rect {
+  fill: #FFb600;
+  stroke: #FFb600;
+}
+
+.categories-item:hover path,
+.categories-item:hover polygon,
+.categories-item:hover circle,
+.categories-item:hover rect {
+  fill: #FFb600;
+  stroke: #FFb600;
+}
+
+.categories-item.active h4 {
+  color: #FFb600;
+}
+
+.categories-item:hover h4 {
+  color: #FFb600;
+}
+
 .categories-row-container {
     width: calc(100% + 40px);
     text-align: center;
@@ -663,8 +687,9 @@ h2 {
     margin-right: -1px;
 }
 
-.widget-item-footer-preview-link {
-    background-image: url("../images/preview.svg");
+.widget-item-footer-link.active path:not(.back) {
+  fill: #FF386a;
+  stroke: #FF386a;
 }
 
 
