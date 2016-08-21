@@ -45,7 +45,7 @@
             </ul>
         </div>
         <div class="dataset-single-tags">
-            <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.name={{tag.name}}">{{tag.name}}</a>
+            <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.name={{tag.name | slug}}">{{tag.name}}</a>
         </div>
         <div class="row wrapper">
          <div class="primary col-md-9">
