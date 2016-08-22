@@ -9,5 +9,6 @@ gulp.task('styles', function () {
   .pipe(sourcemaps.init())
     .pipe(sass())
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('./dist'));
+  .pipe(gulp.dest('./dist'))
+  .pipe(gulp.browserSync.stream());
 });

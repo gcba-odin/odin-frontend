@@ -17,15 +17,10 @@ gulp.task('watch', ['serve'], function() {
   // Style
   gulp.watch([
     'css/**/*.{css,scss}'
-    ], ['styles-watch']);
+    ], ['styles']);
 });
 
 gulp.task('javascript-watch', ['javascript'], function (done) {
-  gulp.browserSync.reload();
-  done();
-});
-
-gulp.task('styles-watch', ['styles'], function (done) {
   gulp.browserSync.reload();
   done();
 });
