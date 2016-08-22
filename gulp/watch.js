@@ -1,11 +1,14 @@
 var gulp = require('gulp');
 
-gulp.task('watch', ['serve'], function () {
+gulp.task('watch', ['serve'], function() {
   gulp.watch([
-    'index.html',
-    'directives/**/*.html',
-    'views/**/*.html',
+      'index.html',
+      'directives/**/*.html',
+      'views/**/*.html',
+      'css/**/*.css'
+    ], ['reload']);
+  gulp.watch([
     'js/**/*.js',
-    'css/**/*.css'
-  ], gulp.browserSync.reload);
+    'config.json'
+    ], ['javascript', 'reload']);
 });
