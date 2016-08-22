@@ -74,8 +74,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
     }, function(result) {
-        result.data[0].categories.forEach(category => {
-            $scope.activeCategories.push(category.name);
+        result.data[0].categories.forEach(function(category) {
+          $scope.activeCategories.push(category.name);
         });
         $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
