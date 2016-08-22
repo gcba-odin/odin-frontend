@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     sass = require('gulp-sass'),
-    cleanCSS = require('gulp-clean-css')
+    cleanCSS = require('gulp-clean-css'),
+    rename = require('gulp-rename'),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('styles', function () {
@@ -12,6 +13,7 @@ gulp.task('styles', function () {
     .pipe(cleanCSS())
     //TODO: add autoprefixer
   .pipe(sourcemaps.write())
+  .pipe(rename({ extname: '.min.css' }))
   .pipe(gulp.dest('./dist'))
   .pipe(gulp.browserSync.stream());
 });
