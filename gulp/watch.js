@@ -6,9 +6,14 @@ gulp.task('watch', ['serve'], function() {
       'directives/**/*.html',
       'views/**/*.html',
       'css/**/*.css'
-    ], ['reload']);
+    ], gulp.browserSync.reload);
   gulp.watch([
     'js/**/*.js',
     'config.json'
-    ], ['javascript', 'reload']);
+    ], ['js-watch']);
+});
+
+gulp.task('js-watch', ['javascript'], function (done) {
+  gulp.browserSync.reload();
+  done();
 });
