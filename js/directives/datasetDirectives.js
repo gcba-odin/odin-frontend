@@ -1,23 +1,31 @@
 (function() {
     var app = angular.module('store-directives-dataset', []);
 
-   app.directive("resultResources", function() {
+    app.directive("resultResources", function() {
         return {
             restrict: "E",
             templateUrl: "directives/datasets/result-resources.html",
             controller: function($scope) {
-                $scope.toggleDropdown = function(event)
-                {
-                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
-                    {
+                $scope.toggleDropdown = function(event) {
+                    if ($(event.target).next().hasClass('dataset-additional-info-table-inactive')) {
                         $(event.target).next().addClass('dataset-additional-info-table-active');
                         $(event.target).next().removeClass('dataset-additional-info-table-inactive');
                         $(event.target).addClass('dataset-additional-info-active');
-                    }
-                    else
-                    {
+                    } else {
                         $(event.target).next().addClass('dataset-additional-info-table-inactive');
                         $(event.target).next().removeClass('dataset-additional-info-table-active');
+                        $(event.target).removeClass('dataset-additional-info-active');
+                    }
+                };
+
+                $scope.toggleDropdownInverse = function(event) {
+                    if ($(event.target).prevAll().hasClass('dataset-additional-info-table-inactive')) {
+                        $(event.target).prevAll().addClass('dataset-additional-info-table-active');
+                        $(event.target).prevAll().removeClass('dataset-additional-info-table-inactive');
+                        $(event.target).addClass('dataset-additional-info-active');
+                    } else {
+                        $(event.target).prevAll().addClass('dataset-additional-info-table-inactive');
+                        $(event.target).prevAll().removeClass('dataset-additional-info-table-active');
                         $(event.target).removeClass('dataset-additional-info-active');
                     }
                 };
@@ -97,9 +105,9 @@
     });
 
     app.filter('trustUrl', ['$sce', function($sce) {
-            return function(url) {
-                return $sce.trustAsResourceUrl(url);
-            };
-        }])
+        return function(url) {
+            return $sce.trustAsResourceUrl(url);
+        };
+    }])
 
 })();

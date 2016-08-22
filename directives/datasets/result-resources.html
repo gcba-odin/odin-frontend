@@ -1,21 +1,15 @@
 <div class="dataset-list unstyled">
     <h2 class="list-heading">Recursos y descargas</h2>
-    <div class="dataset-item clearfix"  ng-repeat="resource in files">
+    <div class="dataset-item clearfix" ng-repeat="resource in files">
         <div class="dataset-content">
-            <!--<span class="dataset-category-icon {{category.name| slug}}" data-tooltip="{{category.name}}" ng-repeat="category in result.categories">
-            </span>-->
             <h3 class="dataset-heading">
                 {{resource.name}}
-                <!--<a ng-href="/dataset/{{result.id | lowercase}}" ng-title="{{result.name}}">{{result.name}}</a>-->
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
             <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
         </div>
         <div class="dataset-resources unstyled">
-            <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
-            <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</span>
-
-            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
+            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.aditional_info && resource.aditional_info.length">
                 <thead>
                     <tr>
                         <th>Campo</th>
@@ -23,16 +17,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="adt_info in resource.additional_info">
+                    <tr ng-repeat="adt_info in resource.aditional_info">
                         <td>{{adt_info.clave}}</td>
                         <td>{{adt_info.valor}}</td>
                     </tr>
                 </tbody>
             </table>
+            <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
+            <span class="dataset-additional-info" ng-click="toggleDropdownInverse($event)" ng-if="resource.aditional_info && resource.aditional_info.length">Info adicional</span>
             <div class="resource-actions pull-right">
                 <div class="dropdown no-hover">
                     <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <a href class="widget-item-footer-link" ng-class="{'active': resource.type_resource}" svg-img="'/images/preview.svg'"></a>
+                        <a href class="widget-item-footer-link" ng-class="{'active': resource.type_resource}" svg-img="'/images/preview.svg'"></a>
                     </div>
                     <ul class="dropdown-menu">
                         <li ng-if="!!resource.resources.data.tables">
@@ -50,8 +46,8 @@
                     </ul>
                 </div>
                 <div class="dropdown no-hover">
-                  <a href class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  </a>
+                    <a href class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    </a>
                     <ul class="dropdown-menu" ng-if="!resource.type.api">
                         <li>
                             <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
@@ -79,8 +75,7 @@
                 </div>
                 <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
                     <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
-                    <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type"
-                            chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
+                    <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type" chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
                 </div>
             </div>
             <div>
@@ -106,10 +101,7 @@
                         </table>
                     </div>
                     <div class="paging">
-                        <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count"
-                                paging-action="paging('pageClick', page, pageSize, total, resource)"
-                                show-prev-next="true"
-                                show-first-last="true" hide-if-empty="true"></paging>
+                        <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" show-prev-next="true" show-first-last="true" hide-if-empty="true"></paging>
                     </div>
                 </div>
             </div>

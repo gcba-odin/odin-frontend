@@ -60,8 +60,7 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter)
-{
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter) {
     LocationSearchService.init();
     $scope.activeCategories = [];
     $scope.type = "datasets";
@@ -76,7 +75,7 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         params: $httpParamSerializer($scope.params)
     }, function(result) {
         result.data[0].categories.forEach(category => {
-          $scope.activeCategories.push(category.name);
+            $scope.activeCategories.push(category.name);
         });
         $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
@@ -99,8 +98,8 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         ]({
             type: 'files',
             params: 'include=tags&dataset=' + $scope.info.id
-        }, function (result){
-            $scope.files = $scope.filesResults.data.filter(function(file){
+        }, function(result) {
+            $scope.files = $scope.filesResults.data.filter(function(file) {
                 //TODO: status filter should be handled in the api
                 // with AND condition
                 return file.status.name === 'Publicado';
@@ -111,6 +110,15 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
                     type: 'filetypes'
                 }, function(resultFileType) {
                     $scope.fileTypes[element.type.id] = resultFileType.name;
+                });
+
+                element.aditional_info = []
+
+                angular.forEach(element.optionals, function(val, key) {
+                    element.aditional_info.push({
+                        clave: key,
+                        valor: val
+                    });
                 });
             });
 
@@ -173,25 +181,25 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         disqus_url: $location.absUrl()
     };
 
-  $scope.scroll = 0;
-  $scope.loading = 'Cargando..';
+    $scope.scroll = 0;
+    $scope.loading = 'Cargando..';
 
-  $scope.getNavStyle = function(scroll) {
-    if(scroll > 100) return 'pdf-controls fixed';
-    else return 'pdf-controls';
-  }
+    $scope.getNavStyle = function(scroll) {
+        if (scroll > 100) return 'pdf-controls fixed';
+        else return 'pdf-controls';
+    }
 
-  $scope.onError = function(error) {
-    console.log(error);
-  }
+    $scope.onError = function(error) {
+        console.log(error);
+    }
 
-  $scope.onLoad = function() {
-    $scope.loading = '';
-  }
+    $scope.onLoad = function() {
+        $scope.loading = '';
+    }
 
-  $scope.onProgress = function(progress) {
-    console.log(progress);
-  }
+    $scope.onProgress = function(progress) {
+        console.log(progress);
+    }
 }
 
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
