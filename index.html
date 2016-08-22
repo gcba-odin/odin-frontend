@@ -7,10 +7,15 @@
         <meta charset="utf-8">
         <meta name="theme-color" content="#ffffff">
 
-        <!-- CDN dependencies:START -->
+        <!-- CSS CDN dependencies:START -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-        <!-- CDN dependencies:END -->
+        <!-- CSS CDN dependencies:END -->
+
+        <!-- CSS Vendor dependencies bundle -->
+        <!-- build:css dist/vendors.min.css -->
+        <!-- endbuild -->
+        <!-- CSS Vendor dependencies:END -->
 
         <!-- CSS bundle -->
         <link rel="stylesheet" href="dist/index.min.css">
@@ -48,7 +53,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
     <!-- CDN dependencies:END -->
 
-    <!-- Vendor dependencies:START -->
+    <!-- JS Vendor dependencies:START -->
+    <!-- build:js dist/vendors.min.js -->
     <script src="plugins/loading.js"></script>
     <script src="plugins/jquery.dotdotdot.min.js"></script>
     <script src="plugins/angular-socialshare.min.js"></script>
@@ -62,9 +68,10 @@
     <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
     <script src="plugins/paging/paging.js"></script>
     <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script>
-    <!-- Vendor dependencies:END -->
+    <!-- endbuild -->
+    <!-- JS Vendor dependencies:END -->
     
-    <!-- Javascript bundle -->
+    <!-- JS bundle -->
     <script src="dist/bundle.min.js"></script>
     
     <!-- Disqus async script -->
