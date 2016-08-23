@@ -13,7 +13,7 @@ gulp.task('styles', function () {
     .pipe(cleanCSS())
     //TODO: add autoprefixer
   .pipe(sourcemaps.write())
-  .pipe(rename({ extname: '.min.css' }))
+  .pipe(rename('bundle.min.css'))
   .pipe(gulp.dest('./dist'))
   .pipe(gulp.browserSync.stream());
 });
