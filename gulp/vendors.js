@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    lazypipe = require('lazypipe'),
     useref = require('gulp-useref'),
     sourcemaps = require('gulp-sourcemaps'),
     rename = require('gulp-rename');

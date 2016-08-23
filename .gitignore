@@ -35,6 +35,7 @@ bower_components
 
 # Generated files
 js/config.js
+js/templates.js
 dist/
 
 .DS_STORE

@@ -1,9 +1,11 @@
 var gulp = require('gulp');
 
 gulp.task('watch', ['serve'], function() {
-  // Static
+  // Static Files
   gulp.watch([
       'index.html',
+      'fonts/**/*',
+      'images/**/*',
       'directives/**/*.html',
       'views/**/*.html'
     ], gulp.browserSync.reload);
@@ -11,7 +13,7 @@ gulp.task('watch', ['serve'], function() {
   // Vendors
   gulp.watch('plugins', ['vendors']);
 
-  // Javascript
+  // Javascript and Templates
   gulp.watch([
     'js/**/*.js',
     'config.json'
