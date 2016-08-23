@@ -7,14 +7,16 @@ ODIN Frontend
 - Install all dependencies: `npm install`
 - Install gulp globaly: `npm install -g gulp`
 
-## Build and Serve
+> This assumes you already have Node.js installed.
+
+## Build and Serve for Development
 
 The default gulp task will generate the config module for Angular according to the environment, it will serve and watch the files.
 
 - Local: `gulp`
 - Staging: `NODE_ENV=staging gulp`
 
-## Build only
+## Build for Deploy
 
 To build the app for the different environments:
 
@@ -26,5 +28,7 @@ To build the app for the different environments:
 ## Deploy
 
 After build, serving the `/dist` directory is enough for deployment.
+
+If you want to try on your local environment, execute a [Python SimpleHTTPServer](https://docs.python.org/2/library/simplehttpserver.html) on `\dist`.
 
 > Have in mind that a new generated `index.html` is placed under `/dist` with the paths to the concatenated and minified files.
