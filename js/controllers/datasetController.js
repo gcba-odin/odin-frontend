@@ -62,7 +62,7 @@ function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
     });
 }
 
-function DatasetController( $scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
 {
     LocationSearchService.init();
     $scope.type = "datasets";
@@ -98,21 +98,21 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
         $scope.fileTypes = {};
 
         $scope.filesResults = rest()[
-            $scope.params.query ? 'search' : 'get'
+                $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
             params: $httpParamSerializer($scope.params)
-        }, function (result){
-            $scope.files = $scope.filesResults.data.filter(function(file){
+        }, function(result) {
+            $scope.files = $scope.filesResults.data.filter(function(file) {
                 //TODO: status filter should be handled in the api
                 // with AND condition
                 return file.status.name === 'Publicado';
             });
-            $scope.files.forEach(function (element) {
+            $scope.files.forEach(function(element) {
                 rest().findOne({
                     id: element.type.id,
                     type: 'filetypes'
-                }, function (resultFileType) {
+                }, function(resultFileType) {
                     $scope.fileTypes[element.type] = resultFileType.name;
                 });
             });
@@ -132,6 +132,20 @@ function DatasetController( $scope, $location, rest, $rootScope, $sce, $routePar
                     $scope.files[obj].resources = rest().resources({
                         id: $scope.files[obj].id,
                         type: 'files'
+                    }, function() {
+                        for (maps in $scope.files[obj].resources.data.maps) {
+                            if (!!$scope.files[obj].resources.data.maps[maps]) {
+                                $scope.files[obj].resources.data.maps[maps].base = rest().findOne({
+                                    type: 'basemaps',
+                                    id: $scope.files[obj].resources.data.maps[maps].basemap
+                                }, function() {
+                                    $scope.files[obj].resources.data.maps[maps].geoData = {
+                                        data: $scope.files[obj].resources.data.maps[maps].geojson
+                                    }
+                                    $scope.files[obj].resources.data.maps[maps].tile = $scope.files[obj].resources.data.maps[maps].base.url;
+                                });
+                            }
+                        }
                     });
                     if ($scope.files[obj].type.api) {
                         $scope.files[obj].contents = rest().contents({
@@ -209,7 +223,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             $scope.datasets = [];
         }
         $scope.resultDatasetsSearch = rest()[
-            $scope.params.query ? 'search' : 'get'
+                $scope.params.query ? 'search' : 'get'
         ]({
             type: $scope.type,
             params: $httpParamSerializer($scope.params)
