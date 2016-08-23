@@ -6,18 +6,16 @@ angular.module('store-directives-datasets')
         controller: function($scope, rest) {
             $scope.stats = {};
 
-            rest().get({
-                type: "datasets",
-                params: "include=files,tags,categories"
-            }, function(datasets) {
-                angular.forEach(datasets.data, function(element)
-                {
-                    rest().get({
-                        type: "statistics",
-                        params: "resource=Dataset&endpoint=" + element['id'] + "/download&match=ENDS&condition=AND"
-                    }, function(result) {
-                        $scope.stats[element['id']] = {downloads: (result.meta.count ? result.meta.count : 0)};
-                    });
+            rest().statistics({
+                type: 'datasets'
+            }, function(results) {
+                $.each(results.data.items, function(key, value) {
+                    console.log(key);
+                    console.log(value);
+                    
+                    if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
+                        $scope.stats[value.item] = { downloads: value.count.GET ? value.count.GET : 0 };
+                    }
                 });
             });
 

@@ -5,7 +5,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        'categories.name': $routeParams['categories.name'] // This is the only filter that accepts slug name :(
+        'categories.name': $routeParams['categories.name'],// This is the only filter that accepts slug name :(
     });
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";

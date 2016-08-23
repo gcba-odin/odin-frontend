@@ -31,7 +31,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
 
         rest().statistics({
             type: "datasets",
-            params: "groupBy=category"
+            params: "groupBy=category&action=download"
         }, function(statistics) {
             for (element in statistics.data) {
                 var cat = statistics.data[element];
