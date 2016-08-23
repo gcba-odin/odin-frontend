@@ -5,7 +5,9 @@ gulp.task('static', function() {
       'fonts/**/*',
       'images/**/*',
       'directives/**/*.html',
-      'views/**/*.html'
+      'views/**/*.html',
+      '*.{svg,png,xml}',
+      'manifest.json'
     ], { base: '.' })
     .pipe(gulp.dest('./dist'));
 });
