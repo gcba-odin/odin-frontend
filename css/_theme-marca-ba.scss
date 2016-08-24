@@ -1,0 +1,137 @@
+.navbar-site-logo {
+    color: black;
+}
+
+.navbar-theme {
+    background: linear-gradient(to right, #FFBC00 0%, #FFD300 100%);
+}
+
+.datasets-counter {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.branding-data {
+    color: #FFFFFF;
+    background-color: rgba(32, 149, 242, 0.8);
+}
+
+.branding-data:after {
+    background: linear-gradient(to right, #FFBC00 0%, #FFD300 100%);
+}
+
+.search-bar h3 {
+    color: #FFB600;
+}
+
+.categories-item-title {
+    color: #FFb600;
+    font-weight: 500;
+}
+
+.categories-item path,
+.categories-item polygon,
+.categories-item circle,
+.categories-item rect {
+  fill: #FFb600;
+  stroke: #FFb600;
+}
+
+.categories-item.active path,
+.categories-item.active polygon,
+.categories-item.active circle,
+.categories-item.active rect {
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item:hover path,
+.categories-item:hover polygon,
+.categories-item:hover circle,
+.categories-item:hover rect {
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
+}
+
+.widget-item-footer-link.active path:not(.back) {
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item.active h4 {
+  color: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item:hover h4 {
+  color: rgba(32, 149, 242, 0.8);
+}
+
+.text-auxiliar-bar {
+    font-weight: 500;
+}
+
+.auxiliar-bar li:hover {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.widget> h2 {
+    color: rgba(32, 149, 242, 0.8);
+    font-weight: 500;
+}
+
+.widget-item-footer-download-link {
+    background-image: url("../images/download-ba.svg");
+}
+
+.popular-datasets-list-item-bar {
+    background: linear-gradient(to right, #FEEA3A 0%, #FEEA3A 80%, #B3B3B3 80%, #B3B3B3 100%);
+    color: #FEEA3A;
+}
+
+[data-tooltip]:hover:after {
+    background: #FEEA3A;
+    color: black;
+}
+
+.module-heading {
+    background-color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-additional-info-active {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-additional-info:hover, .dataset-additional-info:hover:after {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-statistics {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-content .dataset-latest-update {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.module .read-more {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item {
+    color: #FABF2C;
+}
+
+.text-auxiliar-bar:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:hover:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}
+
+.text-auxiliar-bar:hover:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}

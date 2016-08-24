@@ -1,7 +1,25 @@
 (function() {
-    var app = angular.module('odin', ["ngRoute", "odin.config", "ngResource", "ngProgress", "odin.controllers", "store-directives", "store-factories", "chart.js", "leaflet-directive", "bw.paging", "ngCookies", "authentication-service", "ngRoute.middleware", "angularUtils.directives.dirDisqus"]);
-
+    var app = angular.module('odin', [
+        "ngRoute",
+        "odin.config",
+        "ngResource",
+        "ngProgress",
+        "odin.controllers",
+        "store-directives",
+        "store-factories",
+        "chart.js",
+        "leaflet-directive",
+        "bw.paging",
+        "authentication-service", 
+        "ngRoute.middleware",
+        "angularUtils.directives.dirDisqus",
+        "720kb.socialshare",
+        "pdf",
+        "ngtweet"
+    ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider) {
+
+        $locationProvider.html5Mode(true);
 
         $routeProvider
                 .when("/", {

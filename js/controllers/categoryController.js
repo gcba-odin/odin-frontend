@@ -4,28 +4,44 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-
-function chunk(arr, size) {
-  var newArr = [];
-  for (var i=0; i<arr.length; i+=size) {
-    newArr.push(arr.slice(i, i+size));
-  }
-  return newArr;
-}
-
-function CategoryListController($scope, $location, rest, $rootScope, $routeParams) {
+function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer) {
+    $scope.activeCategories = [];
     $scope.activeCategory = $routeParams['categories.name'];
-    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $scope.activeCategory;
+    $scope.url_api = $rootScope.url;
+    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.name'];
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;
+    $scope.statistics = {};
+    $scope.porcentual = {};
+    $scope.totalStatistics = 0;
+
     rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function(categories) {
         $scope.categories = categories;
-        $scope.chunkedCategories = chunk($scope.categories.data,3);
+        $scope.categories = categories.data;
         $scope.showCategories = false;
+
+        $scope.categories.forEach(function(element) {
+            $scope.statistics[element.id] = 0;
+            $scope.porcentual[element.id] = 0;
+        });
+
+        rest().statistics({
+            type: "datasets",
+            params: "groupBy=category&action=download"
+        }, function(statistics) {
+            for (element in statistics.data) {
+                var cat = statistics.data[element];
+                $scope.statistics[element] = cat.count.GET;
+                $scope.totalStatistics += cat.count.GET;
+            }
+
+            for (element in statistics.data) {
+                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;;
+            }
+        });
     });
-            
 }

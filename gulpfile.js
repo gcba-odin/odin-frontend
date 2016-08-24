@@ -1,31 +1,18 @@
-var gulp = require('gulp'),
-    ngConfig = require('gulp-ng-config'),
-    browserSync = require('browser-sync').create();
+require('require-dir')('./gulp');
 
-gulp.task('ngConfig', function () {
-  gulp.src('config.json')
-  .pipe(ngConfig('odin.config', {
-    environment: process.env.NODE_ENV || 'local'
-  }))
-  .pipe(gulp.dest('js'));
-});
+var gulp = require('gulp');
 
-gulp.task('serve', ['ngConfig'], function() {
-  browserSync.init({
-    server: {
-      baseDir: "./"
-    }
-  });
-});
-
-gulp.task('watch', ['serve'], function () {
-  gulp.watch([
-    'index.html',
+gulp.paths = {
+  static: [
+    'fonts/**/*',
+    'images/**/*',
     'directives/**/*.html',
     'views/**/*.html',
-    'js/**/*.js',
-    'css/**/*.css'
-  ], browserSync.reload);
-});
+    '*.{svg,png,xml}',
+    'manifest.json'
+  ]
+};
+
+gulp.browserSync = require('browser-sync').create();
 
 gulp.task('default', ['watch']);

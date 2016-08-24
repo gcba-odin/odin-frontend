@@ -1,0 +1,18 @@
+<nav ng-class="getNavStyle(scroll)">
+    <div class="pdf-container">
+        <div class="row">
+            <div class="col-md-7">
+                <button ng-click="goPrevious()" class="btn btn-default"><</button>
+                <button ng-click="goNext()" class="btn btn-default">></button>
+                <button ng-click="zoomOut()" class="btn btn-default">-</button>
+                <button ng-click="fit()" class="btn btn-default">100%</button>
+                <button ng-click="zoomIn()" class="btn btn-default">+</button>
+            </div>
+            <div class="col-md-4 pull-right pdf-right">
+                <span>Página: </span>
+                <input type="text" min=1 ng-model="pageNum">
+                <span> / {{pageCount}}</span>
+            </div>
+</nav>
+<hr> {{loading}}
+<canvas id="pdf-canvas" class="rotate0"></canvas>

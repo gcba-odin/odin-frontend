@@ -4,84 +4,24 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
-    // Flash.clear();
-    $scope.modelName = "Dataset";
-    $scope.type = "datasets";
-
-    $scope.latestDataset = rest().get({
-        type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags&status.name=Publicado"
-    });
-
-    $scope.url = function(id)
-    {
-        return $rootScope.url + '/datasets/' + id + '/download'
-    };
-}
-
-function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
-    // Flash.clear();
-    $scope.modelName = "Dataset";
-    $scope.type = "datasets";
-
-    $scope.starredDataset = rest().get({
-        type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true&include=tags&status.name=Publicado"
-    });
-
-    $scope.url = function(id)
-    {
-        return $rootScope.url + '/datasets/' + id + '/download'
-    };
-}
-
-function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
-    // Flash.clear();
-    $scope.modelName = "Category";
-    $scope.type = "categories";
-    $scope.showCategories = true;
-    $scope.categories = rest().get({
-        type: $scope.type,
-        params: "orderBy=createdAt&sort=DESC"
-    }, function() {
-        $scope.showCategories = false;
-    });
-}
-
-function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
-    // Flash.clear();
-    $scope.modelName = "Category";
-    $scope.type = "categories";
-    $scope.showCategories = true;
-    $scope.categories = rest().get({
-        type: $scope.type,
-        params: "orderBy=createdAt&sort=DESC"
-    }, function() {
-        $scope.showCategories = false;
-    });
-}
-
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer)
-{
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter) {
     LocationSearchService.init();
+    $scope.activeCategories = [];
     $scope.type = "datasets";
     $scope.params = $.extend({
-        dataset: $routeParams.id
+        name: $filter('unslug')($routeParams.id),
+        include: 'tags,categories'
     }, LocationSearchService.searchParams());
-
     $scope.limit = 10;
 
-    $scope.params = $.extend({
-        dataset: $routeParams.id,
-        // status: 'qWRhpRV'
-    }, LocationSearchService.searchParams());
-
-    $scope.info = rest().findOne({
-        id: $routeParams.id,
+    $scope.info = rest().get({
         type: $scope.type,
-        params: 'include=tags,categories'
+        params: $httpParamSerializer($scope.params)
     }, function(result) {
+        result.data[0].categories.forEach(function(category) {
+          $scope.activeCategories.push(category.name);
+        });
+        $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
 
         var tags = [];
@@ -101,7 +41,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
-            params: $httpParamSerializer($scope.params)
+            params: 'include=tags&dataset=' + $scope.info.id
         }, function(result) {
             $scope.files = $scope.filesResults.data.filter(function(file) {
                 //TODO: status filter should be handled in the api
@@ -113,7 +53,16 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     id: element.type.id,
                     type: 'filetypes'
                 }, function(resultFileType) {
-                    $scope.fileTypes[element.type] = resultFileType.name;
+                    $scope.fileTypes[element.type.id] = resultFileType.name;
+                });
+
+                element.aditional_info = []
+
+                angular.forEach(element.optionals, function(val, key) {
+                    element.aditional_info.push({
+                        clave: key,
+                        valor: val
+                    });
                 });
             });
 
@@ -170,16 +119,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     };
 
-    $scope.toggleDropdown = function(event)
-    {
-        if ($(event.target).next().hasClass('dataset-additional-info-table-inactive'))
-        {
+    $scope.toggleDropdown = function(event) {
+        if ($(event.target).next().hasClass('dataset-additional-info-table-inactive')) {
             $(event.target).next().addClass('dataset-additional-info-table-active');
             $(event.target).next().removeClass('dataset-additional-info-table-inactive');
             $(event.target).addClass('dataset-additional-info-active');
-        }
-        else
-        {
+        } else {
             $(event.target).next().addClass('dataset-additional-info-table-inactive');
             $(event.target).next().removeClass('dataset-additional-info-table-active');
             $(event.target).removeClass('dataset-additional-info-active');
@@ -195,63 +140,24 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         disqus_identifier: $routeParams.id,
         disqus_url: $location.absUrl()
     };
-}
 
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
-    LocationSearchService.init();
-    $scope.modelName = "Dataset";
-    $scope.type = "datasets";
-    $rootScope.header = "Datasets List";
-    $scope.params = $.extend({
-        sort: 'ASC',
-        include: ['files', 'tags', 'categories'].join(),
-        limit: 20,
-        skip: 0,
-        'status.name': 'Publicado'
-    }, LocationSearchService.searchParams());
+    $scope.scroll = 0;
+    $scope.loading = 'Cargando..';
 
-    $scope.datasets = [];
-    $scope.resultDatasetsSearch = [];
-    $scope.showLoading = true;
+    $scope.getNavStyle = function(scroll) {
+        if (scroll > 100) return 'pdf-controls fixed';
+        else return 'pdf-controls';
+    }
 
-    $scope.loadResults = function(limit) {
-        $scope.showLoading = true;
-        if (limit) {
-            $scope.params.skip += limit;
-        } else {
-            $scope.params.skip = 0;
-            $scope.datasets = [];
-        }
-        $scope.resultDatasetsSearch = rest()[
-                $scope.params.query ? 'search' : 'get'
-        ]({
-            type: $scope.type,
-            params: $httpParamSerializer($scope.params)
-        }, function(result) {
-            for (var i = 0; i < $scope.resultDatasetsSearch.data.length; i++) {
-                var dataset = $scope.resultDatasetsSearch.data[i];
+    $scope.onError = function(error) {
+        // console.log(error);
+    }
 
-                dataset.additional_info = [];
+    $scope.onLoad = function() {
+        $scope.loading = '';
+    }
 
-                angular.forEach($scope.resultDatasetsSearch.data[i].optionals, function(val, key) {
-                    dataset.additional_info.push({
-                        clave: key,
-                        valor: val
-                    });
-                });
-                dataset.url_api = $scope.resultDatasetsSearch.links.all;
-                $scope.datasets.push(dataset);
-            }
-            $scope.showLoading = false;
-            $scope.count = result.meta.count;
-        });
-    };
-    $scope.view = function(model) {
-        var url = '/' + $scope.type + '/' + model.id + "/view";
-        $location.path(url);
-    };
-    $scope.getHtml = function(html) {
-        return $sce.trustAsHtml(html);
-    };
-    $scope.loadResults(0);
+    $scope.onProgress = function(progress) {
+        // console.log(progress);
+    }
 }

@@ -7,7 +7,7 @@
       <ul class="unstyled nav nav-simple nav-facet">
          <li class="nav-item" ng-repeat="organization in organizations" ng-class="{'active': organization.active}">
             <a class="tags-item" title="{{organization.name}}" ng-click="selectOrganization(organization)" >
-            <span>{{organization.name | truncString}} (1)</span>
+            <span>{{organization.name | truncString}} ({{organizationsCount[organization.id]}})</span>
             </a>
          </li>
       </ul>
