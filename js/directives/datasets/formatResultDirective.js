@@ -1,5 +1,5 @@
 angular.module('store-directives-datasets')
-.directive("formatsResult", function($filter, LocationSearchService) {
+.directive("formatsResult", function($filter, $routeParams, LocationSearchService, DatasetListService) {
     return {
         restrict: "E",
         templateUrl: "directives/datasets/formats-results.html",
@@ -31,22 +31,14 @@ angular.module('store-directives-datasets')
 
             //This won't scale. TODO: Change to /count
             $scope.loadFileTypeCount = function(fileTypeId){
-                rest().get({
-                    type: "datasets",
-                    params: "include=files&files.type=" + fileTypeId
-                }, function(results) {
-                    var count = results.data
-                        .filter(function(dataset) {
-                            return dataset.status.name === 'Publicado';
-                        })
-                        .filter(function(dataset) {
-                            return dataset.files.filter(function(file) {
-                                return file.status === 'qWRhpRV'
-                                    && file.type === fileTypeId;
-                            })
-                            .length;
-                        }).length;
-                    $scope.fileTypesCount[fileTypeId] = count || 0;
+                $scope.fileTypesCount[fileTypeId] = 0;
+                $scope.params = {
+                    include: ['files', 'tags', 'categories'].join(),
+                    'files.type': fileTypeId,
+                    'categories.name': $routeParams['categories.name'],// This is the only filter that accepts slug name :(
+                };
+                DatasetListService.getDatasets($scope.params, function(results) {
+                    $scope.fileTypesCount[fileTypeId] = results.length;
                 });
             };
 

@@ -21,7 +21,6 @@ angular.module('store-directives-datasets')
                         var organization = $scope.resultOrganizations.data[i];
                         organization.active = LocationSearchService.isActive(filterName, organization.id);
                         $scope.organizations.push(organization);
-                        $scope.organizationsCount[organization.id] = 0;    
                         $scope.loadOrganizationCount(organization.id);
                     }
                     $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
@@ -30,6 +29,7 @@ angular.module('store-directives-datasets')
 
             //This won't scale. TODO: Change to /count
             $scope.loadOrganizationCount = function(organizationId){
+                $scope.organizationsCount[organizationId] = 0;
                 $scope.params = {
                     include: ['files', 'tags', 'categories'].join(),
                     'files.organization': organizationId,
