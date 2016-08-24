@@ -19,9 +19,9 @@ angular.module('store-factories')
                 })
                 .filter(function(dataset) {
                     // Filter datasets that have unpublished files of filtered types
-                    return !LocationSearchService.isSet('files.type') || dataset.files
+                    return !params['files.type'] || dataset.files
                         .filter(function(file) {
-                            return LocationSearchService.isActive('files.type', file.type);
+                            return LocationSearchService.isActive('files.type', file.type) || params['files.type'] === file.type;
                         })
                         .filter(function(file) {
                             return file.status === 'qWRhpRV';
@@ -30,9 +30,9 @@ angular.module('store-factories')
                 })
                 .filter(function(dataset) {
                     // Filter datasets that have unpublished files of filtered types
-                    return !LocationSearchService.isSet('files.organization') || dataset.files
+                    return !params['files.organization'] || dataset.files
                         .filter(function(file) {
-                            return LocationSearchService.isActive('files.organization', file.organization);
+                            return LocationSearchService.isActive('files.organization', file.organization) || params['files.organization'] === file.organization;
                         })
                         .filter(function(file) {
                             return file.status === 'qWRhpRV';
