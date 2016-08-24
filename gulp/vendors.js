@@ -4,9 +4,11 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     rename = require('gulp-rename');
 
-gulp.task('vendors', function() {
-  return gulp.src('index.html')
-    .pipe(useref({}, lazypipe().pipe(sourcemaps.init, { loadMaps: true })))
+gulp.task('vendors', ['base-url'], function() {
+  return gulp.src('dist/index.html')
+    .pipe(useref({ searchPath: '.' },
+      lazypipe().pipe(sourcemaps.init, { loadMaps: true }))
+    )
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('dist'));
 });
