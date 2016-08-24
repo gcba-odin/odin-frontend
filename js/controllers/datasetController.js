@@ -134,7 +134,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     }
 
     $scope.onError = function(error) {
-        console.log(error);
+        // console.log(error);
     }
 
     $scope.onLoad = function() {
@@ -142,6 +142,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     }
 
     $scope.onProgress = function(progress) {
-        console.log(progress);
+        // console.log(progress);
     }
 }
