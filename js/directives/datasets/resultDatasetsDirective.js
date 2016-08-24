@@ -10,9 +10,6 @@ angular.module('store-directives-datasets')
                 type: 'datasets'
             }, function(results) {
                 $.each(results.data.items, function(key, value) {
-                    console.log(key);
-                    console.log(value);
-                    
                     if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
                         $scope.stats[value.item] = { downloads: value.count.GET ? value.count.GET : 0 };
                     }

@@ -48,25 +48,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         });
     };
 
-    if ($scope.params.orderBy === 'downloads') {
-        $scope.downloadsResults = rest().statistics({
-            type: 'datasets'
-        }, function() {
-            var items = $scope.downloadsResults.data.items;
-            $.each(items, function(key, value) {
-                if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
-                    $scope.downloads.push({
-                        dataset: value.item,
-                        downloads: value.count.GET
-                    });
-                }
-            });
-            $scope.loadResults(0);
-        });
-    } else {
+    DatasetListService.getDownloadResults($scope.params, function(downloads) {
+        $scope.downloads = downloads;
         $scope.loadResults(0);
-    }
-
+    });
+    
     $scope.view = function(model) {
         var url = '/datasets/' + model.id + "/view";
         $location.path(url);
