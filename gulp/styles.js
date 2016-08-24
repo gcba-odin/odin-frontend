@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
     rename = require('gulp-rename'),
+    util = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('styles', function () {
