@@ -1,9 +1,12 @@
 angular.module('store-factories')
 .service('DatasetListService', function($httpParamSerializer, LocationSearchService, rest) {
-  LocationSearchService.init();
   return {
     getDatasets: function(params, cb) {
+      LocationSearchService.init();
       var params = $.extend(LocationSearchService.searchParams(), params);
+      if (params.orderBy === 'downloads') {
+        delete params.orderBy;
+      }
       return rest()[
             params.query ? 'search' : 'get'
         ]({

@@ -49,7 +49,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     };
 
     if ($scope.params.orderBy === 'downloads') {
-        delete $scope.params.orderBy;
         $scope.downloadsResults = rest().statistics({
             type: 'datasets'
         }, function() {
