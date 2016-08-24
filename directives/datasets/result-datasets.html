@@ -33,7 +33,7 @@
                 </tbody>
             </table>
 
-            <a href="{{url_api + '/datasets' + result.id + '/download'}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
+            <a href="{{url_api + '/datasets/' + result.id + '/download'}}" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
             <span class="dataset-statistics">{{stats[result.id].downloads}} descargas</span>
         </ul>
     </li>
