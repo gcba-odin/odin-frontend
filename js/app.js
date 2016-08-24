@@ -10,6 +10,7 @@
         "chart.js",
         "leaflet-directive",
         "bw.paging",
+        "ngCookies",
         "authentication-service", 
         "ngRoute.middleware",
         "angularUtils.directives.dirDisqus",
