@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     ngAnnotate = require('gulp-ng-annotate'),
     uglify = require('gulp-uglify'),
+    util = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('javascript', ['ng-config'], function() {
@@ -13,7 +14,7 @@ gulp.task('javascript', ['ng-config'], function() {
       .pipe(ngAnnotate({
         add: true
       }))
-      .pipe(uglify())
+      .pipe(process.env.NODE_ENV ? uglify() : util.noop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'));
 });

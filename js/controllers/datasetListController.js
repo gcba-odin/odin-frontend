@@ -1,18 +1,18 @@
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer) {
-    LocationSearchService.init();
-    $scope.params = $.extend(LocationSearchService.searchParams(), {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService) {
+    $scope.params = {
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
         'categories.name': $routeParams['categories.name'],// This is the only filter that accepts slug name :(
-    });
+    };
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";
     $scope.downloads = [];
     $scope.datasets = [];
     $scope.resultDatasetsSearch = [];
     $scope.showLoading = true;
+    $scope.url_api = $rootScope.url;
 
     $scope.loadResults = function(limit) {
         $scope.showLoading = true;
@@ -21,53 +21,28 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         } else {
             $scope.params.skip = 0;
         }
-        $scope.resultDatasetsSearch = rest()[
-            $scope.params.query ? 'search' : 'get'
-        ]({
-            type: 'datasets',
-            params: $httpParamSerializer($scope.params)
-        }, function(result) {
-            $scope.datasets = $scope.resultDatasetsSearch.data
-                .map(function(dataset) {
-                    if ($scope.downloads.length) {
-                        var downloadsCount = $scope.downloads
-                            .filter(function(download) {
-                                return download.dataset === dataset.id;
-                            })
-                            .map(function(download) {
-                                return download.downloads;
-                            });
-                        dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
-                    }
-
-                    dataset.additional_info = [];
-                    angular.forEach(dataset.optionals, function(val, key) {
-                        dataset.additional_info.push({
-                            clave: key,
-                            valor: val
+        DatasetListService.getDatasets($scope.params, function(datasets) {
+            $scope.datasets = datasets.map(function(dataset) {
+                if ($scope.downloads.length) {
+                    var downloadsCount = $scope.downloads
+                        .filter(function(download) {
+                            return download.dataset === dataset.id;
+                        })
+                        .map(function(download) {
+                            return download.downloads;
                         });
+                    dataset.downloads = downloadsCount.length ? downloadsCount[0] : 0;
+                }
+
+                dataset.additional_info = [];
+                angular.forEach(dataset.optionals, function(val, key) {
+                    dataset.additional_info.push({
+                        clave: key,
+                        valor: val
                     });
-
-                    dataset.url_api = $scope.resultDatasetsSearch.links.all;
-
-                    return dataset;
-                })
-                .filter(function(dataset) {
-                    return dataset.status.name === 'Publicado';
-                })
-                .filter(function(dataset) {
-                    // Filter datasets that have unpublished files of filtered types
-                    return !LocationSearchService.isSet('files.type') || dataset.files
-                        .filter(function(file) {
-                            return LocationSearchService.isActive('files.type', file.type);
-                        })
-                        .filter(function(file) {
-                            return file.status === 'qWRhpRV';
-                        })
-                        .length;
-                })
-                .sort(downloadsDesc);
-
+                });
+                return dataset;
+            });
             $scope.showLoading = false;
             $scope.count = $scope.datasets.length;
         });

@@ -10,8 +10,8 @@ gulp.task('styles', function () {
   .pipe(plumber())
   .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(cleanCSS())
     //TODO: add autoprefixer
+    .pipe(process.env.NODE_ENV ? cleanCSS() : util.noop())
   .pipe(sourcemaps.write())
   .pipe(rename('bundle.min.css'))
   .pipe(gulp.dest('./dist'))
