@@ -95,8 +95,9 @@
             link: function postlink(scope, element, attrs) {
                 scope.$watch("categoryPercent", function(newVal, oldVal) {
                     var $element = $(element);
+                    var color = $element.css("color");
                     $element.css({
-                        background: "linear-gradient(to right, #FF386a 0%, #FF386a " + scope.categoryPercent + "%, #999999 " + scope.categoryPercent + "%, #999999 100%)"
+                        background: "linear-gradient(to right, " + color + " 0%, " + color + " " + scope.categoryPercent + "%, #999999 " + scope.categoryPercent + "%, #999999 100%)"
                     });
                 });
             }

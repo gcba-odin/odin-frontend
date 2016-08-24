@@ -28,18 +28,31 @@
     font-weight: 500;
 }
 
+.categories-item path,
+.categories-item polygon,
+.categories-item circle,
+.categories-item rect {
+  fill: #FFb600;
+  stroke: #FFb600;
+}
+
 .categories-item.active path,
 .categories-item.active polygon,
 .categories-item.active circle,
 .categories-item.active rect {
-  fill: #FFb600;
-  stroke: #FFb600;
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
 }
 
 .categories-item:hover path,
 .categories-item:hover polygon,
 .categories-item:hover circle,
 .categories-item:hover rect {
+  fill: rgba(32, 149, 242, 0.8);
+  stroke: rgba(32, 149, 242, 0.8);
+}
+
+.widget-item-footer-link.active path:not(.back) {
   fill: rgba(32, 149, 242, 0.8);
   stroke: rgba(32, 149, 242, 0.8);
 }
@@ -71,6 +84,7 @@
 
 .popular-datasets-list-item-bar {
     background: linear-gradient(to right, #FEEA3A 0%, #FEEA3A 80%, #B3B3B3 80%, #B3B3B3 100%);
+    color: #FEEA3A;
 }
 
 [data-tooltip]:hover:after {
