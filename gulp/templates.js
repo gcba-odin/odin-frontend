@@ -5,5 +5,5 @@ var gulp = require('gulp'),
 gulp.task('templates', function() {
   return gulp.src(['views/**/*.html', 'directives/**/*.html'], { base: '.' })
     .pipe(templateCache({ module: 'odin' }))
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('js'));
 });

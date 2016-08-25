@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('javascript', ['ng-config'], function() {
-  return gulp.src('./js/**/*.js')
+  return gulp.src('js/**/*.js')
     .pipe(plumber())
     .pipe(sourcemaps.init())
       .pipe(concat('bundle.min.js'))
@@ -16,5 +16,5 @@ gulp.task('javascript', ['ng-config'], function() {
       }))
       .pipe(process.env.NODE_ENV ? uglify() : util.noop())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('dist'));
 });

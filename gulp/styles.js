@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('styles', function () {
- return gulp.src('./css/index.scss')
+ return gulp.src('css/index.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
     .pipe(sass())
@@ -15,6 +15,6 @@ gulp.task('styles', function () {
     .pipe(process.env.NODE_ENV ? cleanCSS() : util.noop())
   .pipe(sourcemaps.write())
   .pipe(rename('bundle.min.css'))
-  .pipe(gulp.dest('./dist'))
+  .pipe(gulp.dest('dist'))
   .pipe(gulp.browserSync.stream());
 });
