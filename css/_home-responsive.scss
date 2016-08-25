@@ -1,12 +1,33 @@
-@media (max-width: $breakpoint-tablet-portrait) {
+@media (max-width: $max-tablet-portrait) {
   .branding-data {
     margin-top: 0;
   }
+
   .container-navigation {
-    margin-left: initial;
+    margin: initial;
   }
+
   .categories-container {
     width: 100%;
-    margin-left: 0;
+    margin: initial;
+  }
+
+  .container-widgets {
+    padding: initial;
+    margin: 0;
+    width: 100%;
+    .widgets-first-row {
+      margin: 0;
+      .widget {
+        padding-right: 15px;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: $max-phone-portrait) {
+  .category-box {
+    width: 50%;
   }
 }
