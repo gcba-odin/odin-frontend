@@ -1,0 +1,12 @@
+@media (max-width: $breakpoint-tablet-portrait) {
+  .branding-data {
+    margin-top: 0;
+  }
+  .container-navigation {
+    margin-left: initial;
+  }
+  .categories-container {
+    width: 100%;
+    margin-left: 0;
+  }
+}
