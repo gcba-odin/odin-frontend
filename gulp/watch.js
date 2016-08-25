@@ -5,7 +5,10 @@ gulp.task('watch', ['serve'], function() {
   gulp.watch(gulp.paths.static, ['static-watch']);
 
   // Vendors
-  gulp.watch('plugins', ['vendors-watch']);
+  gulp.watch([
+    'plugins/**',
+    'index.html'
+    ], ['vendors-watch']);
 
   // Javascript and Templates
   gulp.watch([
