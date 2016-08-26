@@ -65,8 +65,8 @@
                     <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
                 </div>
                 <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
-                    <leaflet ng-if="!map.link && !!map.geoData" lf-center="center" id="iframeDiv" geojson="map.geoData"></leaflet>
-                    <iframe id="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
+                    <leaflet ng-if="!map.link && !!map.geoData" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData"></leaflet>
+                    <iframe class="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
                 </div>
             </div>
             <div>
@@ -74,8 +74,8 @@
                     <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
                 </div>
                 <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
-                    <iframe id="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
-                    <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type" chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
+                    <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
+                    <canvas ng-if="!chart.link && chart.id == resource.type_chart" class="iframeDiv" class="chart chart-base" chart-type="chart.type" chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
                 </div>
             </div>
             <div>
