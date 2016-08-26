@@ -20,21 +20,33 @@
       margin: 0;
       .widget {
         padding-right: 15px;
-        width: 50%;
       }
     }
     .widgets-second-row {
       margin: 0;
       margin-top: 2vw;
-      .widget {
-        width: 50%;
-      }
+    }
+    .widget {
+      width: 50%;
     }
   }
 }
 
 @media (max-width: $max-phone-portrait) {
   .category-box {
-    width: 50%;
+    width: (100% / 3);
+  }
+  .container-widgets {
+    .widget-container {
+      margin-right: 0;
+    }
+    .widget {
+      width: 100%;
+      border: 0;
+      .widget-item {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
   }
 }
