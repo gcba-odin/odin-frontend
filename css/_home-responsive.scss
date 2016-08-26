@@ -1,6 +1,6 @@
 @media (max-width: $max-tablet-portrait) {
   .branding-data {
-    margin-top: 0;
+    margin-top: $navbar-height-mobile;
     &:after {
       margin-left: -20px;
       margin-right: -20px;
