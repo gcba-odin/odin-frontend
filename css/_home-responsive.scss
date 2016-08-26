@@ -25,6 +25,20 @@
     .widgets-second-row {
       margin: 0;
       margin-top: 2vw;
+      .popular-datasets-list-item {
+        text-align: center;
+        .popular-datasets-list-item-icon {
+          float: none;
+        }
+        .popular-datasets-list-item-bar {
+          width: 50%;
+        }
+        .popular-datasets-list-item-count {
+          display: inline-block;
+          text-align: left;
+          width: 25px;
+        }
+      }
     }
     .widget {
       width: 50%;
