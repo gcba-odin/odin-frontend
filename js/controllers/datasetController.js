@@ -19,7 +19,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         params: $httpParamSerializer($scope.params)
     }, function(result) {
         result.data[0].categories.forEach(function(category) {
-          $scope.activeCategories.push(category.name);
+            $scope.activeCategories.push(category.name);
         });
         $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
@@ -64,6 +64,36 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                         valor: val
                     });
                 });
+
+                element.resources = rest().resources({
+                    id: element.id,
+                    type: 'files'
+                }, function() {
+                    if (!!element.resources.data) {
+                        for (maps in element.resources.data.maps) {
+                            if (!!element.resources.data.maps[maps]) {
+                                element.resources.data.maps[maps].base = rest().findOne({
+                                    type: 'basemaps',
+                                    id: element.resources.data.maps[maps].basemap
+                                }, function() {
+
+                                    element.resources.data.maps[maps].geoData = {
+                                        data: element.resources.data.maps[maps].geojson
+                                    }
+                                    element.resources.data.maps[maps].tile = element.resources.data.maps[maps].base.url;
+                                });
+                            }
+                        }
+                    }
+                });
+
+                if (element.type.api) {
+                    element.contents = rest().contents({
+                        id: element.id,
+                        type: 'files',
+                        params: 'limit=' + $scope.limit
+                    });
+                }
             });
 
             $scope.info.additional_info = [];
@@ -74,38 +104,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     valor: val
                 });
             });
-
-            for (obj in $scope.files) {
-                if (!!$scope.files[obj]) {
-
-                    $scope.files[obj].resources = rest().resources({
-                        id: $scope.files[obj].id,
-                        type: 'files'
-                    }, function() {
-                        for (maps in $scope.files[obj].resources.data.maps) {
-                            if (!!$scope.files[obj].resources.data.maps[maps]) {
-                                $scope.files[obj].resources.data.maps[maps].base = rest().findOne({
-                                    type: 'basemaps',
-                                    id: $scope.files[obj].resources.data.maps[maps].basemap
-                                }, function() {
-                                    $scope.files[obj].resources.data.maps[maps].geoData = {
-                                        data: $scope.files[obj].resources.data.maps[maps].geojson
-                                    }
-                                    $scope.files[obj].resources.data.maps[maps].tile = $scope.files[obj].resources.data.maps[maps].base.url;
-                                });
-                            }
-                        }
-                    });
-                    if ($scope.files[obj].type.api) {
-                        $scope.files[obj].contents = rest().contents({
-                            id: $scope.files[obj].id,
-                            type: 'files',
-                            params: 'limit=' + $scope.limit
-                        });
-                    }
-
-                }
-            }
         });
     });
 
@@ -145,8 +143,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.loading = 'Cargando..';
 
     $scope.getNavStyle = function(scroll) {
-        if (scroll > 100) return 'pdf-controls fixed';
-        else return 'pdf-controls';
+        if (scroll > 100)
+            return 'pdf-controls fixed';
+        else
+            return 'pdf-controls';
     }
 
     $scope.onError = function(error) {
