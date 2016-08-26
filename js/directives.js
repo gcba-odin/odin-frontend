@@ -7,26 +7,26 @@
             restrict: 'A',
             link: function(scope, element, attrs) {
                 var ensureCompileRunsOnce = scope.$watch(
-                    function(scope) {
-                        // watch the 'compile' expression for changes
-                        return scope.$eval(attrs.threeDots);
-                    },
-                    function(value) {
-                        // when the 'compile' expression changes
-                        // assign it into the current DOM
-                        element.html(value);
+                        function(scope) {
+                            // watch the 'compile' expression for changes
+                            return scope.$eval(attrs.threeDots);
+                        },
+                        function(value) {
+                            // when the 'compile' expression changes
+                            // assign it into the current DOM
+                            element.html(value);
 
-                        // compile the new DOM and link it to the current
-                        // scope.
-                        // NOTE: we only compile .childNodes so that
-                        // we don't get into infinite loop compiling ourselves
-                        $compile(element.contents())(scope);
-                        ensureCompileRunsOnce();
-                        $(element).dotdotdot({
-                            height: 100,
-                            wrap: 'letter'
-                        });
-                    }
+                            // compile the new DOM and link it to the current
+                            // scope.
+                            // NOTE: we only compile .childNodes so that
+                            // we don't get into infinite loop compiling ourselves
+                            $compile(element.contents())(scope);
+                            ensureCompileRunsOnce();
+                            $(element).dotdotdot({
+                                height: 100,
+                                wrap: 'letter'
+                            });
+                        }
                 );
             }
         };
@@ -37,7 +37,7 @@
             element.bind("keydown keypress", function(event) {
                 if (event.which === 13) {
                     scope.$apply(function() {
-                        scope.$eval(attrs.ngEnter, { 'event': event });
+                        scope.$eval(attrs.ngEnter, {'event': event});
                     });
 
                     event.preventDefault();
@@ -46,7 +46,7 @@
         };
     });
 
-    app.directive('svgImg', function($rootScope) {
+    app.directive('svgImg', function($rootScope, $cookieStore) {
         return {
             restrict: 'A',
             scope: {
@@ -56,24 +56,34 @@
                 var $element = jQuery(element);
                 var attributes = $element.prop("attributes");
 
-                $.get(scope.svgImg, function(data) {
-                    // Get the SVG tag, ignore the rest
-                    var $svg = jQuery(data).find('svg');
+                var token_auth = $cookieStore.get('globals').currentUser.token;
+                
+                $.ajax({
+                    headers: {
+                        'Authorization': 'Bearer ' + token_auth,
+                        //'x-admin-authorization': token,
+                    },
+                    type: 'GET',
+                    dataType: 'xml',
+                    url: scope.svgImg,
+                    success: function(data) {
+                        // Get the SVG tag, ignore the rest
+                        var $svg = jQuery(data).find('svg');
 
-                    // Remove any invalid XML tags
-                    $svg = $svg.removeAttr('xmlns:a');
+                        // Remove any invalid XML tags
+                        $svg = $svg.removeAttr('xmlns:a');
 
-                    // Loop through IMG attributes and apply on SVG
-                    $.each(attributes, function() {
-                        $svg.attr(this.name, this.value);
-                    });
+                        // Loop through IMG attributes and apply on SVG
+                        $.each(attributes, function() {
+                            $svg.attr(this.name, this.value);
+                        });
 
-                    // Replace IMG with SVG
-                    $element.append($svg);
+                        // Replace IMG with SVG
+                        $element.append($svg);
 
-                    // Removes opacity
-                    $element.find("g[opacity='0.75']").css("opacity", 0);
-                }, 'xml');
+                        // Removes opacity
+                        $element.find("g[opacity='0.75']").css("opacity", 0);
+                    }});
             }
         };
     });
@@ -162,8 +172,8 @@
     });
 
     app.filter('urlEncode', [function() {
-        return window.encodeURIComponent;
-    }]);
+            return window.encodeURIComponent;
+        }]);
 
     app.filter('capitalize', function() {
         return function(input) {
@@ -191,21 +201,21 @@
 
     app.filter('unslug', function() {
         return function(slug) {
-            return slug.replace(/\-/g,' ');
+            return slug.replace(/\-/g, ' ');
         };
     })
 
     app.filter("sanitize", ['$sce', function($sce) {
-        return function(htmlCode) {
-            return $sce.trustAsHtml(htmlCode);
-        }
-    }]);
+            return function(htmlCode) {
+                return $sce.trustAsHtml(htmlCode);
+            }
+        }]);
 
 
     var normalize = (function() {
         var from = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç",
-            to = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",
-            mapping = {};
+                to = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",
+                mapping = {};
 
         for (var i = 0, j = from.length; i < j; i++)
             mapping[from.charAt(i)] = to.charAt(i);
