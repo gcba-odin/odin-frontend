@@ -4,18 +4,20 @@
       <categories-row ng-if="!isMobile.any"></categories-row>
       <div class="flash-messages">
       </div>
-      <div class="toolbar">
-         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="{{baseHtml5}}">INICIO</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="datasets">DATASETS</a>
-            </li>
-         </ol>
-         <div class="datasets-counter">
-          <span class="datasets-counter-count">{{count}}</span>
-          <span class="datasets-counter-label">Datasets</span>
+      <div class="row datasets-header">
+        <div class="toolbar">
+           <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{{baseHtml5}}">INICIO</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="datasets">DATASETS</a>
+              </li>
+           </ol>
+           <div class="datasets-counter">
+            <span class="datasets-counter-count">{{count}}</span>
+            <span class="datasets-counter-label">Datasets</span>
+          </div>
         </div>
       </div>
       <div class="row results wrapper">
