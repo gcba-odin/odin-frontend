@@ -2,25 +2,31 @@ $category-item-height: 40px;
 
 .categories-sidebar {
   background-color: white;
-  height: 100%;
+  height: calc(100% - #{$navbar-height-desktop});
   width: 25%;
   position: fixed;
   left: 0;
+  overflow-y: scroll;
   top: $navbar-height-mobile - 10;
   z-index: 1000;
+
   .category-item {
-    border: #DFEDF2 solid 1px;
-    font-size: 0;
+    border-top: #DFEDF2 solid 1px;
+    border-right: #DFEDF2 solid 1px;
+    position: relative;
+    &:last-child {
+      border-bottom: #DFEDF2 solid 1px;
+    }
   }
-  .category-icon, .category-name {
-    font-size: initial;
-    display: inline-block;
-    vertical-align: top;
-  }
+
   .category-icon {
+    background-color: $primary-color;
     padding: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
     text-align: center;
-    width: 15%;
+    width: 45px;
     i {
       display: block;
       height: $category-item-height - 10;
@@ -30,17 +36,39 @@ $category-item-height: 40px;
       width: 100%;
     }
   }
+
   .category-name {
     border-left: #DFEDF2 solid 1px;
-    font-size: 12px;
+    font-size: 14px;
     line-height: $category-item-height - 20;
+    margin-left: 45px;
     padding: 10px;
-    width: 85%;
+  }
+
+  .category-item path,
+  .category-item polygon,
+  .category-item circle,
+  .category-item rect {
+    fill: white;
+    stroke: white;
+  }
+  .category-item line {
+    fill: $primary-color;
+    stroke: $primary-color;
+  }
+
+  .category-item.active path,
+  .category-item.active polygon,
+  .category-item.active circle,
+  .category-item.active rect {
+    fill: $secondary-color;
+    stroke: $secondary-color;
   }
 }
 
 @media (max-width: $max-tablet-portrait) {
   .categories-sidebar {
+    height: calc(100% - #{$navbar-height-mobile});
     top: $navbar-height-mobile;
     width: 75%;
   }
