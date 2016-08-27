@@ -1,7 +1,7 @@
-<search-bar></search-bar>
+<search-bar ng-if="!isMobile.any"></search-bar>
 <div role="main">
     <div id="content" class="container">
-        <categories-row></categories-row>
+        <categories-row ng-if="!isMobile.any"></categories-row>
         <div class="flash-messages">
         </div>
         <div class="toolbar">
@@ -47,7 +47,7 @@
         <div class="dataset-single-tags">
             <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.name={{tag.name | slug}}">{{tag.name}}</a>
         </div>
-        <div class="row wrapper">
+        <div class="row results wrapper">
          <div class="primary col-md-9">
             <section class="module">
                <div class="module-content">
@@ -71,7 +71,7 @@
                     </dir-disqus>
                 </section>
          </div>
-         <aside class="secondary col-md-3">
+         <aside class="secondary col-md-3" ng-if="!isMobile.any">
             <div class="filters">
                 <div>
                     <order-result files-view="true"></order-result>

@@ -1,0 +1,12 @@
+@media (max-width: $max-tablet-portrait) {
+  .toolbar {
+    margin: 20px 0;
+  }
+  .results.wrapper {
+    margin: 0 -20px;
+    .primary {
+      padding: 0 15px;
+      float: none;
+    }
+  }
+}
