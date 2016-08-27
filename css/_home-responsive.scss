@@ -48,6 +48,16 @@
 
     .widget {
       width: 50%;
+      .widget-item-title {
+        font-size: 18px;
+      }
+      .widget-item-description p {
+        font-size: 16px;
+      }
+      .widget-item-footer-tags {
+        font-size: 10px;
+
+      }
     }
   }
 }

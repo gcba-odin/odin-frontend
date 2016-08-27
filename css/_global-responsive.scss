@@ -21,4 +21,7 @@
     float: none;
     margin: 0 auto;
   }
+  [data-tooltip]:hover:after {
+    display: none;
+  }
 }
