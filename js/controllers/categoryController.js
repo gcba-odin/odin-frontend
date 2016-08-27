@@ -15,6 +15,9 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.statistics = {};
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
+    $scope.hideCategoriesSidebar = function() {
+        $rootScope.showCategoriesSidebar = false;
+    };
 
     rest().get({
         type: $scope.type,
