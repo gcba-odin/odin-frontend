@@ -59,18 +59,14 @@
             </div>
             </section>
             <section class="module">
-               <div class="module-content">
-               </div>
+                <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
+                <!-- <div id="disqus_thread"></div> -->
+                <dir-disqus config="disqusConfig"
+                    disqus-shortname="{{ disqusConfig.disqus_shortname }}"
+                    disqus-identifier="{{ disqusConfig.disqus_identifier }}"
+                    disqus-url="{{ disqusConfig.disqus_url }}">
+                </dir-disqus>
             </section>
-            <section class="module">
-                    <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
-                    <!-- <div id="disqus_thread"></div> -->
-                    <dir-disqus config="disqusConfig"
-                        disqus-shortname="{{ disqusConfig.disqus_shortname }}"
-                        disqus-identifier="{{ disqusConfig.disqus_identifier }}"
-                        disqus-url="{{ disqusConfig.disqus_url }}">
-                    </dir-disqus>
-                </section>
          </div>
          <aside class="secondary col-md-3" ng-if="!isMobile.any">
             <div class="filters">
