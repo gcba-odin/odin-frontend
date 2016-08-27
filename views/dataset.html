@@ -2,50 +2,51 @@
 <div role="main">
     <div id="content" class="container">
         <categories-row ng-if="!isMobile.any"></categories-row>
-        <div class="flash-messages">
-        </div>
-        <div class="toolbar">
-            <ol class="breadcrumb">
-                <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                <li class="breadcrumb-item">
-                    <a ng-href="{{baseHtml5}}">INICIO</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a ng-href="datasets">DATASETS</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString | uppercase}}</a>
-                </li>
-            </ol>
-        </div>
-        <div class="dataset-single clearfix">
-            <div class="dataset-content">
-                <h3 class="dataset-heading">
-                    <a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">{{info.name}}</a>
-                </h3>
-                <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
-                <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
+        <div class="flash-messages"></div>
+        <div class="row dataset-info">
+            <div class="toolbar">
+                <ol class="breadcrumb">
+                    <!-- Snippet snippets/home_breadcrumb_item.html start -->
+                    <li class="breadcrumb-item">
+                        <a ng-href="{{baseHtml5}}">INICIO</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a ng-href="datasets">DATASETS</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString | uppercase}}</a>
+                    </li>
+                </ol>
             </div>
-            <ul class="dataset-resources unstyled">
-                <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
-                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
-                    <thead>
-                        <tr>
-                            <th>Campo</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="adt_info in info.additional_info">
-                            <td>{{adt_info.clave}}</td>
-                            <td>{{adt_info.valor}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ul>
-        </div>
-        <div class="dataset-single-tags">
-            <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.name={{tag.name | slug}}">{{tag.name}}</a>
+            <div class="dataset-single clearfix">
+                <div class="dataset-content">
+                    <h3 class="dataset-heading">
+                        <a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">{{info.name}}</a>
+                    </h3>
+                    <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
+                    <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
+                </div>
+                <ul class="dataset-resources unstyled">
+                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                    <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
+                        <thead>
+                            <tr>
+                                <th>Campo</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="adt_info in info.additional_info">
+                                <td>{{adt_info.clave}}</td>
+                                <td>{{adt_info.valor}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+                <div class="dataset-single-tags">
+                    <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.name={{tag.name | slug}}">{{tag.name}}</a>
+                </div>
+            </div>
         </div>
         <div class="row results wrapper">
          <div class="primary col-md-9">

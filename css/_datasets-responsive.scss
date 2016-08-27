@@ -9,4 +9,10 @@
       float: none;
     }
   }
+  .resource-actions {
+    .dropdown-menu {
+      left: initial;
+      right: 0;
+    }
+  }
 }
