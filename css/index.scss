@@ -3,6 +3,7 @@
 @import 'theme';
 @import 'typography';
 @import 'dataset';
-@import 'global-responsive';
-@import 'home-responsive';
-@import 'datasets-responsive';
+@import 'responsive/main';
+@import 'responsive/home';
+@import 'responsive/datasets';
+@import 'responsive/categories-sidebar';

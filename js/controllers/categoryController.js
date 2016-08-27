@@ -20,7 +20,6 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function(categories) {
-        $scope.categories = categories;
         $scope.categories = categories.data;
         $scope.showCategories = false;
 

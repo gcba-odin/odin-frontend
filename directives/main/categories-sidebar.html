@@ -1,0 +1,10 @@
+<div class="categories-sidebar">
+  <ul>
+    <li class="category-item" ng-repeat="category in categories">
+      <div class="category-icon">
+        <i svg-img="url_api + '/categories/' + category.id + '/image'"></i>
+      </div>
+      <div class="category-name">{{category.name}}</div>
+    </li>
+  </ul>
+</div>
