@@ -1664,3 +1664,29 @@ article figcaption,
     padding-right: 8px;
     line-height: 1.5;
 }
+
+.resource-tab {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.resource-tab li {
+  margin-right: 1px;
+  float: left;
+}
+
+.resource-tab li a {
+  padding: 2px 5px 0px 5px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  // padding: 14px 16px;
+  text-decoration: none;
+  background-color: #FF386a;
+}
+
+.resource-tab li a.active {
+  background-color: #FFb600;
+}

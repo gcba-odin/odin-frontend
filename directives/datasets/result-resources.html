@@ -32,16 +32,16 @@
                     </div>
                     <ul class="dropdown-menu">
                         <li ng-if="!!resource.resources.data.tables">
-                            <a href ng-click="toogleTypeResource('tables', resource)">Ver tabla</a>
+                            <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver tabla</a>
                         </li>
                         <li ng-if="!!resource.resources.data.charts">
-                            <a href ng-click="toogleTypeResource('charts', resource)">Ver gráfico</a>
+                            <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver gráfico</a>
                         </li>
                         <li ng-if="!!resource.resources.data.maps">
-                            <a href ng-click="toogleTypeResource('maps', resource)">Ver mapa</a>
+                            <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver mapa</a>
                         </li>
                         <li ng-if="(fileTypes[resource.type.id]|| lowercase) == 'pdf'">
-                            <a href ng-click="toogleTypeResource('pdf', resource)">Ver PDF</a>
+                            <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver PDF</a>
                         </li>
                     </ul>
                 </div>
@@ -59,6 +59,20 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div>
+              <div ng-show="resource.type_resource">
+                <ul class="resource-tab">
+                  <li><a href="#" class="tablinks" ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.charts" ng-class="{'active': resource.type_resource === 'charts'}">Gráfico</a></li>
+                  <li><a href="#" class="tablinks" ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.maps" ng-class="{'active': resource.type_resource === 'maps'}">Mapa</a></li>
+                  <li><a href="#" class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.tables" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a></li>
+                </ul>
+              </div>
+              <div ng-show="resource.type_resource">
+                <ul class="resource-tab">
+                  <li ng-repeat="element in resource.resources.data[resource.type_resource]"><a href="#" ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">{{element.name}}</a></li>
+                </ul>
+              </div>
             </div>
             <div class="resource-map">
                 <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">

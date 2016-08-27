@@ -33,6 +33,10 @@ angular.module('store-directives-dataset')
                 obj.type_resource = type;
             }
 
+            $scope.toggleResourceSelected = function(obj, resource) {
+              obj.resource_selected = resource;
+            }
+
             $scope.toogleTypeChart = function(type, obj) {
                 obj.type_chart = type;
             };
