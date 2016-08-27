@@ -1,11 +1,10 @@
 .navbar-menu-button {
+  color: white;
   display: none;
   float: left;
-  margin-left: 10px;
-  margin-top: 5px;
-  color: white;
-  line-height: 25px;
   font-size: 20px;
+  line-height: 25px;
+  padding: 5px 10px;
 }
 
 @media (max-width: $max-tablet-portrait) {

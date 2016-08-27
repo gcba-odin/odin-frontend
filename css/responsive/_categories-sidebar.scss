@@ -2,6 +2,7 @@ $category-item-height: 40px;
 
 .categories-sidebar {
   background-color: white;
+  display: none;
   height: calc(100% - #{$navbar-height-desktop});
   width: 25%;
   position: fixed;
@@ -9,6 +10,9 @@ $category-item-height: 40px;
   overflow-y: scroll;
   top: $navbar-height-mobile - 10;
   z-index: 1000;
+  &.show {
+    display: block;
+  }
 
   .category-item {
     border-top: #DFEDF2 solid 1px;

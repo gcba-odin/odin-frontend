@@ -1,7 +1,13 @@
 angular.module('store-directives-home')
-.directive("navbar", function() {
+.directive("navbar", function($rootScope) {
     return {
         restrict: "E",
-        templateUrl: "directives/main/navbar.html"
+        templateUrl: "directives/main/navbar.html",
+        controller: function($scope) {
+          $rootScope.showCategoriesSidebar = false;
+          $scope.toggleCategoriesSidebar = function() {
+            $rootScope.showCategoriesSidebar = !$rootScope.showCategoriesSidebar;
+          }
+        }
     };
 });
