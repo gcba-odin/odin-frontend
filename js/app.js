@@ -69,5 +69,6 @@
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
+        $rootScope.isMobile = isMobile;
     }
 })();

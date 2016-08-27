@@ -1,7 +1,7 @@
-<search-bar></search-bar>
+<search-bar ng-if="!isMobile.any"></search-bar>
 <div role="main">
    <div id="content" class="container">
-      <categories-row></categories-row>
+      <categories-row ng-if="!isMobile.any"></categories-row>
       <div class="flash-messages">
       </div>
       <div class="toolbar">
@@ -33,7 +33,7 @@
                </div>
             </section>
          </div>
-         <aside class="secondary col-md-3">
+         <aside class="secondary col-md-3" ng-if="!isMobile.any">
             <div class="filters">
                <div>
                 <order-result></order-result>
