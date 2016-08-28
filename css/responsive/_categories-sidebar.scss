@@ -9,7 +9,7 @@ $categories-sidebar-width-tablet: 25%;
   position: fixed;
   left: -$categories-sidebar-width-tablet;
   overflow-y: scroll;
-  top: $navbar-height-mobile - 10;
+  top: $navbar-height-mobile;
   transition: .25s left;
   z-index: 1000;
   &.show {
@@ -45,7 +45,7 @@ $categories-sidebar-width-tablet: 25%;
 
   .category-name {
     border-left: #DFEDF2 solid 1px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: $category-item-height - 20;
     margin-left: 45px;
     padding: 10px;
@@ -76,10 +76,15 @@ $categories-sidebar-width-tablet: 25%;
   .categories-sidebar {
     height: calc(100% - #{$navbar-height-mobile});
     left: -$categories-sidebar-width-phone;
-    top: $navbar-height-mobile;
     width: $categories-sidebar-width-phone;
     &.show {
       left: 0;
     }
+  }
+}
+
+@media (max-width: $max-phone-landscape) {
+  .categories-sidebar .category-name {
+    font-size: 14px;
   }
 }

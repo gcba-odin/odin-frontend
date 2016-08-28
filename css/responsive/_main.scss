@@ -9,11 +9,19 @@
   &.active {
     color: $primary-color;
   }
+  &:not(.active):hover,
+  &:not(.active):active {
+    color: white;
+  }
 }
 
-@media (max-width: $max-tablet-portrait) {
+@media (max-width: $max-tablet-landscape) {
   .navbar {
     height: $navbar-height-mobile;
+    .container {
+      padding: 0;
+      width: 100%;
+    }
   }
   .navbar-menu-button {
     display: inline;
