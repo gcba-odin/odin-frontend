@@ -3,7 +3,7 @@ $categories-sidebar-width-phone: 75%;
 $categories-sidebar-width-tablet: 25%;
 
 .categories-sidebar {
-  @extend .sidebar;
+  @extend .z-sidebar;
   background-color: white;
   height: calc(100% - #{$navbar-height-desktop});
   width: $categories-sidebar-width-tablet;

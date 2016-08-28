@@ -7,6 +7,7 @@ angular.module('store-directives-home')
           $rootScope.showCategoriesSidebar = false;
           $scope.toggleCategoriesSidebar = function() {
             $rootScope.showCategoriesSidebar = !$rootScope.showCategoriesSidebar;
+            $rootScope.showBackdrop = !$rootScope.showBackdrop;
           }
         }
     };
