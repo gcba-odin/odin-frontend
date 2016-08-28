@@ -1,12 +1,32 @@
 <nav class="navbar navbar-fixed-top navbar-theme">
     <div class="container">
-        <a class="navbar-menu-button"
-          ng-click="toggleCategoriesSidebar()"
-          ng-class="{active: showCategoriesSidebar}"
-          ng-show="isDatasetView"
-        >
-          <i class="fa fa-bars"></i>
-        </a>
-        <a class="navbar-odin-logo" ng-href="{{baseHtml5}}"></a>
+        <div class="navbar-left-section">
+            <a class="navbar-button"
+              ng-click="toggleCategoriesSidebar()"
+              ng-class="{active: showCategoriesSidebar}"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="navbar-center-section">
+            <a class="navbar-odin-logo" ng-href="{{baseHtml5}}"></a>
+        </div>
+        <div class="navbar-right-section">
+            <a class="navbar-button"
+              ng-click="toggleSearch()"
+              ng-class="{active: showSearch}"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-search"></i>
+            </a>
+            <a class="navbar-button"
+              ng-click="toggleOptionsMenu()"
+              ng-class="{active: showOptionsMenu}"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-ellipsis-v"></i>
+            </a>
+        </div>
     </div>
 </nav>

@@ -1,17 +1,26 @@
-.navbar-menu-button {
+.navbar-left-section, .navbar-right-section {
+  position: absolute;
+  top: 10px;
+}
+
+.navbar-left-section {
+  left: 0;
+}
+
+.navbar-right-section {
+  right: 0;
+}
+
+.navbar-button {
   color: white;
-  display: none;
-  float: left;
   font-size: 20px;
-  line-height: 25px;
   padding: 5px 10px;
-  transition: .25s color;
-  &.active {
-    color: $primary-color;
-  }
   &:not(.active):hover,
   &:not(.active):active {
     color: white;
+  }
+  i {
+    line-height: 25px;
   }
 }
 
