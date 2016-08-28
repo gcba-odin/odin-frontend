@@ -1,6 +1,7 @@
 .navbar-left-section, .navbar-right-section {
+  display: none;
   position: absolute;
-  top: 10px;
+  top: 0;
 }
 
 .navbar-left-section {
@@ -13,14 +14,37 @@
 
 .navbar-button {
   color: white;
+  display: inline-block;
   font-size: 20px;
-  padding: 5px 10px;
-  &:not(.active):hover,
-  &:not(.active):active {
+  padding: 7px 10px;
+  &:hover,
+  &:active {
     color: white;
+  }
+  &.navbar-search-button {
+    padding-top: 0;
+    z-index: 1;
+    &.active {
+      color: $primary-color;
+    }
   }
   i {
     line-height: 25px;
+  }
+}
+
+.navbar-search-component {
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  width: 70%;
+  input {
+    border-radius: 0;
+    height: 30px;
+    &:focus {
+      border-color: #C8C8C8;
+    }
   }
 }
 
@@ -32,8 +56,8 @@
       width: 100%;
     }
   }
-  .navbar-menu-button {
-    display: inline;
+  .navbar-left-section, .navbar-right-section {
+    display: block;
   }
   .navbar-odin-logo {
     display: block;

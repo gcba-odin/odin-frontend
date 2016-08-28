@@ -1,9 +1,8 @@
 <nav class="navbar navbar-fixed-top navbar-theme">
     <div class="container">
         <div class="navbar-left-section">
-            <a class="navbar-button"
+            <a class="navbar-button navbar-sidebar-button"
               ng-click="toggleCategoriesSidebar()"
-              ng-class="{active: showCategoriesSidebar}"
               ng-show="isDatasetView"
             >
               <i class="fa fa-bars"></i>
@@ -11,18 +10,18 @@
         </div>
         <div class="navbar-center-section">
             <a class="navbar-odin-logo" ng-href="{{baseHtml5}}"></a>
+            <navbar-search ng-show="isDatasetView && showNavbarSearch"></navbar-search>
         </div>
         <div class="navbar-right-section">
-            <a class="navbar-button"
-              ng-click="toggleSearch()"
-              ng-class="{active: showSearch}"
+            <a class="navbar-button navbar-search-button"
+              ng-click="toggleNavbarSearch()"
+              ng-class="{active: showNavbarSearch}"
               ng-show="isDatasetView"
             >
               <i class="fa fa-search"></i>
             </a>
-            <a class="navbar-button"
+            <a class="navbar-button navbar-options-menu-button"
               ng-click="toggleOptionsMenu()"
-              ng-class="{active: showOptionsMenu}"
               ng-show="isDatasetView"
             >
               <i class="fa fa-ellipsis-v"></i>
