@@ -80,11 +80,8 @@ $categories-sidebar-width-tablet: 25%;
     &.show {
       left: 0;
     }
-  }
-}
-
-@media (max-width: $max-phone-landscape) {
-  .categories-sidebar .category-name {
-    font-size: 14px;
+    .category-name {
+      font-size: 14px;
+    }
   }
 }
