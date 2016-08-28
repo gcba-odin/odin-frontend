@@ -3,6 +3,7 @@ $categories-sidebar-width-phone: 75%;
 $categories-sidebar-width-tablet: 25%;
 
 .categories-sidebar {
+  @extend .sidebar;
   background-color: white;
   height: calc(100% - #{$navbar-height-desktop});
   width: $categories-sidebar-width-tablet;
@@ -11,7 +12,6 @@ $categories-sidebar-width-tablet: 25%;
   overflow-y: scroll;
   top: $navbar-height-mobile;
   transition: .25s left;
-  z-index: 1000;
   &.show {
     left: 0;
   }
