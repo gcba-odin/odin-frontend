@@ -5,6 +5,10 @@
   font-size: 20px;
   line-height: 25px;
   padding: 5px 10px;
+  transition: .25s color;
+  &.active {
+    color: $primary-color;
+  }
 }
 
 @media (max-width: $max-tablet-portrait) {

@@ -1,17 +1,19 @@
 $category-item-height: 40px;
+$categories-sidebar-width-phone: 75%;
+$categories-sidebar-width-tablet: 25%;
 
 .categories-sidebar {
   background-color: white;
-  display: none;
   height: calc(100% - #{$navbar-height-desktop});
-  width: 25%;
+  width: $categories-sidebar-width-tablet;
   position: fixed;
-  left: 0;
+  left: -$categories-sidebar-width-tablet;
   overflow-y: scroll;
   top: $navbar-height-mobile - 10;
+  transition: .25s left;
   z-index: 1000;
   &.show {
-    display: block;
+    left: 0;
   }
 
   .category-item {
@@ -73,7 +75,11 @@ $category-item-height: 40px;
 @media (max-width: $max-tablet-portrait) {
   .categories-sidebar {
     height: calc(100% - #{$navbar-height-mobile});
+    left: -$categories-sidebar-width-phone;
     top: $navbar-height-mobile;
-    width: 75%;
+    width: $categories-sidebar-width-phone;
+    &.show {
+      left: 0;
+    }
   }
 }
