@@ -6,15 +6,21 @@ angular.module('store-directives-home')
         controller: function($scope) {
           $rootScope.showCategoriesSidebar = false;
           $scope.toggleCategoriesSidebar = function() {
+            $rootScope.showNavbarSearch = false;
+            $rootScope.showOptionsMenu = false;
             $rootScope.showCategoriesSidebar = !$rootScope.showCategoriesSidebar;
             $rootScope.showBackdrop = !$rootScope.showBackdrop;
           };
           $rootScope.showNavbarSearch = false;
           $scope.toggleNavbarSearch = function() {
+            $rootScope.showCategoriesSidebar = false;
+            $rootScope.showOptionsMenu = false;
             $rootScope.showNavbarSearch = !$rootScope.showNavbarSearch;
           };
           $rootScope.showOptionsMenu = false;
           $scope.toggleOptionsMenu = function() {
+            $rootScope.showCategoriesSidebar = false;
+            $rootScope.showNavbarSearch = false;
             $rootScope.showOptionsMenu = !$rootScope.showOptionsMenu;
             $rootScope.showBackdrop = !$rootScope.showBackdrop;
           };

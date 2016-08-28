@@ -36,9 +36,13 @@
 .navbar-search-component {
   margin: 0;
   position: absolute;
-  top: 5px;
+  top: -$navbar-height-mobile;
   right: 30px;
   width: 70%;
+  transition: .25s top;
+  &.active {
+    top: 5px;
+  }
   input {
     border-radius: 0;
     height: 30px;
