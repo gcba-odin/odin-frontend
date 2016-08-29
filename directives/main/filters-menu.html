@@ -35,12 +35,12 @@
           {{tag.name}}
         </li>
         <li class="show-more" ng-click="loadTags(5)"
-          ng-if="(tags.length || limitTags == 0) && !lessThanLimit"
+          ng-if="(tags.length || limitTags === 0) && !lessThanLimit"
         >
           Ver más
         </li>
         <li class="show-less" ng-click="showLess(5)"
-          ng-if="(tags.length == 0 && limitTags != 0) || lessThanLimit"
+          ng-if="(tags.length === 0 && limitTags !== 0) || lessThanLimit"
         >
           Ver menos
         </li>
@@ -63,12 +63,12 @@
           {{filetype.name}} ({{fileTypesCount[filetype.id]}})
         </li>
         <li class="show-more" ng-click="loadFormats(5)"
-          ng-if="(filetypes.length || limitFormats == 0) && !lessThanLimit"
+          ng-if="(filetypes.length || limitFormats === 0) && !lessThanLimit"
         >
           Ver más
         </li>
         <li class="show-less" ng-click="showLess(5)"
-          ng-if="(filetypes.length == 0 && limitFormats != 0) || lessThanLimit"
+          ng-if="(filetypes.length === 0 && limitFormats !== 0) || lessThanLimit"
         >
           Ver menos
         </li>
@@ -81,10 +81,25 @@
         </div>
         <div class="filter-name">Organizaciones</div>
       </div>
-      <ul class="filter-options" ng-show="filterGroups['organizations']">
-        <li>Nombre</li>
-        <li>Fecha de publicación</li>
-        <li>Descargas</li>
+      <ul class="filter-options" ng-show="filterGroups['organizations']"
+        ng-controller="OrganizationsController"
+      >
+        <li class="filter-option" ng-repeat="organization in organizations"
+          ng-class="{active: organization.active}"
+          ng-click="selectOrganization(organization)"
+        >
+          {{organization.name}} ({{organizationsCount[organization.id]}})
+        </li>
+        <li class="show-more" ng-click="loadOrganizations(5)"
+          ng-if="(organizations.length || limitOrganizations === 0) && !lessThanLimit"
+        >
+          Ver más
+        </li>
+        <li class="show-less" ng-click="showLess(5)"
+          ng-if="(organizations.length === 0 && limitOrganizations !== 0) || lessThanLimit"
+        >
+          Ver menos
+        </li>
       </ul>
     </li>
   </ul>

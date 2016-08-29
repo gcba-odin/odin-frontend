@@ -1,7 +1,7 @@
 angular.module('odin.controllers')
 .controller('FiletypesController', FiletypesController);
 
-function FiletypesController($filter, $routeParams, $scope, rest, LocationSearchService, DatasetListService) {
+function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
     $scope.limitFormats = 0;
     $scope.filetypes = [];
@@ -49,6 +49,8 @@ function FiletypesController($filter, $routeParams, $scope, rest, LocationSearch
 
     $scope.loadFormats(0);
     $scope.selectFiletype = function(filetype) {
+        $rootScope.showFiltersMenu = false;
+        $rootScope.showBackdrop = false;
         if(filetype.active) {
             LocationSearchService.removeFilterValue(filterName, filetype.id);
         } else {

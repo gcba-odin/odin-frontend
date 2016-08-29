@@ -1,7 +1,7 @@
 angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
-function TagsController($scope, $filter, rest, LocationSearchService) {
+function TagsController($rootScope, $scope, $filter, rest, LocationSearchService) {
     var filterName = 'tags.name';
     $scope.limitTags = 0;
     $scope.tags = [];
@@ -35,6 +35,8 @@ function TagsController($scope, $filter, rest, LocationSearchService) {
 
     $scope.loadTags(0);
     $scope.selectTag = function(tag) {
+        $rootScope.showFiltersMenu = false;
+        $rootScope.showBackdrop = false;
         if(tag.active) {
             LocationSearchService.removeFilterValue(filterName, tag.slug);
         } else {
