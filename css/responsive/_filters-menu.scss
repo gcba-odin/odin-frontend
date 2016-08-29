@@ -45,6 +45,12 @@ $filters-menu-tablet-portrait-width: 50%;
         color: $primary-color;
       }
     }
+    .show-more, .show-less {
+      color: $primary-color;
+      font-size: 12px;
+      font-weight: bold;
+      padding-top: 5px;
+    }
   }
 }
 

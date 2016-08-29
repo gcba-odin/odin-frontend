@@ -6,7 +6,6 @@ angular.module('store-directives-datasets')
         scope: {
             filesView: '='
         },
-        controller: OrderingsController,
-        controllerAs: "licences"
+        controller: 'OrderingsController'
     };
 });
