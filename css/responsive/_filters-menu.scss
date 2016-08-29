@@ -41,7 +41,7 @@ $filters-menu-tablet-portrait-width: 50%;
     padding: 0 10px 10px;
     .filter-option{
       padding: 5px 0;
-      .active {
+      &.active {
         color: $primary-color;
       }
     }
