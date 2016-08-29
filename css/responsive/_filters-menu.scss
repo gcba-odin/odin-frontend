@@ -5,7 +5,7 @@ $filters-menu-tablet-portrait-width: 50%;
   @extend .z-sidemenu;
   background-color: white;
   box-shadow: -1px 1px 6px 2px $light-gray;
-  max-height: 50%;
+  max-height: calc(100% - #{$navbar-height-mobile});
   overflow-y: scroll;
   position: fixed;
   top: $navbar-height-mobile;
