@@ -1,39 +1,52 @@
 <div class="filters-menu" ng-class="{show: showFiltersMenu}">
   <ul>
     <li class="filter-group">
-      <div class="filter-item" ng-click="toggleFilterGroup('order')">
+      <div class="filter-item" ng-click="toggleFilterGroup('orderings')">
         <div class="filter-icon">
           <i class="fa fa-sort-amount-desc"></i>
         </div>
         <div class="filter-name">Ordenar</div>
       </div>
-      <ul class="filter-options" ng-show="filterGroups['order']">
+      <ul class="filter-options" ng-show="filterGroups['orderings']">
         <li>Nombre</li>
         <li>Fecha de publicación</li>
         <li>Descargas</li>
       </ul>
     </li>
     <li class="filter-group">
-      <div class="filter-item">
+      <div class="filter-item" ng-click="toggleFilterGroup('tags')">
         <div class="filter-icon">
-          <i class="fa fa-sort-amount-desc"></i>
+          <i class="fa fa-tag"></i>
         </div>
-        <div class="filter-name">Ordenar</div>
+        <div class="filter-name">Etiquetas</div>
       </div>
-      <ul class="filter-options">
+      <ul class="filter-options" ng-show="filterGroups['tags']">
         <li>Nombre</li>
         <li>Fecha de publicación</li>
         <li>Descargas</li>
       </ul>
     </li>
     <li class="filter-group">
-      <div class="filter-item">
+      <div class="filter-item" ng-click="toggleFilterGroup('filetypes')">
         <div class="filter-icon">
-          <i class="fa fa-sort-amount-desc"></i>
+          <i class="fa fa-file"></i>
         </div>
-        <div class="filter-name">Ordenar</div>
+        <div class="filter-name">Formatos</div>
       </div>
-      <ul class="filter-options">
+      <ul class="filter-options" ng-show="filterGroups['filetypes']">
+        <li>Nombre</li>
+        <li>Fecha de publicación</li>
+        <li>Descargas</li>
+      </ul>
+    </li>
+    <li class="filter-group">
+      <div class="filter-item" ng-click="toggleFilterGroup('organizations')">
+        <div class="filter-icon">
+          <i class="fa fa-building"></i>
+        </div>
+        <div class="filter-name">Organizaciones</div>
+      </div>
+      <ul class="filter-options" ng-show="filterGroups['organizations']">
         <li>Nombre</li>
         <li>Fecha de publicación</li>
         <li>Descargas</li>
