@@ -6,7 +6,8 @@ $category-icon-width: 45px;
 .categories-sidebar {
   @extend .z-sidebar;
   background-color: white;
-  height: calc(100% - #{$navbar-height-desktop});
+  box-shadow: 1px 1px 6px 2px $light-gray;
+  max-height: calc(100% - #{$navbar-height-desktop});
   width: $categories-sidebar-width-tablet;
   position: fixed;
   left: -$categories-sidebar-width-tablet;
@@ -75,7 +76,7 @@ $category-icon-width: 45px;
 
 @media (max-width: $max-tablet-portrait) {
   .categories-sidebar {
-    height: calc(100% - #{$navbar-height-mobile});
+    max-height: calc(100% - #{$navbar-height-mobile});
     left: -$categories-sidebar-width-phone;
     width: $categories-sidebar-width-phone;
     &.show {
