@@ -30,7 +30,7 @@
                 </table>
             </div>
             <span class="format-label" property="dc:format" data-format="{{resource.url| returnFormat}}">{{resource.format| uppercase}} </span>
-            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}"><i class="fa fa-download"></i>Descargar</a>
+            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slugDataset }}{{ resource.type.name | slug}}"><i class="fa fa-download"></i>Descargar</a>
             <div class="dataset-resources unstyled">
                 <!--<li ng-repeat="resource in result.files">
                     <a ng-href="/resource/{{resource.id| lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name|| lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>

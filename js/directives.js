@@ -184,6 +184,15 @@
         return function(input) {
             if (input) {
                 var value = normalize(input);
+                return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            }
+        };
+    });
+
+    app.filter('slugDataset', function() {
+        return function(input) {
+            if (input) {
+                var value = normalize(input);
                 return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
             }
         };
