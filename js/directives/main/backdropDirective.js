@@ -8,7 +8,7 @@ angular.module('store-directives')
           $scope.hideBackdrop = function() {
             $rootScope.showBackdrop = false;
             $rootScope.showCategoriesSidebar = false;
-            $rootScope.showOptionsMenu = false;
+            $rootScope.showFiltersMenu = false;
           };
         }
     };

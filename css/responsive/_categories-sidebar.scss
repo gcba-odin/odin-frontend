@@ -17,11 +17,11 @@ $categories-sidebar-width-tablet: 25%;
   }
 
   .category-item {
-    border-top: #DFEDF2 solid 1px;
-    border-right: #DFEDF2 solid 1px;
+    border-top: $light-gray solid 1px;
+    border-right: $light-gray solid 1px;
     position: relative;
     &:last-child {
-      border-bottom: #DFEDF2 solid 1px;
+      border-bottom: $light-gray solid 1px;
     }
   }
 
@@ -44,7 +44,7 @@ $categories-sidebar-width-tablet: 25%;
   }
 
   .category-name {
-    border-left: #DFEDF2 solid 1px;
+    border-left: $light-gray solid 1px;
     font-size: 12px;
     line-height: $category-item-height - 20;
     margin-left: 45px;
