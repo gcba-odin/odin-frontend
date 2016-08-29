@@ -1,5 +1,5 @@
 <div class="categories-sidebar" ng-class="{show: showCategoriesSidebar}">
-  <ul>
+  <ul class="category-list">
     <li class="category-item"
       ng-repeat="category in categories"
       ng-class="{active: (category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}"
