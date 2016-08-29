@@ -13,7 +13,8 @@
         "angularUtils.directives.dirDisqus",
         "720kb.socialshare",
         "pdf",
-        "ngtweet"
+        "ngtweet",
+        "matchMedia"
     ]);
     app.config(function($routeProvider, $locationProvider) {
 
@@ -52,10 +53,15 @@
 
     app.run(run);
 
-    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5) {
+    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
-        $rootScope.isMobile = isMobile;
+        screenSize.rules = {
+            any: '(max-width: 1025px)'
+        };
+        $rootScope.isMobile = screenSize.on('any', function(match) {
+            $rootScope.isMobile = match;
+        });
     }
 })();

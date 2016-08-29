@@ -24,7 +24,7 @@
     "require-dir": "^0.3.0"
   },
   "dependencies": {
-    "angular-pdf": "^1.3.0",
-    "ismobilejs": "^0.4.0"
+    "angular-media-queries": "^0.6.1",
+    "angular-pdf": "^1.3.0"
   }
 }

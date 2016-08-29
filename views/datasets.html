@@ -1,9 +1,9 @@
-<search-bar ng-if="!isMobile.any"></search-bar>
+<search-bar ng-if="!isMobile"></search-bar>
 <div role="main">
    <div id="content" class="container">
-      <categories-row ng-if="!isMobile.any"></categories-row>
-      <categories-sidebar ng-if="isMobile.any"></categories-sidebar>
-      <filters-menu ng-if="isMobile.any"></filters-menu>
+      <categories-row ng-if="!isMobile"></categories-row>
+      <categories-sidebar ng-if="isMobile"></categories-sidebar>
+      <filters-menu ng-if="isMobile"></filters-menu>
       <div class="flash-messages">
       </div>
       <div class="row datasets-header">
@@ -37,7 +37,7 @@
                </div>
             </section>
          </div>
-         <aside class="secondary col-md-3" ng-if="!isMobile.any">
+         <aside class="secondary col-md-3" ng-if="!isMobile">
             <div class="filters">
                <div>
                 <order-result></order-result>
