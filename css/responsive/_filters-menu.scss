@@ -39,6 +39,12 @@ $filters-menu-tablet-portrait-width: 50%;
   .filter-options {
     margin-left: 30px;
     padding: 0 10px 10px;
+    .filter-option{
+      padding: 5px 0;
+      .active {
+        color: $primary-color;
+      }
+    }
   }
 }
 

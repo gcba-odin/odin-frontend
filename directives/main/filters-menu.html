@@ -7,10 +7,13 @@
         </div>
         <div class="filter-name">Ordenar</div>
       </div>
-      <ul class="filter-options" ng-show="filterGroups['orderings']">
-        <li>Nombre</li>
-        <li>Fecha de publicación</li>
-        <li>Descargas</li>
+      <ul class="filter-options" ng-show="filterGroups['orderings']" ng-controller="OrderingsController">
+        <li class="filter-option" ng-repeat="ordering in orderings"
+          ng-class="{active: ordering.active}"
+          ng-click="selectOrder(ordering)"
+        >
+          {{ordering.name}}
+        </li>
       </ul>
     </li>
     <li class="filter-group">
