@@ -17,13 +17,13 @@ angular.module('store-directives-dataset')
             };
 
             $scope.toggleDropdownInverse = function(event) {
-                if ($(event.target).prevAll().hasClass('dataset-additional-info-table-inactive')) {
-                    $(event.target).prevAll().addClass('dataset-additional-info-table-active');
-                    $(event.target).prevAll().removeClass('dataset-additional-info-table-inactive');
+                if ($(event.target).prev().prev().hasClass('dataset-additional-info-table-inactive')) {
+                    $(event.target).prev().prev().addClass('dataset-additional-info-table-active');
+                    $(event.target).prev().prev().removeClass('dataset-additional-info-table-inactive');
                     $(event.target).addClass('dataset-additional-info-active');
                 } else {
-                    $(event.target).prevAll().addClass('dataset-additional-info-table-inactive');
-                    $(event.target).prevAll().removeClass('dataset-additional-info-table-active');
+                    $(event.target).prev().prev().addClass('dataset-additional-info-table-inactive');
+                    $(event.target).prev().prev().removeClass('dataset-additional-info-table-active');
                     $(event.target).removeClass('dataset-additional-info-active');
                 }
             };

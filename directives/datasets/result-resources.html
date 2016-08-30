@@ -50,17 +50,17 @@
                     </a>
                     <ul class="dropdown-menu" ng-if="!resource.type.api">
                         <li>
-                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
+                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slugDataset }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
                         </li>
                     </ul>
                     <ul class="dropdown-menu" ng-if="resource.type.api && i!=resource.type.name">
                         <li ng-repeat="i in ['xls','xlsx','csv']">
-                            <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
+                            <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slugDataset }}{{ i | slug}}">{{i | uppercase}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div>
+            <div class="resource-map">
                 <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
                     <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
                 </div>
@@ -69,7 +69,7 @@
                     <iframe id="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
                 </div>
             </div>
-            <div>
+            <div class="resource-charts">
                 <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
                     <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
                 </div>
@@ -78,7 +78,7 @@
                     <canvas ng-if="!chart.link && chart.id == resource.type_chart" id="iframeDiv" class="chart chart-base" chart-type="chart.type" chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
                 </div>
             </div>
-            <div>
+            <div class="resource-pdf">
                 <div class="wrapper" ng-if="resource.type_resource == 'pdf'">
                     <h1>{{resource.name}}</h1>
                     <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>

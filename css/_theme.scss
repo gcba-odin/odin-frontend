@@ -458,7 +458,9 @@ ul {
 }
 
 .text-auxiliar-bar:first-of-type {
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    // float: left;
 }
 
 .auxiliar-bar li:hover {
@@ -480,10 +482,6 @@ ul {
     top: 8px;
 }
 
-.text-auxiliar-bar:first-of-type {
-    float: left;
-}
-
 .text-auxiliar-bar a {
     color: inherit;
 }
@@ -501,24 +499,28 @@ ul {
     background-image: url('../images/complete-catalog.svg');
 }
 
+.text-auxiliar-bar:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
 .text-auxiliar-bar:hover:first-of-type a:before {
     background-image: url('../images/complete-catalog-hover.svg');
 }
 
-.text-auxiliar-bar:last-of-type {
-    float: right;
-    text-align: right;
-    margin-right: 3px;
-    width: calc(50% - 10px);
-}
+// .text-auxiliar-bar:last-of-type {
+//     float: right;
+//     text-align: right;
+//     margin-right: 3px;
+//     width: calc(50% - 10px);
+// }
 
-.text-auxiliar-bar:last-of-type a:before {
-    background-image: url('../images/viz-collection.svg');
-}
+// .text-auxiliar-bar:last-of-type a:before {
+//     background-image: url('../images/viz-collection.svg');
+// }
 
-.text-auxiliar-bar:hover:last-of-type a:before {
-    background-image: url('../images/viz-collection-hover.svg');
-}
+// .text-auxiliar-bar:hover:last-of-type a:before {
+//     background-image: url('../images/viz-collection-hover.svg');
+// }
 
 .branding-data h1 {
     color: inherit;
@@ -665,7 +667,7 @@ h2 {
     font-size: 7px;
     font-weight: 500;
     padding: 2px 2px 1px 2px;
-    margin-right: 9px;
+    margin-right: 5px;
     color: white;
     background-color: #B3B3B3;
     border-radius: 2px;
@@ -727,12 +729,12 @@ h2 {
 }
 
 .popular-datasets-list {
-    padding-top: 0.6vh;
+    padding-top: 5px;
 }
 
 .popular-datasets-list-item-bar {
     width: 30%;
-    height: 0.79vw;
+    height: 10px;
     background: linear-gradient(to right, #FF386a 0%, #FF386a 80%, #999999 80%, #999999 100%);
     display: inline-block;
     border-radius: 5px;
@@ -1124,7 +1126,7 @@ h2 {
 .list-heading {
     color: #353535;
     font-size: 20px;
-    margin-top: -50px;
+    // margin-top: -50px;
     margin-bottom: 25px;
     padding-bottom: 6px;
     border-bottom: 1px #cccccc solid;
@@ -1143,7 +1145,7 @@ h2 {
 
 .dataset-resources .label, .category.label {
     background-color: #999999;
-    display: inline;
+    display: inline-block;
     padding: .0em .4em .1em;
     padding-top: .3em;
     font-size: 75%;
@@ -1258,6 +1260,15 @@ h2 {
     clear: both;
 }
 
+.datasets-header {
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+
+.datasets-header .toolbar {
+    margin-bottom: 20px;
+}
+
 .dataset-list li.dataset-item {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
@@ -1293,7 +1304,7 @@ h2 {
 }
 
 .dataset-single-tags {
-    margin-bottom: 80px;
+    margin-bottom: 10px;
     margin-top: 5px;
 }
 
@@ -1312,7 +1323,6 @@ h2 {
 
 .dataset-item:last-of-type {
     border-bottom: 1px solid #cccccc;
-    padding-bottom: 20px;
     margin-bottom: 20px;
 }
 
@@ -1591,6 +1601,7 @@ article figcaption,
     z-index: 100000;
     width: 100%;
     top: 0px;
+    left: 0px;
 }
 
 #ngProgress {

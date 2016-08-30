@@ -6,6 +6,7 @@ app.factory('model', function($resource) {
 
 function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter) {
     LocationSearchService.init();
+    $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
     $scope.type = "datasets";
     $scope.params = $.extend({

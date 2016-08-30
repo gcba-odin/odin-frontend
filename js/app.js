@@ -13,7 +13,8 @@
         "angularUtils.directives.dirDisqus",
         "720kb.socialshare",
         "pdf",
-        "ngtweet"
+        "ngtweet",
+        "matchMedia"
     ]);
     app.config(function($routeProvider, $locationProvider) {
 
@@ -50,24 +51,17 @@
         };
     });
 
-    function controllerHome($scope, $location, $sce, $filter, $rootScope) {
-        $rootScope.header = "Odin";
-
-        $scope.getHtml = function(html) {
-            return $sce.trustAsHtml(html);
-        };
-
-        $scope.goToUrl = function(url) {
-            $filter('slug')(this.item.name);
-            window.location = "/dataset/" + $filter('slug')(this.item.id);
-        };
-    }
-
     app.run(run);
 
-    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5) {
+    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
+        screenSize.rules = {
+            any: '(max-width: 1025px)'
+        };
+        $rootScope.isMobile = screenSize.on('any', function(match) {
+            $rootScope.isMobile = match;
+        });
     }
 })();
