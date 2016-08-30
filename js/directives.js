@@ -173,6 +173,15 @@
         };
     });
 
+    app.filter('slugDataset', function() {
+        return function(input) {
+            if (input) {
+                var value = normalize(input);
+                return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
+            }
+        };
+    });
+
     app.filter('unslug', function() {
         return function(slug) {
             return slug.replace(/\-/g,' ');
