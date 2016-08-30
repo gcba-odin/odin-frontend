@@ -22,7 +22,13 @@
       margin: 0;
     }
   }
-  .dataset-additional-info-table-active {
+  .dataset-additional-info-table {
     width: 100%;
+  }
+  .table-responsive .dataset-additional-info-table {
+    th, td {
+      width: 20vw;
+      white-space: normal !important;
+    }
   }
 }
