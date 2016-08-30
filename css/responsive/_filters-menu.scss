@@ -9,7 +9,7 @@ $filters-menu-tablet-portrait-width: 50%;
   overflow-y: scroll;
   position: fixed;
   top: $navbar-height-mobile;
-  right: -$filters-menu-tablet-landscape-width;
+  right: calc(-#{$filters-menu-tablet-landscape-width} - 10px);
   width: $filters-menu-tablet-landscape-width;
   transition: .25s right;
   &.show {
@@ -56,7 +56,7 @@ $filters-menu-tablet-portrait-width: 50%;
 
 @media (max-width: $max-tablet-portrait) {
   .filters-menu {
-    right: -$filters-menu-tablet-portrait-width;
+    right: calc(-#{$filters-menu-tablet-portrait-width} - 10px);
     width: $filters-menu-tablet-portrait-width;
   }
 }

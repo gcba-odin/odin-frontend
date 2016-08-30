@@ -10,7 +10,7 @@ $category-icon-width: 45px;
   max-height: calc(100% - #{$navbar-height-desktop});
   width: $categories-sidebar-width-tablet;
   position: fixed;
-  left: -$categories-sidebar-width-tablet;
+  left: calc(-#{$categories-sidebar-width-tablet} - 10px);
   overflow-y: scroll;
   top: $navbar-height-mobile;
   transition: .25s left;
@@ -77,7 +77,7 @@ $category-icon-width: 45px;
 @media (max-width: $max-tablet-portrait) {
   .categories-sidebar {
     max-height: calc(100% - #{$navbar-height-mobile});
-    left: -$categories-sidebar-width-phone;
+    left: calc(-#{$categories-sidebar-width-phone} - 10px);
     width: $categories-sidebar-width-phone;
     &.show {
       left: 0;
