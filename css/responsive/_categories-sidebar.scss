@@ -1,0 +1,103 @@
+$category-item-height: 40px;
+$categories-sidebar-width-phone: 75%;
+$categories-sidebar-width-tablet: 25%;
+$category-icon-width: 45px;
+
+.categories-sidebar {
+  @extend .z-sidebar;
+  background-color: white;
+  box-shadow: 1px 1px 6px 2px $light-gray;
+  max-height: calc(100% - #{$navbar-height-desktop});
+  width: $categories-sidebar-width-tablet;
+  position: fixed;
+  left: -$categories-sidebar-width-tablet;
+  overflow-y: scroll;
+  top: $navbar-height-mobile;
+  transition: .25s left;
+  &.show {
+    left: 0;
+  }
+
+  .category-item {
+    border-top: $light-gray solid 1px;
+    border-right: $light-gray solid 1px;
+    position: relative;
+    &:last-child {
+      border-bottom: $light-gray solid 1px;
+    }
+  }
+
+  .category-icon {
+    background-color: $primary-color;
+    padding: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    width: $category-icon-width;
+    i {
+      display: block;
+      height: $category-item-height - 10;
+    }
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .category-name {
+    border-left: $light-gray solid 1px;
+    font-size: 12px;
+    line-height: $category-item-height - 20;
+    margin-left: $category-icon-width;
+    padding: 10px;
+  }
+
+  .category-item path,
+  .category-item polygon,
+  .category-item circle,
+  .category-item rect {
+    fill: white;
+    stroke: white;
+  }
+  .category-item line {
+    fill: $primary-color;
+    stroke: $primary-color;
+  }
+
+  .category-item.active path,
+  .category-item.active polygon,
+  .category-item.active circle,
+  .category-item.active rect {
+    fill: $secondary-color;
+    stroke: $secondary-color;
+  }
+}
+
+@media (max-width: $max-tablet-portrait) {
+  .categories-sidebar {
+    max-height: calc(100% - #{$navbar-height-mobile});
+    left: -$categories-sidebar-width-phone;
+    width: $categories-sidebar-width-phone;
+    &.show {
+      left: 0;
+    }
+    .category-name {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: $max-tablet-portrait - 1) and (max-width: $max-tablet-landscape) {
+  .categories-sidebar {
+    left: 0;
+    width: $category-icon-width;
+    transition: .25s width;
+    .category-name {
+      width: 260px;
+    }
+    &.show {
+      width: calc(#{$categories-sidebar-width-tablet} + 50px);
+    }
+  }
+}

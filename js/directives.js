@@ -108,15 +108,7 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar.html',
-            controller: function($scope, $location, LocationSearchService) {
-                $scope.search = function() {
-                    if ($scope.query) {
-                        $location.path('datasets').search('query', $scope.query);
-                    } else {
-                        LocationSearchService.deleteFilter('query');
-                    }
-                };
-            }
+            controller: SearchDatasetsController
         };
     });
 
@@ -124,15 +116,7 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
-            controller: function($scope, $location, LocationSearchService) {
-                $scope.search = function() {
-                    if ($scope.query) {
-                        $location.path('datasets').search('query', $scope.query);
-                    } else {
-                        LocationSearchService.deleteFilter('query');
-                    }
-                };
-            }
+            controller: SearchDatasetsController
         };
     });
 

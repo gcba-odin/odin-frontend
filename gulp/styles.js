@@ -10,7 +10,7 @@ gulp.task('styles', function () {
  return gulp.src('css/index.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
-    .pipe(sass())
+    .pipe(sass.sync())
     //TODO: add autoprefixer
     .pipe(process.env.NODE_ENV ? cleanCSS() : util.noop())
   .pipe(sourcemaps.write())

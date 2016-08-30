@@ -5670,6 +5670,7 @@ a.badge:focus {
 @media (min-width: 768px) and (max-width: 979px) {
   .row {
     margin-left: -20px;
+    margin-right: -20px;
     *zoom: 1;
   }
   .row:before,
@@ -6013,12 +6014,6 @@ a.badge:focus {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .navbar-fixed-top,
-  .navbar-fixed-bottom,
-  .navbar-static-top {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
   .container-fluid {
     padding: 0;
   }
@@ -6039,7 +6034,7 @@ a.badge:focus {
   }
   .row,
   .thumbnails {
-    margin-left: 0;
+    // margin-left: 0;
   }
   .thumbnails> li {
     float: none;
@@ -6161,10 +6156,6 @@ a.badge:focus {
 @media (max-width: 979px) {
   body {
     padding-top: 0;
-  }
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
-    position: static;
   }
   .navbar-fixed-top {
     margin-bottom: 20px;
@@ -8096,8 +8087,7 @@ textarea {
 }
 
 .dataset-item {
-  border-bottom: 1px dotted #dddddd;
-  padding-bottom: 20px;
+  border-bottom: 1px solid #dddddd;
   margin-bottom: 20px;
 }
 
@@ -8707,14 +8697,12 @@ textarea {
 
 @media (max-width: 767px) {
   .toolbar .breadcrumb {
-    color: #fff;
     text-shadow: none;
   }
   .toolbar .breadcrumb .home {
     display: none;
   }
   .toolbar .breadcrumb a {
-    color: #fff;
     text-shadow: none;
   }
 }
