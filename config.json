@@ -14,5 +14,13 @@
     "BaseHTML5": {
         "url": "/frontend/"
     }
+  },
+  "integration": {
+    "EnvironmentConfig": {
+      "api": "http://40.76.56.16/api"
+    },
+    "BaseHTML5": {
+        "url": "/frontend/"
+    }
   }
 }
