@@ -1,0 +1,75 @@
+.navbar-left-section, .navbar-right-section {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+.navbar-left-section {
+  left: 0;
+}
+
+.navbar-right-section {
+  right: 0;
+}
+
+.navbar-button {
+  color: white;
+  display: inline-block;
+  font-size: 20px;
+  padding: 7px 10px;
+  &:hover,
+  &:active {
+    color: white;
+  }
+  &.navbar-search-button {
+    padding-top: 0;
+    z-index: 1;
+    &.active {
+      color: $primary-color;
+    }
+  }
+  i {
+    line-height: 25px;
+  }
+}
+
+.navbar-search-component {
+  margin: 0;
+  position: absolute;
+  top: -$navbar-height-mobile;
+  right: 30px;
+  width: 250px;
+  transition: .25s top;
+  &.active {
+    top: 5px;
+  }
+  input {
+    border-radius: 0;
+    height: 30px;
+    &:focus {
+      border-color: $light-gray;
+    }
+  }
+}
+
+@media (max-width: $max-tablet-landscape) {
+  .navbar {
+    height: $navbar-height-mobile;
+    .container {
+      padding: 0;
+      width: 100%;
+    }
+  }
+  .navbar-left-section, .navbar-right-section {
+    display: block;
+  }
+  .navbar-odin-logo {
+    display: block;
+    height: $navbar-height-mobile - 10px;
+    float: none;
+    margin: 0 auto;
+  }
+  [data-tooltip]:hover:after {
+    display: none;
+  }
+}

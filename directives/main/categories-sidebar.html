@@ -1,0 +1,24 @@
+<div class="categories-sidebar" ng-class="{show: showCategoriesSidebar}">
+  <ul class="category-list">
+    <li class="category-item"
+      ng-repeat="category in categories"
+      ng-class="{active: (category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}"
+      ng-click="hideCategoriesSidebar()"
+    >
+      <a ng-href="datasets?categories.name={{ category.name | slug }}">
+        <div class="category-icon">
+          <i svg-img="url_api + '/categories/' + category.id + '/image'"></i>
+        </div>
+        <div class="category-name">{{category.name}}</div>
+      </a>
+    </li>
+    <li class="category-item" ng-click="hideCategoriesSidebar()">
+      <a href="datasets">
+        <div class="category-icon">
+          <i svg-img="'/images/complete-catalog.svg'"></i>
+        </div>
+        <div class="category-name">Ver catálogo completo de datasets</div>
+      </a>
+    </li>
+  </ul>
+</div>

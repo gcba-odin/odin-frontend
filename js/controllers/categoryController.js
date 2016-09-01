@@ -5,7 +5,6 @@ app.factory('model', function($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer) {
-    $scope.activeCategories = [];
     $scope.activeCategory = $routeParams['categories.name'];
     $scope.url_api = $rootScope.url;
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.name'];
@@ -15,12 +14,15 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.statistics = {};
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
+    $scope.hideCategoriesSidebar = function() {
+        $rootScope.showBackdrop = false;
+        $rootScope.showCategoriesSidebar = false;
+    };
 
     rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function(categories) {
-        $scope.categories = categories;
         $scope.categories = categories.data;
         $scope.showCategories = false;
 

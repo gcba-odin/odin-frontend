@@ -2,7 +2,7 @@
     <ul class="popular-datasets-list">
         <div ng-repeat="item in categories">
             <li class="popular-datasets-list-item">
-                <span class="popular-datasets-list-item-icon {{ item.name | slug }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
+                <span class="popular-datasets-list-item-icon {{ item.name | slugDataset }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
                 <span class="popular-datasets-list-item-bar" category-percent="porcentual[item.id]"></span>
                 <span class="popular-datasets-list-item-count">{{ statistics[item.id] }}</span>
             </li>

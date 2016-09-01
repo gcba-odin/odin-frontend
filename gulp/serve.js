@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 gulp.task('serve', ['build'], function() {
   return gulp.browserSync.init({
     server: {
-      baseDir: './dist'
+      baseDir: 'dist'
     },
     middleware: [connectLogger(), connectHistoryApiFallback()]
   });

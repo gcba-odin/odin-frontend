@@ -1,0 +1,31 @@
+<nav class="navbar navbar-fixed-top navbar-theme">
+    <div class="container">
+        <div class="navbar-left-section">
+            <a class="navbar-button navbar-sidebar-button"
+              ng-click="toggleCategoriesSidebar()"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="navbar-center-section">
+            <a class="navbar-odin-logo" ng-href="{{baseHtml5}}"></a>
+            <navbar-search is-active="isDatasetView && showNavbarSearch"></navbar-search>
+        </div>
+        <div class="navbar-right-section">
+            <a class="navbar-button navbar-search-button"
+              ng-click="toggleNavbarSearch()"
+              ng-class="{active: showNavbarSearch}"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-search"></i>
+            </a>
+            <a class="navbar-button navbar-filters-button"
+              ng-click="toggleFiltersMenu()"
+              ng-show="isDatasetView"
+            >
+              <i class="fa fa-ellipsis-v"></i>
+            </a>
+        </div>
+    </div>
+</nav>

@@ -41,4 +41,9 @@ js/config.js
 js/templates.js
 dist/
 
+# OS X
 .DS_STORE
+
+# Sublime
+*.sublime-project
+*.sublime-workspace

@@ -1,4 +1,5 @@
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService) {
+    $rootScope.isDatasetView = true;
     $scope.params = {
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
