@@ -15,17 +15,11 @@ angular.module('store-factories')
         }, function(result) {
             var datasets = result.data
                 .filter(function(dataset) {
-                    return dataset.status.name === 'Publicado';
-                })
-                .filter(function(dataset) {
                     // Filter datasets that have unpublished files of filtered types
                     var filesTypeFilterIsSet = $.isArray(params['files.type']) ? !!params['files.type'].length : !!params['files.type'];
                     return !filesTypeFilterIsSet || dataset.files
                         .filter(function(file) {
                             return LocationSearchService.isActive('files.type', file.type) || params['files.type'] === file.type;
-                        })
-                        .filter(function(file) {
-                            return file.status === 'qWRhpRV';
                         })
                         .length;
                 })
@@ -35,9 +29,6 @@ angular.module('store-factories')
                     return !filesOrganizationFilterIsSet || dataset.files
                         .filter(function(file) {
                             return LocationSearchService.isActive('files.organization', file.organization) || params['files.organization'] === file.organization;
-                        })
-                        .filter(function(file) {
-                            return file.status === 'qWRhpRV';
                         })
                         .length;
                 });
@@ -64,11 +55,9 @@ angular.module('store-factories')
                     }
                 });
                 cb(downloads);
-                //$scope.loadResults(0);
             });
         } else {
             cb(downloads);
-            //$scope.loadResults(0);
         }
     }
   };

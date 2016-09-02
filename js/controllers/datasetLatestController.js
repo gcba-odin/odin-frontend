@@ -5,7 +5,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&include=tags&status.name=Publicado"
+        params: "orderBy=updatedAt&sort=DESC&limit=4"
     });
 
     $scope.url = function(id) {
