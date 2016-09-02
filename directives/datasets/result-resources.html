@@ -6,7 +6,7 @@
                 {{resource.name}}
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
-            <div class="dataset-description" ng-bind-html="getHtml(resource.description)"></div>
+            <div class="dataset-description word-break" ng-bind-html="getHtml(resource.description)"></div>
         </div>
         <div class="dataset-resources unstyled">
             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.aditional_info && resource.aditional_info.length">
