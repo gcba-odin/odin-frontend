@@ -1070,7 +1070,7 @@ h2 {
 }
 
 .nav-item> a, .nav-aside li a {
-    color: black;
+    color: #4D4D4D;
     font-size: 13px;
 }
 
@@ -1633,3 +1633,16 @@ article figcaption,
 .pdf-controls .pdf-right {
     line-height: 54px;
 }
+
+.word-break {
+    word-break: break-word;
+}
+
+.auxiliar-bar-line {
+    border-bottom: 1px #999999 solid;
+    padding-bottom: 8px;
+    margin-bottom: 80px;
+    height: 55px;
+}
+
+
