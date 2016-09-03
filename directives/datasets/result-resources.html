@@ -80,7 +80,7 @@
             </div>
             <div class="resource-pdf">
                 <div class="wrapper" ng-if="resource.type_resource == 'pdf'">
-                    <h1>{{resource.name}}</h1>
+                    <h1 class="pdf-title">{{resource.name}}</h1>
                     <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
                 </div>
             </div>
