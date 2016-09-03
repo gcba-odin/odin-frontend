@@ -8,21 +8,12 @@ body {
     background-image: none;
 }
 
+
 /* Preloads hover images so there's no blinking on first hover */
 
-body:after{
- display:none;
- content: url("../images/categories/urbanismo-e-infraestructura-hover.svg")
-          url("../images/categories/transporte-hover.svg")
-          url("../images/categories/seguridad-hover.svg")
-          url("../images/categories/salud-hover.svg")
-          url("../images/categories/medio-ambiente-hover.svg")
-          url("../images/categories/gobierno-y-administracion-publica-hover.svg")
-          url("../images/categories/educacion-hover.svg")
-          url("../images/categories/economia-negocio-y-comercio-hover.svg")
-          url("../images/categories/cultura-recreacion-y-turismo-hover.svg")
-          url('../images/complete-catalog-hover.svg')
-          url('../images/viz-collection-hover.svg');
+body:after {
+    display: none;
+    content: url("../images/categories/urbanismo-e-infraestructura-hover.svg") url("../images/categories/transporte-hover.svg") url("../images/categories/seguridad-hover.svg") url("../images/categories/salud-hover.svg") url("../images/categories/medio-ambiente-hover.svg") url("../images/categories/gobierno-y-administracion-publica-hover.svg") url("../images/categories/educacion-hover.svg") url("../images/categories/economia-negocio-y-comercio-hover.svg") url("../images/categories/cultura-recreacion-y-turismo-hover.svg") url('../images/complete-catalog-hover.svg') url('../images/viz-collection-hover.svg');
 }
 
 input {
@@ -71,6 +62,7 @@ ul {
     list-style: none;
     margin-left: 5px;
 }
+
 
 /****BUTTONS****/
 
@@ -368,28 +360,40 @@ ul {
     width: 20%;
 }
 
-.categories-item.active path,
-.categories-item.active polygon,
-.categories-item.active circle,
-.categories-item.active rect {
-  fill: #FFb600;
-  stroke: #FFb600;
+.categories-item.active path[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item.active polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item.active circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item.active rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
+    fill: #FFb600;
 }
 
-.categories-item:hover path,
-.categories-item:hover polygon,
-.categories-item:hover circle,
-.categories-item:hover rect {
-  fill: #FFb600;
-  stroke: #FFb600;
+.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item.active polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item.active circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+    stroke: #FFb600;
+}
+
+.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item:hover polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item:hover circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
+    fill: #FFb600;
+}
+
+.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item:hover polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item:hover circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+    stroke: #FFb600;
 }
 
 .categories-item.active h4 {
-  color: #FFb600;
+    color: #FFb600;
 }
 
 .categories-item:hover h4 {
-  color: #FFb600;
+    color: #FFb600;
 }
 
 .categories-row-container {
@@ -513,15 +517,12 @@ ul {
 //     margin-right: 3px;
 //     width: calc(50% - 10px);
 // }
-
 // .text-auxiliar-bar:last-of-type a:before {
 //     background-image: url('../images/viz-collection.svg');
 // }
-
 // .text-auxiliar-bar:hover:last-of-type a:before {
 //     background-image: url('../images/viz-collection-hover.svg');
 // }
-
 .branding-data h1 {
     color: inherit;
     font-size: 3em;
@@ -691,10 +692,9 @@ h2 {
 }
 
 .widget-item-footer-link.active path:not(.back) {
-  fill: #FF386a;
-  stroke: #FF386a;
+    fill: #FF386a;
+    stroke: #FF386a;
 }
-
 
 .widget-item-footer-download-link {
     background-image: url("../images/download.svg");
@@ -979,6 +979,7 @@ h2 {
 
 /*******/
 
+
 /** DATASETS **/
 
 [role=main] {
@@ -1064,23 +1065,29 @@ h2 {
     cursor: pointer;
 }
 
-.nav-simple> li, .nav-aside> li {
+.nav-simple> li,
+.nav-aside> li {
     padding: 5px 25px;
     border-bottom: 1px solid #cccccc !important;
 }
 
-.nav-item> a, .nav-aside li a {
+.nav-item> a,
+.nav-aside li a {
     color: #4D4D4D;
     font-size: 13px;
 }
 
-.nav-item.active, .nav-aside li.active, .nav-item.active a, .nav-aside li.active a {
+.nav-item.active,
+.nav-aside li.active,
+.nav-item.active a,
+.nav-aside li.active a {
     color: white;
     background-color: #FFb600;
     font-weight: 600;
 }
 
-.nav-facet .nav-item> a:hover:after, .nav-facet .nav-item.active> a:after {
+.nav-facet .nav-item> a:hover:after,
+.nav-facet .nav-item.active> a:after {
     background: none;
     content: '\f067';
     font-family: 'FontAwesome';
@@ -1143,7 +1150,8 @@ h2 {
     margin-top: 5px;
 }
 
-.dataset-resources .label, .category.label {
+.dataset-resources .label,
+.category.label {
     background-color: #999999;
     display: inline-block;
     padding: .0em .4em .1em;
@@ -1194,6 +1202,7 @@ h2 {
 .dataset-additional-info-active {
     color: #FF386a;
 }
+
 .dataset-additional-info-active:after {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -1206,7 +1215,8 @@ h2 {
     margin: 10px 0px;
 }
 
-.dataset-additional-info-table td, .dataset-additional-info-table th {
+.dataset-additional-info-table td,
+.dataset-additional-info-table th {
     padding: 2px 7px 1px 7px;
     width: 12vw;
 }
@@ -1234,16 +1244,17 @@ h2 {
 
 .dataset-additional-info-table-active {
     overflow-y: hidden;
-	max-height: 500px;
+    max-height: 500px;
 }
 
 .dataset-additional-info-table-inactive {
     overflow-y: hidden;
-	max-height: 0px;
+    max-height: 0px;
     display: none;
 }
 
-.dataset-additional-info:hover, .dataset-additional-info:hover:after {
+.dataset-additional-info:hover,
+.dataset-additional-info:hover:after {
     color: #FF386a;
 }
 
@@ -1346,7 +1357,8 @@ h2 {
     font-weight: 500;
 }
 
-.toolbar .breadcrumb .active a, .toolbar .breadcrumb a.active {
+.toolbar .breadcrumb .active a,
+.toolbar .breadcrumb a.active {
     font-weight: normal;
 }
 
@@ -1364,6 +1376,7 @@ h2 {
 .module .read-more:hover {
     color: #FFb600;
 }
+
 
 /***HOME****/
 
@@ -1651,5 +1664,3 @@ article figcaption,
     padding-right: 8px;
     line-height: 1.5;
 }
-
-
