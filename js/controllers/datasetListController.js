@@ -5,7 +5,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        'categories.name': $routeParams['categories.name'],// This is the only filter that accepts slug name :(
+        'categories.name': $routeParams['categories.name'], // This is the only filter that accepts slug name :(
     };
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";
@@ -42,6 +42,30 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                         valor: val
                     });
                 });
+
+                dataset.fileTypes = [];
+                $scope.filesResults = rest().get({
+                    type: 'files',
+                    params: 'include=tags&dataset=' + dataset.id
+                }, function(result) {
+                    $scope.files = result.data.filter(function(file) {
+                        //TODO: status filter should be handled in the api
+                        // with AND condition
+                        return file.status.name === 'Publicado';
+                    });
+                    $scope.files.forEach(function(element) {
+                        rest().findOne({
+                            id: element.type.id,
+                            type: 'filetypes'
+                        }, function(resultFileType) {
+                            var resultFileTypeName = resultFileType.name;
+                            if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
+                                dataset.fileTypes.push(resultFileTypeName);
+                            }
+                        });
+                    });
+                });
+
                 return dataset;
             });
             $scope.showLoading = false;
@@ -53,7 +77,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         $scope.downloads = downloads;
         $scope.loadResults(0);
     });
-    
+
     $scope.view = function(model) {
         var url = '/datasets/' + model.id + "/view";
         $location.path(url);
