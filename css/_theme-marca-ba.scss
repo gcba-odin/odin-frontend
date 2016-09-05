@@ -1,3 +1,8 @@
+body {
+    font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
 .navbar-site-logo {
     color: black;
 }
@@ -21,11 +26,13 @@
 
 .search-bar h3 {
     color: #FFB600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .categories-item-title {
     color: #FFb600;
     font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .categories-item {
@@ -77,6 +84,7 @@
 
 .text-auxiliar-bar {
     font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .auxiliar-bar li:hover {
@@ -145,4 +153,57 @@
 
 .text-auxiliar-bar:hover:last-of-type a:before {
     background-image: url('../images/viz-collection.svg');
+}
+
+/* FONTS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .panel-title,
+.btn,
+.input-xl,
+.navbar-brand,
+h2.slogan {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.branding-data h1 {
+    font-weight: 600;
+}
+
+.widget-item-title {
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.branding-data .lead {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.title-container-home {
+    font-weight: 500 !important;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.widget-item-footer-tags {
+    font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.popular-datasets-list-item-count {
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.menu-footer a {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.odin-branding-text {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }

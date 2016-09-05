@@ -1,8 +1,8 @@
 body {
     color: #6d6e70;
-    font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 20px;
     background-color: #f2f2f2;
     background-image: none;
@@ -31,8 +31,8 @@ h6 .panel-title,
 .navbar-brand,
 h2.slogan {
     color: inherit;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
     margin: 10px 0;
     text-rendering: optimizelegibility;
 }
@@ -315,6 +315,7 @@ ul {
     font-size: 1.2em;
     font-weight: 500;
     color: #FF386a;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .search-bar h3 {
@@ -380,8 +381,9 @@ ul {
 .categories-item-title {
     color: #FF386A;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .categories-grid-item-title {
@@ -432,9 +434,10 @@ ul {
 .text-auxiliar-bar {
     list-style: none;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 400;
     color: #FFb600;
     width: 50%;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .text-auxiliar-bar:first-of-type {
@@ -502,7 +505,7 @@ ul {
 .branding-data h1 {
     color: inherit;
     font-size: 3em;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.02em;
     padding-top: 20px;
     text-align: left;
@@ -520,6 +523,7 @@ ul {
     font-weight: 500;
     line-height: 20px;
     margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-search {
@@ -616,9 +620,10 @@ h2 {
 .widget-item-title {
     color: #4D4D4D;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 400;
     padding-top: 25px;
     padding: 25px 5px 0px 5px;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .widget-item-title a {
@@ -642,13 +647,14 @@ h2 {
 
 .widget-item-footer-tags {
     font-size: 7px;
-    font-weight: 500;
+    font-weight: 400;
     padding: 2px 2px 1px 2px;
     margin-right: 5px;
     color: white;
     background-color: #B3B3B3;
     border-radius: 2px;
     text-transform: uppercase;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .widget-item-footer-link {
@@ -720,10 +726,11 @@ h2 {
 
 .popular-datasets-list-item-count {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 400;
     color: #999999;
     position: relative;
     top: -1px;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .social-share .module-action {
@@ -830,9 +837,11 @@ h2 {
 }
 
 .menu-footer a {
-    font-weight: 700;
+    font-weight: 400;
     display: inline-block;
     margin-right: 15px;
+    color: inherit;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .menu-footer a:before {
@@ -860,10 +869,6 @@ h2 {
 
 .menu-footer-item-contact:before {
     background: url(../images/footer/contact.png);
-}
-
-.menu-footer a {
-    color: inherit;
 }
 
 .menu-footer li {
@@ -939,7 +944,8 @@ h2 {
 .odin-branding-text {
     display: block;
     text-align: center;
-    font-weight: 700;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .odin-branding-logo {
@@ -1666,4 +1672,9 @@ article figcaption,
 
 .resource-tab li a.active {
   background-color: #FFb600;
+}
+
+.title-container-home {
+    font-weight: 400 !important;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
