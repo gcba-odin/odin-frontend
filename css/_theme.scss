@@ -360,40 +360,16 @@ ul {
     width: 20%;
 }
 
-.categories-item.active path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: #FFb600;
-}
-
-.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: #FFb600;
-}
-
-.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: #FFb600;
-}
-
-.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: #FFb600;
+.categories-item.active, .categories-item:hover {
+    @include svg-color($secondary-color);
 }
 
 .categories-item.active h4 {
-    color: #FFb600;
+    color: $secondary-color;
 }
 
 .categories-item:hover h4 {
-    color: #FFb600;
+    color: $secondary-color;
 }
 
 .categories-row-container {

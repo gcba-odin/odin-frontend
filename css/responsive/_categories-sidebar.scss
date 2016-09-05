@@ -28,6 +28,7 @@ $category-icon-width: 45px;
   }
 
   .category-icon {
+    @include svg-color(white);
     background-color: $primary-color;
     padding: 5px;
     position: absolute;
@@ -45,32 +46,16 @@ $category-icon-width: 45px;
     }
   }
 
+  .category-item.active .category-icon {
+    @include svg-color($secondary-color);
+  }
+
   .category-name {
     border-left: $light-gray solid 1px;
     font-size: 12px;
     line-height: $category-item-height - 20;
     margin-left: $category-icon-width;
     padding: 10px;
-  }
-
-  .category-item path,
-  .category-item polygon,
-  .category-item circle,
-  .category-item rect {
-    fill: white;
-    stroke: white;
-  }
-  .category-item line {
-    fill: $primary-color;
-    stroke: $primary-color;
-  }
-
-  .category-item.active path,
-  .category-item.active polygon,
-  .category-item.active circle,
-  .category-item.active rect {
-    fill: $secondary-color;
-    stroke: $secondary-color;
   }
 }
 

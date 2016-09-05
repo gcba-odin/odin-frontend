@@ -28,46 +28,12 @@
     font-weight: 500;
 }
 
-.categories-item path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: #FFb600;
+.categories-item {
+    @include svg-color(#FFb600);
 }
 
-.categories-item path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: #FFb600;
-}
-
-.categories-item.active path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: rgba(32, 149, 242, 0.8);
-}
-
-.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: rgba(32, 149, 242, 0.8);
-}
-
-.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: rgba(32, 149, 242, 0.8);
-}
-
-.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: rgba(32, 149, 242, 0.8);
+.categories-item.active, .categories-item:hover {
+    @include svg-color(rgba(32, 149, 242, 0.8));
 }
 
 .widget-item-footer-link.active path:not(.back) {

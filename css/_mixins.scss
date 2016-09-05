@@ -1,0 +1,12 @@
+@mixin svg-color($color) {
+  path, polygon, circle, rect {
+    &[fill]:not([fill='#FFFFFF']):not([fill='none']) {
+      fill: $color;
+    }
+  }
+  path, polygon, circle, rect {
+    &[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+      stroke: $color;
+    }
+  }
+}
