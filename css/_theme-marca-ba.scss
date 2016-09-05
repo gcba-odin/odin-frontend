@@ -1,3 +1,8 @@
+body {
+    font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
 .navbar-site-logo {
     color: black;
 }
@@ -21,64 +26,47 @@
 
 .search-bar h3 {
     color: #FFB600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .categories-item-title {
     color: #FFb600;
     font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
-.categories-item path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item rect[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.dataset-category-icon path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.dataset-category-icon polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.dataset-category-icon circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.dataset-category-icon rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: #FFb600;
+.categories-item, .dataset-category-icon {
+    @include svg-color(#FFb600);
 }
 
-.categories-item path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.dataset-category-icon path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.dataset-category-icon polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.dataset-category-icon circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.dataset-category-icon rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: #FFb600;
+.navbar-button.navbar-search-button.active {
+    color: rgba(32, 149, 242, 0.8);
 }
 
-.categories-item.active path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item.active rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: rgba(32, 149, 242, 0.8);
+.filter-group {
+  .filter-icon, .filter-name {
+    color: rgba(32, 149, 242, 0.8);
+  }
+  .filter-options {
+    .filter-option{
+      &.active {
+        color: #FFb600;
+      }
+    }
+    .show-more, .show-less {
+      color: rgba(32, 149, 242, 0.8);
+    }
+  }
 }
 
-.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: rgba(32, 149, 242, 0.8);
+.categories-item.active, .categories-item:hover {
+    @include svg-color(rgba(32, 149, 242, 0.8));
 }
 
-.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']) {
-    fill: rgba(32, 149, 242, 0.8);
-}
-
-.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
-    stroke: rgba(32, 149, 242, 0.8);
+.categories-sidebar {
+    .category-item .category-icon {
+        background-color: rgba(32, 149, 242, 0.8);
+    }
 }
 
 .widget-item-footer-link.active path:not(.back) {
@@ -96,6 +84,7 @@
 
 .text-auxiliar-bar {
     font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .auxiliar-bar li:hover {
@@ -125,6 +114,10 @@
     background-color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-additional-info {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
 .dataset-additional-info-active {
     color: rgba(32, 149, 242, 0.8);
 }
@@ -136,6 +129,8 @@
 
 .dataset-statistics {
     color: rgba(32, 149, 242, 0.8);
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-content .dataset-latest-update {
@@ -174,4 +169,106 @@
 
 .dataset-resources li .label:hover {
     background-color: rgba(32, 149, 242, 0.8);
+}
+
+/* FONTS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .panel-title,
+.btn,
+.input-xl,
+.navbar-brand,
+h2.slogan {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.branding-data h1 {
+    font-weight: 600;
+}
+
+.widget-item-title {
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.branding-data .lead {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.title-container-home {
+    font-weight: 500 !important;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.widget-item-footer-tags {
+    font-weight: 500;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.popular-datasets-list-item-count {
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.menu-footer a {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.odin-branding-text {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-count {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-label {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.toolbar .breadcrumb a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.module:first-child .module-heading {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.category.label {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.dataset-heading {
+    font-weight: 700;
+}
+
+.dataset-heading a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.list-heading {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-resources .label,
+.category.label {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.resource-actions .dropdown-menu a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: bold;
 }
