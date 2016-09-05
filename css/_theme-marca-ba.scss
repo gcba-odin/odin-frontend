@@ -32,8 +32,34 @@
     @include svg-color(#FFb600);
 }
 
+.navbar-button.navbar-search-button.active {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.filter-group {
+  .filter-icon, .filter-name {
+    color: rgba(32, 149, 242, 0.8);
+  }
+  .filter-options {
+    .filter-option{
+      &.active {
+        color: #FFb600;
+      }
+    }
+    .show-more, .show-less {
+      color: rgba(32, 149, 242, 0.8);
+    }
+  }
+}
+
 .categories-item.active, .categories-item:hover {
     @include svg-color(rgba(32, 149, 242, 0.8));
+}
+
+.categories-sidebar {
+    .category-item .category-icon {
+        background-color: rgba(32, 149, 242, 0.8);
+    }
 }
 
 .widget-item-footer-link.active path:not(.back) {
