@@ -34,7 +34,7 @@
             </table>
 
             <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP" class="widget-item-footer-link widget-item-footer-download-link"></a>
-            <span class="dataset-statistics">{{stats[result.id].downloads}} descargas</span>
+            <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span>
         </ul>
     </li>
 </ul>
