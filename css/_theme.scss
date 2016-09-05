@@ -363,7 +363,7 @@ ul {
 
 .categories-container {
     width: calc(100% + 75px);
-    margin-left: -20px;
+    margin-left: -5px;
 }
 
 .categories-grid-container {
@@ -390,7 +390,7 @@ ul {
 }
 
 .categories-row-container {
-    width: calc(100% + 40px);
+    width: calc(100% + 5px);
     text-align: center;
 }
 
@@ -1667,7 +1667,7 @@ article figcaption,
 }
 
 .auxiliar-bar-line {
-    border-bottom: 1px #999999 solid;
+    border-bottom: 1px #cccccc solid;
     padding-bottom: 8px;
     margin-bottom: 80px;
     height: 55px;
@@ -1717,6 +1717,10 @@ article figcaption,
 
 .list-heading {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.resource-actions .dropdown {
+    margin-left: 3px;
 }
 
 .resource-actions .dropdown-menu a {

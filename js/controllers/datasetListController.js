@@ -66,7 +66,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                     });
                 });
 
-                console.log(dataset);
                 return dataset;
             });
             $scope.showLoading = false;

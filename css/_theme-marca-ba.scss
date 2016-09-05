@@ -272,3 +272,16 @@ h2.slogan {
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
+
+.resource-tab li a {
+  background-color: rgba(32, 149, 242, 0.8);
+}
+
+.pagination > .active > a{
+    background-color: rgba(32, 149, 242, 0.8);
+    border-color: rgba(32, 149, 242, 0.8);
+}
+
+.pagination > li > a{
+    color: rgba(32, 149, 242, 0.8);
+}
