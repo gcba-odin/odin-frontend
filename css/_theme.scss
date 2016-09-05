@@ -151,6 +151,16 @@ ul {
     float: right;
 }
 
+.navbar-ba-logo {
+    background-image: url("../images/vamos-ba-logo.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px;
+    height: 20px;
+    float: left;
+}
+
 .navbar-theme {
     color: white;
     background: linear-gradient(to right, #ffb600 0%, #ff386a 100%);
