@@ -27,11 +27,11 @@
             <span class="dataset-additional-info" ng-click="toggleDropdownInverse($event)" ng-if="resource.aditional_info && resource.aditional_info.length">Info adicional</span>
             <div class="resource-actions pull-right">
                 <div class="dropdown no-hover">
-                    <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <a href class="widget-item-footer-link" ng-class="{'active': resource.type_resource}" svg-img="'../images/preview.svg'"></a>
                     </div>
                     <ul class="dropdown-menu">
-                        <li ng-if="!!resource.resources.data.tables">
+                        <li ng-if="resource.contents">
                             <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver tabla</a>
                         </li>
                         <li ng-if="!!resource.resources.data.charts">
@@ -60,12 +60,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="clear-both">
+            <div class="clear-both clearfix">
               <div ng-show="resource.type_resource" class="pull-left">
                 <ul class="resource-tab">
                   <li>
                     <a class="tablinks"
-                      ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="true || !!resource.resources.data.charts"
+                      ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.charts"
                       ng-class="{'active': resource.type_resource === 'charts'}"
                     >
                       Gráfico
@@ -74,7 +74,7 @@
                   <li>
                     <a class="tablinks"
                       ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)"
-                      ng-show="true || !!resource.resources.data.maps"
+                      ng-show="!!resource.resources.data.maps"
                       ng-class="{'active': resource.type_resource === 'maps'}"
                     >
                       Mapa
@@ -83,7 +83,7 @@
                   <li>
                     <a class="tablinks"
                       ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)"
-                      ng-show="true || !!resource.resources.data.tables"
+                      ng-show="!!resource.contents.data"
                       ng-class="{'active': resource.type_resource === 'tables'}"
                     >
                       Tabla
@@ -122,13 +122,13 @@
                 </div>
             </div>
             <div class="resource-pdf">
-                <div class="wrapper" ng-if="resource.type_resource == 'pdf'">
+                <div class="wrapper" ng-if="resource.type_resource === 'pdf'">
                     <h1 class="pdf-title">{{resource.name}}</h1>
                     <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
                 </div>
             </div>
-            <div class="clear-both">
-                <div ng-if="resource.type_resource == 'tables'" class="div-table">
+            <div class="clear-both clearfix">
+                <div ng-if="resource.type_resource === 'tables'" class="div-table">
                     <div class="table-responsive">
                         <table class="table dataset-additional-info-table">
                             <thead>
@@ -144,7 +144,7 @@
                         </table>
                     </div>
                     <div class="paging">
-                        <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" show-prev-next="true" show-first-last="true" hide-if-empty="true"></paging>
+                        <paging page="resource.contents.meta.page" page-size="limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
                     </div>
                 </div>
             </div>
