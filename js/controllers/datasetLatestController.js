@@ -9,6 +9,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
     }, function(result) {
         result.data.forEach(function(dataset) {
             dataset.fileTypes = [];
+            dataset.fileTypesNames = [];
             $scope.filesResults = rest().get({
                 type: 'files',
                 params: 'include=tags&dataset=' + dataset.id
@@ -23,7 +24,8 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
                         id: element.type.id,
                         type: 'filetypes'
                     }, function(resultFileType) {
-                        if (dataset.fileTypes.indexOf(resultFileType) === -1) {
+                        if (dataset.fileTypesNames.indexOf(resultFileType.name) === -1) {
+                            dataset.fileTypesNames.push(resultFileType.name);
                             dataset.fileTypes.push(resultFileType);
                         }
                     });
