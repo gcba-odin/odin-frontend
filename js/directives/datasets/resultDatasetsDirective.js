@@ -5,6 +5,7 @@ angular.module('store-directives-datasets')
         templateUrl: "directives/datasets/result-datasets.html",
         controller: function($scope, rest) {
             $scope.stats = {};
+            $scope.views = {};
 
             rest().statistics({
                 type: 'datasets'
@@ -12,6 +13,9 @@ angular.module('store-directives-datasets')
                 $.each(results.data.items, function(key, value) {
                     if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
                         $scope.stats[value.item] = { downloads: value.count.GET ? value.count.GET : 0 };
+                    }
+                    if (key.indexOf('download') === -1 && key.indexOf('publish') === -1 && value.resource === 'Dataset') {
+                        $scope.views[value.item] = { views: value.count.GET ? value.count.GET : 0 };
                     }
                 });
             });
