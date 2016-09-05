@@ -114,6 +114,10 @@ body {
     background-color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-additional-info {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
 .dataset-additional-info-active {
     color: rgba(32, 149, 242, 0.8);
 }
@@ -125,6 +129,8 @@ body {
 
 .dataset-statistics {
     color: rgba(32, 149, 242, 0.8);
+    font-weight: 600;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-content .dataset-latest-update {
@@ -206,4 +212,33 @@ h2.slogan {
 .odin-branding-text {
     font-weight: 700;
     font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-count {
+    font-weight: 700;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-label {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+}
+
+.toolbar .breadcrumb a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.module:first-child .module-heading {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.category.label {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.dataset-heading a {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }

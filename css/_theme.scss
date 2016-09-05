@@ -214,7 +214,13 @@ li a.last-item {
 
 .datasets-counter-count {
     font-size: 40px;
-    font-weight: 700;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-label {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .gcba-fixed-top {
@@ -1016,6 +1022,7 @@ h2 {
 .module:first-child .module-heading {
     font-size: 15px;
     border-radius: 0px;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .module-heading {
@@ -1151,6 +1158,8 @@ h2 {
 
 .category.label {
     margin-right: 5px;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
 }
 
 .dataset-resources li .label:hover {
@@ -1167,6 +1176,7 @@ h2 {
     color: #4D4D4D;
     cursor: pointer;
     margin-left: 2px;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-additional-info:after {
@@ -1245,9 +1255,10 @@ h2 {
     float: right;
     margin-right: 7px;
     color: #FF386a;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 11px;
     margin-top: 2px;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-item {
@@ -1338,6 +1349,10 @@ h2 {
 .toolbar .breadcrumb-item {
     font-size: 15px;
     font-weight: 500;
+}
+
+.toolbar .breadcrumb a {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .toolbar .breadcrumb .active a,
@@ -1676,5 +1691,9 @@ article figcaption,
 
 .title-container-home {
     font-weight: 400 !important;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-heading a {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
