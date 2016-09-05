@@ -34,7 +34,7 @@ angular.module('store-directives-dataset')
             }
 
             $scope.toggleResourceSelected = function(obj, resource) {
-              obj.resource_selected = resource;
+                obj.resource_selected = resource;
             }
 
             $scope.toogleTypeChart = function(type, obj) {

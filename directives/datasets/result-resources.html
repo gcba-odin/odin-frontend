@@ -66,20 +66,20 @@
                 </ul>
               </div>
             </div>
-            <div class="resource-map">
-                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+            <div class="resource-map" ng-if="resource.type_resource === 'maps'">
+                <div ng-repeat="map in resource.resources.data.maps">
                     <span ng-click="toogleTypeMap(map.type)">{{map.type}}</span>
                 </div>
-                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.type_resource == 'maps'">
+                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
                     <leaflet ng-if="!map.link && !!map.geoData" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData"></leaflet>
                     <iframe class="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
                 </div>
             </div>
-            <div class="resource-charts">
-                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+            <div class="resource-charts" ng-if="resource.type_resource === 'charts'">
+                <div ng-repeat="chart in resource.resources.data.charts">
                     <span ng-click="toogleTypeChart(chart.id, resource)">{{chart.type}}</span>
                 </div>
-                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.type_resource == 'charts'">
+                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.resource_selected === chart.name">
                     <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
                     <canvas ng-if="!chart.link && chart.id == resource.type_chart" class="iframeDiv" class="chart chart-base" chart-type="chart.type" chart-data="chart.data.data" chart-labels="chart.data.labels"></canvas>
                 </div>
