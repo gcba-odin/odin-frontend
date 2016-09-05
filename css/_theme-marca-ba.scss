@@ -31,14 +31,22 @@
 .categories-item path[fill]:not([fill='#FFFFFF']):not([fill='none']),
 .categories-item polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
 .categories-item circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
+.categories-item rect[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.dataset-category-icon path[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.dataset-category-icon polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.dataset-category-icon circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.dataset-category-icon rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
     fill: #FFb600;
 }
 
 .categories-item path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+.categories-item rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.dataset-category-icon path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.dataset-category-icon polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.dataset-category-icon circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.dataset-category-icon rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
     stroke: #FFb600;
 }
 
@@ -52,21 +60,24 @@
 .categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item.active polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item.active circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+.categories-item.active rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item.active path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
     stroke: rgba(32, 149, 242, 0.8);
 }
 
 .categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']),
 .categories-item:hover polygon[fill]:not([fill='#FFFFFF']):not([fill='none']),
 .categories-item:hover circle[fill]:not([fill='#FFFFFF']):not([fill='none']),
-.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']) {
+.categories-item:hover rect[fill]:not([fill='#FFFFFF']):not([fill='none']),
+.categories-item:hover path[fill]:not([fill='#FFFFFF']):not([fill='none']) {
     fill: rgba(32, 149, 242, 0.8);
 }
 
 .categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item:hover polygon[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
 .categories-item:hover circle[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
-.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
+.categories-item:hover rect[stroke]:not([stroke='#FFFFFF']):not([stroke='none']),
+.categories-item:hover path[stroke]:not([stroke='#FFFFFF']):not([stroke='none']) {
     stroke: rgba(32, 149, 242, 0.8);
 }
 
@@ -131,6 +142,12 @@
     color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-content .dataset-published-by {
+    color: rgba(32, 149, 242, 0.8);
+    font-size: 10px;
+    font-weight: bold;
+}
+
 .module .read-more {
     color: rgba(32, 149, 242, 0.8);
 }
@@ -153,4 +170,8 @@
 
 .text-auxiliar-bar:hover:last-of-type a:before {
     background-image: url('../images/viz-collection.svg');
+}
+
+.dataset-resources li .label:hover {
+    background-color: rgba(32, 149, 242, 0.8);
 }
