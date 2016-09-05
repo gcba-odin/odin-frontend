@@ -1147,13 +1147,14 @@ h2 {
     padding: .0em .4em .1em;
     padding-top: .3em;
     font-size: 75%;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .1em;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .category.label {
@@ -1696,4 +1697,13 @@ article figcaption,
 
 .dataset-heading a {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.list-heading {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.resource-actions .dropdown-menu a {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
 }
