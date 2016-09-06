@@ -19,7 +19,7 @@ function OrderingsController ($scope, $rootScope, LocationSearchService) {
             datasetsOnly: true
         }, {
             name: 'Última actualización',
-            property: 'updateDate',
+            property: 'updatedAt',
             sort: 'DESC',
             filesOnly: true
         }
