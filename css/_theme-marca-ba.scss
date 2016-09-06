@@ -1,6 +1,6 @@
 body {
-    font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 400;
+    font-family: "Open Sans", "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
 
 .navbar-site-logo {
@@ -26,13 +26,14 @@ body {
 
 .search-bar h3 {
     color: #FFB600;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
 }
 
 .categories-item-title {
     color: #FFb600;
-    font-weight: 500;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .categories-item, .dataset-category-icon {
@@ -83,8 +84,8 @@ body {
 }
 
 .text-auxiliar-bar {
-    font-weight: 500;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .auxiliar-bar li:hover {
@@ -115,7 +116,7 @@ body {
 }
 
 .dataset-additional-info {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-additional-info-active {
@@ -129,8 +130,8 @@ body {
 
 .dataset-statistics {
     color: rgba(32, 149, 242, 0.8);
-    font-weight: 600;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-content .dataset-latest-update {
@@ -183,70 +184,64 @@ h6 .panel-title,
 .input-xl,
 .navbar-brand,
 h2.slogan {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
 }
 
 .branding-data h1 {
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .widget-item-title {
-    font-weight: 600;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .branding-data .lead {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .title-container-home {
-    font-weight: 500 !important;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .widget-item-footer-tags {
-    font-weight: 500;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .popular-datasets-list-item-count {
-    font-weight: 600;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .menu-footer a {
-    font-weight: 700;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .odin-branding-text {
-    font-weight: 700;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .datasets-counter-count {
-    font-weight: 700;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .datasets-counter-label {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .toolbar .breadcrumb a {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .module:first-child .module-heading {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-}
-
-.category.label {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-heading {
@@ -254,23 +249,27 @@ h2.slogan {
 }
 
 .dataset-heading a {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .list-heading {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-resources .label,
 .category.label {
-    font-weight: 700;
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.category.label {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
 }
 
 .resource-actions .dropdown-menu a {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    font-weight: bold;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
 }
 
 .resource-tab li a {
