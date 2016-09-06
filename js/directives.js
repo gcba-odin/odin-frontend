@@ -177,8 +177,8 @@
     app.filter('slug', function() {
         return function(input) {
             if (input) {
-                //var value = normalize(input);
-                return input.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^áéíóúa-z0-9-]/g, '');
+                var value = normalize(input);
+                return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
             }
         };
     });
@@ -186,8 +186,8 @@
     app.filter('slugDataset', function() {
         return function(input) {
             if (input) {
-                //var value = normalize(input);
-                return encodeURIComponent(input.toLowerCase().replace(/\s+/g, '-'));
+                var value = normalize(input);
+                return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
             }
         };
     });
