@@ -57,10 +57,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     $scope.fileTypes[element.type.id] = resultFileType.name;
                 });
 
-                element.aditional_info = []
+                element.additional_info = []
 
                 angular.forEach(element.optionals, function(val, key) {
-                    element.aditional_info.push({
+                    element.additional_info.push({
                         clave: key,
                         valor: val
                     });
