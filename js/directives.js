@@ -178,7 +178,7 @@
         return function(input) {
             if (input) {
                 //var value = normalize(input);
-                return input.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                return input.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^áéíóúa-z0-9-]/g, '');
             }
         };
     });
