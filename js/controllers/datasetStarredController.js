@@ -14,11 +14,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce) {
                 type: 'files',
                 params: 'include=tags&dataset=' + dataset.id
             }, function(result) {
-                $scope.files = result.data.filter(function(file) {
-                    //TODO: status filter should be handled in the api
-                    // with AND condition
-                    return file.status.name === 'Publicado';
-                });
+                $scope.files = result.data;
                 $scope.files.forEach(function(element) {
                     rest().findOne({
                         id: element.type.id,
