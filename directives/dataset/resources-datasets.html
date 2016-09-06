@@ -13,8 +13,8 @@
                 <!--<li ng-repeat="resource in result.files">
                     <a ng-href="/resource/{{resource.id| lowercase}}" data-format="{{resource.url.split('.').pop()}}" class="label" data-format="{{resource.name|| lowercase}}">{{resource.url.split('.').pop() | uppercase}}</a>
                 </li>-->
-                <div class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length">Info adicional</li>
-                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length">
+                <div class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</li>
+                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
                     <thead>
                         <tr>
                             <th>Campo</th>

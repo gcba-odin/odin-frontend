@@ -113,7 +113,23 @@
             </div>
             <div class="resource-footer">
                 <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
-                <span class="dataset-additional-info" ng-click="toggleDropdownInverse($event)" ng-if="resource.aditional_info && resource.aditional_info.length">Info adicional</span>
+                
+                <div class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</li>
+                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="adt_info in resource.additional_info">
+                            <td>{{adt_info.clave}}</td>
+                            <td>{{adt_info.valor}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="resource-actions pull-right">
                     <div class="dropdown no-hover">
                         <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
