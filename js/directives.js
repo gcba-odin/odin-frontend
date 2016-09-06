@@ -178,7 +178,7 @@
         return function(input) {
             if (input) {
                 //var value = normalize(input);
-                return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                return input.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
             }
         };
     });
@@ -187,7 +187,7 @@
         return function(input) {
             if (input) {
                 //var value = normalize(input);
-                return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
+                return encodeURIComponent(input.toLowerCase().replace(/\s+/g, '-'));
             }
         };
     });
