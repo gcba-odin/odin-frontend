@@ -1,6 +1,6 @@
 var app = angular.module('odin.datasetControllers', []);
 
-app.factory('model', function($resource) {
+app.factory('model', function ($resource) {
     return $resource();
 });
 
@@ -18,8 +18,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.info = rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
-    }, function(result) {
-        result.data[0].categories.forEach(function(category) {
+    }, function (result) {
+        result.data[0].categories.forEach(function (category) {
             $scope.activeCategories.push(category.name);
         });
         $scope.info = $scope.info.data[0];
@@ -43,19 +43,19 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         ]({
             type: 'files',
             params: 'include=tags&dataset=' + $scope.info.id
-        }, function(result) {
+        }, function (result) {
             $scope.files = $scope.filesResults.data;
-            $scope.files.forEach(function(element) {
+            $scope.files.forEach(function (element) {
                 rest().findOne({
                     id: element.type.id,
                     type: 'filetypes'
-                }, function(resultFileType) {
+                }, function (resultFileType) {
                     $scope.fileTypes[element.type.id] = resultFileType.name;
                 });
 
                 element.additional_info = []
 
-                angular.forEach(element.optionals, function(val, key) {
+                angular.forEach(element.optionals, function (val, key) {
                     element.additional_info.push({
                         clave: key,
                         valor: val
@@ -65,20 +65,47 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 element.resources = rest().resources({
                     id: element.id,
                     type: 'files'
-                }, function() {
+                }, function () {
                     if (!!element.resources.data) {
-                        for (maps in element.resources.data.maps) {
-                            if (!!element.resources.data.maps[maps]) {
-                                element.resources.data.maps[maps].base = rest().findOne({
-                                    type: 'basemaps',
-                                    id: element.resources.data.maps[maps].basemap
-                                }, function() {
+                        angular.forEach(element.resources.data.maps, function(maps) {
+                            maps.base = rest().findOne({
+                                type: 'basemaps',
+                                id: maps.basemap
+                            }, function () {
 
-                                    element.resources.data.maps[maps].geoData = {
-                                        data: element.resources.data.maps[maps].geojson
+                                maps.geoData = {
+                                    data: maps.geojson,
+                                    onEachFeature: function(feature, layer) {
+                                        if (feature.properties) {
+                                            var html = '';
+                                            angular.forEach(feature.properties, function(value, key) {
+                                                html += '<strong>' + key + '</strong>: ' + value + '<br><br>';
+                                            });
+                                            if (html != '') {
+                                                layer.bindPopup(html);
+                                            }
+                                        }
                                     }
-                                    element.resources.data.maps[maps].tile = element.resources.data.maps[maps].base.url;
-                                });
+                                }
+                                maps.tile = {
+                                    url: maps.base.url
+                                }
+                            });
+                        });
+
+                        for (charts in element.resources.data.charts) {
+                            if (!!element.resources.data.charts[charts]) {
+                                element.resources.data.charts[charts].series = [[]];
+                                if (!!element.resources.data.charts[charts].dataSeries) {
+                                    if (element.resources.data.charts[charts].dataType == 'qualitative') {
+                                        element.resources.data.charts[charts].series[0] = element.resources.data.charts[charts].dataSeries;
+                                    } else {
+                                        element.resources.data.charts[charts].series[0].push(element.resources.data.charts[charts].dataSeries[1]);
+                                    }
+                                }
+                                element.resources.data.charts[charts].dataChart = {
+                                    data: [element.resources.data.charts[charts].data.data]
+                                }
                             }
                         }
                     }
@@ -95,7 +122,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
             $scope.info.additional_info = [];
 
-            angular.forEach($scope.info.optionals, function(val, key) {
+            angular.forEach($scope.info.optionals, function (val, key) {
                 $scope.info.additional_info.push({
                     clave: key,
                     valor: val
@@ -104,7 +131,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     });
 
-    $scope.paging = function(event, page, pageSize, total, resource) {
+    $scope.paging = function (event, page, pageSize, total, resource) {
         var skip = (page - 1) * $scope.limit;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
@@ -114,7 +141,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     };
 
-    $scope.toggleDropdown = function(event) {
+    $scope.toggleDropdown = function (event) {
         if ($(event.target).next().hasClass('dataset-additional-info-table-inactive')) {
             $(event.target).next().addClass('dataset-additional-info-table-active');
             $(event.target).next().removeClass('dataset-additional-info-table-inactive');
@@ -126,7 +153,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         }
     };
 
-    $scope.getHtml = function(html) {
+    $scope.getHtml = function (html) {
         return $sce.trustAsHtml(html);
     };
 
@@ -139,22 +166,22 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.scroll = 0;
     $scope.loading = 'Cargando..';
 
-    $scope.getNavStyle = function(scroll) {
+    $scope.getNavStyle = function (scroll) {
         if (scroll > 100)
             return 'pdf-controls fixed';
         else
             return 'pdf-controls';
     }
 
-    $scope.onError = function(error) {
+    $scope.onError = function (error) {
         // console.log(error);
     }
 
-    $scope.onLoad = function() {
+    $scope.onLoad = function () {
         $scope.loading = '';
     }
 
-    $scope.onProgress = function(progress) {
+    $scope.onProgress = function (progress) {
         // console.log(progress);
     }
 }

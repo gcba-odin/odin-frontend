@@ -39,6 +39,12 @@ angular.module('store-directives-dataset')
                 lng: -58.381592,
                 zoom: 13
             };
+            
+            $scope.map_defaults = {
+                tileLayer: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+//                minZoom: 2,
+//                maxZoom: 15
+            }
         },
         controllerAs: "resources"
     };

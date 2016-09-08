@@ -19,7 +19,7 @@
         "ngtweet",
         "matchMedia"
     ]);
-    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider) {
+    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider) {
 
         $locationProvider.html5Mode(true);
 
@@ -43,6 +43,23 @@
 
         $locationProvider.html5Mode(true);
         $auth = AuthenticationServiceProvider.$get('AuthenticationService');
+        
+        ChartJsProvider.setOptions({
+            tooltips: {
+                callbacks: {
+                    title: function(tooltipItem, data) {
+                        return data.labels[tooltipItem[0].index];
+                    },
+                    label: function(tooltipItem, data) {
+                        var label = 'Cantidad';
+                        if (!!data.datasets[tooltipItem.datasetIndex][0] && data.datasets[tooltipItem.datasetIndex][0] != '') {
+                            label = data.datasets[tooltipItem.datasetIndex][0];
+                        }
+                        return label + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    }
+                }
+            }
+        });
 
         $middlewareProvider.map({
             /** Let everyone through */
