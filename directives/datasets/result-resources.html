@@ -68,7 +68,7 @@
                 <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.resource_selected === chart.name">
                     <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
                     <canvas ng-if="!chart.link && chart.name == resource.resource_selected && chart.dataChart && !!chart.series.length" class="iframeDiv chart chart-base" chart-type="chart.type"
-                                chart-data="chart.dataChart.data" chart-labels="chart.data.labels" chart-dataset-override="chart.series"></canvas>
+                                chart-data="chart.dataChart.data" chart-labels="chart.data.labels" chart-dataset-override="chart.series" chart-colors="chart.colors"></canvas>
                 </div>
             </div>
             <div class="resource-pdf">

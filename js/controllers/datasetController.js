@@ -106,6 +106,27 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                 element.resources.data.charts[charts].dataChart = {
                                     data: [element.resources.data.charts[charts].data.data]
                                 }
+                                
+                                var getRandomColor = function () {
+
+                                    var letters = '0123456789ABCDEF'.split('');
+                                    var color = '#';
+                                    for (var i = 0; i < 6; i++) {
+                                        color += letters[Math.floor(Math.random() * 16)];
+                                    }
+                                    return color;
+
+                                }
+
+                                element.resources.data.charts[charts].colors = [];
+                                if (element.resources.data.charts[charts].type != 'line') {
+                                    element.resources.data.charts[charts].colors[0] = {
+                                        backgroundColor: []
+                                    };
+                                    angular.forEach(element.resources.data.charts[charts].data.data, function (element_chart) {
+                                        element.resources.data.charts[charts].colors[0].backgroundColor.push(getRandomColor());
+                                    });
+                                }
                             }
                         }
                     }
