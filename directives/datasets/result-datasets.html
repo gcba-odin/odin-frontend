@@ -1,10 +1,10 @@
 <ul class="dataset-list unstyled">
     <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'">
         <div class="dataset-content">
-            <span class="dataset-category-icon {{ category.name | slugDataset }}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
+            <span class="dataset-category-icon {{ category.name | slug }}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
             </span>
             <h3 class="dataset-heading">
-                <a ng-href="dataset/{{result.name | slugDataset}}" ng-title="{{result.name}}">{{result.name}}</a>
+                <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div>
             <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>

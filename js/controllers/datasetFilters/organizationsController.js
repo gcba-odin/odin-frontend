@@ -30,7 +30,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
         $scope.params = {
             include: ['files', 'tags', 'categories'].join(),
             'files.organization': organizationId,
-            'categories.name': $routeParams['categories.name'],// This is the only filter that accepts slug name :(
+            'categories.slug': $routeParams['categories.slug'],// This is the only filter that accepts slug name :(
         };
         DatasetListService.getDatasets($scope.params, function(results) {
             $scope.organizationsCount[organizationId] = results.length;

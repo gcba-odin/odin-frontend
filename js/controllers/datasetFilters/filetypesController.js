@@ -32,7 +32,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
         $scope.params = {
             include: ['files', 'tags', 'categories'].join(),
             'files.type': fileTypeId,
-            'categories.name': $routeParams['categories.name'],
+            'categories.slug': $routeParams['categories.slug'],
         };
         DatasetListService.getDatasets($scope.params, function(results) {
             $scope.fileTypesCount[fileTypeId] = results.length;

@@ -178,18 +178,6 @@
         return function(input) {
             if (input) {
                 return slug(input, {lower: true});
-                //var value = normalize(input);
-                //return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-            }
-        };
-    });
-
-    app.filter('slugDataset', function() {
-        return function(input) {
-            if (input) {
-                return slug(input, {lower: true});
-                //var value = normalize(input);
-                //return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
             }
         };
     });
@@ -199,28 +187,4 @@
                 return $sce.trustAsHtml(htmlCode);
             }
         }]);
-
-
-    var normalize = (function() {
-        var from = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç",
-                to = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",
-                mapping = {};
-
-        for (var i = 0, j = from.length; i < j; i++)
-            mapping[from.charAt(i)] = to.charAt(i);
-
-        return function(str) {
-            var ret = [];
-
-            for (var i = 0, j = str.length; i < j; i++) {
-                var c = str.charAt(i);
-                if (mapping.hasOwnProperty(str.charAt(i)))
-                    ret.push(mapping[c]);
-                else
-                    ret.push(c);
-            }
-            return ret.join('');
-        }
-
-    })();
 })();

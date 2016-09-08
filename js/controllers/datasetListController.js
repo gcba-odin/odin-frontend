@@ -5,7 +5,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         include: ['files', 'tags', 'categories'].join(),
         limit: 20,
         skip: 0,
-        'categories.name': $routeParams['categories.name'],
+        'categories.slug': $routeParams['categories.slug'],
     };
     $scope.modelName = "Dataset";
     $rootScope.header = "Datasets List";
