@@ -177,8 +177,9 @@
     app.filter('slug', function() {
         return function(input) {
             if (input) {
-                var value = normalize(input);
-                return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                return slug(input, {lower: true});
+                //var value = normalize(input);
+                //return value.toLowerCase().replace(/-+/g, '').replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
             }
         };
     });
@@ -186,17 +187,12 @@
     app.filter('slugDataset', function() {
         return function(input) {
             if (input) {
-                var value = normalize(input);
-                return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
+                return slug(input, {lower: true});
+                //var value = normalize(input);
+                //return encodeURIComponent(value.toLowerCase().replace(/\s+/g, '-'));
             }
         };
     });
-
-    app.filter('unslug', function() {
-        return function(slug) {
-            return slug.replace(/\-/g, ' ');
-        };
-    })
 
     app.filter("sanitize", ['$sce', function($sce) {
             return function(htmlCode) {

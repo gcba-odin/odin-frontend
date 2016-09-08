@@ -47,10 +47,10 @@ angular.module('store-factories')
         if (value.length > 0) {
           if ($.isArray(value)) {
             searchParams[key] = value.map(function(slug){
-              return $filter('unslug')(slug);
+              return slug;
             }).join();
           } else {
-            searchParams[key] = $filter('unslug')(value);
+            searchParams[key] = value;
           }
         }
       });

@@ -10,7 +10,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.activeCategories = [];
     $scope.type = "datasets";
     $scope.params = $.extend({
-        name: $filter('unslug')($routeParams.id),
+        slug: $routeParams.id,
         include: 'tags,categories'
     }, LocationSearchService.searchParams());
     $scope.limit = 10;
