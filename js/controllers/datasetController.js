@@ -13,16 +13,23 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         slug: $routeParams.id,
         include: 'tags,categories'
     }, LocationSearchService.searchParams());
-    $scope.limit = 10;
 
-    $scope.info = rest().get({
+    rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
     }, function (result) {
-        result.data[0].categories.forEach(function (category) {
+        
+        result.data.forEach(function (element) {
+            //Because default server search is "contains"
+            //In consequence, one slug could be cointaned by another when looking up
+            if(element.slug == $scope.info){
+                $scope.info = element;
+            }
+        });
+        
+        $scope.info.categories.forEach(function (category) {
             $scope.activeCategories.push(category.name);
         });
-        $scope.info = $scope.info.data[0];
         $rootScope.header = $scope.info.name;
 
         var tags = [];
