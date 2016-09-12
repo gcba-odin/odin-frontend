@@ -22,7 +22,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         result.data.forEach(function (element) {
             //Because default server search is "contains"
             //In consequence, one slug could be cointaned by another when looking up
-            if(element.slug == $scope.info){
+            if(element.slug == $routeParams.id){
                 $scope.info = element;
             }
         });
