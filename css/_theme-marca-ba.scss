@@ -1,3 +1,57 @@
+//Brand colors
+$ba-skyblue: #19c3e3;
+$ba-yellow: #fdd306;
+
+//Datasets colors
+$economy-red: #e76056;
+$education-green: #2ebc98;
+$security-lightblue: #3e4f5e;
+$transport-yellow: #fdd306;
+$health-blue: #0389d1;
+$enviroment-green: #88bf48;
+$goverment-grey: #aaaaaa;
+$urbanism-violet: #9d6db6;
+$culture-pink: #f562a2;
+
+@mixin category-color-manager($color) {
+    h4 {
+        color: $color !important;
+    }
+    svg {
+        path, rect {
+            fill: $color !important;        
+        }
+    }
+}
+
+.category-color-B1lO8Rwic:hover { @include category-color-manager($urbanism-violet); }
+.category-color-rJl0mSvsc:hover { @include category-color-manager($transport-yellow); }
+.category-color-SyXCeCQiq:hover { @include category-color-manager($security-lightblue); }
+.category-color-BygAnp7oc:hover { @include category-color-manager($culture-pink); }
+.category-color-rJgD2vzoq:hover { @include category-color-manager($goverment-grey); }
+.category-color-H1xCqA75c:hover { @include category-color-manager($economy-red); }
+.category-color-B1lJge75c:hover { @include category-color-manager($urbanism-violet); }
+
+.categories-item.active, .categories-item:hover {
+    @include svg-color($enviroment-green );
+}
+
+.categories-item.active h4 {
+    color: $enviroment-green ;
+}
+
+.categories-item:hover h4 {
+    color: $enviroment-green ;
+}
+
+.categories-row-container {
+    width: calc(100% + 5px);
+    text-align: center;
+}
+
+
+
+
 body {
     font-family: "Open Sans", "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -17,7 +71,7 @@ body {
 
 .branding-data {
     color: #FFFFFF;
-    background-color: rgba(32, 149, 242, 0.8);
+    background-color: $ba-skyblue;
 }
 
 .branding-data:after {
@@ -31,7 +85,7 @@ body {
 }
 
 .categories-item-title {
-    color: #FFb600;
+    color: $ba-yellow;
     font-weight: 400;
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
@@ -93,7 +147,7 @@ body {
 }
 
 .widget> h2 {
-    color: rgba(32, 149, 242, 0.8);
+    color: $ba-skyblue;
     font-weight: 500;
 }
 
@@ -103,11 +157,11 @@ body {
 
 .widget-item-footer-download-link {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
-    color: rgb(248, 151, 29);
+    color: $enviroment-green;
 }
 
 .widget-item-footer-download-link:hover {
-    color: lighten(rgb(248, 151, 29), 20%);
+    color: lighten($enviroment-green, 20%);
 }
 
 .popular-datasets-list-item-bar {
