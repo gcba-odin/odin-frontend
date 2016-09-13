@@ -682,8 +682,20 @@ h2 {
     stroke: #FF386a;
 }
 
-.widget-item-footer-download-link {
+.widget-item-footer-download-small-link {
     background-image: url("../images/download.svg");
+}
+
+.widget-item-footer-download-link {
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 2px;
+    color: rgb(0, 244, 104);
+}
+
+.widget-item-footer-download-link:hover {
+    color: lighten(rgb(0, 244, 104), 20%);
 }
 
 .widgets-second-row {
@@ -1163,11 +1175,12 @@ h2 {
 }
 
 .dataset-additional-info {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     color: #4D4D4D;
     cursor: pointer;
     margin-left: 2px;
+    margin-right: 5px;
 }
 
 .dataset-additional-info:after {

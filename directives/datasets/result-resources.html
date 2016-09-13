@@ -118,9 +118,9 @@
                 </table>
 
                 <div class="resource-actions pull-right">
-                    <div class="dropdown no-hover">
+                    <div class="dropdown no-hover view-resources">
                         <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <a href class="widget-item-footer-link" ng-class="{'active': resource.type_resource}" svg-img="'../images/preview.svg'"></a>
+                            <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Ver Recursos</span>
                         </div>
                         <ul class="dropdown-menu">
                             <li ng-if="resource.contents">
@@ -138,7 +138,8 @@
                         </ul>
                     </div>
                     <div class="dropdown no-hover">
-                        <a href class="widget-item-footer-link widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <a href class="widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Descargar
                         </a>
                         <ul class="dropdown-menu" ng-if="!resource.type.api">
                             <li>

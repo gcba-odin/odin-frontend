@@ -38,6 +38,20 @@
   color: #FF386a;
 }
 
+.widget-item-download-link {
+  float: right;
+  margin-top: 1px;
+}
+
+.dropdown.view-resources {
+  margin-right: 10px;
+}
+
+.resource-actions {
+  width: 180px;
+  text-align: right;
+}
+
 .resource-actions .dropdown {
   display: inline-block;
 }
