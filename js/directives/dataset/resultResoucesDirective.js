@@ -34,6 +34,10 @@ angular.module('store-directives-dataset')
                 obj.type_chart = type;
             };
 
+            $scope.hide_resource = function(obj) {
+                obj.type_resource = '';
+            };
+            
             $scope.center = {
                 lat: -34.603722,
                 lng: -58.381592,

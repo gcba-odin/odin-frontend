@@ -120,7 +120,7 @@
                 <div class="resource-actions pull-right">
                     <div class="dropdown no-hover view-resources">
                         <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Ver Recursos</span>
+                            <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Ver Recurso</span>
                         </div>
                         <ul class="dropdown-menu">
                             <li ng-if="resource.contents">
@@ -134,6 +134,9 @@
                             </li>
                             <li ng-if="(fileTypes[resource.type.id]|| lowercase) == 'pdf'">
                                 <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver PDF</a>
+                            </li>
+                            <li ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'">
+                                <a href ng-click="hide_resource(resource)">Ocultar Recurso</a>
                             </li>
                         </ul>
                     </div>
