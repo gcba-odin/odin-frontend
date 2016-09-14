@@ -38,7 +38,7 @@ $culture-pink: #f562a2;
 
 .categories-item.active h4 {
     color: $enviroment-green ;
-}
+}       
 
 .categories-item:hover h4 {
     color: $enviroment-green ;
@@ -73,6 +73,29 @@ body {
         background: url("images/BAlogoHeader.svg") no-repeat right 34px;   
     }
 }
+
+@media only screen and (max-width : 480px) {
+    .branding-data {
+        color: #FFFFFF;
+        background: transparent;
+        .description-header {
+            h1 {
+                margin: 0px;
+                padding-top: 10px;
+                font-size: 22px;
+            }
+            .lead {
+                font-size: 9px;
+                width: 65%;
+                line-height: 14px;
+            }
+        }
+        .container {
+            background: url("images/BAlogoHeaderMobile.svg") no-repeat right 12px;   
+        }
+    }
+}
+
 
 .branding-data:after {
     background: linear-gradient(to right, $ba-yellow 0%, $ba-yellow 100%);
