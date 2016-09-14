@@ -1703,3 +1703,7 @@ article figcaption,
 .resource-actions .dropdown {
     margin-left: 3px;
 }
+
+.resource-pdf ng-pdf {
+    overflow: scroll;
+}
