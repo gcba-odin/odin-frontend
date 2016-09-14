@@ -69,6 +69,12 @@ body {
 .branding-data {
     color: #FFFFFF;
     background: transparent;
+    .description-header {
+        h1 {
+            margin-top: 30px;
+            padding-top: 10px;
+        }
+    }
     .container {
         background: url("images/BAlogoHeader.svg") no-repeat right 34px;   
     }
@@ -85,7 +91,7 @@ body {
                 font-size: 22px;
             }
             .lead {
-                font-size: 9px;
+                font-size: 8px;
                 width: 65%;
                 line-height: 14px;
             }
