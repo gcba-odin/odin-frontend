@@ -1,7 +1,7 @@
 <div class="categories-container categories-row-container auxiliar-bar-line">
     <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item categories-row-item category-color-{{ category.id}}" ng-repeat="category in categories" ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
         <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
-        <h4 class="categories-item-title categories-row-item-title">{{category.name}}</h4>
+        <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4>
     </a>
 </div>
 <div class="row center-spin" ng-if="showCategories">

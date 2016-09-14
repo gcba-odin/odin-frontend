@@ -389,9 +389,19 @@ ul {
 
 .categories-item-title {
     color: #FF386A;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
+}
+
+@media only screen and (max-width : 480px) {
+    .categories-item-title {
+        font-size: 11px;
+    }    
+}
+
+.small-categories-item-title {
+    font-size: 12px;
 }
 
 .categories-grid-item-title {
@@ -400,9 +410,9 @@ ul {
 }
 
 .categories-row-item-title {
-    width: 7vw;
+    width: 125px;
     visibility: hidden;
-    margin-left: -0.88vw;
+    margin-left: -40%;
     overflow: visible;
 }
 
