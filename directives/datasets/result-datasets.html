@@ -7,7 +7,7 @@
                 <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div>
-            <div class="dataset-description" ng-bind-html="getHtml(result.description)"></div>
+            <view-more-text text="result.description" max-char="150"></view-more-text>
         </div>
         <ul class="dataset-resources unstyled">
             <li ng-repeat="fileType in result.fileTypes">
