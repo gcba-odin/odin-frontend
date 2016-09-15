@@ -772,6 +772,11 @@ h2 {
     padding-bottom: 5px;
 }
 
+.social-share .nav .nav-item :hover {
+    background-color: #fff;
+    color: #666;
+}
+
 .social-share .nav .nav-item a:focus {
     background: none;
 }
@@ -1066,7 +1071,7 @@ h2 {
 
 .nav>li>a:hover {
     text-decoration: none;
-    background-color: #FFb600 !important;
+    background-color: #FFb600;
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -1135,6 +1140,9 @@ h2 {
     margin-top: 0;
     margin-bottom: 0px;
     line-height: 20px;
+    &:hover a {
+        color: #b3b3b3;
+    }
 }
 
 .list-heading {
@@ -1288,10 +1296,6 @@ h2 {
 .dataset-list li.dataset-item {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
-}
-
-.dataset-list li.dataset-item:hover {
-    border-bottom: 1px solid #4D4D4D;
 }
 
 .dataset-content .dataset-latest-update {
