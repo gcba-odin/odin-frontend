@@ -1190,6 +1190,7 @@ h2 {
     background-color: inherit;
 }
 
+.dataset-hide-resource,
 .dataset-additional-info {
     font-size: 12px;
     font-weight: 600;
@@ -1210,6 +1211,19 @@ h2 {
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+.dataset-hide-resource:after {
+    font-family: "FontAwesome";
+    content: "\f04b";
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .dataset-additional-info-active {
@@ -1266,6 +1280,8 @@ h2 {
     display: none;
 }
 
+.dataset-hide-resource:hover,
+.dataset-hide-resource:hover:after,
 .dataset-additional-info:hover,
 .dataset-additional-info:hover:after {
     color: #FF386a;

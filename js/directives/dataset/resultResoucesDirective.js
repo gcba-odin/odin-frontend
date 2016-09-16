@@ -28,14 +28,16 @@ angular.module('store-directives-dataset')
 
             $scope.toggleResourceSelected = function(obj, resource) {
                 obj.resource_selected = resource;
+                obj.resourceSelected = true;
             }
 
             $scope.toogleTypeChart = function(type, obj) {
                 obj.type_chart = type;
             };
 
-            $scope.hide_resource = function(obj) {
+            $scope.hideResource = function(obj) {
                 obj.type_resource = '';
+                obj.resourceSelected = false;
             };
             
             $scope.center = {

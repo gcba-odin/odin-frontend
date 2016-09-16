@@ -207,14 +207,21 @@ body {
     background-color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-hide-resource,
 .dataset-additional-info {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-hide-resource {
+    margin-right: 4px;
 }
 
 .dataset-additional-info-active {
     color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-hide-resource:hover,
+.dataset-hide-resource:hover:after,
 .dataset-additional-info:hover,
 .dataset-additional-info:hover:after {
     color: rgba(32, 149, 242, 0.8);
