@@ -11,13 +11,13 @@
         "leaflet-directive",
         "bw.paging",
         "ngCookies",
-        "authentication-service", 
+        "authentication-service",
         "ngRoute.middleware",
         "angularUtils.directives.dirDisqus",
         "720kb.socialshare",
         "pdf",
         "ngtweet",
-        "matchMedia"
+        "matchMedia",
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider) {
 
@@ -43,7 +43,7 @@
 
         $locationProvider.html5Mode(true);
         $auth = AuthenticationServiceProvider.$get('AuthenticationService');
-        
+
         ChartJsProvider.setOptions({
             tooltips: {
                 callbacks: {
@@ -66,10 +66,9 @@
             'everyone': ['$cookieStore', '$rootScope', '$http', function everyoneMiddleware($cookieStore, $rootScope, $http) {
                     $rootScope.globals = $cookieStore.get('globals') || {};
                     if ($rootScope.globals.currentUser) {
-                        $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; // jshint ignore:line
-                        this.next();
+                            $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; // jshint ignore:line
+                            this.next();
                     } else {
-                        //$http.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5OWFmYzU3ZmRiYzA0YzZjYjJkZDRiYTU2OTBlNDM0NiJ9.Uo0I98Fu3BX8XlOgSnIvfeFx2Z_LdqM8WNT4hSMdDDM';
                         $auth.Login($auth.Consumer, function(response) {
                             if (!response.code) {
                                 $auth.SetCredentials(response.data);

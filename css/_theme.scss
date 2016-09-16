@@ -389,9 +389,19 @@ ul {
 
 .categories-item-title {
     color: #FF386A;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-align: center;
+}
+
+@media only screen and (max-width : 480px) {
+    .categories-item-title {
+        font-size: 11px;
+    }    
+}
+
+.small-categories-item-title {
+    font-size: 12px;
 }
 
 .categories-grid-item-title {
@@ -400,9 +410,9 @@ ul {
 }
 
 .categories-row-item-title {
-    width: 7vw;
+    width: 125px;
     visibility: hidden;
-    margin-left: -0.88vw;
+    margin-left: -40%;
     overflow: visible;
 }
 
@@ -594,7 +604,7 @@ h2 {
     margin-bottom: 5px;
     border-bottom: 1px #999999 solid;
     color: #4D4D4D;
-    font-size: 27px;
+    font-size: 25px;
     font-weight: 700;
     text-align: center;
 }
@@ -632,7 +642,9 @@ h2 {
 }
 
 .widget-item-title a {
-    color: inherit
+    color: inherit;
+    min-height: 40px;
+    display: block;
 }
 
 .widget-item-description {
@@ -682,8 +694,20 @@ h2 {
     stroke: #FF386a;
 }
 
-.widget-item-footer-download-link {
+.widget-item-footer-download-small-link {
     background-image: url("../images/download.svg");
+}
+
+.widget-item-footer-download-link {
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 2px;
+    color: rgb(0, 244, 104);
+}
+
+.widget-item-footer-download-link:hover {
+    color: lighten(rgb(0, 244, 104), 20%);
 }
 
 .widgets-second-row {
@@ -746,6 +770,11 @@ h2 {
 .social-share .nav .nav-item a {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.social-share .nav .nav-item :hover {
+    background-color: #fff;
+    color: #666;
 }
 
 .social-share .nav .nav-item a:focus {
@@ -1042,7 +1071,7 @@ h2 {
 
 .nav>li>a:hover {
     text-decoration: none;
-    background-color: #FFb600 !important;
+    background-color: #FFb600;
     color: white;
     font-weight: 600;
     cursor: pointer;
@@ -1110,7 +1139,10 @@ h2 {
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 0px;
-    line-height: 14px;
+    line-height: 20px;
+    &:hover a {
+        color: #b3b3b3;
+    }
 }
 
 .list-heading {
@@ -1154,20 +1186,18 @@ h2 {
     margin-right: 5px;
 }
 
-.dataset-resources li .label:hover {
-    background-color: #FF386a;
-}
-
 .dataset-resources li a {
     background-color: inherit;
 }
 
+.dataset-hide-resource,
 .dataset-additional-info {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     color: #4D4D4D;
     cursor: pointer;
     margin-left: 2px;
+    margin-right: 5px;
 }
 
 .dataset-additional-info:after {
@@ -1181,6 +1211,19 @@ h2 {
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+.dataset-hide-resource:after {
+    font-family: "FontAwesome";
+    content: "\f04b";
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
 }
 
 .dataset-additional-info-active {
@@ -1237,6 +1280,8 @@ h2 {
     display: none;
 }
 
+.dataset-hide-resource:hover,
+.dataset-hide-resource:hover:after,
 .dataset-additional-info:hover,
 .dataset-additional-info:hover:after {
     color: #FF386a;
@@ -1267,10 +1312,6 @@ h2 {
 .dataset-list li.dataset-item {
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
-}
-
-.dataset-list li.dataset-item:hover {
-    border-bottom: 1px solid #4D4D4D;
 }
 
 .dataset-content .dataset-latest-update {
@@ -1691,4 +1732,15 @@ article figcaption,
 
 .resource-actions .dropdown {
     margin-left: 3px;
+}
+
+.resource-pdf ng-pdf {
+    overflow: scroll;
+}
+
+.resource-map,
+.resource-charts,
+.resource-table,
+.resource-pdf {
+    padding-top: 10px;
 }

@@ -1,3 +1,54 @@
+//Brand colors
+$ba-skyblue: #19c3e3;
+$ba-yellow: #fdd306;
+
+//Datasets colors
+$economy-red: #e76056;
+$education-green: #2ebc98;
+$security-lightblue: #3e4f5e;
+$transport-yellow: #fdd306;
+$health-blue: #0389d1;
+$enviroment-green: #88bf48;
+$goverment-grey: #aaaaaa;
+$urbanism-violet: #9d6db6;
+$culture-pink: #f562a2;
+
+@mixin category-color-manager($color) {
+    h4 {
+        color: $color !important;
+    }
+    svg {
+        path, rect {
+            fill: $color !important;        
+        }
+    }
+}
+
+.category-color-B1lO8Rwic:hover { @include category-color-manager($urbanism-violet); }
+.category-color-rJl0mSvsc:hover { @include category-color-manager($transport-yellow); }
+.category-color-SyXCeCQiq:hover { @include category-color-manager($security-lightblue); }
+.category-color-BygAnp7oc:hover { @include category-color-manager($culture-pink); }
+.category-color-rJgD2vzoq:hover { @include category-color-manager($goverment-grey); }
+.category-color-H1xCqA75c:hover { @include category-color-manager($economy-red); }
+.category-color-B1lJge75c:hover { @include category-color-manager($urbanism-violet); }
+
+.categories-item.active, .categories-item:hover {
+    @include svg-color($enviroment-green );
+}
+
+.categories-item.active h4 {
+    color: $enviroment-green ;
+}       
+
+.categories-item:hover h4 {
+    color: $enviroment-green ;
+}
+
+.categories-row-container {
+    width: calc(100% + 5px);
+    text-align: center;
+}
+
 body {
     font-family: "Open Sans", "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -17,11 +68,43 @@ body {
 
 .branding-data {
     color: #FFFFFF;
-    background-color: rgba(32, 149, 242, 0.8);
+    background: transparent;
+    .description-header {
+        h1 {
+            margin-top: 30px;
+            padding-top: 10px;
+        }
+    }
+    .container {
+        background: url("images/BAlogoHeader.svg") no-repeat right 34px;   
+    }
 }
 
+@media only screen and (max-width : 480px) {
+    .branding-data {
+        color: #FFFFFF;
+        background: transparent;
+        .description-header {
+            h1 {
+                margin: 0px;
+                padding-top: 10px;
+                font-size: 22px;
+            }
+            .lead {
+                font-size: 8px;
+                width: 65%;
+                line-height: 14px;
+            }
+        }
+        .container {
+            background: url("images/BAlogoHeaderMobile.svg") no-repeat right 12px;   
+        }
+    }
+}
+
+
 .branding-data:after {
-    background: linear-gradient(to right, #FFBC00 0%, #FFD300 100%);
+    background: linear-gradient(to right, $ba-yellow 0%, $ba-yellow 100%);
 }
 
 .search-bar h3 {
@@ -31,7 +114,7 @@ body {
 }
 
 .categories-item-title {
-    color: #FFb600;
+    color: $ba-yellow;
     font-weight: 400;
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
@@ -93,12 +176,21 @@ body {
 }
 
 .widget> h2 {
-    color: rgba(32, 149, 242, 0.8);
+    color: $ba-skyblue;
     font-weight: 500;
 }
 
-.widget-item-footer-download-link {
+.widget-item-footer-download-link-small {
     background-image: url("../images/download-ba.svg");
+}
+
+.widget-item-footer-download-link {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+    color: $enviroment-green;
+}
+
+.widget-item-footer-download-link:hover {
+    color: lighten($enviroment-green, 20%);
 }
 
 .popular-datasets-list-item-bar {
@@ -115,14 +207,21 @@ body {
     background-color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-hide-resource,
 .dataset-additional-info {
     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-hide-resource {
+    margin-right: 4px;
 }
 
 .dataset-additional-info-active {
     color: rgba(32, 149, 242, 0.8);
 }
 
+.dataset-hide-resource:hover,
+.dataset-hide-resource:hover:after,
 .dataset-additional-info:hover,
 .dataset-additional-info:hover:after {
     color: rgba(32, 149, 242, 0.8);
@@ -166,10 +265,6 @@ body {
 
 .text-auxiliar-bar:hover:last-of-type a:before {
     background-image: url('../images/viz-collection.svg');
-}
-
-.dataset-resources li .label:hover {
-    background-color: rgba(32, 149, 242, 0.8);
 }
 
 /* FONTS */
@@ -283,4 +378,21 @@ h2.slogan {
 
 .pagination > li > a{
     color: rgba(32, 149, 242, 0.8);
+}
+
+.description-header {
+    h1 {
+        color: #4d4d4d;
+        font-size: 2.9em;
+        margin-bottom: 5px;
+    }
+    .lead {
+        color: #666666;
+        font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+    }
+}
+
+.dataset-single-tags-item.label {
+    background-color: rgba(32, 149, 242, 0.8);
 }
