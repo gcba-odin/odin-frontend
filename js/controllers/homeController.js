@@ -1,7 +1,7 @@
 function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService) {
     $rootScope.header = "Odin";
     $rootScope.isDatasetView = false;
-    
+
     DatasetListService.getDatasetsCount($scope.params, function(result) {
         $scope.countDatasets = result.data.count;
     });

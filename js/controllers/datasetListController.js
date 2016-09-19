@@ -3,7 +3,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.params = {
         sort: 'ASC',
         include: ['files', 'tags', 'categories'].join(),
-        limit: 20,
+        limit: 10,
         skip: 0,
         'categories.slug': $routeParams['categories.slug'],
     };
@@ -14,6 +14,10 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.resultDatasetsSearch = [];
     $scope.showLoading = true;
     $scope.url_api = $rootScope.url;
+
+    DatasetListService.getDatasetsCount(null, function(result) {
+        $scope.countDatasets = result.data.count;
+    });
 
     $scope.loadResults = function(limit) {
         $scope.showLoading = true;
@@ -80,6 +84,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     };
     $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
+    };
+
+    $scope.paging = function(event, page, pageSize, total) {
+        var skip = (page - 1) * $scope.params.limit;
+        $scope.loadResults(skip);
     };
 
     function downloadsDesc(a, b) {

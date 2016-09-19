@@ -18,12 +18,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
     }, function(result) {
-        result.data.forEach(function (element) {        
+        result.data.forEach(function(element) {
             //Because default server search is "contains"     
             //In consequence, one slug could be cointaned by another when looking up      
-            if(element.slug == $routeParams.id){      
-                $scope.info = element;        
-            }     
+            if (element.slug == $routeParams.id) {
+                $scope.info = element;
+            }
         });
         $scope.info.categories.forEach(function(category) {
             $scope.activeCategories.push(category.name);
@@ -43,17 +43,30 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.tags = tags;
         $scope.fileTypes = {};
 
-        var filesParams = $.extend({
+        $scope.loadResults();
+    });
+
+    $scope.loadResults = function(limit) {
+        $scope.params = $.extend({
             dataset: $scope.info.id,
-            include: 'tags'
+            include: 'tags',
+            limit: 10,
+            skip: 0
         }, LocationSearchService.searchParams());
-        
+
+        if (limit) {
+            $scope.params.skip += limit;
+        } else {
+            $scope.params.skip = 0;
+        }
+
         $scope.filesResults = rest()[
             $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
-            params: $httpParamSerializer(filesParams)
+            params: $httpParamSerializer($scope.params)
         }, function(result) {
+            $scope.countResources = result.meta.count;
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
                 rest().findOne({
@@ -107,7 +120,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
                         for (charts in element.resources.data.charts) {
                             if ((!!element.resources.data.charts[charts]) && (!!element.resources.data.charts[charts].data)) {
-                                element.resources.data.charts[charts].series = [[]];
+                                element.resources.data.charts[charts].series = [
+                                    []
+                                ];
                                 if (!!element.resources.data.charts[charts].dataSeries) {
                                     if (element.resources.data.charts[charts].dataType == 'qualitative') {
                                         element.resources.data.charts[charts].series[0] = element.resources.data.charts[charts].dataSeries;
@@ -162,7 +177,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
             });
         });
-    });
+    }
 
     $scope.paging = function(event, page, pageSize, total, resource) {
         var skip = (page - 1) * $scope.limit;
@@ -172,6 +187,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             type: 'files',
             params: "skip=" + skip + "&limit=" + $scope.limit
         });
+    };
+
+    $scope.pagingAll = function(event, page, pageSize, total) {
+        var skip = (page - 1) * $scope.params.limit;
+        $scope.loadResults(skip);
     };
 
     $scope.toggleDropdown = function(event) {

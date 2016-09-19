@@ -51,33 +51,31 @@
             </div>
         </div>
         <div class="row results wrapper">
-         <div class="primary col-md-9">
-            <section class="module">
-               <div class="module-content">
-                    <result-resources></result-resources>
-               </div>
-            <div class="row center-spin" ng-if="showLoading">
-               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+            <div class="primary col-md-9">
+                <section class="module">
+                    <div class="module-content">
+                        <result-resources></result-resources>
+                    </div>
+                    <paging page="1" page-size="10" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                    <div class="row center-spin" ng-if="showLoading">
+                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                    </div>
+                </section>
+                <section class="module">
+                    <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
+                    <!-- <div id="disqus_thread"></div> -->
+                    <dir-disqus config="disqusConfig" disqus-shortname="{{ disqusConfig.disqus_shortname }}" disqus-identifier="{{ disqusConfig.disqus_identifier }}" disqus-url="{{ disqusConfig.disqus_url }}">
+                    </dir-disqus>
+                </section>
             </div>
-            </section>
-            <section class="module">
-                <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
-                <!-- <div id="disqus_thread"></div> -->
-                <dir-disqus config="disqusConfig"
-                    disqus-shortname="{{ disqusConfig.disqus_shortname }}"
-                    disqus-identifier="{{ disqusConfig.disqus_identifier }}"
-                    disqus-url="{{ disqusConfig.disqus_url }}">
-                </dir-disqus>
-            </section>
-         </div>
-         <aside class="secondary col-md-3" ng-if="!isMobile">
-            <div class="filters">
-                <div>
-                    <order-result files-view="true"></order-result>
-                    <socials-dataset dataset="info"></socials-dataset>
+            <aside class="secondary col-md-3" ng-if="!isMobile">
+                <div class="filters">
+                    <div>
+                        <order-result files-view="true"></order-result>
+                        <socials-dataset dataset="info"></socials-dataset>
+                    </div>
                 </div>
-            </div>
-         </aside>
-      </div>
-   </div>
+            </aside>
+        </div>
+    </div>
 </div>
