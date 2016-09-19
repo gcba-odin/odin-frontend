@@ -1,6 +1,6 @@
 var app = angular.module('odin.datasetControllers', []);
 
-app.factory('model', function ($resource) {
+app.factory('model', function($resource) {
     return $resource();
 });
 
@@ -9,25 +9,24 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
     $scope.type = "datasets";
-    $scope.params = $.extend({
+    $scope.params = {
         slug: $routeParams.id,
         include: 'tags,categories'
-    }, LocationSearchService.searchParams());
+    };
 
     rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
-    }, function (result) {
+    }, function(result) {
         
-        result.data.forEach(function (element) {
-            //Because default server search is "contains"
-            //In consequence, one slug could be cointaned by another when looking up
-            if(element.slug == $routeParams.id){
-                $scope.info = element;
-            }
+        result.data.forEach(function (element) {        
+            //Because default server search is "contains"     
+            //In consequence, one slug could be cointaned by another when looking up      
+            if(element.slug == $routeParams.id){      
+                $scope.info = element;        
+            }     
         });
-        
-        $scope.info.categories.forEach(function (category) {
+        $scope.info.categories.forEach(function(category) {
             $scope.activeCategories.push(category.name);
         });
         $rootScope.header = $scope.info.name;
@@ -45,24 +44,29 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.tags = tags;
         $scope.fileTypes = {};
 
+        var filesParams = $.extend({
+            dataset: $scope.info.id,
+            include: 'tags'
+        }, LocationSearchService.searchParams());
+        
         $scope.filesResults = rest()[
-                $scope.params.query ? 'search' : 'get'
+            $scope.params.query ? 'search' : 'get'
         ]({
             type: 'files',
-            params: 'include=tags&dataset=' + $scope.info.id
-        }, function (result) {
+            params: $httpParamSerializer(filesParams)
+        }, function(result) {
             $scope.files = $scope.filesResults.data;
-            $scope.files.forEach(function (element) {
+            $scope.files.forEach(function(element) {
                 rest().findOne({
                     id: element.type.id,
                     type: 'filetypes'
-                }, function (resultFileType) {
+                }, function(resultFileType) {
                     $scope.fileTypes[element.type.id] = resultFileType.name;
                 });
 
                 element.additional_info = []
 
-                angular.forEach(element.optionals, function (val, key) {
+                angular.forEach(element.optionals, function(val, key) {
                     element.additional_info.push({
                         clave: key,
                         valor: val
@@ -72,36 +76,38 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 element.resources = rest().resources({
                     id: element.id,
                     type: 'files'
-                }, function () {
+                }, function() {
                     if (!!element.resources.data) {
                         angular.forEach(element.resources.data.maps, function(maps) {
-                            maps.base = rest().findOne({
-                                type: 'basemaps',
-                                id: maps.basemap
-                            }, function () {
+                            if (!!maps.basemap) {
+                                maps.base = rest().findOne({
+                                    type: 'basemaps',
+                                    id: maps.basemap.id
+                                }, function() {
 
-                                maps.geoData = {
-                                    data: maps.geojson,
-                                    onEachFeature: function(feature, layer) {
-                                        if (feature.properties) {
-                                            var html = '';
-                                            angular.forEach(feature.properties, function(value, key) {
-                                                html += '<strong>' + key + '</strong>: ' + value + '<br><br>';
-                                            });
-                                            if (html != '') {
-                                                layer.bindPopup(html);
+                                    maps.geoData = {
+                                        data: maps.geojson,
+                                        onEachFeature: function(feature, layer) {
+                                            if (feature.properties) {
+                                                var html = '';
+                                                angular.forEach(feature.properties, function(value, key) {
+                                                    html += '<strong>' + key + '</strong>: ' + value + '<br><br>';
+                                                });
+                                                if (html != '') {
+                                                    layer.bindPopup(html);
+                                                }
                                             }
                                         }
                                     }
-                                }
-                                maps.tile = {
-                                    url: maps.base.url
-                                }
-                            });
+                                    maps.tile = {
+                                        url: maps.base.url
+                                    }
+                                });
+                            }
                         });
 
                         for (charts in element.resources.data.charts) {
-                            if (!!element.resources.data.charts[charts]) {
+                            if ((!!element.resources.data.charts[charts]) && (!!element.resources.data.charts[charts].data)) {
                                 element.resources.data.charts[charts].series = [[]];
                                 if (!!element.resources.data.charts[charts].dataSeries) {
                                     if (element.resources.data.charts[charts].dataType == 'qualitative') {
@@ -113,8 +119,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                 element.resources.data.charts[charts].dataChart = {
                                     data: [element.resources.data.charts[charts].data.data]
                                 }
-                                
-                                var getRandomColor = function () {
+
+                                var getRandomColor = function() {
 
                                     var letters = '0123456789ABCDEF'.split('');
                                     var color = '#';
@@ -130,7 +136,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     element.resources.data.charts[charts].colors[0] = {
                                         backgroundColor: []
                                     };
-                                    angular.forEach(element.resources.data.charts[charts].data.data, function (element_chart) {
+                                    angular.forEach(element.resources.data.charts[charts].data.data, function(element_chart) {
                                         element.resources.data.charts[charts].colors[0].backgroundColor.push(getRandomColor());
                                     });
                                 }
@@ -150,7 +156,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
             $scope.info.additional_info = [];
 
-            angular.forEach($scope.info.optionals, function (val, key) {
+            angular.forEach($scope.info.optionals, function(val, key) {
                 $scope.info.additional_info.push({
                     clave: key,
                     valor: val
@@ -159,7 +165,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     });
 
-    $scope.paging = function (event, page, pageSize, total, resource) {
+    $scope.paging = function(event, page, pageSize, total, resource) {
         var skip = (page - 1) * $scope.limit;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
@@ -169,7 +175,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     };
 
-    $scope.toggleDropdown = function (event) {
+    $scope.toggleDropdown = function(event) {
         if ($(event.target).next().hasClass('dataset-additional-info-table-inactive')) {
             $(event.target).next().addClass('dataset-additional-info-table-active');
             $(event.target).next().removeClass('dataset-additional-info-table-inactive');
@@ -181,7 +187,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         }
     };
 
-    $scope.getHtml = function (html) {
+    $scope.getHtml = function(html) {
         return $sce.trustAsHtml(html);
     };
 
@@ -194,22 +200,22 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.scroll = 0;
     $scope.loading = 'Cargando..';
 
-    $scope.getNavStyle = function (scroll) {
+    $scope.getNavStyle = function(scroll) {
         if (scroll > 100)
             return 'pdf-controls fixed';
         else
             return 'pdf-controls';
     }
 
-    $scope.onError = function (error) {
+    $scope.onError = function(error) {
         // console.log(error);
     }
 
-    $scope.onLoad = function () {
+    $scope.onLoad = function() {
         $scope.loading = '';
     }
 
-    $scope.onProgress = function (progress) {
+    $scope.onProgress = function(progress) {
         // console.log(progress);
     }
 }
