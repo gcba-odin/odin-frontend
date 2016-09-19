@@ -4,7 +4,7 @@ ODIN Frontend
 
 ## Setup
 
-- Install all dependencies: `npm install`
+- Install all dependencies: `npm install` and `bower install`
 - Install gulp globaly: `npm install -g gulp`
 
 > This assumes you already have Node.js installed.
