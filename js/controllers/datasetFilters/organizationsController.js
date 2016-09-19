@@ -24,16 +24,16 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
         });
     };
 
-    //This won't scale. TODO: Change to /count
     $scope.loadOrganizationCount = function(organizationId){
         $scope.organizationsCount[organizationId] = 0;
         $scope.params = {
             include: ['files', 'tags', 'categories'].join(),
             'files.organization': organizationId,
-            'categories.slug': $routeParams['categories.slug'],// This is the only filter that accepts slug name :(
+            'categories.slug': $routeParams['categories.slug'],
         };
-        DatasetListService.getDatasets($scope.params, function(results) {
-            $scope.organizationsCount[organizationId] = results.length;
+        
+        DatasetListService.getDatasetsCount($scope.params, function(result) {
+            $scope.organizationsCount[organizationId] = result.data.count;
         });
     };
 
