@@ -18,7 +18,14 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
     }, function(result) {
-        result.data[0].categories.forEach(function(category) {
+        result.data.forEach(function(element) {
+            //Because default server search is "contains"     
+            //In consequence, one slug could be cointaned by another when looking up      
+            if (element.slug == $routeParams.id) {
+                $scope.info = element;
+            }
+        });
+        $scope.info.categories.forEach(function(category) {
             $scope.activeCategories.push(category.name);
         });
         $rootScope.header = $scope.info.name;
