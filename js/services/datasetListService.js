@@ -35,6 +35,21 @@ angular.module('store-factories')
             return cb(datasets);
         });
     },
+    getDatasetsCount: function(params, cb) {
+      LocationSearchService.init();
+      var params = $.extend(LocationSearchService.searchParams(), params);
+      if (params.orderBy === 'downloads') {
+        delete params.orderBy;
+      }
+      return rest()[
+            'count'
+        ]({
+            type: 'datasets',
+            params: $httpParamSerializer(params)
+        }, function(result) {
+            return cb(result);
+        });
+    },
 
     getDownloadResults: function(params, cb){
         LocationSearchService.init();

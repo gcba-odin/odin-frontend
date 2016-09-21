@@ -38,7 +38,7 @@ angular.module('store-factories')
                 interceptor: {responseError: handError}
             },
             count: {
-                url: $url + "/count",
+                url: $url + "/count?:params",
                 method: 'GET',
                 headers: {'Authorization': 'Bearer ' + token},
                 transformResponse: function(data) {

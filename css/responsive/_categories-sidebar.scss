@@ -28,8 +28,8 @@ $category-icon-width: 45px;
   }
 
   .category-icon {
-    @include svg-color(white);
-    background-color: $primary-color;
+    @include svg-color($primary-color);
+    background-color: white;
     padding: 5px;
     position: absolute;
     left: 0;
@@ -51,7 +51,6 @@ $category-icon-width: 45px;
   }
 
   .category-name {
-    border-left: $light-gray solid 1px;
     font-size: 12px;
     line-height: $category-item-height - 20;
     margin-left: $category-icon-width;

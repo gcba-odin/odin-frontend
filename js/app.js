@@ -18,28 +18,29 @@
         "pdf",
         "ngtweet",
         "matchMedia",
+        "hm.readmore",
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider) {
 
         $locationProvider.html5Mode(true);
 
         $routeProvider
-                .when("/", {
-                    templateUrl: "views/home.html",
-                    controller: controllerHome,
-                })
-                .when("/dataset/:id", {
-                    templateUrl: "views/dataset.html",
-                    controller: DatasetController
-                }).when("/datasets", {
-            templateUrl: "views/datasets.html",
-            controller: DatasetListController
-        }).when("/resource/:id", {
-            templateUrl: "views/resource.html",
-            controller: FileListController
-        }).otherwise({
-            redirectTo: '/'
-        });
+            .when("/", {
+                templateUrl: "views/home.html",
+                controller: controllerHome,
+            })
+            .when("/dataset/:id", {
+                templateUrl: "views/dataset.html",
+                controller: DatasetController
+            }).when("/datasets", {
+                templateUrl: "views/datasets.html",
+                controller: DatasetListController
+            }).when("/resource/:id", {
+                templateUrl: "views/resource.html",
+                controller: FileListController
+            }).otherwise({
+                redirectTo: '/'
+            });
 
         $locationProvider.html5Mode(true);
         $auth = AuthenticationServiceProvider.$get('AuthenticationService');
@@ -64,20 +65,20 @@
         $middlewareProvider.map({
             /** Let everyone through */
             'everyone': ['$cookieStore', '$rootScope', '$http', function everyoneMiddleware($cookieStore, $rootScope, $http) {
-                    $rootScope.globals = $cookieStore.get('globals') || {};
-                    if ($rootScope.globals.currentUser) {
-                            $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; // jshint ignore:line
+                $rootScope.globals = $cookieStore.get('globals') || {};
+                if ($rootScope.globals.currentUser) {
+                    $http.defaults.headers.common['Authorization'] = 'Bearer ' + $rootScope.globals.currentUser.token; // jshint ignore:line
+                    this.next();
+                } else {
+                    $auth.Login($auth.Consumer, function(response) {
+                        if (!response.code) {
+                            $auth.SetCredentials(response.data);
                             this.next();
-                    } else {
-                        $auth.Login($auth.Consumer, function(response) {
-                            if (!response.code) {
-                                $auth.SetCredentials(response.data);
-                                this.next();
-                            }
-                        }.bind(this));
-                    }
+                        }
+                    }.bind(this));
+                }
 
-                }],
+            }],
         });
 
         $middlewareProvider.global('everyone');

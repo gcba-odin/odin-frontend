@@ -397,7 +397,7 @@ ul {
 @media only screen and (max-width : 480px) {
     .categories-item-title {
         font-size: 11px;
-    }    
+    }
 }
 
 .small-categories-item-title {
@@ -943,6 +943,9 @@ h2 {
 
 .footer-social-networks-icon-github {
     background-image: url("../images/footer/github.svg");
+}
+.footer-social-networks-icon-instagram {
+    background-image: url("../images/footer/instagram.svg");
 }
 
 .footer-gcba {
@@ -1743,4 +1746,10 @@ article figcaption,
 .resource-table,
 .resource-pdf {
     padding-top: 10px;
+}
+
+.dataset-description span p {
+    margin: 0;
+    padding: 0;
+    display: inline;
 }

@@ -144,31 +144,6 @@
         };
     });
 
-    app.directive("viewMoreText", function() {
-        return {
-            restrict: "E",
-            scope: {
-                text: '=',
-                maxChar: '='
-            },
-            templateUrl: "directives/dataset/view-more-text-dataset.html",
-            controller: function($scope) {
-                $scope.text = jQuery($scope.text).text();
-                
-                if ($scope.text.length < $scope.maxChar) {
-                    $scope.isShortText = false;    
-                } else {
-                    $scope.isShortText = true;
-                    $scope.shortText = $scope.text.substring(0, $scope.maxChar) + '...';
-                }
-
-                $scope.viewMore = function() {
-                    $scope.isShortText = false;
-                };
-            }            
-        };
-    });
-
     app.filter('returnFormat', function() {
         return function(input) {
             var extension = input.split('.').pop();
