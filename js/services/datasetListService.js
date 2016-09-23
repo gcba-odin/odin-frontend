@@ -7,9 +7,11 @@ angular.module('store-factories')
       if (params.orderBy === 'downloads') {
         delete params.orderBy;
       }
-      return rest()[
-            params.query ? 'search' : 'get'
-        ]({
+      //Resolve if this is either search or get
+      var action = params.query ? 'search' : 'get';
+      params.condition = params.query ? 'OR' : 'AND';
+
+      return rest()[action]({
             type: 'datasets',
             params: $httpParamSerializer(params)
         }, function(result) {
@@ -22,6 +24,10 @@ angular.module('store-factories')
       if (params.orderBy === 'downloads') {
         delete params.orderBy;
       }
+      
+      //Resolve if this is either search or get
+      params.condition = params.query ? 'OR' : 'AND';
+
       return rest()[
             'count'
         ]({
