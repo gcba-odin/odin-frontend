@@ -160,10 +160,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
 
                 if (element.type.api) {
+                    console.log("SCOPE LIMIT", $scope.params.limit);
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
-                        params: 'limit=' + $scope.limit
+                        params: 'limit=' + $scope.params.limit
                     });
                 }
             });
@@ -180,12 +181,13 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     }
 
     $scope.paging = function(event, page, pageSize, total, resource) {
-        var skip = (page - 1) * $scope.limit;
+        console.log("Page ", page, "Limit", $scope.params.limit, "Total", total, "pageSize", pageSize);
+        var skip = (page - 1) * $scope.params.limit;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
             id: resource.id,
             type: 'files',
-            params: "skip=" + skip + "&limit=" + $scope.limit
+            params: "skip=" + skip + "&limit=" + $scope.params.limit
         });
     };
 
