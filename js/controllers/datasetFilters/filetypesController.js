@@ -30,6 +30,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.loadFileTypeCount = function(fileTypeId){
         $scope.fileTypesCount[fileTypeId] = 0;
         $scope.params = {
+            condition: 'AND',
             include: ['files', 'tags', 'categories'].join(),
             'files.type': fileTypeId,
             'categories.slug': $routeParams['categories.slug'],
