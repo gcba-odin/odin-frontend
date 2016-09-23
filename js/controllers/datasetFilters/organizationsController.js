@@ -27,6 +27,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.loadOrganizationCount = function(organizationId){
         $scope.organizationsCount[organizationId] = 0;
         $scope.params = {
+            condition: 'AND',
             include: ['files', 'tags', 'categories'].join(),
             'files.organization': organizationId,
             'categories.slug': $routeParams['categories.slug'],

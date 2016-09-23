@@ -2,6 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
     $scope.params = {
         sort: 'ASC',
+        condition: 'AND',
         include: ['files', 'tags', 'categories'].join(),
         limit: 10,
         skip: 0,
