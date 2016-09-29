@@ -160,7 +160,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
 
                 if (element.type.api) {
-                    console.log("SCOPE LIMIT", $scope.params.limit);
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
@@ -181,7 +180,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     }
 
     $scope.paging = function(event, page, pageSize, total, resource) {
-        console.log("Page ", page, "Limit", $scope.params.limit, "Total", total, "pageSize", pageSize);
         var skip = (page - 1) * $scope.params.limit;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({

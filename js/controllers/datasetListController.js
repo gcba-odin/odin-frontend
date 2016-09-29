@@ -19,13 +19,9 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         $scope.countDatasets = result.data.count;
     });
 
-    $scope.loadResults = function(limit) {
+    $scope.loadResults = function(skip) {
         $scope.showLoading = true;
-        if (limit) {
-            $scope.params.skip += limit;
-        } else {
-            $scope.params.skip = 0;
-        }
+        $scope.params.skip = skip;
         DatasetListService.getDatasets($scope.params, function(datasets) {
             $scope.datasets = datasets.map(function(dataset) {
                 if ($scope.downloads.length) {
