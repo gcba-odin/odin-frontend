@@ -19,8 +19,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         params: $httpParamSerializer($scope.params)
     }, function(result) {
         result.data.forEach(function(element) {
-            //Because default server search is "contains"     
-            //In consequence, one slug could be cointaned by another when looking up      
+            //Because default server search is "contains"
+            //In consequence, one slug could be cointaned by another when looking up
             if (element.slug == $routeParams.id) {
                 $scope.info = element;
             }
@@ -166,6 +166,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                         params: 'limit=' + $scope.params.limit
                     });
                 }
+
+                  if (element.layout == true) {
+                    $scope.layout = true;
+                    $scope.layout_url = element.url;
+                  }
+
             });
 
             $scope.info.additional_info = [];
