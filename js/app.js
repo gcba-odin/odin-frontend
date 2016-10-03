@@ -100,7 +100,7 @@
     app.run(run);
 
 
-    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5, screenSize) {
+    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
@@ -109,6 +109,10 @@
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
             $rootScope.isMobile = match;
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $window.ga('send', 'pageview', $location.path());
         });
     }
 })();
