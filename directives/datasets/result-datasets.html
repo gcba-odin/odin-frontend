@@ -29,7 +29,7 @@
                 </tbody>
             </table>
             <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP" class="widget-item-download-link download-link widget-item-footer-download-link">Descargar</a>
-            <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas / {{views[result.id].views || 0}} vistas</span> -->
+            <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas / {{pageviewCount.reports.data.totals[0].values[0] || 0}} vistas</span> <!-- {{views[result.id].views || 0}} -->
         </ul>
     </li>
 </ul>
