@@ -38,6 +38,9 @@
             }).when("/resource/:id", {
                 templateUrl: "views/resource.html",
                 controller: FileListController
+            }).when("/tyc", {
+                templateUrl: "views/terms_and_conditions.html",
+                controller: TermsAndConditionsController
             }).otherwise({
                 redirectTo: '/'
             });
