@@ -1,3 +1,3 @@
-function TermsAndConditionsController ($scope) {
-    
+function termsAndConditionsController ($scope) {
+
 }

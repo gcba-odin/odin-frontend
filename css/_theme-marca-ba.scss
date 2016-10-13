@@ -19,7 +19,7 @@ $culture-pink: #f562a2;
     }
     svg {
         path, rect {
-            fill: $color !important;        
+            fill: $color !important;
         }
     }
 }
@@ -38,7 +38,7 @@ $culture-pink: #f562a2;
 
 .categories-item.active h4 {
     color: $enviroment-green ;
-}       
+}
 
 .categories-item:hover h4 {
     color: $enviroment-green ;
@@ -76,7 +76,7 @@ body {
         }
     }
     .container {
-        background: url("images/BAlogoHeader.svg") no-repeat right 34px;   
+        background: url("images/BAlogoHeader.svg") no-repeat right 34px;
     }
 }
 
@@ -97,7 +97,7 @@ body {
             }
         }
         .container {
-            background: url("images/BAlogoHeaderMobile.svg") no-repeat right 12px;   
+            background: url("images/BAlogoHeaderMobile.svg") no-repeat right 12px;
         }
     }
 }

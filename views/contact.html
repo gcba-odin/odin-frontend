@@ -1,0 +1,26 @@
+<div role="main">
+    <div id="content" class="container">
+        <div class="flash-messages"></div>
+
+        <h1 class="section-title">Contactanos</h1>
+
+        <br>
+        <section class="center-block">
+            <form ng-submit="submit()">
+                <div class="form-group">
+                    <small for="name">Nombre</small>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <small for="mail">Mail</small>
+                    <input type="email" class="form-control" id="mail" placeholder="Mail" required>
+                </div>
+                <div class="form-group">
+                    <small for="description">Descripción</small>
+                    <textarea class="form-control" id="description" placeholder="" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success pull-right">Enviar</button>
+            </form>
+        </section>
+    </div>
+</div>

@@ -40,7 +40,10 @@
                 controller: FileListController
             }).when("/tyc", {
                 templateUrl: "views/terms_and_conditions.html",
-                controller: TermsAndConditionsController
+                controller: termsAndConditionsController
+            }).when("/contact", {
+                templateUrl: "views/contact.html",
+                controller: contactController
             }).otherwise({
                 redirectTo: '/'
             });
