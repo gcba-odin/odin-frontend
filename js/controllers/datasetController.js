@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData) {
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
@@ -44,6 +44,24 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.fileTypes = {};
 
         $scope.loadResults();
+    });
+    
+    centerJSON = function(geo) {
+        leafletData.getMap().then(function(map) {
+            var latlngs = [];
+            for (var i in geo.data.features) {
+                var coord = geo.data.features[i].geometry.coordinates;
+                for (var j in coord) {
+                    latlngs.push(L.GeoJSON.coordsToLatLng(coord));
+                }
+            }
+            if(latlngs.length > 0)
+                map.fitBounds(latlngs);
+        });
+    };
+    
+    $rootScope.$on('leafletDirectiveMap.map.id.load', function(event){
+        centerJSON(event.targetScope.geojson);
     });
 
     $scope.loadResults = function(limit) {
@@ -113,6 +131,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     }
                                     maps.tile = {
                                         url: maps.base.url
+                                    }
+                                    maps.events = {
+                                        map: {
+                                            enable: ['load'],
+                                            logic: 'emit'
+                                        }
                                     }
                                 });
                             }

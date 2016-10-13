@@ -35,7 +35,7 @@
             </div>
             <div class="resource-map" ng-if="resource.type_resource === 'maps'">
                 <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
-                    <leaflet ng-if="!map.link && !!map.geoData && !!map.tile && map.name == resource.resource_selected" defaults="map_defaults" tiles="map.tile" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData"></leaflet>
+                    <leaflet ng-if="!map.link && !!map.geoData && !!map.tile && map.name == resource.resource_selected" defaults="map_defaults" tiles="map.tile" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData" event-broadcast="map.events"></leaflet>
                     <iframe class="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
                 </div>
             </div>
