@@ -118,7 +118,7 @@
         });
 
         $rootScope.$on('$routeChangeSuccess', function() {
-            $window.ga('send', 'pageview', $location.path());
+            //$window.ga('send', 'pageview', $location.path());
         });
     }
 })();
