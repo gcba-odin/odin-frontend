@@ -209,14 +209,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     }
 
-    // get limit config
-    $scope.config_key = 'fontEndPagination';
-    configs.findKey($scope, function (resp) {
-        $scope.params.limit = 20;
-        if (!!resp.data[0] && !!resp.data[0].value) {
-            $scope.params.limit = resp.data[0].value;
-        }
-    });
+
 
     $scope.paging = function(event, page, pageSize, total, resource) {
         var skip = (page - 1) * $scope.params.limit;
@@ -226,6 +219,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             type: 'files',
             params: "skip=" + skip + "&limit=" + $scope.params.limit
         });
+        console.log($scope.params.limit);
     };
 
     $scope.pagingAll = function(event, page, pageSize, total) {
