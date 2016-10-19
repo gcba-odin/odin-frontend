@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
@@ -45,7 +45,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
         $scope.loadResults();
     });
-    
+
     centerJSON = function(geo) {
         leafletData.getMap().then(function(map) {
             var latlngs = [];
@@ -59,7 +59,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 map.fitBounds(latlngs);
         });
     };
-    
+
     $rootScope.$on('leafletDirectiveMap.map.id.load', function(event){
         centerJSON(event.targetScope.geojson);
     });
@@ -208,6 +208,15 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             });
         });
     }
+
+    // get limit config
+    $scope.config_key = 'fontEndPagination';
+    configs.findKey($scope, function (resp) {
+        $scope.params.limit = 20;
+        if (!!resp.data[0] && !!resp.data[0].value) {
+            $scope.params.limit = resp.data[0].value;
+        }
+    });
 
     $scope.paging = function(event, page, pageSize, total, resource) {
         var skip = (page - 1) * $scope.params.limit;
