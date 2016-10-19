@@ -2,7 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
 
     // get limit config
-    $scope.config_key = 'fontEndPagination';
+    $scope.config_key = 'frontEndPagination';
     configs.findKey($scope, function (resp) {
         if (!!resp.data[0] && !!resp.data[0].value) {
             $scope.limit = resp.data[0].value;
