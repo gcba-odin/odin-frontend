@@ -1,7 +1,7 @@
 <div class="widget-container">
     <div ng-repeat="item in starredDataset.data">
         <div class="widget-item">
-            <div ng-click="datasets.goToUrl()" class="widget-item-title"><a ng-href="dataset/{{ item.name | slug }}">{{item.name}}</a></div>
+            <div ng-click="datasets.goToUrl()" class="widget-item-title"><a ng-href="dataset/{{ item.name | slug }}">{{item.name | limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</a></div>
             <div class="widget-item-description">
                 <p three-dots="getHtml(item.description)"></p>
             </div>

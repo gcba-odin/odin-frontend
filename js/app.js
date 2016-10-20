@@ -38,6 +38,12 @@
             }).when("/resource/:id", {
                 templateUrl: "views/resource.html",
                 controller: FileListController
+            }).when("/tyc", {
+                templateUrl: "views/terms_and_conditions.html",
+                controller: termsAndConditionsController
+            }).when("/contact", {
+                templateUrl: "views/contact.html",
+                controller: contactController
             }).otherwise({
                 redirectTo: '/'
             });
@@ -100,7 +106,7 @@
     app.run(run);
 
 
-    function run($rootScope, $location, $http, EnvironmentConfig, BaseHTML5, screenSize) {
+    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
@@ -109,6 +115,10 @@
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
             $rootScope.isMobile = match;
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function() {
+            $window.ga('send', 'pageview', $location.path());
         });
     }
 })();

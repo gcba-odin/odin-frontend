@@ -2,7 +2,7 @@ angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
 function TagsController($rootScope, $scope, $filter, rest, LocationSearchService) {
-    var filterName = 'tags.name';
+    var filterName = 'tags.slug';
     $scope.limitTags = 0;
     $scope.tags = [];
     $scope.resultTags = [];

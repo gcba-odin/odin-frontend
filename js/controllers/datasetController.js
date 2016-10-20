@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
@@ -19,8 +19,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         params: $httpParamSerializer($scope.params)
     }, function(result) {
         result.data.forEach(function(element) {
-            //Because default server search is "contains"     
-            //In consequence, one slug could be cointaned by another when looking up      
+            //Because default server search is "contains"
+            //In consequence, one slug could be cointaned by another when looking up
             if (element.slug == $routeParams.id) {
                 $scope.info = element;
             }
@@ -44,6 +44,24 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.fileTypes = {};
 
         $scope.loadResults();
+    });
+
+    centerJSON = function(geo) {
+        leafletData.getMap().then(function(map) {
+            var latlngs = [];
+            for (var i in geo.data.features) {
+                var coord = geo.data.features[i].geometry.coordinates;
+                for (var j in coord) {
+                    latlngs.push(L.GeoJSON.coordsToLatLng(coord));
+                }
+            }
+            if(latlngs.length > 0)
+                map.fitBounds(latlngs);
+        });
+    };
+
+    $rootScope.$on('leafletDirectiveMap.map.id.load', function(event){
+        centerJSON(event.targetScope.geojson);
     });
 
     $scope.loadResults = function(limit) {
@@ -114,6 +132,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     maps.tile = {
                                         url: maps.base.url
                                     }
+                                    maps.events = {
+                                        map: {
+                                            enable: ['load'],
+                                            logic: 'emit'
+                                        }
+                                    }
                                 });
                             }
                         });
@@ -160,13 +184,18 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
 
                 if (element.type.api) {
-                    console.log("SCOPE LIMIT", $scope.params.limit);
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
                         params: 'limit=' + $scope.params.limit
                     });
                 }
+
+                  if (element.layout == true) {
+                    $scope.layout = true;
+                    $scope.layout_url = element.url;
+                  }
+
             });
 
             $scope.info.additional_info = [];
@@ -180,8 +209,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         });
     }
 
+
+
     $scope.paging = function(event, page, pageSize, total, resource) {
-        console.log("Page ", page, "Limit", $scope.params.limit, "Total", total, "pageSize", pageSize);
         var skip = (page - 1) * $scope.params.limit;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
@@ -189,6 +219,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             type: 'files',
             params: "skip=" + skip + "&limit=" + $scope.params.limit
         });
+        console.log($scope.params.limit);
     };
 
     $scope.pagingAll = function(event, page, pageSize, total) {
