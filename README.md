@@ -1,13 +1,16 @@
-# odin-frontend
+#ODIN Frontend
 
-ODIN Frontend
+## Requirements
 
-## Setup
+- Npm 3.10.x
+- Bower
+- Nodejs
+
+## How to install
 
 - Install all dependencies: `npm install` and `bower install`
 - Install gulp globaly: `npm install -g gulp`
-
-> This assumes you already have Node.js installed.
+- Edit the configuration file `config.json`
 
 ## Build and Serve for Development
 
