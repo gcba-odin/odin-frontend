@@ -2,6 +2,7 @@ angular.module('odin.controllers')
 .controller('OrderingsController', OrderingsController);
 
 function OrderingsController ($scope, $rootScope, LocationSearchService) {
+    LocationSearchService.init();
     var filterName = 'orderBy';
     $scope.orderings = [
         {
