@@ -79,7 +79,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                       return dataset;
                   });
                   $scope.showLoading = false;
-                  $scope.count = $scope.datasets.length;
               });
           };
 
