@@ -219,11 +219,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             type: 'files',
             params: "skip=" + skip + "&limit=" + $scope.params.limit
         });
-        console.log($scope.params.limit);
     };
 
     $scope.pagingAll = function(event, page, pageSize, total) {
         var skip = (page - 1) * $scope.params.limit;
+        $scope.page = page;
         $scope.loadResults(skip);
     };
 

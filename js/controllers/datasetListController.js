@@ -13,7 +13,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
         $scope.params = {
             sort: 'ASC',
             include: ['files', 'tags', 'categories'].join(),
-            limit: $scope.limit,
+            limit: 5,
             skip: 0,
             'categories.slug': $routeParams['categories.slug'],
         };
@@ -27,6 +27,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           $scope.resultDatasetsSearch = [];
           $scope.showLoading = true;
           $scope.url_api = $rootScope.url;
+          $scope.page = 1;
 
           DatasetListService.getDatasetsCount(null, function(result) {
               $scope.countDatasets = result.data.count;
@@ -37,6 +38,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
               $scope.params.skip = skip;
 
               DatasetListService.getDatasets($scope.params, function(datasets) {
+                  console.log(datasets);
                   $scope.datasets = datasets.map(function(dataset) {
                       if ($scope.downloads.length) {
                           var downloadsCount = $scope.downloads
@@ -98,6 +100,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
           $scope.paging = function(event, page, pageSize, total) {
               var skip = (page - 1) * $scope.params.limit;
+              $scope.page = page;
               $scope.loadResults(skip);
           };
 
