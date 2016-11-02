@@ -30,7 +30,7 @@
                 </div>
                 <br>
                 <ul class="dataset-resources unstyled" style="border-bottom:1px #cccccc solid;">
-                  <li class="pull-right" ng-if="layout == true"><a href="{{layout_url}}" target="_blank">Guía de datos</a></li>
+                  <li class="pull-right module-heading-fix" ng-if="layout == true"><a href="{{layout_url}}" style="color:#fff;" target="_blank">Guía de datos</a> </li>
                     <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
                     <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
                         <thead>

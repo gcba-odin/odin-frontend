@@ -1062,7 +1062,14 @@ h2 {
     padding-top: 7px;
     padding-bottom: 4px;
 }
-
+.module-heading-fix {
+  background-color: #FF386a;
+  margin-top: -7px;
+  padding: 2px 6px 2px;
+  font-weight: 600;
+  font-size: 12px;
+  font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .module-heading-clear-icon {
     background-image: url("../images/clear.svg");
     background-size: 100%;
