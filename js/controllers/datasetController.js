@@ -130,7 +130,25 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                         }
                                     }
                                     maps.tile = {
-                                        url: maps.base.url
+                                        url: maps.base.url,
+                                        options: {
+                                            minZoom: 0,
+                                            maxZoom: 18,
+                                            tms: false,
+                                            attribution: ''
+                                        }
+                                    }
+                                    if(!!maps.base.minZoom) {
+                                        maps.tile.options.minZoom = maps.base.minZoom;
+                                    } 
+                                    if(!!maps.base.maxZoom) {
+                                        maps.tile.options.maxZoom = maps.base.maxZoom;
+                                    } 
+                                    if(!!maps.base.tms) {
+                                        maps.tile.options.tms = maps.base.tms;
+                                    }
+                                    if(!!maps.base.attribution) {
+                                        maps.tile.options.attribution = maps.base.attribution;
                                     }
                                     maps.events = {
                                         map: {
