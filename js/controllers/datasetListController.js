@@ -2,13 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
 
     // get limit config
-    $scope.config_key = 'frontEndPagination';
-    configs.findKey($scope, function (resp) {
-        if (!!resp.data[0] && !!resp.data[0].value) {
-            $scope.limit = resp.data[0].value;
-        }else {
             $scope.limit = 20;
-        }
 
         $scope.params = {
             sort: 'ASC',
@@ -38,7 +32,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
               $scope.params.skip = skip;
 
               DatasetListService.getDatasets($scope.params, function(datasets) {
-                  console.log(datasets);
                   $scope.datasets = datasets.map(function(dataset) {
                       if ($scope.downloads.length) {
                           var downloadsCount = $scope.downloads
@@ -115,9 +108,4 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
               // a must be equal to b
               return 0;
           }
-
-    });
-
-
-
 }
