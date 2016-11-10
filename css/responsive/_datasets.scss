@@ -1,0 +1,34 @@
+@media (max-width: $max-tablet-landscape) {
+  .toolbar {
+    margin: 20px 0;
+  }
+  .results.wrapper {
+    margin: 0 -20px;
+    .primary {
+      width: 100%;
+      padding: 0 15px;
+      float: none;
+    }
+  }
+  .resource-actions {
+    .dropdown-menu {
+      left: initial;
+      right: 0;
+    }
+  }
+  .resource-pdf {
+    margin-top: 10px;
+    .wrapper {
+      margin: 0;
+    }
+  }
+  .dataset-additional-info-table {
+    width: 100%;
+  }
+  .table-responsive .dataset-additional-info-table {
+    th, td {
+      width: 20vw;
+      white-space: normal !important;
+    }
+  }
+}

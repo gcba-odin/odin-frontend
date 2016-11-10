@@ -1,0 +1,173 @@
+<div role="main">
+   <div id="content" class="container">
+      <div class="flash-messages">
+      </div>
+      <div class="toolbar">
+         <ol class="breadcrumb">
+            <li class="home"><a href="{{baseHtml5}}"><span> Inicio</span></a></li>
+            <li><a href="#organizations">Organizaciones</a></li>
+            <li><a href="organization/{{file.organization.id | slug}}">{{file.organization.name}}</a></li>
+            <li><a href="dataset/{{file.dataset.id | slug}}">{{file.dataset.name | truncString}}</a></li>
+            <li class="active"><a href="">{{file.name}}</a></li>
+         </ol>
+      </div>
+      <div class="row wrapper">
+         <section class="module module-resource">
+            <div class="module-content">
+               <div class="actions">
+                  <ul>
+                     <li>
+                        <a target="_blank" class="btn btn-primary resource-url-analytics resource-type-None" ng-href="{{file.url}}">
+                        <i class="fa fa-external-link"></i> Ir al recurso
+                        </a>
+                     </li>
+                     <li>
+                     </li>
+                  </ul>
+               </div>
+               <h1 class="page-heading">{{file.name}}</h1>
+
+
+               <p class="muted ellipsis">URL: <a target="_blank" ng-href="{{file.url}}" title="{{file.name}}">{{file.url}}</a></p>
+               <div class="prose notes" property="rdfs:label">
+                  <h3>Del resumen del conjunto de datos</h3>
+                  <blockquote>{{file.organization.name}}</blockquote>
+                  <p>Fuente: <a href="dataset/{{file.dataset.id}}">{{file.dataset.name}}</a>
+                  </p>
+               </div>
+            </div>
+          <!--  <ul class="nav nav-tabs nav-tabs-plain">
+               <li class="active" data-id="dd6832e5-787d-40c9-bed7-c0d99009c69c">
+                  <a href="/es/dataset/fee-100006-valor-adicionado-bruto-a-precos-basicos-agropecuaria/resource/8e561d42-14bc-4f4a-a7d6-94934261e470?view_id=dd6832e5-787d-40c9-bed7-c0d99009c69c" data-id="dd6832e5-787d-40c9-bed7-c0d99009c69c">
+                  <i class="fa fa fa fa-table"></i>
+                  Explorador de Dados
+                  </a>
+               </li>
+            </ul>
+         <!-- <div class="module-content">
+               <div class="resource-view">
+                  <div id="view-dd6832e5-787d-40c9-bed7-c0d99009c69c" class="resource-view" data-id="dd6832e5-787d-40c9-bed7-c0d99009c69c" data-title="Explorador de Dados" data-description="">
+                     <a class="btn pull-right" >
+                     <i class="fa fa-code"></i>
+                     Incrustar
+                     </a>
+                     <p class="desc"></p>
+                     <div class="m-top ckanext-datapreview">
+                        <div class="resource-view-filters" data-module="resource-view-filters" data-module-resource-id="8e561d42-14bc-4f4a-a7d6-94934261e470" data-module-fields="[]">
+                           <div></div>
+                        </div>
+                        <div class="data-viewer-error">
+                           <p class="text-error">
+                              <i class="fa fa-info-sign"></i>
+                              Esta vista de recurso no está disponible al momento.
+                              <a href="#" data-toggle="collapse" data-target="#data-view-error">
+                              Haga click aquí para más información.
+                              </a>
+                           </p>
+                           <p id="data-view-error" class="collapse">Could not load view: DataProxy returned an error (Data transformation failed. HTTPError: HTTP Error 404: Not Found)</p>
+                           <p>
+                              <a href="" class="btn btn-large resource-url-analytics" target="_blank">
+                              <i class="fa fa-large fa fa-download"></i>
+                              Descargar recurso
+                              </a>
+                           </p>
+                        </div>
+
+                     </div>
+                     <div id="embed-dd6832e5-787d-40c9-bed7-c0d99009c69c" class="modal resource-view-embed hide">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal">×</button>
+                           <h3>Incrustar vista de recurso</h3>
+                        </div>
+                        <div class="modal-body">
+                           <p class="embed-content">Puede copiar y pegar el código de inserción en un CMS o blog que soporte HTML crudo</p>
+                           <div class="row-fluid">
+                              <div class="col-xs-6">
+                                 <div class="control-group control-full">
+                                    <label class="control-label" for="width">Ancho</label>
+                                    <div class="controls ">
+                                       <input id="width" type="text" name="width" value="700" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-xs-6">
+                                 <div class="control-group control-full">
+                                    <label class="control-label" for="height">Alto</label>
+                                    <div class="controls ">
+                                       <input id="height" type="text" name="height" value="400" placeholder="">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="control-group pre control-full">
+                              <label class="control-label" for="code">Código</label>
+                              <div class="controls ">
+                                 <textarea id="code" name="code" cols="20" rows="3" placeholder=""></textarea>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>-->
+         </section>
+         <div class="primary col-xs-9">
+            <section class="module">
+               <div class="module-content">
+                  <h2>Información adicional</h2>
+                  <table class="table table-striped table-bordered table-condensed table-toggle-less" data-module="table-toggle-more">
+                     <thead>
+                        <tr>
+                           <th scope="col">Campo</th>
+                           <th scope="col">Valor</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-if="file.updateFrequency">
+                           <th scope="row">Tipo</th>
+                           <td class="dataset-details">{{file.type.name}}</td>
+                        </tr>
+                        <tr ng-if="file.description">
+                           <th scope="row">Descripción</th>
+                           <td class="dataset-details" property="dc:creator"  ng-bind-html="getHtml(file.description)"></td>
+                        </tr>
+                        <tr ng-if="file.notes">
+                           <th scope="row">Notas</th>
+                           <td class="dataset-details" property="dc:creator"  ng-bind-html="getHtml(file.notes)"></td>
+                        </tr>
+                        <tr ng-if="file.updatedAt">
+                           <th scope="row">Última actualización</th>
+                           <td class="dataset-details">{{file.updatedAt}}</td>
+                        </tr>
+                        <tr ng-if="file.owner.name">
+                           <th scope="row">Dueño</th>
+                           <td class="dataset-details">{{file.owner.name}}</td>
+                        </tr>
+                        <tr ng-if="file.status">
+                           <th scope="row">Dueño</th>
+                           <td class="dataset-details">{{file.status.name}}</td>
+                        </tr>
+                        <tr ng-if="file.updateFrequency">
+                           <th scope="row">Frecuencia de actualización</th>
+                           <td class="dataset-details">{{file.updateFrequency.name}}</td>
+                        </tr>
+
+                     </tbody>
+                  </table>
+               </div>
+            </section>
+         </div>
+         <aside class="secondary col-xs-3">
+
+            <section class="module module-narrow social">
+               <h2 class="module-heading"><i class="fa fa-external-link"></i> Social</h2>
+               <ul class="nav nav-simple">
+                  <li class="nav-item"><a href="https://plus.google.com/share?url={{absUrl}}" target="_blank"><i class="fa fa-google-plus-square"></i> Google+</a></li>
+                  <li class="nav-item"><a href="https://twitter.com/share?url={{absUrl}}" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                  <li class="nav-item"><a href="https://www.facebook.com/sharer.php?u={{absUrl}}" target="_blank"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+               </ul>
+            </section>
+         </aside>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,401 @@
+//Brand colors
+$ba-skyblue: #19c3e3;
+$ba-yellow: #fdd306;
+
+//Datasets colors
+$economy-red: #e76056;
+$education-green: #2ebc98;
+$security-lightblue: #3e4f5e;
+$transport-yellow: #fdd306;
+$health-blue: #0389d1;
+$enviroment-green: #88bf48;
+$goverment-grey: #aaaaaa;
+$urbanism-violet: #9d6db6;
+$culture-pink: #f562a2;
+
+
+
+@mixin category-color-manager($color) {
+    h4 {
+        color: $color !important;
+    }
+    svg {
+        path, rect {
+            fill: $color !important;
+        }
+    }
+}
+
+.category-color-B1lO8Rwic:hover { @include category-color-manager($urbanism-violet); }
+.category-color-rJl0mSvsc:hover { @include category-color-manager($transport-yellow); }
+.category-color-SyXCeCQiq:hover { @include category-color-manager($security-lightblue); }
+.category-color-BygAnp7oc:hover { @include category-color-manager($culture-pink); }
+.category-color-rJgD2vzoq:hover { @include category-color-manager($goverment-grey); }
+.category-color-H1xCqA75c:hover { @include category-color-manager($economy-red); }
+.category-color-B1lJge75c:hover { @include category-color-manager($urbanism-violet); }
+
+.categories-item.active, .categories-item:hover {
+    @include svg-color($enviroment-green );
+}
+
+.categories-item.active h4 {
+    color: $enviroment-green ;
+}
+
+.categories-item:hover h4 {
+    color: $enviroment-green ;
+}
+
+.categories-row-container {
+    width: calc(100% + 5px);
+    text-align: center;
+}
+
+body {
+    font-family: "Open Sans", "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.navbar-site-logo {
+    color: black;
+}
+
+.navbar-theme {
+    background: linear-gradient(to right, #FFBC00 0%, #FFD300 100%);
+}
+
+.datasets-counter {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.branding-data {
+    color: #FFFFFF;
+    background: transparent;
+    .description-header {
+        h1 {
+            margin-top: 30px;
+            padding-top: 10px;
+        }
+    }
+    .container {
+        background: url("images/BAlogoHeader.svg") no-repeat right 34px;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+    .branding-data {
+        color: #FFFFFF;
+        background: transparent;
+        .description-header {
+            h1 {
+                margin: 0px;
+                padding-top: 10px;
+                font-size: 22px;
+            }
+            .lead {
+                font-size: 8px;
+                width: 65%;
+                line-height: 14px;
+            }
+        }
+        .container {
+            background: url("images/BAlogoHeaderMobile.svg") no-repeat right 12px;
+        }
+    }
+}
+
+
+.branding-data:after {
+    background: linear-gradient(to right, $ba-yellow 0%, $ba-yellow 100%);
+}
+
+.search-bar h3 {
+    color: #FFB600;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.categories-item-title {
+    color: $ba-yellow;
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.categories-item, .dataset-category-icon {
+    @include svg-color(#FFb600);
+}
+
+.navbar-button.navbar-search-button.active {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.filter-group {
+  .filter-icon, .filter-name {
+    color: rgba(32, 149, 242, 0.8);
+  }
+  .filter-options {
+    .filter-option{
+      &.active {
+        color: #FFb600;
+      }
+    }
+    .show-more, .show-less {
+      color: rgba(32, 149, 242, 0.8);
+    }
+  }
+}
+
+.categories-item.active, .categories-item:hover {
+    @include svg-color(rgba(32, 149, 242, 0.8));
+}
+
+.categories-sidebar {
+    .category-item .category-icon {
+        background-color: rgba(32, 149, 242, 0.8);
+    }
+}
+
+.widget-item-footer-link.active path:not(.back) {
+    fill: rgba(32, 149, 242, 0.8);
+    stroke: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item.active h4 {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item:hover h4 {
+    color: rgba(32, 149, 242, 0.8);
+
+}
+
+.text-auxiliar-bar {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.auxiliar-bar li:hover {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.widget> h2 {
+    color: $ba-skyblue;
+    font-weight: 500;
+}
+
+.widget-item-footer-download-link-small {
+    background-image: url("../images/download-ba.svg");
+}
+
+.widget-item-footer-download-link {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+    color: $enviroment-green;
+}
+
+.widget-item-footer-download-link:hover {
+    color: lighten($enviroment-green, 20%);
+}
+
+.popular-datasets-list-item-bar {
+    background: linear-gradient(to right, #FEEA3A 0%, #FEEA3A 80%, #B3B3B3 80%, #B3B3B3 100%);
+    color: #FEEA3A;
+}
+
+[data-tooltip]:hover:after {
+    background: #FEEA3A;
+    color: black;
+}
+
+.module-heading {
+    background-color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-hide-resource,
+.dataset-additional-info {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-hide-resource {
+    margin-right: 4px;
+}
+
+.dataset-additional-info-active {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-hide-resource:hover,
+.dataset-hide-resource:hover:after,
+.dataset-additional-info:hover,
+.dataset-additional-info:hover:after {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-statistics {
+    color: rgba(32, 149, 242, 0.8);
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-content .dataset-latest-update {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.dataset-content .dataset-published-by {
+    color: rgba(32, 149, 242, 0.8);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.module .read-more {
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.categories-item {
+    color: #FABF2C;
+}
+
+.text-auxiliar-bar:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:hover:first-of-type a:before {
+    background-image: url('../images/complete-catalog.svg');
+}
+
+.text-auxiliar-bar:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}
+
+.text-auxiliar-bar:hover:last-of-type a:before {
+    background-image: url('../images/viz-collection.svg');
+}
+
+/* FONTS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 .panel-title,
+.btn,
+.input-xl,
+.navbar-brand,
+h2.slogan {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.branding-data h1 {
+    font-weight: 400;
+}
+
+.widget-item-title {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.branding-data .lead {
+    font-family: "Open Sans", sans-serif;
+}
+
+.title-container-home {
+    font-weight: 400 !important;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.widget-item-footer-tags {
+    font-weight: 400;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.popular-datasets-list-item-count {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.menu-footer a {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.odin-branding-text {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-count {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.datasets-counter-label {
+    font-weight: 400;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.toolbar .breadcrumb a {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.module:first-child .module-heading {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-heading {
+    font-weight: 700;
+}
+
+.dataset-heading a {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.list-heading {
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.dataset-resources .label,
+.category.label {
+    font-weight: 400;
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+}
+
+.category.label {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+.resource-actions .dropdown-menu a {
+    font-family: "Chalet-Sixty", "Avenir", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
+}
+
+.resource-tab li a {
+  background-color: rgba(32, 149, 242, 0.8);
+}
+
+.pagination > .active > a{
+    background-color: rgba(32, 149, 242, 0.8);
+    border-color: rgba(32, 149, 242, 0.8);
+}
+
+.pagination > li > a{
+    color: rgba(32, 149, 242, 0.8);
+}
+
+.description-header {
+    h1 {
+        color: #4d4d4d;
+        font-size: 2.9em;
+        margin-bottom: 5px;
+    }
+    .lead {
+        color: #666666;
+        font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+        font-size: 12px;
+    }
+}
+
+.dataset-single-tags-item.label {
+    background-color: rgba(32, 149, 242, 0.8);
+}

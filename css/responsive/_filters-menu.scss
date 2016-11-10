@@ -1,0 +1,62 @@
+$filters-menu-tablet-landscape-width: 25%;
+$filters-menu-tablet-portrait-width: 50%;
+
+.filters-menu {
+  @extend .z-sidemenu;
+  background-color: white;
+  box-shadow: -1px 1px 6px 2px $light-gray;
+  max-height: calc(100% - #{$navbar-height-mobile});
+  overflow-y: scroll;
+  position: fixed;
+  top: $navbar-height-mobile;
+  right: calc(-#{$filters-menu-tablet-landscape-width} - 10px);
+  width: $filters-menu-tablet-landscape-width;
+  transition: .25s right;
+  &.show {
+    right: 0;
+  }
+}
+
+.filter-group {
+  border-bottom: 1px solid $light-gray;
+  position: relative;
+  .filter-icon, .filter-name {
+    padding: 10px;
+  }
+  .filter-icon {
+    color: $primary-color;
+    padding: 10px 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    i {
+      line-height: 20px;
+    }
+  }
+  .filter-name {
+    margin-left: 30px;
+  }
+  .filter-options {
+    margin-left: 30px;
+    padding: 0 10px 10px;
+    .filter-option{
+      padding: 5px 0;
+      &.active {
+        color: $secondary-color;
+      }
+    }
+    .show-more, .show-less {
+      color: $primary-color;
+      font-size: 12px;
+      font-weight: bold;
+      padding-top: 5px;
+    }
+  }
+}
+
+@media (max-width: $max-tablet-portrait) {
+  .filters-menu {
+    right: calc(-#{$filters-menu-tablet-portrait-width} - 10px);
+    width: $filters-menu-tablet-portrait-width;
+  }
+}

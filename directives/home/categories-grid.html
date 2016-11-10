@@ -1,0 +1,12 @@
+<div class="categories-container categories-grid-container row">
+    <div class="category-box category-color-{{category.id}}" ng-repeat="category in categories">
+        <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item categories-grid-item">
+            <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
+            <h4 class="categories-item-title categories-grid-item-title">{{category.name}}</h4>
+        </a>
+    </div>
+</div>
+
+<div class="row center-spin" ng-if="showCategories">
+    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+</div>

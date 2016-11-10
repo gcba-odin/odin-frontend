@@ -1,0 +1,20 @@
+{
+  "name": "odin-frontend",
+  "description": "",
+  "main": "",
+  "authors": [
+    "odin"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/gcba-odin/odin-frontend",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-read-more": "git://github.com/sam2x/angular-read-more#8542c3f41ea66aff22b37249a5f05bda420a50ab"
+  }
+}

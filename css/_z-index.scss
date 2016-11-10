@@ -1,0 +1,15 @@
+.z-navbar {
+  z-index: 1030; // Bootstrap's default value
+}
+
+.z-sidebar {
+  z-index: 1020;
+}
+
+.z-sidemenu {
+  z-index: 1020;
+}
+
+.z-backdrop {
+  z-index: 1010;
+}

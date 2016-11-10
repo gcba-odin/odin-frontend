@@ -1,0 +1,12 @@
+<div class="module module-narrow module-shallow context-info" ng-if="organizations.length">
+   <h2 class="module-heading"><i class="fa fa-building"></i> Organización</h2>
+   <section class="module-content" ng-repeat="organization in organizations">
+      <div class="image">
+         <a ng-href="organization/{{organization.slug}}">
+         <img ng-src="{{organization.image}}" width="200" alt="{{organization.name}}"> </a>
+      </div>
+      <h1 class="heading">{{organization.name}}
+      </h1>
+      <p class="empty">{{organization.description}}</p>
+   </section>
+</div>

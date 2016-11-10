@@ -1,0 +1,35 @@
+<ul class="dataset-list unstyled">
+    <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'">
+        <div class="dataset-content">
+            <span class="dataset-category-icon {{ category.name | slug }}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
+            </span>
+            <h3 class="dataset-heading">
+                <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
+            </h3>
+            <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div>
+            <div class="dataset-description" hm-read-more hm-text="{{ getHtml(result.description) }}" hm-limit="150" hm-more-text=" (ver más)" hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
+        </div>
+        <ul class="dataset-resources unstyled">
+            <li ng-repeat="fileType in result.fileTypes">
+                <span class="label resource-format-label" data-format="{{fileType | lowercase}}">{{fileType | uppercase}}</span>
+            </li>
+            <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="result.additional_info && result.additional_info.length > 0">Info adicional</li>
+            <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="result.additional_info && result.additional_info.length > 0">
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="adt_info in result.additional_info">
+                        <td>{{adt_info.clave}}</td>
+                        <td>{{adt_info.valor}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP" class="widget-item-download-link download-link widget-item-footer-download-link">Descargar</a>
+            <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span>
+        </ul>
+    </li>
+</ul>

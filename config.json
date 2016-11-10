@@ -1,0 +1,26 @@
+{
+  "local": {
+    "EnvironmentConfig": {
+      "api": "http://104.45.157.22/api"
+    },
+    "BaseHTML5": {
+        "url": "/"
+    }
+  },
+  "staging": {
+    "EnvironmentConfig": {
+      "api": "http://104.208.247.131/api"
+    },
+    "BaseHTML5": {
+        "url": "/frontend/"
+    }
+  },
+  "integration": {
+    "EnvironmentConfig": {
+      "api": "http://40.76.56.16/api"
+    },
+    "BaseHTML5": {
+        "url": "/frontend/"
+    }
+  }
+}

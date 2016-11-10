@@ -1,0 +1,106 @@
+<div class="filters-menu" ng-class="{show: showFiltersMenu}">
+  <ul>
+    <li class="filter-group">
+      <div class="filter-item" ng-click="toggleFilterGroup('orderings')">
+        <div class="filter-icon">
+          <i class="fa fa-sort-amount-desc"></i>
+        </div>
+        <div class="filter-name">Ordenar</div>
+      </div>
+      <ul class="filter-options" ng-show="filterGroups['orderings']"
+        ng-controller="OrderingsController"
+      >
+        <li class="filter-option" ng-repeat="ordering in orderings"
+          ng-class="{active: ordering.active}"
+          ng-click="selectOrder(ordering)"
+        >
+          {{ordering.name}}
+        </li>
+      </ul>
+    </li>
+    <li class="filter-group">
+      <div class="filter-item" ng-click="toggleFilterGroup('tags')">
+        <div class="filter-icon">
+          <i class="fa fa-tag"></i>
+        </div>
+        <div class="filter-name">Etiquetas</div>
+      </div>
+      <ul class="filter-options" ng-show="filterGroups['tags']"
+        ng-controller="TagsController"
+      >
+        <li class="filter-option" ng-repeat="tag in tags"
+          ng-class="{active: tag.active}"
+          ng-click="selectTag(tag)"
+        >
+          {{tag.name}}
+        </li>
+        <li class="show-more" ng-click="loadTags(5)"
+          ng-if="(tags.length || limitTags === 0) && !lessThanLimit"
+        >
+          Ver más
+        </li>
+        <li class="show-less" ng-click="showLess(5)"
+          ng-if="(tags.length === 0 && limitTags !== 0) || lessThanLimit"
+        >
+          Ver menos
+        </li>
+      </ul>
+    </li>
+    <li class="filter-group">
+      <div class="filter-item" ng-click="toggleFilterGroup('filetypes')">
+        <div class="filter-icon">
+          <i class="fa fa-file"></i>
+        </div>
+        <div class="filter-name">Formatos</div>
+      </div>
+      <ul class="filter-options" ng-show="filterGroups['filetypes']"
+        ng-controller="FiletypesController"
+      >
+        <li class="filter-option" ng-repeat="filetype in filetypes"
+          ng-class="{active: filetype.active}"
+          ng-click="selectFiletype(filetype)"
+        >
+          {{filetype.name}} ({{fileTypesCount[filetype.id]}})
+        </li>
+        <li class="show-more" ng-click="loadFormats(5)"
+          ng-if="(filetypes.length || limitFormats === 0) && !lessThanLimit"
+        >
+          Ver más
+        </li>
+        <li class="show-less" ng-click="showLess(5)"
+          ng-if="(filetypes.length === 0 && limitFormats !== 0) || lessThanLimit"
+        >
+          Ver menos
+        </li>
+      </ul>
+    </li>
+    <li class="filter-group">
+      <div class="filter-item" ng-click="toggleFilterGroup('organizations')">
+        <div class="filter-icon">
+          <i class="fa fa-building"></i>
+        </div>
+        <div class="filter-name">Organizaciones</div>
+      </div>
+      <ul class="filter-options" ng-show="filterGroups['organizations']"
+        ng-controller="OrganizationsController"
+      >
+        <li class="filter-option" ng-repeat="organization in organizations"
+          ng-class="{active: organization.active}"
+          ng-click="selectOrganization(organization)"
+        >
+          {{organization.name}} ({{organizationsCount[organization.id]}})
+        </li>
+        <li class="show-more" ng-click="loadOrganizations(5)"
+          ng-if="(organizations.length || limitOrganizations === 0) && !lessThanLimit"
+        >
+          Ver más
+        </li>
+        <li class="show-less" ng-click="showLess(5)"
+          ng-if="(organizations.length === 0 && limitOrganizations !== 0) || lessThanLimit"
+        >
+          Ver menos
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
