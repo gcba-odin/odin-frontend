@@ -3,13 +3,14 @@ angular.module('odin.controllers')
 
 function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
+    const limit = 5;
     $scope.limitFormats = 0;
     $scope.filetypes = [];
     $scope.resultFormats = [];
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
-    $scope.loadFormats = function(limit) {
-        $scope.limitFormats += limit;
+    $scope.loadFormats = function(skip) {
+        $scope.limitFormats += skip;
         $scope.resultFormats = rest().get({
             type: "filetypes",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitFormats
@@ -21,7 +22,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
                 $scope.filetypes.push(filetype);
                 $scope.loadFileTypeCount(filetype.id);
             }
-            $scope.lessThanLimit = $scope.resultFormats.data.length < limit;
+            $scope.lessThanLimit = $scope.resultFormats.data.length < Math.max(skip, limit);
         });
         $scope.datasetCount = {};
     };

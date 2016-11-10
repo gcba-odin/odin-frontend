@@ -21,7 +21,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
 
     rest().get({
         type: $scope.type,
-        params: "orderBy=createdAt&sort=DESC"
+        params: "parent=null&orderBy=createdAt&sort=DESC"
     }, function(categories) {
         $scope.categories = categories.data;
         $scope.showCategories = false;
@@ -42,7 +42,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
             }
 
             for (element in statistics.data) {
-                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;;
+                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;
             }
         });
     });

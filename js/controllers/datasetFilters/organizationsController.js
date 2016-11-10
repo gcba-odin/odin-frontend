@@ -3,13 +3,14 @@ angular.module('odin.controllers')
 
 function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest) {
     var filterName = 'files.organization';
+    const limit = 5;
     $scope.limitOrganizations = 0;
     $scope.organizations = [];
     $scope.resultOrganizations = [];
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
-    $scope.loadOrganizations = function(limit) {
-        $scope.limitOrganizations += limit;
+    $scope.loadOrganizations = function(skip) {
+        $scope.limitOrganizations += skip;
         $scope.resultOrganizations = rest().get({
             type: "organizations",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
@@ -20,7 +21,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 $scope.organizations.push(organization);
                 $scope.loadOrganizationCount(organization.id);
             }
-            $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
+            $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);
         });
     };
 

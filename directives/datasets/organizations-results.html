@@ -15,7 +15,7 @@
   <p class="module-footer" ng-if="(resultOrganizations.data.length || limitOrganizations == 0) && !lessThanLimit">
       <a ng-click="loadOrganizations(5)" class="read-more">Ver más</a>
    </p>
-   <p class="module-footer" ng-if="(resultOrganizations.data.length == 0 && limitOrganizations != 0) || lessThanLimit">
+   <p class="module-footer" ng-if="(resultOrganizations.data.length == 0 && limitOrganizations != 0) || (organizations.length > 5 && lessThanLimit)">
       <a ng-click="showLess(5)" class="read-more">Ver menos</a>
    </p>
 </section>

@@ -3,13 +3,14 @@ angular.module('odin.controllers')
 
 function TagsController($rootScope, $scope, $filter, rest, LocationSearchService) {
     var filterName = 'tags.slug';
+    const limit = 5;
     $scope.limitTags = 0;
     $scope.tags = [];
     $scope.resultTags = [];
     $scope.lessThanLimit;
     
-    $scope.loadTags = function(limit) {
-        $scope.limitTags += limit;
+    $scope.loadTags = function(skip) {
+        $scope.limitTags += skip;
         $scope.resultTags = rest().get({
             type: "tags",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitTags
@@ -20,7 +21,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
             }
-            $scope.lessThanLimit = $scope.resultTags.data.length < limit;
+            $scope.lessThanLimit = $scope.resultTags.data.length < Math.max(skip, limit);
         });
 
     };

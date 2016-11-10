@@ -11,7 +11,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.type = "datasets";
     $scope.params = {
         slug: $routeParams.id,
-        include: 'tags,categories'
+        include: 'tags,categories,subcategories'
     };
 
     rest().get({
