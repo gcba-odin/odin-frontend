@@ -13,6 +13,8 @@ $goverment-grey: #aaaaaa;
 $urbanism-violet: #9d6db6;
 $culture-pink: #f562a2;
 
+
+
 @mixin category-color-manager($color) {
     h4 {
         color: $color !important;
@@ -164,6 +166,7 @@ body {
 
 .categories-item:hover h4 {
     color: rgba(32, 149, 242, 0.8);
+
 }
 
 .text-auxiliar-bar {

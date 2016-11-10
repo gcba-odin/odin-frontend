@@ -9,17 +9,19 @@
         <meta name="theme-color" content="#ffffff">
 
         <!-- CSS CDN dependencies:START -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+
         <!-- CSS CDN dependencies:END -->
 
         <!-- CSS Vendor dependencies bundle -->
         <!-- build:css vendors.min.css -->
+
         <!-- endbuild -->
         <!-- CSS Vendor dependencies:END -->
 
         <!-- CSS bundle -->
+        <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="plugins/leaflet/leflet.css">
+        <link rel="stylesheet" href="plugins/font-awesome/font-awesome.min.css">
         <link rel="stylesheet" href="bundle.min.css">
 
         <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
@@ -46,7 +48,6 @@
                 a.src = g;
                 m.parentNode.insertBefore(a, m)
             })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
             ga('create', 'UA-85049588-1', 'auto');
         </script>
     </head>
@@ -64,14 +65,6 @@
         <footer-bar></footer-bar>
 
         <!-- CDN dependencies:START -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.6/angular-moment.min.js"></script>
-        <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
         <!-- CDN dependencies:END -->
 
         <!-- JS Vendor dependencies:START -->
@@ -91,10 +84,20 @@
         <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script>
         <script src="node_modules/angular-media-queries/match-media.js"></script>
         <script src="node_modules/slug/slug.js"></script>
+        <script src="plugins/jquery.min.js"></script>
+        <script src="plugins/angular/angular.min.js"></script>
+        <script src="plugins/angular/angular-route.min.js"></script>
+        <script src="plugins/angular/angular-resource.min.js"></script>
+        <script src="plugins/bootstrap/bootstrap.min.js"></script>
+        <script src="plugins/leaflet/leaflet.js"></script>
+        <script src="plugins/moment.min.js"></script>
+
+
         <!-- endbuild -->
         <!-- JS Vendor dependencies:END -->
 
         <!-- JS bundle -->
+
         <script src="bundle.min.js"></script>
 
         <!-- build:js pdf.js -->

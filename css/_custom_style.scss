@@ -1,8 +1,131 @@
+input[type="email"],
+input[type="text"] {
+    height: auto;
+
+}
+
+.branding-data{
+  background-color: #FFFFFF;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
+
+}
+
+.branding-data:after{
+  background: none;
+
+}
+
+.base-text-logo{
+  bottom: -50%;
+  color: black;
+  font-size: 6px;
+  position: absolute;
+  right: 0%;
+
+}
+
+.category-box{
+  background-color: $ba-skyblue;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px #888888;
+  margin: 5px;
+  width: 26%;
+
+}
+
+.category-box:hover{
+  background-color: $ba-yellow;
+
+}
+
+.categories-item-title, .categories-item-title:hover{
+  color: #FFFFFF !important;
+
+}
+
+.description-header{
+  padding-top: 3px;
+  position: relative;
+
+}
+
+.navbar-ba-logo{
+  background-image: url("../images/ba-logo.svg");
+  height:40px;
+  left: 50%;
+  position: absolute;
+  transform:        translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform:  translateX(-50%);
+    -o-transform:   translateX(-50%);
+  top: 0px;
+  width: 170px;
+
+}
+
+.lead{
+  display: none;
+
+}
+
+.search-bar{
+  display: none;
+
+}
+
 .section-title {
     margin-top: 2em;
 }
 
-input[type="email"],
-input[type="text"] {
-    height: auto;
+.text-auxiliar-bar{
+  background-color: $ba-yellow;
+}
+
+.text-auxiliar-bar:first-of-type a{
+  color: white;
+  font-size: 13px;
+  line-height: 45px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-auxiliar-bar:first-of-type a:before {
+    background-image: url("../images/complete-catalog.svg");
+}
+
+.auxiliar-bar {
+    margin-top: 30px;
+}
+
+// Fix to break words on categories
+@media (max-width: $min-phone-portrait) {
+  .category-box {
+    word-wrap: break-word;
+  }
+}
+
+@media only screen and (min-width : $max-phone-portrait) {
+  .base-text-logo{
+    bottom: -40%;
+    font-size: 8.5px;
+  }
+
+  .lead{
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.4;
+    color: black;
+    display: block;
+  }
+
+  .search-bar-home{
+    display: block;
+
+  }
+
+  .navbar-theme{
+    height: 40px;
+
+  }
 }
