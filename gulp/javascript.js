@@ -14,7 +14,7 @@ gulp.task('javascript', ['ng-config'], function() {
       .pipe(ngAnnotate({
         add: true
       }))
-      .pipe(process.env.NODE_ENV ? uglify() : util.noop())
+      .pipe(process.env.NODE_ENV ? uglify({ mangle: false }) : util.noop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
