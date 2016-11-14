@@ -18,7 +18,8 @@
         "pdf",
         "ngtweet",
         "matchMedia",
-        "hm.readmore",
+        "hm.readmore"
+
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider) {
 
