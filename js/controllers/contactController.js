@@ -1,4 +1,4 @@
-function contactController($scope, vcRecaptchaService) {
+function contactController($scope, $http, vcRecaptchaService) {
     recaptchaId = null;
     $scope.setRecaptchaId = function (widgetId) {
         console.log(widgetId);
@@ -6,16 +6,14 @@ function contactController($scope, vcRecaptchaService) {
     };
 
     $scope.submit = function () {
-        console.log('TBD API PUSH');
-
         if (!vcRecaptchaService.getResponse(recaptchaId)) {
             $scope.od_captcha = null;
             vcRecaptchaService.reload(recaptchaId);
             alert('Por favor, completa el captcha.');
         } else {
-            var data = {
-                recaptcha: vcRecaptchaService.getResponse(recaptchaId)
-            }
+          // TBD: send email by ODINApi
+
         }
-    };
+    }
+
 }

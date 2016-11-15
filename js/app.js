@@ -28,13 +28,11 @@
 
         vcRecaptchaServiceProvider.setDefaults({
             key: '6LetbAcUAAAAABWhGuMbTaYQBferzWoxYvmtx9PS',
-           //key: '6Ldn4QsUAAAAANEzMYDRiemDKf5X5WyMd0-EpYoc',
-
-           theme: 'light',
-           //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
-           //            size: '---- compact or normal ----',
-           //            type: '---- audio or image ----'
-       });
+            theme: 'light',
+            //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
+            //            size: '---- compact or normal ----',
+            //            type: '---- audio or image ----'
+        });
 
         $routeProvider
             .when("/", {

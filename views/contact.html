@@ -10,23 +10,23 @@
             <form ng-submit="submit()">
                 <div class="form-group">
                     <small for="name">Nombre</small>
-                    <input type="text" pattern="^[a-zA-Z]+$" class="form-control" name="name" id="name" placeholder="Nombre" required>
+                    <input ng-model="name" type="text" pattern="^[a-zA-Z]+$" oninvalid="setCustomValidity('Por favor complete solo con letras.')" class="form-control" name="name" id="name" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
                     <small for="mail">Mail</small>
-                    <input type="email" class="form-control" id="mail" placeholder="Mail" required>
+                    <input ng-model="mail" type="email" class="form-control" id="mail" placeholder="Mail" required>
                 </div>
                 <div class="form-group">
                     <small for="description">Descripción</small>
-                    <textarea class="form-control" id="description" placeholder="" rows="5" required></textarea>
+                    <textarea ng-model="comment" class="form-control" id="description" placeholder="" rows="5" required></textarea>
                 </div>
                 <div class="form-group">
                     <!-- <div class="g-recaptcha" data-sitekey="6Ldn4QsUAAAAAAqW7VwrjFyNCPoBOnb-KpJY4amZ"></div> -->
-                    <div vc-recaptcha ng-model="$scope.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
+                    <div vc-recaptcha ng-model="vm.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
                 </div>
 
                 <button type="submit" class="btn btn-success pull-right">Enviar</button>
-
+                <div id="messages" class="alert alert-success" ng-show="message" ng-bind="messages"></div>
             </form>
         </section>
 
