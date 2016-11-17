@@ -118,6 +118,7 @@
 
     function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
+        $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
         screenSize.rules = {
