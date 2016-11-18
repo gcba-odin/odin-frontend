@@ -27,7 +27,7 @@
         $locationProvider.html5Mode(true);
 
         vcRecaptchaServiceProvider.setDefaults({
-            key: '6LetbAcUAAAAABWhGuMbTaYQBferzWoxYvmtx9PS',
+            key: '6LcBhAkUAAAAANjrhmqwe62Y61sUKkwYncA-bpaT',
             theme: 'light',
             //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
             //            size: '---- compact or normal ----',
