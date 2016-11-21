@@ -19,10 +19,20 @@
         "ngtweet",
         "matchMedia",
         "hm.readmore",
+        "vcRecaptcha"
+
     ]);
-    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider) {
+    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider) {
 
         $locationProvider.html5Mode(true);
+
+        vcRecaptchaServiceProvider.setDefaults({
+            key: '6LcBhAkUAAAAANjrhmqwe62Y61sUKkwYncA-bpaT',
+            theme: 'light',
+            //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
+            //            size: '---- compact or normal ----',
+            //            type: '---- audio or image ----'
+        });
 
         $routeProvider
             .when("/", {
@@ -108,6 +118,7 @@
 
     function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
+        $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
         screenSize.rules = {
