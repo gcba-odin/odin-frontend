@@ -584,10 +584,10 @@ h2 {
 }
 
 .widget-item {
-    margin-bottom: 5px;
-    width: calc(50% - 30px);
-    float: left;
-    margin-right: 30px;
+    // margin-bottom: 5px;
+    // width: calc(50% - 30px);
+    // float: left;
+    // margin-right: 30px;
 }
 
 .widget> h2 {
@@ -1735,7 +1735,7 @@ article figcaption,
 }
 
 .title-container-home {
-    text-align: left !important;
+    text-align: left;
 }
 
 .resource-actions .dropdown {

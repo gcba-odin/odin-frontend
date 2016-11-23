@@ -3,13 +3,14 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="44.746px" height="46.583px" viewBox="0 0 44.746 46.583" enable-background="new 0 0 44.746 46.583" xml:space="preserve">
-<path fill="#FF386A" d="M38.883,9.326H28.381c-3.42,0-5.107,0.797-5.951,1.642c-0.799-0.845-2.484-1.642-5.951-1.642h-10.5
+<!-- fill="#FF386A -->
+<path fill="#FFFFFF" d="M38.883,9.326H28.381c-3.42,0-5.107,0.797-5.951,1.642c-0.799-0.845-2.484-1.642-5.951-1.642h-10.5
 	c-0.516,0-0.775,0.389-0.775,0.902v24.889c0,0.515,0.309,1.084,0.775,1.084h0.096h5.576h4.828c2.203,0,4.451,0.731,4.451,0.872l0,0
 	c0.469,0.327,0.469,0.12,0.891,0.12h1.219c0.469,0,0.469,0.207,0.891-0.215c0.096-0.141,2.344-0.777,4.404-0.777h4.879h5.576h0.094
 	c0.514,0,0.66-0.617,0.66-1.084V10.228C39.543,9.714,39.396,9.326,38.883,9.326z M21.127,12.619v22.777c0,0-1.979-1.188-4.602-1.188
 	c-0.656,0-9.832,0-9.832,0V10.818c0,0,9.221,0,9.832,0C21.586,10.818,21.127,12.619,21.127,12.619z"/>
-<rect x="9.93" y="22.182" fill="#FF386A" stroke="#FF386A" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
-<rect x="9.93" y="19.58" fill="#FF386A" stroke="#FF386A" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
-<rect x="9.93" y="24.786" fill="#FF386A" stroke="#FF386A" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
-<rect x="9.93" y="27.386" fill="#FF386A" stroke="#FF386A" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.996"/>
+<rect x="9.93" y="22.182" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
+<rect x="9.93" y="19.58" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
+<rect x="9.93" y="24.786" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.995"/>
+<rect x="9.93" y="27.386" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.4977" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.963" height="0.996"/>
 </svg>

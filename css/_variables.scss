@@ -8,8 +8,11 @@ $max-tablet-landscape: 1025px;
 $max-tablet-portrait: 992px;
 $max-phone-landscape: 768px;
 $max-phone-portrait: 480px;
-
 $min-phone-portrait: 320px;
+
+// Breakpoints specifics
+$min-iph5-portrait: 320px;
+$max-iph5-portrait: 588px;
 
 // Dimensions
 $navbar-height-desktop: 30px;

@@ -8,7 +8,8 @@
 		<g>
 			<g>
 				<g>
-					<path fill="#FF386A" d="M31.905,11.638c-3.654,0-7.347-1.455-9.531-4.363c-2.189,2.908-5.882,4.363-9.534,4.363
+					<!-- fill="#FF386A" -->
+					<path fill="#FFFFFF" d="M31.905,11.638c-3.654,0-7.347-1.455-9.531-4.363c-2.189,2.908-5.882,4.363-9.534,4.363
 						c-1.887,0-3.765-0.389-5.415-1.17c0.182,4.908,0.545,9.883,1.371,14.729c0.417,2.656,0.83,5.789,2.283,8.113
 						c1.277,2.238,3.265,4.066,5.39,5.486c1.616,1.076,3.376,1.959,5.204,2.609c0.294,0.102,0.518,0.146,0.721,0.146
 						c0.36,0,0.659-0.135,1.178-0.33c4.21-1.617,8.728-4.592,10.586-8.865c1.672-3.803,2.041-8.32,2.473-12.404
@@ -19,13 +20,13 @@
 	</g>
 	<defs>
 		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="7.425" y="7.275" width="29.896" height="34.277">
-			
+
 				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
 		</filter>
 	</defs>
 	<mask maskUnits="userSpaceOnUse" x="7.425" y="7.275" width="29.896" height="34.277" id="SVGID_1_">
 		<g filter="url(#Adobe_OpacityMaskFilter)">
-			
+
 				<image overflow="visible" width="142" height="160" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEBLAEsAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAKpAAAEuQAACIn/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
@@ -82,6 +83,6 @@ iqbQj+f/AMn0fnT/AAf8mD44I//Z" transform="matrix(0.24 0 0 0.24 5.4248 5.2749)">
 		</g>
 	</g>
 </g>
-<polygon fill="#FFFFFF" points="22.473,16.06 24.454,20.072 28.882,20.716 25.676,23.839 26.433,28.25 22.473,26.167 18.512,28.25 
+<polygon fill="#FFFFFF" points="22.473,16.06 24.454,20.072 28.882,20.716 25.676,23.839 26.433,28.25 22.473,26.167 18.512,28.25
 	19.27,23.839 16.066,20.716 20.493,20.072 "/>
 </svg>
