@@ -52,8 +52,9 @@
                 templateUrl: "views/terms_and_conditions.html",
                 controller: termsAndConditionsController
             }).when("/contact", {
-                templateUrl: "views/contact.html",
-                controller: contactController
+                redirectTo: '/'
+                // templateUrl: "views/contact.html",
+                // controller: contactController
             }).otherwise({
                 redirectTo: '/'
             });
