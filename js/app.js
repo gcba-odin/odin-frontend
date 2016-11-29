@@ -54,6 +54,9 @@
             }).when("/contact", {
                 templateUrl: "views/contact.html",
                 controller: contactController
+            }).when("/layout/:id/preview", {
+                templateUrl: "views/layout.html",
+                controller: LayoutController
             }).otherwise({
                 redirectTo: '/'
             });

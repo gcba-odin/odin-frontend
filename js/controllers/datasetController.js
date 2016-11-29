@@ -210,7 +210,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
                   if (element.layout == true) {
                     $scope.layout = true;
-                    $scope.layout_url = element.url;
+                    $scope.layout_id = element.id;
                   }
 
             });

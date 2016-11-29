@@ -1,0 +1,23 @@
+<div role="main">
+    <div id="content" class="container">
+        <div class="row">
+            <div class="primary col-md-12">
+                <section class="module">
+                    <h2 class="dataset-heading">{{resource.dataset.name}}</h2>
+                    <div class="module-content">
+                        <div class="resource-pdf">
+                            <div class="wrapper" ng-if="!!resource.url">
+                                <h1 class="pdf-title">{{resource.name}}</h1>
+                                <ng-pdf style="height: 600px !important" template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center-spin" ng-if="showLoading">
+                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
