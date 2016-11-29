@@ -176,15 +176,14 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     data: [element.resources.data.charts[charts].data.data]
                                 }
 
-                                var getRandomColor = function() {
+                                var getRandomColor = function (point) {
+                                    var palette = ['#88BF48', '#F562A2', '#CCCCCC',
+                                                   '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
+                                                   '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
+                                                   '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
+                                                   '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
 
-                                    var letters = '0123456789ABCDEF'.split('');
-                                    var color = '#';
-                                    for (var i = 0; i < 6; i++) {
-                                        color += letters[Math.floor(Math.random() * 16)];
-                                    }
-                                    return color;
-
+                                    return palette[Math.round(point % palette.length)];
                                 }
 
                                 element.resources.data.charts[charts].colors = [];
@@ -192,8 +191,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     element.resources.data.charts[charts].colors[0] = {
                                         backgroundColor: []
                                     };
-                                    angular.forEach(element.resources.data.charts[charts].data.data, function(element_chart) {
-                                        element.resources.data.charts[charts].colors[0].backgroundColor.push(getRandomColor());
+                                    angular.forEach(element.resources.data.charts[charts].data.data, function(val, key) {
+                                        element.resources.data.charts[charts].colors[0].backgroundColor.push(getRandomColor(key));
                                     });
                                 }
                             }
