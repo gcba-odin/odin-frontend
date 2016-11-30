@@ -34,7 +34,7 @@ hr{
   height: 30px;
   width: 60px;
   position: absolute;
-  right: 3%;
+  right: 2%;
   top: 15%;
 }
 
@@ -64,36 +64,16 @@ hr{
   background: none;
 }
 
-.branding-data .description-header h1{
-  padding-top: 5px;
-  // margin-left: 6%;
-}
-
-
 .category-box {
     background-color: #19c3e3;
     border-radius: 3px;
     // box-shadow: 1px 1px 10px #888888;
-    padding-top: 15px;
-    margin: 15px;
-    height: 150px;
+    padding-top: 0px;
+    margin: 8px;
+    height: 90px;
 
 }
 
-
-
-// .category-box{
-//   background-color: $ba-skyblue;
-//   border-radius: 3px;
-//   box-shadow: 1px 1px 10px #888888;
-//   height: 106px;
-//   margin: 5px 5px;
-//   padding-top: 10px;
-//   padding-left: 0px;
-//   padding-right: 0px;
-//   width: 98px;
-//
-// }
 
 .category-box:hover{
   background-color: $ba-yellow;
@@ -102,6 +82,7 @@ hr{
 
 .categories-container{
   margin-bottom: 50px;
+
 }
 
 
@@ -112,21 +93,27 @@ hr{
 .categories-grid-item{
   margin: 0px;
 }
+
 .categories-item-title, .categories-item-title:hover{
   color: #FFFFFF !important;
+  font-size: 10px;
+  margin: 0px -10px;
 }
 
 .categories-item{
   height: 60px;
   margin-bottom: 0px;
   margin-top: 3px;
-  margin-left: 15px;
+  margin-left: 0px;
   text-align: center;
 }
 
-
 .container-dataset > .thumbnail{
   border: none;
+}
+
+.categories-item .category-image{
+  margin-bottom: 0px;
 }
 
 .categories-row-container {
@@ -170,14 +157,16 @@ hr{
 .dataset-latest-update-alt{
   color: #606060;
 }
+
 .dataset-heading-alt a{
   color: #606060;
 }
 
 
 .description-header{
-  padding-top: 3px;
+  padding-top: 5px;
   position: relative;
+  margin-left: 8px;
 }
 
 .dataset-resources .unstyled{
@@ -346,7 +335,7 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 .navbar-ba-logo{
   background-image: url("../images/ba-logo.svg");
   height:40px;
-  left: 50%;
+  left: 45%;
   position: absolute;
   transform:        translateX(-50%);
     -moz-transform: translateX(-50%);
@@ -575,11 +564,32 @@ ul.unstyled-alt{
   .auxiliar-bar-line{
     border-bottom: none;
   }
+  .ba-logo-mobile{
+    right: 3%;
+  }
   .breadcrumb{
     background: white;
     display: inline-block;
     padding: 8px 15px;
     margin-left: 10px;
+  }
+
+  .category-box {
+      background-color: #19c3e3;
+      border-radius: 3px;
+      // box-shadow: 1px 1px 10px #888888;
+      padding-top: 15px;
+      margin: 15px;
+      height: 150px;
+
+  }
+
+  .categories-item {
+      height: 60px;
+      margin-bottom: 0px;
+      margin-top: 3px;
+      margin-left: 15px;
+      text-align: center;
   }
 
   .categories-row-item{
@@ -594,6 +604,10 @@ ul.unstyled-alt{
     display: inline-block;
     float: right;
     margin-right: 20px;
+  }
+
+  .description-header{
+    margin-left: 0px
   }
 
   .social-networks{
