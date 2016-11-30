@@ -1,9 +1,29 @@
-<div class="col-lg-10 col-lg-offset-1">
+{{count}}
+{{countInterno}}
+<div class="col-lg-10 col-lg-offset-1" ng-init="count=0; countInterno=0">
   <div class="categories-container categories-row-container auxiliar-bar-line">
-      <!-- <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item categories-row-item category-color-{{ category.id}}" ng-repeat="category in categories" ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}"> -->
-      <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item" ng-repeat="category in categories" ng-style="categoryColor" style="background:#E5E5E5" ng-mouseenter="changeColor(category,true)" ng-mouseleave="changeColor(category,false)" ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
-          <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
-          <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4>
+      <!-- <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item categories-row-item category-color-{{ category.id}}" ng-repeat="category in categories" ng-style="categoryColor" style="background:#E5E5E5" ng-mouseenter="changeColor(category,true)" ng-mouseleave="changeColor(category,false)" ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}"> -->
+
+
+
+           <ul>
+
+              <li ng-href="datasets?categories.slug={{ category.name | slug }}"
+              class="categories-item categories-row-item category-color-{{ category.id}}"
+              ng-repeat="category in categories" style="background:#E5E5E5"
+              ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
+                <div  ng-mouseover="countInterno = countInterno + 1" >
+                  <divng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
+                  <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4>
+                </div>
+              </li>
+
+
+          </ul>
+
+
+
+
       </a>
   </div>
 </div>

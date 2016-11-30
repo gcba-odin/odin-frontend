@@ -18,13 +18,6 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         $rootScope.showBackdrop = false;
         $rootScope.showCategoriesSidebar = false;
     };
-    $scope.changeColor = function(category, bool) {
-      if (bool) {
-        $scope.categoryColor = {color: '#'+category.color};
-      } else {
-        $scope.categoryColor = {color: '#E5E5E5'};
-      }
-    };
 
     rest().get({
         type: $scope.type,
