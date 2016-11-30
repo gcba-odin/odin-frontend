@@ -6,9 +6,16 @@ input[type="text"] {
     height: auto;
 
 }
+
 h1, h2, h3, h4 {
     line-height: 1.1;
-  }
+
+}
+
+h2, h3, h4{
+  font-family: "Chalet New York Nineteen Eighty";
+}
+
 hr{
   height: 1px;
   margin: 0 auto;
@@ -42,7 +49,7 @@ hr{
 
 .branding-data{
   background-color: #FFFFFF;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
   /* padding-bottom: 10px; */
 
 }
@@ -59,25 +66,47 @@ hr{
 
 .branding-data .description-header h1{
   padding-top: 5px;
-  margin-left: 6%;
+  // margin-left: 6%;
 }
 
-.category-box{
-  background-color: $ba-skyblue;
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px #888888;
-  height: 106px;
-  margin: 5px 5px;
-  padding-top: 10px;
-  padding-left: 0px;
-  padding-right: 0px;
-  width: 98px;
+
+.category-box {
+    background-color: #19c3e3;
+    border-radius: 3px;
+    // box-shadow: 1px 1px 10px #888888;
+    padding-top: 15px;
+    margin: 15px;
+    height: 150px;
 
 }
+
+
+
+// .category-box{
+//   background-color: $ba-skyblue;
+//   border-radius: 3px;
+//   box-shadow: 1px 1px 10px #888888;
+//   height: 106px;
+//   margin: 5px 5px;
+//   padding-top: 10px;
+//   padding-left: 0px;
+//   padding-right: 0px;
+//   width: 98px;
+//
+// }
 
 .category-box:hover{
   background-color: $ba-yellow;
 
+}
+
+.categories-container{
+  margin-bottom: 50px;
+}
+
+
+.category-grid{
+  background: white;
 }
 
 .categories-grid-item{
@@ -87,53 +116,54 @@ hr{
   color: #FFFFFF !important;
 }
 
-.categories-item .category-image{
+.categories-item{
+  height: 60px;
   margin-bottom: 0px;
   margin-top: 3px;
-
+  text-align: center;
 }
 
-// .col-sm-6 .datasets{
-//   padding: 0px !important;
-// }
+
+.container-dataset > .thumbnail{
+  border: none;
+}
+
+.categories-row-container {
+  height: auto;
+}
+
 .container-widget-wide{
-  padding-top: 20px;
+  // padding-top: 20px;
 }
 
 .container-widgets .widgets-first-row .widget, .widgets-second-row .widget{
-    padding-left: 0px;
-    padding-right: 0px;
+    // padding-left: 0px;
+    // padding-right: 0px;
 
 }
 
 .container-widget-wide .container{
-  padding-left: 0px;
-  padding-right: 0px;
+  // padding-left: 0px;
+  // padding-right: 0px;
 }
 
-.dataset-additional-info:after {
-    font-family: none;
-    content: none;
-    display: inline-block;
-    position: relative;
-    left: 5px;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
 
 .dataset-content{
-  background-color: inherit;
+  // background-color: inherit;
   // border-radius: 3px;
   // box-shadow: 0px 0px 10px #888888;
   margin: 10px 10px 0px 10px;
   padding: 10px 0px 10px 10px;
 }
 
+.dataset-heading {
+    font-weight: 400;
+}
+
 .dataset-heading a{
-  color:$ba-skyblue;
+  color:#3E4F5E;
+  font-size: 24px;
+  font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .dataset-latest-update-alt{
@@ -144,28 +174,101 @@ hr{
 }
 
 
-.dataset-resources .unstyled li{
-  background-color: white;
-}
 .description-header{
   padding-top: 3px;
   position: relative;
+}
+
+.dataset-resources .unstyled{
+  margin-left: 20px;
+}
+.dataset-resources .unstyled li{
+  background-color: white;
+}
+
+.dataset-additional-info{
+  color:#4D4D4D;
+  background: white;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 10px 30px 10px 10px;
+}
+
+
+.dataset-additional-info:hover{
+  color: #4D4D4D;
+}
+
+.dataset-additional-info-table{
+  background: white;
+}
+
+.dataset-additional-info-table-active {
+    overflow-y: hidden;
+    max-height: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.dataset-additional-info-table th {
+    color: #4d4d4d;
+    background: white;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    border-right: none;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 3px 7px 2px 7px;
 
 }
+.dataset-additional-info-table th:last-of-type {
+    border-right: none;
+}
+
+.dataset-additional-info-table td {
+    color: #4d4d4d;
+    font-size: 12px;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #999999;
+  }
+
+.dataset-additional-info-table td, .dataset-additional-info-table th {
+    padding: 2px 7px 1px 7px;
+    width: 15vw;
+}
+
+li.dataset-additional-info.ng-scope.dataset-additional-info-active{
+  background: gray;
+  color: white;
+}
+
+// .dataset-additional-info:after {
+//     font-family: none;
+//     content: none;
+//     display: inline-block;
+//     position: relative;
+//     left: 5px;
+//     -webkit-transform: rotate(90deg);
+//     -moz-transform: rotate(90deg);
+//     -o-transform: rotate(90deg);
+//     -ms-transform: rotate(90deg);
+//     transform: rotate(90deg);
+// }
 
 .dataset-item{
-  background: white;
+  background: #F1F1F1;
   border-bottom: none;
-  border-radius: 3px;
-  box-shadow: 0px 0px 10px #888888;
+  margin-bottom: 28px;
+  padding-bottom: 15px;
 
 }
 
 
-.dataset-hide-resource, .dataset-additional-info{
-  color:$ba-skyblue;
-  font-weight: 400;
-}
+// .dataset-hide-resource, .dataset-additional-info{
+//   color:$ba-skyblue;
+//   font-weight: 400;
+// }
 
 .fa-arrow-circle-o-down:before {
     color:$ba-skyblue;
@@ -180,6 +283,10 @@ hr{
     top: -1px;
 }
 
+.filters{
+  margin-left: 20px;
+  margin-top: 20px;
+}
 .filters-menu {
   box-shadow: -9px 10px 20px pink;
 }
@@ -188,11 +295,20 @@ hr{
   display: none;
 }
 
+.icon-download{
+  left: 180px;
+  position: absolute;
+  top: 1px;
+}
+
 .lead{
   display: none;
   letter-spacing: 1px;
 }
 
+.list-dataset{
+  margin-top: 20px;
+}
 .menu-footer{
   padding: 0px;
 }
@@ -215,6 +331,17 @@ hr{
   background: url("../images/contacto-01.svg");
 
 }
+
+.module-heading{
+  background: #C2F13A;
+  color: black;
+  font-size: 16px;
+  height: 33px;
+  margin: 3px 0px;
+}
+.module-narrow .module-footer:last-of-type:hover{
+  background: white;
+}
 .navbar-ba-logo{
   background-image: url("../images/ba-logo.svg");
   height:40px;
@@ -233,6 +360,13 @@ hr{
   color: gray;
 }
 
+.nav-simple > li, .nav-aside > li{
+  border: none;
+}
+.nav > li > a:hover{
+  background-color: white;
+  color: black;
+}
 .odin-branding{
   padding-top: 10px;
   margin: 0 auto;
@@ -246,16 +380,27 @@ hr{
   padding: 10px 0px 10px 20px;
 }
 
+.resource-format-label{
+  margin-left: 5px;
+}
+ul.dataset-resources > li:first-child > span {
+  margin-left: 20px;
+}
+
+[role=main] {
+  background: white;
+}
+
 .search-bar{
   display: none;
 
 }
 
-.search-bar .input-group input{
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.search-bar .input-group input {
+    font-size: 15px;
+    /* font-weight: 700; */
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
 }
 
 .search-bar .input-group input::-webkit-input-placeholder {
@@ -281,6 +426,10 @@ hr{
   margin-top: 0px;
 }
 
+.secondary{
+  padding: 0px;
+}
+
 .section-title {
     margin-top: 2em;
 }
@@ -292,12 +441,17 @@ hr{
 }
 
 .text-auxiliar-bar:first-of-type{
-  margin: 0 auto;
-  width: 90%;
+  border-radius: 5px;
+  margin: 56px 0px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  text-align: center;
+  // margin: 0 auto;
+  // width: 50%;
 }
 
 .text-auxiliar-bar:first-of-type a{
-  color: white;
+  color: black;
   font-size: 13px;
   line-height: 35px;
   text-align: center;
@@ -309,10 +463,22 @@ hr{
 
 }
 
+.thumbnail-dataset-icons{
+  position: absolute;
+  top: 180px;
+}
+
+.title-container-home {
+    text-align: left;
+}
+
+
+
 ul.unstyled{
-  background: white;
-  margin: 0px 10px;
-  padding: 10px 0px 7px 5px;
+  background: inherit;
+  // margin: 3px 0px 0px 0px;
+  // margin: 0px 10px;
+  // padding: 10px 0px 7px 5px;
 }
 
 ul.unstyled-alt{
@@ -323,19 +489,21 @@ ul.unstyled-alt{
 .widget{
   border: none;
   border-radius: 20px;
-  padding-right: 0px;
+  // padding-right: 0px;
 }
 .widget > h2 {
-  background-color: $ba-skyblue;
+  // background-color: $ba-skyblue;
   border-bottom: none;
-  color: #FFFFFF !important;
+  color: $ba-skyblue;
   font-size: 23px;
   line-height: 50px;
 
   // margin-bottom: 15px;
 }
 
-
+.widget:last-of-type{
+  padding-right: none;
+}
 .widget-item-footer{
   border-bottom: none;
   padding: 10px 10px;
@@ -360,19 +528,35 @@ ul.unstyled-alt{
   padding: 5px 10px;
 }
 
+
+
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
   .branding-data .description-header h1 {
-    margin-left: -15px;
+    // margin-left: -15px;
   }
-  .category-box{
-    margin: 2px 2px;
-    width: 91px;
+  .branding-data{
+
   }
+  // .category-box{
+  //   margin: 2px 2px;
+  //   width: 91px;
+  // }
 
   .text-auxiliar-bar:first-of-type {
     width: 100%;
   }
+
+  .toolbar  {
+    float: left;
+    font-size: 20px;
+    line-height: 1.3;
+    // margin: 0px;
+    margin-left: 15px;
+    padding: 0;
+
+  }
+
   .widget > h2 {
     font-size: 21px;
   }
@@ -384,25 +568,42 @@ ul.unstyled-alt{
     top: 5px;
   }
 }
-
+/* ----------- End Iphone Fixes --------- */
 
 @media (min-device-width: 768px){
-  .category-box{
-    height: 115px;
-    width: 135px;
+  .auxiliar-bar-line{
+    border-bottom: none;
   }
-  .container-widgets .widgets-first-row .widget, .widgets-second-row .widget{
-      // padding-left: 0px;
-      // padding-right: 0px;
-      // margin: 0 auto;
+  .breadcrumb{
+    background: white;
+    display: inline-block;
+    padding: 8px 15px;
+    margin-left: 10px;
   }
 
-  .container-widgets .widgets-first-row .widget,{
-    // margin-right: 10px;
+  .categories-row-item{
+      margin: 10px;
+  }
+
+  .container-dataset{
+    padding: 0px 15px 15px 0px;
+  }
+
+  .datasets-counter{
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+  }
+
+  .social-networks{
+    padding-right: 0px;
+    margin-left: 15px;
   }
 
   .widget> h2 {
-    margin: 0px 15px 15px 15px;
+    display: inline-block;
+    margin: 0px 15px 51px 5px;
+    text-align: left;
   }
   .widget-item {
     margin-bottom: 5px;
@@ -413,12 +614,13 @@ ul.unstyled-alt{
   .widget-item-footer{
     margin-bottom: 10px;
   }
-}
-
-@media (min-width: 992px){
-  .container, .navbar .container {
-    width: 80%;
+  .unstyled .nav .nav-simple .nav-facet{
+    background: #F1F1F1;
   }
+  .unstyled .nav .nav-simple .nav-facet:hover{
+    background: white;
+  }
+
 }
 
 @media (min-device-height: 768px) and (max-device-width: 1024px) and (orientation : portrait){
@@ -430,46 +632,62 @@ ul.unstyled-alt{
 @media only screen and (min-width : $max-phone-portrait) {
   .ba-logo-mobile{
     height: 50px;
-    right: 15%;
-    top: 20%;
-    width: 90px;
+    width: 100px;
+    right: 30px;
+    top: 25px;
+    // width: 90px;
   }
 
   .base-text-logo{
-    font-size: 9px;
-    right: 0%;
+    display: none;
+    // font-size: 9px;
+    // right: 0%;
   }
 
   .branding-data .description-header h1 {
+    margin-left: 15px;
     margin-top: 20px;
+
+  }
+
+  .branding-data{
+    margin-top: 0px;
   }
 
   .container-widget-wide{
     background-color: #E5E5E5;
   }
+
   .description-header{
     padding-bottom: 10px;
+    // margin-left: 15px;
   }
 
   .footer-social-networks{
     display: block;
   }
 
+  .input-group{
+    margin: 15px;
+  }
+
   .lead{
+    color: black;
+    display: block;
     font-size: 15px;
     font-weight: 800;
     line-height: 1.4;
-    color: black;
-    display: block;
+    margin-left: 15px;
   }
 
   .search-bar-home{
+    background: white;
     display: block;
 
   }
 
   .navbar-theme{
-    height: 40px;
-
+    display: none;
   }
+
 }
