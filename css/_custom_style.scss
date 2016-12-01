@@ -240,6 +240,11 @@ hr{
     width: 15vw;
 }
 
+
+.dataset-description{
+  margin-bottom: 15px;
+}
+
 li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   background: gray;
   color: white;
@@ -266,6 +271,9 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 }
 
+.dataset-single-tags{
+  margin-top: 15px;
+}
 
 // .dataset-hide-resource, .dataset-additional-info{
 //   color:$ba-skyblue;
