@@ -37,7 +37,7 @@ hr{
   height: 30px;
   width: 60px;
   position: absolute;
-  right: 2%;
+  right: 0%;
   top: 15%;
 }
 
@@ -589,7 +589,7 @@ ul.unstyled-alt{
     border-bottom: none;
   }
   .ba-logo-mobile{
-    right: 3%;
+    right: -8%;
   }
   .branding-data{
     margin-top: -30px;
@@ -686,7 +686,7 @@ ul.unstyled-alt{
   .ba-logo-mobile{
     height: 50px;
     width: 100px;
-    right: 30px;
+    // right: 30px;
     top: 25px;
     // width: 90px;
   }
@@ -743,4 +743,10 @@ ul.unstyled-alt{
     display: none;
   }
 
+}
+
+@media (min-device-width: 1024px){
+  .ba-logo-mobile{
+    right: 3%;
+  }
 }
