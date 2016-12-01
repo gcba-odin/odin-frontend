@@ -5,11 +5,11 @@
         <categories-sidebar ng-if="isMobile"></categories-sidebar>
         <filters-menu ng-if="isMobile"></filters-menu>
         <div class="flash-messages"></div>
-        <div class="row datasets-header">
+        <!-- <div class="row datasets-header">
             <div class="toolbar">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb"> -->
                     <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                    <li class="breadcrumb-item">
+                    <!-- <li class="breadcrumb-item">
                         <a ng-href="{{baseHtml5}}">INICIO</a>
                     </li>
                     <li class="breadcrumb-item">
@@ -19,65 +19,69 @@
                         <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString | uppercase}}</a>
                     </li>
                 </ol>
-            </div>
+            </div> -->
             <div class="dataset-single clearfix">
-                <div class="dataset-content">
+                <div class="dataset-item">
+                  <div class="dataset-content">
                     <h3 class="dataset-heading">
                         <a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">{{info.name}}</a>
                     </h3>
                     <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
                     <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
+                    <ul class="dataset-resources unstyled">
+                      <li class="pull-right" ng-if="layout == true"><a href="{{layout_url}}" target="_blank">Guía de datos</a></li>
+                        <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                        <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>Campo</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="adt_info in info.additional_info">
+                                    <td>{{adt_info.clave}}</td>
+                                    <td>{{adt_info.valor}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ul>
+                    <div class="dataset-single-tags">
+                      <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
+                    </div>
+                  </div>
                 </div>
                 <br>
-                <ul class="dataset-resources unstyled" style="border-bottom:1px #cccccc solid;">
-                  <li class="pull-right" ng-if="layout == true"><a href="{{layout_url}}" target="_blank">Guía de datos</a></li>
-                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
-                    <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
-                        <thead>
-                            <tr>
-                                <th>Campo</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="adt_info in info.additional_info">
-                                <td>{{adt_info.clave}}</td>
-                                <td>{{adt_info.valor}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </ul>
-                <div class="dataset-single-tags">
-                    <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
+            </div>
+            <div class="row results wrapper">
+              <aside class="secondary col-md-3" ng-if="!isMobile">
+                  <div class="filters">
+                      <div>
+                          <order-result files-view="true"></order-result>
+                          <socials-dataset dataset="info"></socials-dataset>
+                      </div>
+                  </div>
+              </aside>
+                <div class="primary col-md-9">
+                    <section class="module">
+                        <div class="module-content">
+                            <result-resources></result-resources>
+                        </div>
+                        <paging page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                        <div class="row center-spin" ng-if="showLoading">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>
+                    </section>
+                    <section class="module">
+                        <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
+                        <!-- <div id="disqus_thread"></div> -->
+                        <dir-disqus config="disqusConfig" disqus-shortname="{{ disqusConfig.disqus_shortname }}" disqus-identifier="{{ disqusConfig.disqus_identifier }}" disqus-url="{{ disqusConfig.disqus_url }}">
+                        </dir-disqus>
+                    </section>
                 </div>
+
             </div>
         </div>
-        <div class="row results wrapper">
-            <div class="primary col-md-9">
-                <section class="module">
-                    <div class="module-content">
-                        <result-resources></result-resources>
-                    </div>
-                    <paging page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
-                    <div class="row center-spin" ng-if="showLoading">
-                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-                    </div>
-                </section>
-                <section class="module">
-                    <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
-                    <!-- <div id="disqus_thread"></div> -->
-                    <dir-disqus config="disqusConfig" disqus-shortname="{{ disqusConfig.disqus_shortname }}" disqus-identifier="{{ disqusConfig.disqus_identifier }}" disqus-url="{{ disqusConfig.disqus_url }}">
-                    </dir-disqus>
-                </section>
-            </div>
-            <aside class="secondary col-md-3" ng-if="!isMobile">
-                <div class="filters">
-                    <div>
-                        <order-result files-view="true"></order-result>
-                        <socials-dataset dataset="info"></socials-dataset>
-                    </div>
-                </div>
-            </aside>
-        </div>
+
     </div>
 </div>

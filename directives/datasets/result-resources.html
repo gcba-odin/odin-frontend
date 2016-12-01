@@ -1,5 +1,5 @@
 <div class="dataset-list unstyled">
-    <h2 class="list-heading">Recursos y descargas</h2>
+    <!-- <h2 class="list-heading">Recursos y descargas</h2> -->
     <div class="dataset-item clearfix" ng-repeat="resource in files" ng-if="resource.layout == false || resource.layout == null">
         <div class="dataset-content">
             <h3 class="dataset-heading">
@@ -92,7 +92,7 @@
                 <div class="resource-actions pull-right">
                     <div class="dropdown no-hover view-resources">
                         <div ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class="dataset-additional-info" ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span>
+                            <!-- <span class="dataset-additional-info"ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)"><i class="fa fa-eye" aria-hidden="true"></i></span> -->
                             <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span>
                         </div>
                         <ul class="dropdown-menu">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="dropdown no-hover">
                         <a href class="widget-item-footer-download-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Descargar
+                          <span><i class="fa fa-arrow-circle-o-down"></i></span></a>
                         </a>
                         <ul class="dropdown-menu" ng-if="!resource.type.api">
                             <li>
