@@ -504,14 +504,16 @@ ul.unstyled-alt{
   // padding-right: 0px;
 }
 .widget > h2 {
-  // background-color: $ba-skyblue;
   border-bottom: none;
   color: $ba-skyblue;
-  font-size: 23px;
+  font-size: 19px;
   line-height: 50px;
-
-  // margin-bottom: 15px;
+  display: inline-block;
+  margin-bottom: 21px;
 }
+
+
+
 
 .widget:last-of-type{
   padding-right: none;
@@ -651,6 +653,7 @@ ul.unstyled-alt{
     display: block;
   }
   .widget> h2 {
+    font-size: 23px;
     display: inline-block;
     margin: 0px 15px 51px 5px;
     text-align: left;
