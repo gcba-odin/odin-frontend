@@ -87,10 +87,7 @@ hr{
 
 .categories-container{
   margin-bottom: 50px;
-  margin-left: 15px;
-
 }
-
 
 .category-grid{
   background: white;
@@ -179,6 +176,7 @@ hr{
 .dataset-item:last-of-type{
   border-bottom: none;
   padding-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .dataset-resources .unstyled{
@@ -270,7 +268,9 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   padding-bottom: 15px;
 
 }
-
+.dataset-single {
+  border-bottom: none;
+}
 .dataset-single-tags{
   margin-top: 15px;
 }
@@ -506,14 +506,19 @@ ul.unstyled-alt{
 .widget > h2 {
   border-bottom: none;
   color: $ba-skyblue;
-  font-size: 19px;
+  font-size: 23px;
   line-height: 50px;
   display: inline-block;
   margin-bottom: 21px;
 }
 
+.widget:first-child{
+  margin-top: 0px;
+}
 
-
+.widget:last-of-type > img{
+  margin-bottom: 10px;
+}
 
 .widget:last-of-type{
   padding-right: none;
@@ -543,6 +548,12 @@ ul.unstyled-alt{
 }
 
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+  .categories-container{
+      margin-left: 15px;
+    }
+}
 
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
@@ -614,6 +625,7 @@ ul.unstyled-alt{
 
   }
 
+
   // .categories-item-title, .categories-item-title:hover{
   //   margin: 0px 0px;
   // }
@@ -628,7 +640,7 @@ ul.unstyled-alt{
 
   .categories-row-item{
       margin: 10px;
-      
+
 
   }
 
