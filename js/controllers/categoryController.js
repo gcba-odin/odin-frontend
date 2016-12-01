@@ -19,6 +19,16 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         $rootScope.showCategoriesSidebar = false;
     };
 
+    $scope.setBackColor = function (color) {
+      if (color && color !== 'null') {
+        $scope.categoryBackground = {'background': color};
+      } else {
+        $scope.categoryBackground ={'background':'#E5E5E5'};
+        color ='#E5E5E5';
+      }
+    };
+
+
     rest().get({
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
