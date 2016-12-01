@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
 }
 
 h2, h3, h4{
-  font-family: "Chalet New York Nineteen Eighty";
+  // font-family: "Chalet New York Nineteen Eighty";
 }
 
 hr{
@@ -27,6 +27,9 @@ hr{
     margin-top: 30px;
 }
 
+.auxiliar-bar-line{
+  margin-bottom: 40px;
+}
 .ba-logo-mobile{
   background-image: url("../images/BAlogoHeaderMobile.svg");
   background-repeat: no-repeat;
@@ -62,15 +65,17 @@ hr{
 .branding-data .container{
   margin-top: 5px;
   background: none;
+  margin-left: 20px;
 }
 
 .category-box {
     background-color: #19c3e3;
     border-radius: 3px;
-    // box-shadow: 1px 1px 10px #888888;
-    padding-top: 0px;
-    margin: 8px;
     height: 90px;
+    margin: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
 
 }
 
@@ -82,6 +87,7 @@ hr{
 
 .categories-container{
   margin-bottom: 50px;
+  margin-left: 15px;
 
 }
 
@@ -97,7 +103,7 @@ hr{
 .categories-item-title, .categories-item-title:hover{
   color: #FFFFFF !important;
   font-size: 10px;
-  margin: 0px -10px;
+  margin: 0px 0px;
 }
 
 .categories-item{
@@ -166,7 +172,13 @@ hr{
 .description-header{
   padding-top: 5px;
   position: relative;
-  margin-left: 8px;
+
+
+}
+
+.dataset-item:last-of-type{
+  border-bottom: none;
+  padding-bottom: 15px;
 }
 
 .dataset-resources .unstyled{
@@ -463,7 +475,9 @@ ul.dataset-resources > li:first-child > span {
 }
 
 
-
+.toolbar{
+  display: none;
+}
 ul.unstyled{
   background: inherit;
   // margin: 3px 0px 0px 0px;
@@ -567,6 +581,9 @@ ul.unstyled-alt{
   .ba-logo-mobile{
     right: 3%;
   }
+  .branding-data{
+    margin-top: -30px;
+  }
   .breadcrumb{
     background: white;
     display: inline-block;
@@ -574,21 +591,28 @@ ul.unstyled-alt{
     margin-left: 10px;
   }
 
+
   .category-box {
       background-color: #19c3e3;
       border-radius: 3px;
       // box-shadow: 1px 1px 10px #888888;
       padding-top: 15px;
       margin: 15px;
-      height: 150px;
+      margin: 15px 15px 15px 15px;
+      height: 125px;
+      // width: 15.666667%;
 
   }
+
+  // .categories-item-title, .categories-item-title:hover{
+  //   margin: 0px 0px;
+  // }
 
   .categories-item {
       height: 60px;
       margin-bottom: 0px;
       margin-top: 3px;
-      margin-left: 15px;
+      // margin-left: 15px;
       text-align: center;
   }
 
@@ -606,15 +630,18 @@ ul.unstyled-alt{
     margin-right: 20px;
   }
 
-  .description-header{
-    margin-left: 0px
-  }
+  // .description-header{
+  //   margin-left: 0px
+  // }
 
   .social-networks{
     padding-right: 0px;
     margin-left: 15px;
   }
 
+  .toolbar{
+    display: block;
+  }
   .widget> h2 {
     display: inline-block;
     margin: 0px 15px 51px 5px;
@@ -660,7 +687,7 @@ ul.unstyled-alt{
   }
 
   .branding-data .description-header h1 {
-    margin-left: 15px;
+    // margin-left: 15px;
     margin-top: 20px;
 
   }
