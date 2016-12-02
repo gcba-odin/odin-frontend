@@ -33,20 +33,7 @@
     });
 
 
-    // app.directive('ngBackground', function(color) {
-    //     return {
-    //         restrict: 'A',
-    //         scope: {
-    //           bkcolor: '@bkcolor',
-    //         },
-    //         link: function(scope, elem, attrs) {
-    //           console.log(color);
-    //           elem.bind('mouseover', function() {
-    //               elem.css('background', scope.bkcolor);
-    //           });
-    //         }
-    //     };
-    // });
+
 
     app.directive('ngEnter', function() {
         return function(scope, element, attrs) {

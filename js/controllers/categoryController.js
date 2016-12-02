@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer) {
+function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log) {
     $scope.activeCategory = $routeParams['categories.slug'];
     $scope.url_api = $rootScope.url;
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.slug'];
@@ -17,15 +17,6 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.hideCategoriesSidebar = function() {
         $rootScope.showBackdrop = false;
         $rootScope.showCategoriesSidebar = false;
-    };
-
-    $scope.setBackColor = function (color) {
-      if (color && color !== 'null') {
-        $scope.categoryBackground = {'background': color};
-      } else {
-        $scope.categoryBackground ={'background':'#E5E5E5'};
-        color ='#E5E5E5';
-      }
     };
 
 
