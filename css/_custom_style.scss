@@ -35,6 +35,15 @@ hr{
 .auxiliar-bar-line{
   margin-bottom: 40px;
 }
+
+.widgets-first-row img, .widgets-second-row img{
+  height: 50px;
+  width: 50px;
+  margin-left: 14px;
+}
+
+
+
 .ba-logo-mobile{
   background-image: url("../images/BAlogoHeaderMobile.svg");
   background-repeat: no-repeat;
@@ -701,6 +710,10 @@ ul.unstyled-alt{
   .toolbar{
     display: block;
   }
+  .widgets-first-row img, .widgets-second-row img{
+    margin-left: 0px;
+  }
+
   .widget> h2 {
     font-size: 23px;
     display: inline-block;
