@@ -12,14 +12,10 @@
 
         ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
             <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
-            <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4>
         </a>
     </div>
   </div>
 </div>
-
-      <!-- probar cambiar color desde directiva  -->
-      <!-- ng-background bkcolor="{{category.color}}" -->
 
 
 <!-- TODO replace with a better loader

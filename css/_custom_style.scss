@@ -22,6 +22,11 @@ hr{
   width: 50%;
 }
 
+.branding-data{
+  padding-left: 45px;
+}
+
+
 .auxiliar-bar {
     border-bottom: none;
     margin-top: 30px;
@@ -37,7 +42,7 @@ hr{
   height: 30px;
   width: 60px;
   position: absolute;
-  right: 0%;
+  right: 4%;
   top: 15%;
 }
 
@@ -50,6 +55,22 @@ hr{
 
 }
 
+.dataset-additional-info:active{
+  .icon-download{
+    padding-bottom: 40px;
+  }
+}
+.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,
+.dataset-additional-info:hover, .dataset-additional-info:hover:after{
+  color: inherit;
+
+}
+
+
+
+.dataset-additional-info{
+
+}
 .branding-data{
   background-color: #FFFFFF;
   // margin-bottom: 15px;
@@ -65,7 +86,7 @@ hr{
 .branding-data .container{
   margin-top: 5px;
   background: none;
-  padding-left: 25px;
+
 }
 
 .category-box {
@@ -109,6 +130,7 @@ hr{
   color: #FFFFFF !important;
   font-size: 10px;
   margin: 0px 0px;
+  width: 100%;
 }
 
 .categories-item{
@@ -305,9 +327,7 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-left: 20px;
   margin-top: 20px;
 }
-.filters-menu {
-  box-shadow: -9px 10px 20px pink;
-}
+
 
 .footer-social-networks{
   display: none;
@@ -559,7 +579,7 @@ ul.unstyled-alt{
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
   .categories-container{
-      padding-left: 20px;
+      padding-left: 15px;
 
     }
 }
@@ -611,9 +631,14 @@ ul.unstyled-alt{
   .ba-logo-mobile{
     right: -8%;
   }
+
   .branding-data{
     margin-top: -30px;
   }
+  .branding-data .description-header h1{
+    margin-left: -10px;
+  }
+
   .breadcrumb{
     background: white;
     display: inline-block;
@@ -664,11 +689,9 @@ ul.unstyled-alt{
   }
 
   .branding-data .container{
-    padding-left: 0px;
+    // padding-left: 35px;
   }
-  // .description-header{
-  //   margin-left: 0px
-  // }
+
 
   .social-networks{
     padding-right: 0px;
