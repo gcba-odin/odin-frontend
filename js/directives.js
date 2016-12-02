@@ -32,6 +32,22 @@
         };
     });
 
+
+    // app.directive('ngBackground', function(color) {
+    //     return {
+    //         restrict: 'A',
+    //         scope: {
+    //           bkcolor: '@bkcolor',
+    //         },
+    //         link: function(scope, elem, attrs) {
+    //           console.log(color);
+    //           elem.bind('mouseover', function() {
+    //               elem.css('background', scope.bkcolor);
+    //           });
+    //         }
+    //     };
+    // });
+
     app.directive('ngEnter', function() {
         return function(scope, element, attrs) {
             element.bind("keydown keypress", function(event) {
@@ -57,7 +73,7 @@
                 var attributes = $element.prop("attributes");
 
                 var token_auth = $cookieStore.get('globals').currentUser.token;
-                
+
                 $.ajax({
                     headers: {
                         'Authorization': 'Bearer ' + token_auth,

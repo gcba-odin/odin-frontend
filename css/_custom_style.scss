@@ -65,7 +65,7 @@ hr{
 .branding-data .container{
   margin-top: 5px;
   background: none;
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 .category-box {
@@ -86,7 +86,9 @@ hr{
 }
 
 .categories-container{
+  background: white;
   margin-bottom: 50px;
+  padding-top: 20px;
 }
 
 .category-grid{
@@ -306,7 +308,7 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 }
 
 .icon-download{
-  left: 180px;
+  left: 160px;
   position: absolute;
   top: 1px;
 }
@@ -551,7 +553,8 @@ ul.unstyled-alt{
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 /* Styles */
   .categories-container{
-      margin-left: 15px;
+      padding-left: 20px;
+
     }
 }
 
@@ -678,6 +681,9 @@ ul.unstyled-alt{
     height: 200px;
     // margin-top: 10px;
   }
+  .widget:last-of-type > img{
+    margin-bottom: 0px;
+  }
   .widget-item-footer{
     margin-bottom: 10px;
   }
@@ -761,6 +767,6 @@ ul.unstyled-alt{
 
 @media (min-device-width: 1024px){
   .ba-logo-mobile{
-    right: 3%;
+    right: 4%;
   }
 }
