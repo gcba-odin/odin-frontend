@@ -65,7 +65,7 @@ hr{
 .branding-data .container{
   margin-top: 5px;
   background: none;
-  margin-left: 25px;
+  padding-left: 25px;
 }
 
 .category-box {
@@ -97,6 +97,12 @@ hr{
 
 .categories-grid-item{
   margin: 0px;
+}
+
+.category-image svg{
+  height: 50px;
+  width: 50px;
+
 }
 
 .categories-item-title, .categories-item-title:hover{
@@ -657,6 +663,9 @@ ul.unstyled-alt{
     margin-right: 20px;
   }
 
+  .branding-data .container{
+    padding-left: 0px;
+  }
   // .description-header{
   //   margin-left: 0px
   // }
