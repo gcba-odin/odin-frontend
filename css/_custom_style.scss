@@ -22,9 +22,6 @@ hr{
   width: 50%;
 }
 
-.branding-data{
-  padding-left: 45px;
-}
 
 
 .auxiliar-bar {
@@ -445,6 +442,10 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 .resource-format-label{
   margin-left: 5px;
+  margin-right: 0px;
+}
+.results.wrapper{
+  margin: 0px;
 }
 ul.dataset-resources > li:first-child > span {
   // margin-left: 20px;
@@ -651,11 +652,11 @@ ul.unstyled-alt{
     border-bottom: none;
   }
 
-  .branding-data .container{
-    // padding-left: 35px;
+
+
+  .branding-data .description-header h1{
+    margin-left: 15px;
   }
-
-
   .ba-logo-mobile{
     right: -8%;
   }
@@ -663,9 +664,7 @@ ul.unstyled-alt{
   .branding-data{
     margin-top: -30px;
   }
-  .branding-data .description-header h1{
-    margin-left: -10px;
-  }
+
 
   .breadcrumb{
     background: white;
@@ -775,7 +774,7 @@ ul.unstyled-alt{
   }
   .widget-item {
     margin-bottom: 5px;
-    word-break: break-all;
+    // word-break: break-all;
     height: 200px;
     // margin-top: 10px;
   }
@@ -824,7 +823,7 @@ ul.unstyled-alt{
   }
 
   .branding-data .description-header h1 {
-    margin-left: -4px;
+
     margin-top: 20px;
 
   }
