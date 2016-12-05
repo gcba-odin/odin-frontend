@@ -22,9 +22,6 @@ hr{
   width: 50%;
 }
 
-.branding-data{
-  padding-left: 45px;
-}
 
 
 .auxiliar-bar {
@@ -251,15 +248,9 @@ hr{
 
 .dataset-additional-info-table{
   background: white;
+  margin-top: 20px;
 }
 
-.dataset-additional-info-table-active {
-    overflow-y: hidden;
-    max-height: 500px;
-    margin-left: 20px;
-    margin-top: 20px;
-    width: 308px;
-}
 
 .dataset-additional-info-table th {
     color: #4d4d4d;
@@ -444,9 +435,13 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 .resource-format-label{
   margin-left: 5px;
+  margin-right: 0px;
+}
+.results.wrapper{
+  margin: 0px;
 }
 ul.dataset-resources > li:first-child > span {
-  margin-left: 20px;
+  // margin-left: 20px;
 }
 
 [role=main] {
@@ -646,57 +641,14 @@ ul.unstyled-alt{
 
 @media (min-device-width: 768px){
 
-  ul.unstyled{
-  display: inline
-}
-.dataset-additional-info-table-active{
-  margin-left: 0px;
-}
-
-.dataset-single-tags{
-  margin-top: 0px;
-  display: inline;
-  // float: left;
-}
-.dataset-additional-info{
-  padding: 10px 20px 10px 10px;
-}
-
-
-
-
-
-
   .auxiliar-bar-line{
     border-bottom: none;
   }
-  .dataset-additional-info-table-active {
-      overflow-y: hidden;
-      max-height: 500px;
-      margin-left: 20px;
-      margin-top: 20px;
-  }
 
-  .dataset-item:last-of-type{
-    border-bottom: none;
-    padding-bottom: 30px;
-  }
-  .dataset-item{
-    background: #F1F1F1;
-    border-bottom: none;
-    margin-bottom: 28px;
-    padding-bottom: 15px;
 
-  }
 
-  .thumbnail-dataset-icons{
-    position: absolute;
-    top: 180px;
-  }
-  .icon-download{
-    left: 180px;
-    position: absolute;
-    top: 1px;
+  .branding-data .description-header h1{
+    margin-left: 15px;
   }
   .ba-logo-mobile{
     right: -8%;
@@ -705,9 +657,7 @@ ul.unstyled-alt{
   .branding-data{
     margin-top: -30px;
   }
-  .branding-data .description-header h1{
-    margin-left: -10px;
-  }
+
 
   .breadcrumb{
     background: white;
@@ -720,19 +670,12 @@ ul.unstyled-alt{
   .category-box {
       background-color: #19c3e3;
       border-radius: 3px;
-      // box-shadow: 1px 1px 10px #888888;
       padding-top: 15px;
       margin: 15px;
       margin: 15px 15px 15px 15px;
       height: 125px;
-      // width: 15.666667%;
 
   }
-
-
-  // .categories-item-title, .categories-item-title:hover{
-  //   margin: 0px 0px;
-  // }
 
   .categories-item {
       height: 60px;
@@ -744,28 +687,43 @@ ul.unstyled-alt{
 
   .categories-row-item{
       margin: 10px;
-
-
   }
 
   .container-dataset{
     padding: 0px 15px 15px 0px;
   }
 
+  .dataset-additional-info{
+    padding: 10px 20px 10px 10px;
+  }
+
+
+  .dataset-item:last-of-type{
+    border-bottom: none;
+    padding-bottom: 30px;
+  }
   .datasets-counter{
     display: inline-block;
     float: right;
     margin-right: 20px;
   }
+  .dataset-item{
+    background: #F1F1F1;
+    border-bottom: none;
+    margin-bottom: 28px;
+    padding-bottom: 15px;
 
-
-
-  .branding-data .container{
-    // padding-left: 35px;
+  }
+  .dataset-single-tags{
+    margin-top: 0px;
+    display: inline;
   }
 
-
-
+  .icon-download{
+    left: 180px;
+    position: absolute;
+    top: 1px;
+  }
 
   .search-form{
     margin-left: 15px;
@@ -776,10 +734,17 @@ ul.unstyled-alt{
 
   }
 
+
   .social-networks{
     padding-right: 0px;
     margin-left: 15px;
   }
+
+  .thumbnail-dataset-icons{
+    position: absolute;
+    top: 180px;
+  }
+
 
   .toolbar{
     display: block;
@@ -796,7 +761,7 @@ ul.unstyled-alt{
   }
   .widget-item {
     margin-bottom: 5px;
-    word-break: break-all;
+    // word-break: break-all;
     height: 200px;
     // margin-top: 10px;
   }
@@ -806,12 +771,20 @@ ul.unstyled-alt{
   .widget-item-footer{
     margin-bottom: 10px;
   }
+  .widget-item-footer-download-link{
+    margin-left: -10px;
+  }
+
+  ul.unstyled{
+    display: inline
+  }
   .unstyled .nav .nav-simple .nav-facet{
     background: #F1F1F1;
   }
   .unstyled .nav .nav-simple .nav-facet:hover{
     background: white;
   }
+
 
 }
 
@@ -837,7 +810,7 @@ ul.unstyled-alt{
   }
 
   .branding-data .description-header h1 {
-    margin-left: -4px;
+
     margin-top: 20px;
 
   }
