@@ -22,6 +22,11 @@ hr{
   width: 50%;
 }
 
+.branding-data{
+  padding-left: 45px;
+}
+
+
 .auxiliar-bar {
     border-bottom: none;
     margin-top: 30px;
@@ -30,6 +35,15 @@ hr{
 .auxiliar-bar-line{
   margin-bottom: 40px;
 }
+
+.widgets-first-row img, .widgets-second-row img{
+  height: 50px;
+  width: 50px;
+  margin-left: 14px;
+}
+
+
+
 .ba-logo-mobile{
   background-image: url("../images/BAlogoHeaderMobile.svg");
   background-repeat: no-repeat;
@@ -37,7 +51,7 @@ hr{
   height: 30px;
   width: 60px;
   position: absolute;
-  right: 0%;
+  right: 4%;
   top: 15%;
 }
 
@@ -65,8 +79,9 @@ hr{
 .branding-data .container{
   margin-top: 5px;
   background: none;
-  margin-left: 20px;
+
 }
+
 
 .category-box {
     background-color: #19c3e3;
@@ -86,11 +101,10 @@ hr{
 }
 
 .categories-container{
+  background: white;
   margin-bottom: 50px;
-  margin-left: 15px;
-
+  padding-top: 20px;
 }
-
 
 .category-grid{
   background: white;
@@ -100,10 +114,17 @@ hr{
   margin: 0px;
 }
 
+.category-image svg{
+  height: 50px;
+  width: 50px;
+
+}
+
 .categories-item-title, .categories-item-title:hover{
   color: #FFFFFF !important;
   font-size: 10px;
   margin: 0px 0px;
+  width: 100%;
 }
 
 .categories-item{
@@ -120,6 +141,7 @@ hr{
 
 .categories-item .category-image{
   margin-bottom: 0px;
+  margin-top: 5px;
 }
 
 .categories-row-container {
@@ -140,7 +162,33 @@ hr{
   // padding-left: 0px;
   // padding-right: 0px;
 }
+.container-search-bar{
+  background-color: white;
+}
 
+.dataset-additional-info:active{
+  .icon-download{
+    padding-bottom: 40px;
+  }
+}
+.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,
+.dataset-additional-info:hover, .dataset-additional-info:hover:after{
+  color: inherit;
+
+}
+
+.dataset-additional-info{
+
+}
+
+.dataset-category-icon {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100%;
+    margin-left: -5px;
+    margin-right: 0px;
+}
 
 .dataset-content{
   // background-color: inherit;
@@ -179,6 +227,7 @@ hr{
 .dataset-item:last-of-type{
   border-bottom: none;
   padding-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .dataset-resources .unstyled{
@@ -270,7 +319,9 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   padding-bottom: 15px;
 
 }
-
+.dataset-single {
+  border-bottom: none;
+}
 .dataset-single-tags{
   margin-top: 15px;
 }
@@ -297,16 +348,14 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-left: 20px;
   margin-top: 20px;
 }
-.filters-menu {
-  box-shadow: -9px 10px 20px pink;
-}
+
 
 .footer-social-networks{
   display: none;
 }
 
 .icon-download{
-  left: 180px;
+  left: 160px;
   position: absolute;
   top: 1px;
 }
@@ -506,14 +555,19 @@ ul.unstyled-alt{
 .widget > h2 {
   border-bottom: none;
   color: $ba-skyblue;
-  font-size: 19px;
+  font-size: 23px;
   line-height: 50px;
   display: inline-block;
   margin-bottom: 21px;
 }
 
+.widget:first-child{
+  margin-top: 0px;
+}
 
-
+.widget:last-of-type > img{
+  margin-bottom: 10px;
+}
 
 .widget:last-of-type{
   padding-right: none;
@@ -543,6 +597,13 @@ ul.unstyled-alt{
 }
 
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+  .categories-container{
+      padding-left: 15px;
+
+    }
+}
 
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
@@ -591,9 +652,14 @@ ul.unstyled-alt{
   .ba-logo-mobile{
     right: -8%;
   }
+
   .branding-data{
     margin-top: -30px;
   }
+  .branding-data .description-header h1{
+    margin-left: -10px;
+  }
+
   .breadcrumb{
     background: white;
     display: inline-block;
@@ -614,6 +680,7 @@ ul.unstyled-alt{
 
   }
 
+
   // .categories-item-title, .categories-item-title:hover{
   //   margin: 0px 0px;
   // }
@@ -628,6 +695,8 @@ ul.unstyled-alt{
 
   .categories-row-item{
       margin: 10px;
+
+
   }
 
   .container-dataset{
@@ -640,9 +709,15 @@ ul.unstyled-alt{
     margin-right: 20px;
   }
 
-  // .description-header{
-  //   margin-left: 0px
-  // }
+  .branding-data .container{
+    // padding-left: 35px;
+  }
+
+  .search-bar-home{
+    background: white;
+    display: block;
+
+  }
 
   .social-networks{
     padding-right: 0px;
@@ -652,6 +727,10 @@ ul.unstyled-alt{
   .toolbar{
     display: block;
   }
+  .widgets-first-row img, .widgets-second-row img{
+    margin-left: 0px;
+  }
+
   .widget> h2 {
     font-size: 23px;
     display: inline-block;
@@ -663,6 +742,9 @@ ul.unstyled-alt{
     word-break: break-all;
     height: 200px;
     // margin-top: 10px;
+  }
+  .widget:last-of-type > img{
+    margin-bottom: 0px;
   }
   .widget-item-footer{
     margin-bottom: 10px;
@@ -733,11 +815,7 @@ ul.unstyled-alt{
     margin-left: 15px;
   }
 
-  .search-bar-home{
-    background: white;
-    display: block;
 
-  }
 
   .navbar-theme{
     display: none;
@@ -747,6 +825,6 @@ ul.unstyled-alt{
 
 @media (min-device-width: 1024px){
   .ba-logo-mobile{
-    right: 3%;
+    right: 4%;
   }
 }
