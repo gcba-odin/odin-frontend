@@ -64,22 +64,6 @@ hr{
 
 }
 
-.dataset-additional-info:active{
-  .icon-download{
-    padding-bottom: 40px;
-  }
-}
-.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,
-.dataset-additional-info:hover, .dataset-additional-info:hover:after{
-  color: inherit;
-
-}
-
-
-
-.dataset-additional-info{
-
-}
 .branding-data{
   background-color: #FFFFFF;
   // margin-bottom: 15px;
@@ -97,6 +81,7 @@ hr{
   background: none;
 
 }
+
 
 .category-box {
     background-color: #19c3e3;
@@ -156,6 +141,7 @@ hr{
 
 .categories-item .category-image{
   margin-bottom: 0px;
+  margin-top: 5px;
 }
 
 .categories-row-container {
@@ -176,7 +162,33 @@ hr{
   // padding-left: 0px;
   // padding-right: 0px;
 }
+.container-search-bar{
+  background-color: white;
+}
 
+.dataset-additional-info:active{
+  .icon-download{
+    padding-bottom: 40px;
+  }
+}
+.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,
+.dataset-additional-info:hover, .dataset-additional-info:hover:after{
+  color: inherit;
+
+}
+
+.dataset-additional-info{
+
+}
+
+.dataset-category-icon {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background-size: 100%;
+    margin-left: -5px;
+    margin-right: 0px;
+}
 
 .dataset-content{
   // background-color: inherit;
@@ -701,6 +713,11 @@ ul.unstyled-alt{
     // padding-left: 35px;
   }
 
+  .search-bar-home{
+    background: white;
+    display: block;
+
+  }
 
   .social-networks{
     padding-right: 0px;
@@ -798,11 +815,7 @@ ul.unstyled-alt{
     margin-left: 15px;
   }
 
-  .search-bar-home{
-    background: white;
-    display: block;
 
-  }
 
   .navbar-theme{
     display: none;
