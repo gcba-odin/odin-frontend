@@ -177,16 +177,14 @@ hr{
 
 }
 
-.dataset-additional-info{
 
-}
 
 .dataset-category-icon {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     display: inline-block;
     background-size: 100%;
-    margin-left: -5px;
+    // margin-left: -5px;
     margin-right: 0px;
 }
 
@@ -243,7 +241,7 @@ hr{
   background: white;
   margin-bottom: 10px;
   margin-left: 10px;
-  padding: 10px 30px 10px 10px;
+  padding: 10px 15px 10px 10px;
 }
 
 
@@ -647,6 +645,28 @@ ul.unstyled-alt{
 /* ----------- End Iphone Fixes --------- */
 
 @media (min-device-width: 768px){
+
+  ul.unstyled{
+  display: inline
+}
+.dataset-additional-info-table-active{
+  margin-left: 0px;
+}
+
+.dataset-single-tags{
+  margin-top: 0px;
+  display: inline;
+  // float: left;
+}
+.dataset-additional-info{
+  padding: 10px 20px 10px 10px;
+}
+
+
+
+
+
+
   .auxiliar-bar-line{
     border-bottom: none;
   }
@@ -738,9 +758,12 @@ ul.unstyled-alt{
     margin-right: 20px;
   }
 
+
+
   .branding-data .container{
     // padding-left: 35px;
   }
+
 
 
 
@@ -814,7 +837,7 @@ ul.unstyled-alt{
   }
 
   .branding-data .description-header h1 {
-    margin-left: 15px;
+    margin-left: -4px;
     margin-top: 20px;
 
   }
@@ -840,7 +863,7 @@ ul.unstyled-alt{
   }
 
   .input-group{
-    margin: 15px;
+    // margin: 15px;
   }
 
   .row.wrapper{
@@ -853,7 +876,7 @@ ul.unstyled-alt{
     font-size: 15px;
     font-weight: 800;
     line-height: 1.4;
-    margin-left: 30px;
+    margin-left: 20px;
   }
 
 
