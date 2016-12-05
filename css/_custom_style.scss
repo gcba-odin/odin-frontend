@@ -230,6 +230,7 @@ hr{
   margin-bottom: 0px;
 }
 
+
 .dataset-resources .unstyled{
   margin-left: 20px;
 }
@@ -259,6 +260,7 @@ hr{
     max-height: 500px;
     margin-left: 20px;
     margin-top: 20px;
+    width: 308px;
 }
 
 .dataset-additional-info-table th {
@@ -316,7 +318,7 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   background: #F1F1F1;
   border-bottom: none;
   margin-bottom: 28px;
-  padding-bottom: 15px;
+  padding-bottom: 30px;
 
 }
 .dataset-single {
@@ -354,11 +356,13 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   display: none;
 }
 
+
 .icon-download{
   left: 160px;
   position: absolute;
   top: 1px;
 }
+
 
 .lead{
   display: none;
@@ -522,10 +526,6 @@ ul.dataset-resources > li:first-child > span {
 
 }
 
-.thumbnail-dataset-icons{
-  position: absolute;
-  top: 180px;
-}
 
 .title-container-home {
     text-align: left;
@@ -648,6 +648,34 @@ ul.unstyled-alt{
 @media (min-device-width: 768px){
   .auxiliar-bar-line{
     border-bottom: none;
+  }
+  .dataset-additional-info-table-active {
+      overflow-y: hidden;
+      max-height: 500px;
+      margin-left: 20px;
+      margin-top: 20px;
+  }
+
+  .dataset-item:last-of-type{
+    border-bottom: none;
+    padding-bottom: 30px;
+  }
+  .dataset-item{
+    background: #F1F1F1;
+    border-bottom: none;
+    margin-bottom: 28px;
+    padding-bottom: 15px;
+
+  }
+
+  .thumbnail-dataset-icons{
+    position: absolute;
+    top: 180px;
+  }
+  .icon-download{
+    left: 180px;
+    position: absolute;
+    top: 1px;
   }
   .ba-logo-mobile{
     right: -8%;

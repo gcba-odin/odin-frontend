@@ -27,7 +27,7 @@
         $locationProvider.html5Mode(true);
 
         vcRecaptchaServiceProvider.setDefaults({
-            key: '6LetbAcUAAAAABWhGuMbTaYQBferzWoxYvmtx9PS',
+            key: '6LcBhAkUAAAAANjrhmqwe62Y61sUKkwYncA-bpaT',
             theme: 'light',
             //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
             //            size: '---- compact or normal ----',
@@ -52,8 +52,9 @@
                 templateUrl: "views/terms_and_conditions.html",
                 controller: termsAndConditionsController
             }).when("/contact", {
-                templateUrl: "views/contact.html",
-                controller: contactController
+                redirectTo: '/'
+                // templateUrl: "views/contact.html",
+                // controller: contactController
             }).otherwise({
                 redirectTo: '/'
             });
@@ -118,6 +119,7 @@
 
     function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
         $rootScope.url = EnvironmentConfig.api;
+        $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
         screenSize.rules = {
