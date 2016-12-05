@@ -354,11 +354,6 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   display: none;
 }
 
-.icon-download{
-  left: 160px;
-  position: absolute;
-  top: 1px;
-}
 
 .lead{
   display: none;
@@ -713,6 +708,11 @@ ul.unstyled-alt{
     // padding-left: 35px;
   }
 
+
+
+  .search-form{
+    margin-left: 15px;
+  }
   .search-bar-home{
     background: white;
     display: block;
@@ -780,7 +780,7 @@ ul.unstyled-alt{
   }
 
   .branding-data .description-header h1 {
-    // margin-left: 15px;
+    margin-left: 15px;
     margin-top: 20px;
 
   }
@@ -793,6 +793,9 @@ ul.unstyled-alt{
     background-color: #E5E5E5;
   }
 
+  .dataset-single{
+    margin-left: 15px;
+  }
   .description-header{
     padding-bottom: 10px;
     // margin-left: 15px;
@@ -806,13 +809,17 @@ ul.unstyled-alt{
     margin: 15px;
   }
 
+  .row.wrapper{
+    margin-left: -5px;
+  }
+
   .lead{
     color: black;
     display: block;
     font-size: 15px;
     font-weight: 800;
     line-height: 1.4;
-    margin-left: 15px;
+    margin-left: 30px;
   }
 
 
