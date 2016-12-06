@@ -6,24 +6,18 @@ input[type="text"] {
     height: auto;
 
 }
-
 h1, h2, h3, h4 {
     line-height: 1.1;
 
 }
-
 h2, h3, h4{
   // font-family: "Chalet New York Nineteen Eighty";
 }
-
 hr{
   height: 1px;
   margin: 0 auto;
   width: 50%;
 }
-
-
-
 .auxiliar-bar {
     border-bottom: none;
     margin-top: 30px;
@@ -32,14 +26,6 @@ hr{
 .auxiliar-bar-line{
   margin-bottom: 40px;
 }
-
-.widgets-first-row img, .widgets-second-row img{
-  height: 50px;
-  width: 50px;
-  margin-left: 14px;
-}
-
-
 
 .ba-logo-mobile{
   background-image: url("../images/BAlogoHeaderMobile.svg");
@@ -63,6 +49,10 @@ hr{
 
 .branding-data{
   background-color: #FFFFFF;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
   // margin-bottom: 15px;
   /* padding-bottom: 10px; */
 
@@ -79,7 +69,6 @@ hr{
 
 }
 
-
 .category-box {
     background-color: #19c3e3;
     border-radius: 3px;
@@ -91,7 +80,6 @@ hr{
 
 }
 
-
 .category-box:hover{
   background-color: $ba-yellow;
 
@@ -101,6 +89,7 @@ hr{
   background: white;
   margin-bottom: 50px;
   padding-top: 20px;
+  padding-left: 5px;
 }
 
 .category-grid{
@@ -159,6 +148,7 @@ hr{
   // padding-left: 0px;
   // padding-right: 0px;
 }
+
 .container-search-bar{
   background-color: white;
 }
@@ -168,13 +158,11 @@ hr{
     padding-bottom: 40px;
   }
 }
-.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,
-.dataset-additional-info:hover, .dataset-additional-info:hover:after{
+
+.dataset-hide-resource:hover, .dataset-hide-resource:hover:after,.dataset-additional-info:hover, .dataset-additional-info:hover:after{
   color: inherit;
 
 }
-
-
 
 .dataset-category-icon {
     width: 25px;
@@ -190,7 +178,7 @@ hr{
   // border-radius: 3px;
   // box-shadow: 0px 0px 10px #888888;
   margin: 10px 10px 0px 10px;
-  padding: 10px 0px 10px 10px;
+
 }
 
 .dataset-heading {
@@ -211,7 +199,6 @@ hr{
   color: #606060;
 }
 
-
 .description-header{
   padding-top: 5px;
   position: relative;
@@ -225,10 +212,10 @@ hr{
   margin-bottom: 0px;
 }
 
-
 .dataset-resources .unstyled{
   margin-left: 20px;
 }
+
 .dataset-resources .unstyled li{
   background-color: white;
 }
@@ -240,7 +227,6 @@ hr{
   margin-left: 10px;
   padding: 10px 15px 10px 10px;
 }
-
 
 .dataset-additional-info:hover{
   color: #4D4D4D;
@@ -264,6 +250,7 @@ hr{
     padding: 3px 7px 2px 7px;
 
 }
+
 .dataset-additional-info-table th:last-of-type {
     border-right: none;
 }
@@ -280,7 +267,6 @@ hr{
     padding: 2px 7px 1px 7px;
     width: 15vw;
 }
-
 
 .dataset-description{
   margin-bottom: 15px;
@@ -311,9 +297,11 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   padding-bottom: 30px;
 
 }
+
 .dataset-single {
   border-bottom: none;
 }
+
 .dataset-single-tags{
   margin-top: 15px;
 }
@@ -337,23 +325,26 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 }
 
 .filters{
+  // margin-left: 20px;
   margin-left: 20px;
   margin-top: 20px;
 }
 
+.form-control:focus{
+  border-color: #C8C8C8;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
 
 .footer-social-networks{
   display: none;
 }
-
 
 .icon-download{
   // left: 160px;
   // position: absolute;
   // top: 1px;
 }
-
-
 
 .lead{
   display: none;
@@ -363,13 +354,16 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 .list-dataset{
   margin-top: 20px;
 }
+
 .menu-footer{
   padding: 0px;
 }
+
 .menu-footer a{
   font-size: 9px;
   margin-right: 0px;
 }
+
 .menu-footer a:before{
   color: black;
   margin: 0px 2px;
@@ -378,9 +372,11 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 .menu-footer-item-specifications:before{
   background: url("../images/especificaciones-01.svg");
 }
+
 .menu-footer-item-terms-and-conditions:before{
   background: url("../images/terminos-01.svg");
 }
+
 .menu-footer-item-contact:before{
   background: url("../images/contacto-01.svg");
 
@@ -391,15 +387,17 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   color: black;
   font-size: 16px;
   height: 33px;
-  margin: 3px 0px;
+  margin: 1px 0px;
 }
+
 .module-narrow .module-footer:last-of-type:hover{
   background: white;
 }
+
 .navbar-ba-logo{
   background-image: url("../images/ba-logo.svg");
   height:40px;
-  left: 45%;
+  left: 48%;
   position: absolute;
   transform:        translateX(-50%);
     -moz-transform: translateX(-50%);
@@ -410,6 +408,14 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 }
 
+.nav-simple > li, .nav-aside > li{
+  background: #F1F1F1;
+}
+
+.module-heading{
+  border: none;
+}
+
 .navbar-button, .navbar-button:hover, .navbar-button:active{
   color: gray;
 }
@@ -417,10 +423,12 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 .nav-simple > li, .nav-aside > li{
   border: none;
 }
+
 .nav > li > a:hover{
   background-color: white;
   color: black;
 }
+
 .odin-branding{
   padding-top: 10px;
   margin: 0 auto;
@@ -438,15 +446,25 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-left: 5px;
   margin-right: 0px;
 }
-.results.wrapper{
-  margin: 0px;
-}
+
 ul.dataset-resources > li:first-child > span {
   // margin-left: 20px;
 }
 
+ul.unstyled{
+  display: inline;
+}
+
 [role=main] {
   background: white;
+}
+
+.secondary{
+  padding: 0px;
+}
+
+.section-title {
+    margin-top: 2em;
 }
 
 .search-bar{
@@ -462,37 +480,27 @@ ul.dataset-resources > li:first-child > span {
 }
 
 .search-bar .input-group input::-webkit-input-placeholder {
-  color: $ba-yellow;
+  color: $ba-skyblue;
 }
 
 .search-bar .input-group input:-moz-placeholder { /* Firefox 18- */
-  color: $ba-yellow;
+  color: $ba-skyblue;
 }
 
 .search-bar .input-group input::-moz-placeholder {  /* Firefox 19+ */
-  color: $ba-yellow;
+  color: $ba-skyblue;
 }
 
 .search-bar .input-group input:-ms-input-placeholder {
-  color: $ba-yellow;
+  color: $ba-skyblue;
 }
 
 .site-footer{
   color: black;
   background-color: white;
-  padding-top: 10px;
-  margin-top: 0px;
+  padding: 10px 0px 0px 0px;
+  margin: 0px;
 }
-
-.secondary{
-  padding: 0px;
-}
-
-.section-title {
-    margin-top: 2em;
-}
-
-
 
 .text-auxiliar-bar{
   background-color: $ba-yellow;
@@ -509,7 +517,7 @@ ul.dataset-resources > li:first-child > span {
 }
 
 .text-auxiliar-bar:first-of-type a{
-  color: black;
+  color: #5F4600;
   font-size: 13px;
   line-height: 35px;
   text-align: center;
@@ -521,15 +529,14 @@ ul.dataset-resources > li:first-child > span {
 
 }
 
-
 .title-container-home {
     text-align: left;
 }
 
-
 .toolbar{
   display: none;
 }
+
 ul.unstyled{
   background: inherit;
   // margin: 3px 0px 0px 0px;
@@ -547,6 +554,7 @@ ul.unstyled-alt{
   border-radius: 20px;
   // padding-right: 0px;
 }
+
 .widget > h2 {
   border-bottom: none;
   color: $ba-skyblue;
@@ -560,6 +568,12 @@ ul.unstyled-alt{
   margin-top: 0px;
 }
 
+.widgets-first-row img, .widgets-second-row img{
+  height: 35px;
+  width: 35px;
+  // margin-left: 14px;
+}
+
 .widget:last-of-type > img{
   margin-bottom: 10px;
 }
@@ -567,6 +581,7 @@ ul.unstyled-alt{
 .widget:last-of-type{
   padding-right: none;
 }
+
 .widget-item-footer{
   border-bottom: none;
   padding: 10px 10px;
@@ -582,6 +597,7 @@ ul.unstyled-alt{
   // padding-top: 20px;
   // padding-left: 10px;
 }
+
 .widget-item-title a{
   min-height: 30px;
 }
@@ -593,9 +609,8 @@ ul.unstyled-alt{
 
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-/* Styles */
   .categories-container{
-      padding-left: 15px;
+      // padding-left: 15px;
 
     }
 }
@@ -604,9 +619,6 @@ ul.unstyled-alt{
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
   .branding-data .description-header h1 {
     // margin-left: -15px;
-  }
-  .branding-data{
-
   }
   // .category-box{
   //   margin: 2px 2px;
@@ -628,11 +640,13 @@ ul.unstyled-alt{
   }
 
   .widget > h2 {
-    font-size: 21px;
+    font-size: 18px;
   }
+
   .menu-footer li{
     font-size: 7px;
   }
+
   .menu-footer a:before {
     width: 13px;
     top: 5px;
@@ -641,12 +655,9 @@ ul.unstyled-alt{
 /* ----------- End Iphone Fixes --------- */
 
 @media (min-device-width: 768px){
-
   .auxiliar-bar-line{
     border-bottom: none;
   }
-
-
 
   .branding-data .description-header h1{
     margin-left: 15px;
@@ -676,6 +687,9 @@ ul.unstyled-alt{
       margin: 15px 15px 15px 15px;
       height: 125px;
 
+  }
+  .categories-container{
+    padding-left: 0px;
   }
 
   .categories-item {
@@ -711,9 +725,8 @@ ul.unstyled-alt{
     background: #F1F1F1;
     border-bottom: none;
     margin-bottom: 28px;
-    padding-bottom: 15px;
-
   }
+
   .dataset-single-tags{
     margin-top: 0px;
     display: inline;
@@ -862,6 +875,17 @@ ul.unstyled-alt{
 
 @media (min-device-width: 1024px){
   .ba-logo-mobile{
-    right: 4%;
+    right: 2%;
+  }
+
+  .dataset-list.unstyled{
+    // margin-right: -15px;
+  }
+
+  .dataset-content{
+    padding: 10px 0px 10px 10px;
+  }
+  .results.wrapper{
+    // margin: 0px;
   }
 }

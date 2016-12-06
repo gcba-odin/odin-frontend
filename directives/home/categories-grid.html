@@ -1,6 +1,8 @@
-<div class="col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-10 col-lg-offset-1">
+<div class="col-xs-12 col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 col-lg-10 col-lg-offset-1">
   <!-- <div class="col-xs-3 col-sm-4 col-md-2 col-lg-2 category-box category-color-{{category.id}}" ng-repeat="category in categories"> -->
-  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 category-box" ng-repeat="category in categories" style="background: {{category.color}}">
+  <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 category-box" ng-repeat="category in categories"
+       style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
+       ng-style="hoverActive && category.color !== 'null'   ? {'background-color': category.color} : {'background-color':'#E5E5E5'}">
     <a ng-href="datasets?categories.slug={{ category.name | slug }}" class="categories-item categories-grid-item">
         <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
         <h4 class="categories-item-title categories-grid-item-title">{{category.name}}</h4>
