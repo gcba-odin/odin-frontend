@@ -19,13 +19,14 @@
                     </li>
                 </ol>
                 <div class="datasets-counter">
+                  <div id="category-img" ng-style="{background:blue}" ng-if="currentCategory.id" class="category-image" svg-img="url_api + '/categories/' + currentCategory.id + '/image'"></div>
                   <span>{{countDatasets > 0 ? countDatasets + " Datasets" : "No se han encontrado elementos" }}</span>
                 </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <aside class="secondary col-lg-3" ng-if="!isMobile">
+          <aside class="secondary col-lg-4" ng-if="!isMobile">
             <div class="col-lg-9 col-lg-offset-3">
               <div class="filters">
                   <div>
@@ -38,7 +39,7 @@
             </div>
           </aside>
           <!-- <div class="primary col-lg-8"> -->
-          <div class="primary col-xs-12 col-lg-8 col-lg-offset-0">
+          <div class="primary col-xs-12 col-lg-7 col-lg-offset-0">
                 <section class="module">
                     <div class="module-content">
                         <result-datasets></result-datasets>

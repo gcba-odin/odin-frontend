@@ -18,6 +18,13 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
             'categories.slug': $routeParams['categories.slug'],
         };
 
+        var category = rest().get({
+          type: 'categories',
+          params: 'slug='+$routeParams['categories.slug']
+        }, function(resp) {
+          console.log(resp);
+          $scope.currentCategory = resp.data[0];
+        });
 
 
           $scope.modelName = "Dataset";
