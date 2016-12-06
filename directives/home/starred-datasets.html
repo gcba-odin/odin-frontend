@@ -1,6 +1,6 @@
 <div ng-repeat="item in starredDataset.data">
   <!-- <div class="col-sm-6 datasets"> -->
-  <div class="col-sm-3 col-md-6 col-lg-6 container-dataset">
+  <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6 container-dataset">
     <div class="thumbnail">
       <div class="caption widget-item" ng-click="datasets.goToUrl()">
         <h3 class="widget-item-title">  <a ng-href="dataset/{{ item.name | slug }}">{{item.name | limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</a></h3>
