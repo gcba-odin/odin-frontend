@@ -7,7 +7,12 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.tags = [];
     $scope.resultTags = [];
     $scope.lessThanLimit;
-    
+    $scope.toggle = false;
+
+    $scope.toggleCustom = function() {
+       $scope.toggle = $scope.toggle === false ? true: false;
+    };
+
     $scope.loadTags = function(limit) {
         $scope.limitTags += limit;
         $scope.resultTags = rest().get({

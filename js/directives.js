@@ -86,6 +86,13 @@
 
                         // Removes opacity
                         $element.find("g[opacity='0.75']").css("opacity", 0);
+
+                        if(!!attrs.currentcolor) {
+                          $element.find("path").css("fill", attrs.currentcolor);
+                          $element.find("rect").css("fill", attrs.currentcolor);
+                          $element.find("polygon").css("fill", attrs.currentcolor);
+                          $element.find("circle").css("fill", attrs.currentcolor);
+                        }
                     }});
             }
         };
