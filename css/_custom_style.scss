@@ -18,6 +18,12 @@ hr{
   margin: 0 auto;
   width: 50%;
 }
+
+li.dataset-additional-info.ng-scope.dataset-additional-info-active{
+  background: gray;
+  color: white;
+}
+
 .auxiliar-bar {
     border-bottom: none;
     margin-top: 30px;
@@ -224,7 +230,7 @@ hr{
   color:#4D4D4D;
   background: white;
   margin-bottom: 10px;
-  margin-left: 10px;
+  // margin-left: 10px;
   padding: 10px 15px 10px 10px;
 }
 
@@ -278,23 +284,9 @@ hr{
   margin-bottom: 15px;
 }
 
-li.dataset-additional-info.ng-scope.dataset-additional-info-active{
-  background: gray;
-  color: white;
+.dataset-hide-resource, .dataset-additional-info{
+  margin-left: 0px;
 }
-
-// .dataset-additional-info:after {
-//     font-family: none;
-//     content: none;
-//     display: inline-block;
-//     position: relative;
-//     left: 5px;
-//     -webkit-transform: rotate(90deg);
-//     -moz-transform: rotate(90deg);
-//     -o-transform: rotate(90deg);
-//     -ms-transform: rotate(90deg);
-//     transform: rotate(90deg);
-// }
 
 .dataset-item{
   background: #F1F1F1;
@@ -312,10 +304,45 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-top: 15px;
 }
 
-// .dataset-hide-resource, .dataset-additional-info{
-//   color:$ba-skyblue;
-//   font-weight: 400;
-// }
+.dataset-view-info{
+  color:#FFFFFF;
+  background: $ba-skyblue;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.dataset-view-info span{
+  display: inline;
+  margin:10px;
+}
+
+.dataset-view-info:after{
+  float: right;
+  font-family: "FontAwesome";
+  color: #FFFFFF;
+  content: "\f04b";
+  display: inline-block;
+  margin-right: 5px;
+  position: relative;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.dataset-view-info-active:after {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+li.dataset-view-info.ng-scope.dataset-view-info-active{
+  background: gray;
+  color: white;
+}
 
 .fa-arrow-circle-o-down:before {
     color:$ba-skyblue;
@@ -361,6 +388,29 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-top: 20px;
 }
 
+.module-heading{
+  background: $ba-skyblue;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 33px;
+  margin: 1px 0px;
+}
+
+.module-heading-clear-icon {
+    // background-image: url("../images/clear.svg");
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 1px;
+}
+
 .menu-footer{
   padding: 0px;
 }
@@ -388,31 +438,20 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 }
 
-.module-heading{
-  background: $ba-skyblue;
-  border: none;
-  color: white;
-  font-size: 16px;
-  height: 33px;
-  margin: 1px 0px;
+.module-footer{
+  background: #F1F1F1;
 }
 
 .module-narrow .module-footer:last-of-type:hover{
   background: white;
 }
 
-.module-heading-clear-icon {
-    // background-image: url("../images/clear.svg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 15px;
-    height: 15px;
-    float: right;
-    cursor: pointer;
-    position: relative;
-    left: 5px;
-    top: 1px;
+.module .read-more{
+  color: $ba-skyblue;
+}
+
+.module .read-more:hover{
+  color: $ba-skyblue;
 }
 
 .navbar-ba-logo{
@@ -455,12 +494,22 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   color: gray;
 }
 
+.resource-actions .dropdown-menu{
+  border: 1px solid #ccc;
+
+}
+
+.resource-actions {
+    display: inline-block;
+
+}
+
 .resource-footer{
-  padding: 10px 0px 10px 20px;
+  padding: 10px 0px 10px 10px;
 }
 
 .resource-format-label{
-  margin-left: 5px;
+  margin-left: 0px;
   margin-right: 0px;
 }
 
@@ -726,6 +775,7 @@ ul.unstyled-alt{
   }
 
   .dataset-additional-info{
+    border-radius: 3px;
     padding: 10px 20px 10px 10px;
   }
 
@@ -762,6 +812,17 @@ ul.unstyled-alt{
     top: 1px;
   }
 
+  .resource-actions {
+      width: 200px;
+      position: absolute;
+      right: 3%;
+      top: 180px;
+  }
+
+  .resource-footer{
+    padding-left: 25px;
+  }
+
   .search-form{
     margin-left: 15px;
   }
@@ -796,6 +857,7 @@ ul.unstyled-alt{
     margin: 0px 15px 51px 5px;
     text-align: left;
   }
+
   .widget-item {
     margin-bottom: 5px;
     // word-break: break-all;
@@ -821,7 +883,6 @@ ul.unstyled-alt{
   .unstyled .nav .nav-simple .nav-facet:hover{
     background: white;
   }
-
 
 }
 
@@ -886,10 +947,8 @@ ul.unstyled-alt{
     font-size: 15px;
     font-weight: 800;
     line-height: 1.4;
-    margin-left: 20px;
+    margin-left: 17px;
   }
-
-
 
   .navbar-theme{
     display: none;
