@@ -32,10 +32,13 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP" class="widget-item-download-link download-link widget-item-footer-download-link"><span><i class="fa fa-arrow-circle-o-down"></i></span></a>
-                <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span> -->
-            </ul>
+                <li><a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP"><span><i class="a">Descargar</i></span></a>
+                <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span> --></li>
+          </ul>
+        <!-- <div class="row">
+          <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP"><span><i class="a">Descargar</i></span></a>
+          <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span> -->
+        </div>
       </div>
 
     </div>
