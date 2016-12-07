@@ -288,6 +288,35 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   margin-left: 0px;
 }
 
+// .dataset-additional-info:after {
+//     // font-family: none;
+//     // content: none;
+//     // display: inline-block;
+//     // position: relative;
+//     // left: 5px;
+//     // -webkit-transform: rotate(90deg);
+//     // -moz-transform: rotate(90deg);
+//     // -o-transform: rotate(90deg);
+//     // -ms-transform: rotate(90deg);
+//     // transform: rotate(90deg);
+//     margin-top: 10px;
+//     width: 35%;
+// }
+
+// .dataset-resources li{
+//   width: 35%;
+//   margin-top: 10px;
+//   display: block;
+// }
+.info-adicional{
+  margin-top: 20px;
+  margin-left: 2px;
+}
+.dataset-additional-info-table.ng-scope.dataset-additional-info-table-active{
+  width: 89%;
+  margin-left: 15px;
+}
+
 .dataset-item{
   background: #F1F1F1;
   border-bottom: none;
@@ -829,9 +858,7 @@ ul.unstyled-alt{
   .search-bar-home{
     background: white;
     display: block;
-
   }
-
 
   .social-networks{
     padding-right: 0px;
