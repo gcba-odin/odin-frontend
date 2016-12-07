@@ -41,22 +41,26 @@
                         <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
                         <ul class="dataset-resources unstyled">
                           <li class="pull-right" ng-if="layout == true"><a href="{{layout_url}}" target="_blank">Guía de datos</a></li>
+                        </ul>
+                        <div class="row info-adicional">
+                          <ul class="dataset-resources unstyled">
                             <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
                             <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
-                                <thead>
-                                    <tr>
-                                        <th>Campo</th>
-                                        <th>Valor</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="adt_info in info.additional_info">
-                                        <td>{{adt_info.clave}}</td>
-                                        <td>{{adt_info.valor}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </ul>
+                              <thead>
+                                  <tr>
+                                      <th>Campo</th>
+                                      <th>Valor</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr ng-repeat="adt_info in info.additional_info">
+                                      <td>{{adt_info.clave}}</td>
+                                      <td>{{adt_info.valor}}</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                     </div>
