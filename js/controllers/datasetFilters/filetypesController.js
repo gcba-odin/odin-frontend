@@ -8,6 +8,12 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.resultFormats = [];
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
+    $scope.toggle = false;
+
+    $scope.toggleCustom = function() {
+       $scope.toggle = $scope.toggle === false ? true: false;
+    };
+    
     $scope.loadFormats = function(limit) {
         $scope.limitFormats += limit;
         $scope.resultFormats = rest().get({

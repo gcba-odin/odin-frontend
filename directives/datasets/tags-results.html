@@ -1,21 +1,24 @@
 <section class="module module-narrow module-shallow" ng-if="tags.length">
    <h2 class="module-heading">
       Etiquetas
-      <span class="module-heading-clear-icon" ng-click="removeAll()"></span>
+      <span class="module-heading-clear-icon fa fa-caret-down" ng-click="toggleCustom()"></span>
    </h2>
-   <nav>
-      <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item " ng-repeat="tag in tags" ng-class="{'active': tag.active}">
-            <a class="tags-item" ng-click="selectTag(tag)" title="{{tag.name}}">
-               <span>{{tag.name | truncString}}</span>
-            </a>
-         </li>
-      </ul>
-   </nav>
-  <p class="module-footer" ng-if="(resultTags.data.length || limitTags == 0) && !lessThanLimit">
-      <a ng-click="loadTags(5)" class="read-more">Ver más</a>
-   </p>
-   <p class="module-footer" ng-if="(resultTags.data.length == 0 && limitTags != 0) || lessThanLimit">
-      <a ng-click="showLess(5)" class="read-more">Ver menos</a>
-   </p>
+   <div ng-hide="toggle">
+     <nav>
+        <ul class="unstyled nav nav-simple nav-facet">
+           <li class="nav-item " ng-repeat="tag in tags" ng-class="{'active': tag.active}">
+              <a class="tags-item" ng-click="selectTag(tag)" title="{{tag.name}}">
+                 <span>{{tag.name | truncString}}</span>
+              </a>
+           </li>
+        </ul>
+     </nav>
+    <p class="module-footer" ng-if="(resultTags.data.length || limitTags == 0) && !lessThanLimit">
+        <a ng-click="loadTags(5)" class="read-more">Ver más</a>
+     </p>
+     <p class="module-footer" ng-if="(resultTags.data.length == 0 && limitTags != 0) || lessThanLimit">
+        <a ng-click="showLess(5)" class="read-more">Ver menos</a>
+     </p>
+   </div>
+
 </section>

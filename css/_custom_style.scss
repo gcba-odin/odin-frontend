@@ -401,6 +401,20 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
   background: white;
 }
 
+.module-heading-clear-icon {
+    // background-image: url("../images/clear.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 1px;
+}
+
 .navbar-ba-logo{
   background-image: url("../images/ba-logo.svg");
   height:40px;

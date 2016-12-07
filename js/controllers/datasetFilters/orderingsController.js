@@ -43,4 +43,8 @@ function OrderingsController ($scope, $rootScope, LocationSearchService) {
         LocationSearchService.deleteFilter(filterName);
         LocationSearchService.deleteFilter('sort');
     };
+    $scope.toggle = false;
+    $scope.toggleCustom = function() {
+       $scope.toggle = $scope.toggle === false ? true: false;
+    };
 }
