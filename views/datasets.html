@@ -19,7 +19,8 @@
                     </li>
                 </ol>
                 <div class="datasets-counter">
-                  <div id="category-img" ng-style="{background:blue}" ng-if="currentCategory.id" class="category-image" svg-img="url_api + '/categories/' + currentCategory.id + '/image'"></div>
+                  <div ng-if="currentCategory.id" class="category-image" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></div>
+                  <!--<div id="category-img" ng-style="{background:blue}" ng-if="currentCategory.id" class="category-image" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></div>-->
                   <span>{{countDatasets > 0 ? countDatasets + " Datasets" : "No se han encontrado elementos" }}</span>
                 </div>
             </div>

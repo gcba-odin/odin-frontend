@@ -389,8 +389,9 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 }
 
 .module-heading{
-  background: #C2F13A;
-  color: black;
+  background: $ba-skyblue;
+  border: none;
+  color: white;
   font-size: 16px;
   height: 33px;
   margin: 1px 0px;
@@ -416,10 +417,6 @@ li.dataset-additional-info.ng-scope.dataset-additional-info-active{
 
 .nav-simple > li, .nav-aside > li{
   background: #F1F1F1;
-}
-
-.module-heading{
-  border: none;
 }
 
 .navbar-button, .navbar-button:hover, .navbar-button:active{

@@ -2,7 +2,7 @@
   "local": {
     "EnvironmentConfig": {
       "api": "http://191.234.181.118/api",
-      "odin_version": "0.1.4"
+      "odin_version": "0.1.5"
     },
     "BaseHTML5": {
         "url": "/"
