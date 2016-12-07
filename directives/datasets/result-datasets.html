@@ -3,7 +3,7 @@
     <!-- <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'"> -->
     <div class="dataset-item" ng-repeat="result in datasets | orderBy:'-downloads'">
       <div class="dataset-content">
-          <span class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
+          <span data-currentcolor="{{category.color}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
           </span>
           <h3 class="dataset-heading">
               <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
