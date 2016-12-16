@@ -1,5 +1,8 @@
 <div class="dataset-list unstyled">
-    <!-- <h2 class="list-heading">Recursos y descargas</h2> -->
+    <div class="dataset-resources-heading">
+      <img src="images/recursos.svg" alt="" />
+      <h2 class="list-heading">Recursos y descargas</h2>
+    </div>
     <div class="dataset-item clearfix" ng-repeat="resource in files" ng-if="resource.layout == false || resource.layout == null">
         <div class="dataset-content">
             <h3 class="dataset-heading">
@@ -23,7 +26,7 @@
                         </li>
                     </ul>
                 </div>
-                <div ng-show="resource.type_resource" class="pull-right">
+                <!-- <div ng-show="resource.type_resource" class="pull-right">
                     <ul class="resource-tab">
                         <li ng-repeat="element in resource.resources.data[resource.type_resource]">
                             <a ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">
@@ -31,7 +34,7 @@
                     </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="resource-map" ng-if="resource.type_resource === 'maps'">
                 <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
@@ -73,6 +76,7 @@
                 </div>
             </div>
             <div class="resource-footer">
+              <div class="resource-info">
                 <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
                 <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</span>
                 <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
@@ -89,11 +93,13 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="resource-actions pull-right">
+              </div>
+              <div class="resource-actions pull-right">
                     <div class="dropdown no-hover view-resources">
                         <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <span class=""ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span>
-                            <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span>
+                            <!-- <span class=""ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span> -->
+                            <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span>
+                            <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar iferfox</span> -->
                         </div>
                         <ul class="dropdown-menu">
                             <li ng-if="resource.contents">
