@@ -83,7 +83,6 @@ hr{
 
 .category-box:hover{
   background-color: $ba-yellow;
-
 }
 
 .categories-container{
@@ -154,14 +153,16 @@ hr{
   background-color: white;
 }
 
-.dataset-additional-info:active{
-  .icon-download{
-    padding-bottom: 40px;
-  }
+.dataset-additional-info{
+  background: white;
+  border-radius: 3px;
+  color: #4D4D4D;
+  padding: 10px 15px 10px 10px;
 }
 
-.dataset-additional-info:hover{
-  color: #4D4D4D;
+.dataset-additional-info-active{
+  background: #4D4D4D !important;
+  color: #FFFFFF !important;
 }
 
 .dataset-additional-info-table{
@@ -261,14 +262,6 @@ hr{
 
 .dataset-download-button-alt:after{
     content: none;
-}
-
-.dataset-additional-info{
-  // @extend .dataset-button;
-  background: white;
-  color:#4D4D4D;;
-  font-size: 13px;
-  // padding: 10px;
 }
 
 .dataset-category-icon {
