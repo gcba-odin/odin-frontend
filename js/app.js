@@ -54,6 +54,9 @@
             }).when("/contact", {
                 templateUrl: "views/contact.html",
                 controller: contactController
+            }).when("/layout/:id/preview", {
+                templateUrl: "views/layout.html",
+                controller: LayoutController    
             }).otherwise({
                 redirectTo: '/'
             });
@@ -120,6 +123,7 @@
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
+        $rootScope.odin_version = EnvironmentConfig.odin_version;
         screenSize.rules = {
             any: '(max-width: 1025px)'
         };
