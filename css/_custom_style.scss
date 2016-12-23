@@ -89,7 +89,7 @@ hr{
   background: white;
   margin-bottom: 50px;
   padding-top: 20px;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 
 .category-grid{
@@ -271,7 +271,8 @@ hr{
     background-size: 100%;
     // margin-left: -5px;
     margin-right: 0px;
-    margin-top: 0px;
+    // margin-top: 0px;
+    margin-top: 5px;
 }
 
 .dataset-content{
@@ -505,6 +506,19 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   color: $ba-skyblue;
 }
 
+.search-form{
+  margin-right: 20px;
+}
+
+.widgets-second-row .popular-datasets-list-item-icon{
+  margin-right: 35px;
+  -webkit-filter: none;
+     -moz-filter: none;
+       -o-filter: none;
+      -ms-filter: none;
+          filter: none;
+}
+
 .navbar-ba-logo{
   background-image: url("../images/ba-logo.svg");
   height:40px;
@@ -545,6 +559,14 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   color: gray;
 }
 
+.popular-list-item-description {
+  margin-right: 11px;
+  width: 40px;
+}
+.popular-datasets-list-item-bar{
+  margin-top: 4px;
+}
+
 .resource-actions .dropdown-menu{
   border: 1px solid #ccc;
 
@@ -575,7 +597,7 @@ ul.dataset-resources > li:first-child > span {
 }
 
 ul.unstyled{
-  display: inline-block;
+  // display: inline-block;
 }
 
 [role=main] {
@@ -705,8 +727,8 @@ ul.unstyled-alt{
 }
 
 .widgets-first-row img, .widgets-second-row img{
-  height: 35px;
-  width: 35px;
+  margin-right: 25px;
+  margin-left: 20px;
   // margin-left: 14px;
 }
 
@@ -994,7 +1016,7 @@ ul.unstyled-alt{
   }
 
   .widget:last-of-type > img{
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
 
   .widget-item-footer{
@@ -1020,6 +1042,12 @@ ul.unstyled-alt{
 }
 
 @media (min-device-height: 768px) and (max-device-width: 1024px) and (orientation : portrait){
+  .ba-logo-mobile{
+    right: 1%;
+  }
+  .module-content{
+    margin-right: 20px;
+  }
   .widget-item{
     height: 220px;
   }
