@@ -134,6 +134,43 @@ hr{
   height: auto;
 }
 
+.categories-sidebar{
+  box-shadow: none;
+}
+
+.category-item, .categories-sidebar .category-item .category-icon{
+  background-color: #F5F5F5;
+}
+.category-item:last-child .category-name{
+  margin-left: 12px;
+}
+
+.category-item:last-child, .categories-sidebar .category-icon:last-child{
+  background-color: $ba-yellow;
+}
+
+
+
+
+
+// .categories-sidebar .category-icon{
+//   padding: 5px;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   text-align: center;
+//   width: 50px;
+//   padding-bottom: 20px;
+//   padding-top: 12px;
+// }
+//
+// .categories-sidebar .category-name{
+//     font-size: 12px;
+//     line-height: 20px;
+//     padding: 10px;
+//     margin-left: 50px;
+// }
+
 .container-widget-wide{
   // padding-top: 20px;
 }
@@ -345,25 +382,9 @@ hr{
 }
 
 .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active{
-  width: 50%;
+  width: 60%;
   // margin-left: 15px;
 }
-
-// .dataset-download-info{
-//     color: white;
-//     background: #99c25f;
-//     font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
-//     font-style: normal;
-//     margin-right: 12px;
-//     padding: 4px 4px 3px 3px;
-//     float: right;
-//     margin-right: 12px;
-//     // margin-top: 5px;
-//     position: absolute;
-//     right: 3%;
-//     top:191px;
-//
-// }
 
 .dataset-item{
   background: #F1F1F1;
@@ -403,6 +424,10 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   // margin-left: 20px;
   margin-left: 18px;
   margin-top: 20px;
+}
+
+.filters-menu{
+  box-shadow: none
 }
 
 .form-control:focus{
@@ -716,7 +741,7 @@ ul.unstyled-alt{
 .widget > h2 {
   border-bottom: none;
   color: $ba-skyblue;
-  font-size: 23px;
+  font-size: 17px;
   line-height: 50px;
   display: inline-block;
   margin-bottom: 21px;
@@ -727,8 +752,9 @@ ul.unstyled-alt{
 }
 
 .widgets-first-row img, .widgets-second-row img{
-  margin-right: 25px;
+  // margin-right: 25px;
   margin-left: 20px;
+  width: 15%;
   // margin-left: 14px;
 }
 
