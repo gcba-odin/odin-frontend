@@ -145,13 +145,15 @@ hr{
   margin-left: 12px;
 }
 
+
+.categories-sidebar .category-icon:last-child{
+  background-color: #F5F5F5;
+  @include svg-color(#545D6F);
+}
+
 .category-item:last-child, .categories-sidebar .category-icon:last-child{
   background-color: $ba-yellow;
 }
-
-
-
-
 
 // .categories-sidebar .category-icon{
 //   padding: 5px;
@@ -359,6 +361,11 @@ hr{
   position: relative;
 }
 
+.dataset-resources-heading > img{
+  margin-bottom: 2px;
+  vertical-align: inherit;
+}
+
 .dataset-resources .unstyled{
   margin-left: 20px;
 
@@ -459,8 +466,9 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .list-heading{
   border: none;
   color: #3E4F5E;
-  display: inline;
-  font-size: 30px;
+  display: inline-block;
+  font-size: 25px;
+  vertical-align: middle;
   margin-bottom: 25px;
   padding: 0px;
 }
@@ -962,8 +970,9 @@ ul.unstyled-alt{
   }
 
   .dataset-resources-heading img{
+    margin-bottom: 8px;
+    vertical-align: middle;
     width: 29px;
-    margin-bottom: 17px;
   }
 
   .dataset-single-tags{
@@ -979,6 +988,11 @@ ul.unstyled-alt{
 
   .info-adicional{
     margin-top: 0px;
+  }
+
+  .list-heading {
+    display: inline;
+    font-size: 30px;
   }
 
   .resource-actions {
