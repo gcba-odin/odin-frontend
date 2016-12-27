@@ -149,14 +149,16 @@ hr{
   fill: #545D6F !important;
   color: #545D6F !important;
 }
-// .categories-sidebar .category-icon svg polygon{
-//   fill: #545D6F !important;
-//   color: #545D6F !important;
-// }
-// .categories-sidebar .category-icon svg rect{
-//   fill: #545D6F !important;
-//   color: #545D6F !important;
-// }
+
+.filter-group .filter-icon, .filter-group .filter-name{
+  background-color: #F5F5F5;
+  color: #545D6F !important;
+}
+
+.filter-group .filter-name{
+  margin-left: 35px;
+}
+
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
   // @include svg-color(#545D6F);
