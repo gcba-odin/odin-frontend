@@ -145,13 +145,24 @@ hr{
   margin-left: 12px;
 }
 
-
+.categories-sidebar .category-icon svg path, .categories-sidebar .category-icon svg polygon, .categories-sidebar .category-icon svg rect{
+  fill: #545D6F !important;
+  color: #545D6F !important;
+}
+// .categories-sidebar .category-icon svg polygon{
+//   fill: #545D6F !important;
+//   color: #545D6F !important;
+// }
+// .categories-sidebar .category-icon svg rect{
+//   fill: #545D6F !important;
+//   color: #545D6F !important;
+// }
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
-  @include svg-color(#545D6F);
+  // @include svg-color(#545D6F);
 }
 
-.category-item:last-child, .categories-sidebar .category-icon:last-child{
+.category-item:last-child{
   background-color: $ba-yellow;
 }
 
