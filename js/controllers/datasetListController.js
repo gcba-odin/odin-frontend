@@ -22,7 +22,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           type: 'categories',
           params: 'slug='+$routeParams['categories.slug']
         }, function(resp) {
-          console.log(resp);
           $scope.currentCategory = resp.data[0];
         });
 
@@ -45,7 +44,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
               $scope.params.skip = skip;
 
               DatasetListService.getDatasets($scope.params, function(datasets) {
-                  console.log(datasets);
                   $scope.datasets = datasets.map(function(dataset) {
                       if ($scope.downloads.length) {
                           var downloadsCount = $scope.downloads

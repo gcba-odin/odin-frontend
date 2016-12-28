@@ -13,7 +13,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         slug: $routeParams.id,
         include: 'tags,categories'
     };
-
+    
     rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
@@ -140,10 +140,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     }
                                     if(!!maps.base.minZoom) {
                                         maps.tile.options.minZoom = maps.base.minZoom;
-                                    } 
+                                    }
                                     if(!!maps.base.maxZoom) {
                                         maps.tile.options.maxZoom = maps.base.maxZoom;
-                                    } 
+                                    }
                                     if(!!maps.base.tms) {
                                         maps.tile.options.tms = maps.base.tms;
                                     }
@@ -182,7 +182,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                         '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
                                         '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
                                         '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
-                                        
+
                                     return palette[Math.round(point % palette.length)];
                                 }
                                 element.resources.data.charts[charts].colors = [];

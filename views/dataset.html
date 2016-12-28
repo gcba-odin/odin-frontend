@@ -6,21 +6,17 @@
         <categories-sidebar ng-if="isMobile"></categories-sidebar>
         <filters-menu ng-if="isMobile"></filters-menu>
         <div class="flash-messages"></div>
-        <!-- <div class="row datasets-header">
-            <div class="toolbar">
-                <ol class="breadcrumb"> -->
-                    <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                    <!-- <li class="breadcrumb-item">
-                        <a ng-href="{{baseHtml5}}">INICIO</a>
+        <div class="row datasets-header">
+            <div class="col-lg-offset-1 toolbar">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a ng-href="{{baseHtml5}}">{{activeCategories[0]}}</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a ng-href="datasets">DATASETS</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString | uppercase}}</a>
+                        <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString }}</a>
                     </li>
                 </ol>
-            </div> -->
+            </div>
             <!-- <div class="col-lg-10 col-lg-offset-1">
               <div class="dataset-single">
                   <div class="dataset-item">
@@ -36,10 +32,12 @@
                       </h3>
                       <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
                       <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
-                      <div class="dataset-single-tags">
-                        <a class="dataset-single-tags-item label" ng-repeat="tag in info.tags" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
+                      <ul class="dataset-single-tags">
+                        <li ng-repeat="tag in info.tags" style="display:inline" >
+                          <a class="dataset-single-tags-item label" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
+                        </li>
                         <ul class="dataset-resources unstyled">
-                          <li class="col-lg-3 pull-right" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
+                          <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
                         </ul>
                         <ul class="info-adicional dataset-resources unstyled">
                           <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
@@ -58,7 +56,7 @@
                             </tbody>
                           </table>
                         </ul>
-                      </div>
+                      </ul>
                       </div>
                     </div>
                   </div>

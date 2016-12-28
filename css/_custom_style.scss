@@ -1,5 +1,5 @@
 body{
-  background-color: #F6F6F6
+  background-color: #F6F6F6;
 }
 input[type="email"],
 input[type="text"] {
@@ -68,6 +68,16 @@ hr{
   margin-top: 5px;
   background: none;
 
+}
+
+.toolbar .breadcrumb-item a{
+  color: #E5E5E5;
+  font-size: 16px;
+  font-weight: 400;
+}
+.toolbar .breadcrumb li:after{
+  color: #E4E4E4;
+  content: "|";
 }
 
 .category-box {
@@ -142,7 +152,7 @@ hr{
   background-color: #F5F5F5;
 }
 .category-item:last-child .category-name{
-  margin-left: 12px;
+  margin-left: 45px;
 }
 
 .categories-sidebar .category-icon svg path, .categories-sidebar .category-icon svg polygon, .categories-sidebar .category-icon svg rect{
@@ -209,7 +219,8 @@ hr{
   background: white;
   border-radius: 3px;
   color: #4D4D4D;
-  padding: 10px 15px 10px 10px;
+  padding: 5px 10px;
+  font-size:11px;
 }
 
 .dataset-additional-info-active{
@@ -262,8 +273,10 @@ hr{
   border-radius: 3px;
   color:#FFFFFF;
   display: inline-block;
-  font-size: 13px;
-  padding: 5px;
+  font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 1px;
 }
 
 .dataset-button span{
@@ -304,6 +317,10 @@ hr{
   background-color: $light-green;
 }
 
+.dataset-download-button:after{
+  content: none;
+}
+
 .dataset-download-button-alt{
     @extend .dataset-download-button;
     margin-top: -3px;
@@ -314,6 +331,19 @@ hr{
 
 .dataset-download-button-alt:after{
     content: none;
+}
+
+.dataset-guide-data{
+  @extend .dataset-button;
+  background-color: $ba-skyblue;
+}
+
+.dataset-guide-data:after{
+  content: none;
+}
+
+.dataset-guide-data a{
+  color: white;
 }
 
 .dataset-category-icon {
@@ -348,9 +378,13 @@ hr{
   // font-size: 24px;
   font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
 }
+//
+// .dataset-latest-update-alt{
+//   color: #606060;
+// }
 
-.dataset-latest-update-alt{
-  color: #606060;
+.dataset-content .dataset-latest-update{
+  color: #3E4F5E;
 }
 
 .dataset-heading-alt a{
@@ -380,7 +414,7 @@ hr{
 }
 
 .dataset-resources .unstyled{
-  margin-left: 20px;
+  margin-left: 5px;
 
 }
 
@@ -416,6 +450,9 @@ hr{
 
 .dataset-single {
   border-bottom: none;
+}
+.dataset-single-tags-item.label{
+  margin-bottom: 10px;
 }
 
 .dataset-single-tags{
@@ -609,6 +646,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   margin-right: 11px;
   width: 40px;
 }
+
 .popular-datasets-list-item-bar{
   margin-top: 4px;
 }
@@ -619,19 +657,23 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .resource-actions {
-    display: inline-block;
-    margin-top: 10px;
-    margin-left:20px;
-    width: 255px;
-}
-
-.resource-footer{
-  padding: 10px 0px 10px 10px;
+    // display: inline-block;
+    // display: inline;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    // float: right;
+    // margin-top: 10px;
+    // margin-left:20px;
+    width: 200px;
 }
 
 .resource-format-label{
   margin-left: 0px;
   margin-right: 0px;
+}
+.resource-info{
+  // display: inline;
 }
 
 .resource-tab{
@@ -644,7 +686,7 @@ ul.dataset-resources > li:first-child > span {
 }
 
 ul.unstyled{
-  // display: inline-block;
+  display: inline;
 }
 
 [role=main] {
@@ -912,9 +954,14 @@ ul.unstyled-alt{
     padding: 0px 15px 15px 0px;
   }
 
+  .dataset-button{
+    font-size: 12px;
+    padding: 5px;
+  }
+
   .dataset-additional-info{
-    // padding-right: 10px;
     display: inline;
+    padding: 10px 15px 10px 10px;
   }
 
   .datasets-counter p{
@@ -932,14 +979,16 @@ ul.unstyled-alt{
     // padding-right: 10px;
   }
 
-  .dataset-download-button-alt{
-    // position: absolute;
-    // top: 180px;
-    // right: 30px;
-  }
-
   .dataset-download-info{
     top: 160px;
+  }
+
+  .dataset-download-button:after{
+    content: "\f04b";
+  }
+
+  .dataset-download-button-alt:after{
+    content: none;
   }
 
   .dataset-quantity{
@@ -1012,20 +1061,20 @@ ul.unstyled-alt{
     width: 250px;
     position: absolute;
     top: 0;
-    right: 0;
     margin-top: 0;
   }
 
   .resource-footer{
-    padding-left: 25px;
+    // padding-left: 25px;
     // position: absolute;
     // top: 0px;
   }
 
   .resource-info{
     display: inline;
-    position: absolute;
+    // position: absolute;
     top: 0px;
+    // width: 60%;
   }
 
   .search-form{

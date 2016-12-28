@@ -10,127 +10,146 @@
             </h3>
             <div class="dataset-latest-update">Fecha de publicación: {{resource.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
             <div class="dataset-description word-break" hm-read-more hm-text="{{ getHtml(resource.description) }}" hm-limit="80" hm-more-text=" (ver más)" hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
-        </div>
-        <div class="dataset-resources unstyled">
-            <div class="clear-both clearfix">
-                <div ng-show="resource.type_resource" class="pull-left">
-                    <ul class="resource-tab">
-                        <li>
-                            <a class="tablinks" ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.charts" ng-class="{'active': resource.type_resource === 'charts'}">Gráfico</a>
-                        </li>
-                        <li>
-                            <a class="tablinks" ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.maps" ng-class="{'active': resource.type_resource === 'maps'}">Mapa</a>
-                        </li>
-                        <li>
-                            <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- <div ng-show="resource.type_resource" class="pull-right">
-                    <ul class="resource-tab">
-                        <li ng-repeat="element in resource.resources.data[resource.type_resource]">
-                            <a ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">
-                      {{resource.type_resource == 'maps' ? 'Mapa ' + ($index+1) : 'Gráfico ' + ($index+1)}}
-                    </a>
-                        </li>
-                    </ul>
-                </div> -->
-            </div>
-            <div class="resource-map" ng-if="resource.type_resource === 'maps'">
-                <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
-                    <leaflet ng-if="!map.link && !!map.geoData && !!map.tile && map.name == resource.resource_selected" defaults="map_defaults" tiles="map.tile" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData" event-broadcast="map.events"></leaflet>
-                    <iframe class="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
-                </div>
-            </div>
-            <div class="resource-charts" ng-if="resource.type_resource === 'charts'">
-                <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.resource_selected === chart.name">
-                    <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
-                    <canvas ng-if="!chart.link && chart.name == resource.resource_selected && chart.dataChart && !!chart.series.length" class="iframeDiv chart chart-base" chart-type="chart.type" chart-data="chart.dataChart.data" chart-labels="chart.data.labels" chart-dataset-override="chart.series" chart-colors="chart.colors"></canvas>
-                </div>
-            </div>
-            <div class="resource-pdf">
-                <div class="wrapper" ng-if="resource.type_resource === 'pdf'">
-                    <h1 class="pdf-title">{{resource.name}}</h1>
-                    <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
-                </div>
-            </div>
-            <div class="clear-both clearfix resource-table">
-                <div ng-if="resource.type_resource === 'tables'" class="div-table">
-                    <div class="table-responsive">
-                        <table class="table dataset-additional-info-table">
-                            <thead>
-                                <tr>
-                                    <th ng-repeat="(key, val) in resource.contents.data[0]" ng-if="key !== '_id' && key !== 'GEOJSON'">{{key}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="field in resource.contents.data">
-                                    <td ng-repeat="(key, val) in field" ng-if="key !== '_id' && key !== 'GEOJSON'">{{val}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="paging">
-                        <paging page="resource.contents.meta.page" page-size="params.limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
-                    </div>
-                </div>
-            </div>
-            <div class="resource-footer">
-              <div class="resource-info">
-                <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
-                <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</span>
-                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
-                    <thead>
-                        <tr>
-                            <th>Campo</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="adt_info in resource.additional_info">
-                            <td>{{adt_info.clave}}</td>
-                            <td>{{adt_info.valor}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-              <div class="resource-actions">
-                    <div class="dropdown no-hover view-resources">
-                        <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            <!-- <span class=""ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span> -->
-                            <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span>
-                            <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar iferfox</span> -->
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li ng-if="resource.contents">
-                                <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver tabla</a>
+            <div class="dataset-resources unstyled">
+                <div class="clear-both clearfix">
+                    <div ng-show="resource.type_resource" class="pull-left">
+                        <ul class="resource-tab">
+                            <li>
+                                <a class="tablinks" ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.charts" ng-class="{'active': resource.type_resource === 'charts'}">Gráfico</a>
                             </li>
-                            <li ng-if="!!resource.resources.data.charts">
-                                <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver gráfico</a>
+                            <li>
+                                <a class="tablinks" ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.maps" ng-class="{'active': resource.type_resource === 'maps'}">Mapa</a>
                             </li>
-                            <li ng-if="!!resource.resources.data.maps">
-                                <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver mapa</a>
-                            </li>
-                            <li ng-if="(fileTypes[resource.type.id]|| lowercase) == 'pdf'">
-                                <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver PDF</a>
+                            <li>
+                                <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="dropdown no-hover">
-                      <a href class="view-resources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <div class="dataset-download-button"><span>Descargar</span></div></a>
-                      </a>
-                      <ul class="dropdown-menu" ng-if="!resource.type.api">
-                          <li>
-                              <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
-                          </li>
-                      </ul>
-                      <ul class="dropdown-menu" ng-if="resource.type.api && i!=resource.type.name">
-                          <li ng-repeat="i in ['xls','xlsx','csv']">
-                              <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
-                          </li>
-                      </ul>
+                    <!-- <div ng-show="resource.type_resource" class="pull-right">
+                        <ul class="resource-tab">
+                            <li ng-repeat="element in resource.resources.data[resource.type_resource]">
+                                <a ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">
+                          {{resource.type_resource == 'maps' ? 'Mapa ' + ($index+1) : 'Gráfico ' + ($index+1)}}
+                        </a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="resource-map" ng-if="resource.type_resource === 'maps'">
+                    <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
+                        <leaflet ng-if="!map.link && !!map.geoData && !!map.tile && map.name == resource.resource_selected" defaults="map_defaults" tiles="map.tile" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData" event-broadcast="map.events"></leaflet>
+                        <iframe class="iframeDiv" ng-src="{{ map.link | trustUrl }}" ng-if="map.link"></iframe>
                     </div>
+                </div>
+                <div class="resource-charts" ng-if="resource.type_resource === 'charts'">
+                    <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.resource_selected === chart.name">
+                        <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ chart.link | trustUrl}}"></iframe>
+                        <canvas ng-if="!chart.link && chart.name == resource.resource_selected && chart.dataChart && !!chart.series.length" class="iframeDiv chart chart-base" chart-type="chart.type" chart-data="chart.dataChart.data" chart-labels="chart.data.labels" chart-dataset-override="chart.series" chart-colors="chart.colors"></canvas>
+                    </div>
+                </div>
+                <div class="resource-pdf">
+                    <div class="wrapper" ng-if="resource.type_resource === 'pdf'">
+                        <h1 class="pdf-title">{{resource.name}}</h1>
+                        <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
+                    </div>
+                </div>
+                <div class="clear-both clearfix resource-table">
+                    <div ng-if="resource.type_resource === 'tables'" class="div-table">
+                        <div class="table-responsive">
+                            <table class="table dataset-additional-info-table">
+                                <thead>
+                                    <tr>
+                                        <th ng-repeat="(key, val) in resource.contents.data[0]" ng-if="key !== '_id' && key !== 'GEOJSON'">{{key}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="field in resource.contents.data">
+                                        <td ng-repeat="(key, val) in field" ng-if="key !== '_id' && key !== 'GEOJSON'">{{val}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="paging">
+                            <paging page="resource.contents.meta.page" page-size="params.limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
+                        </div>
+                    </div>
+                </div>
+                <div class="resource-footer">
+                  <div class="dataset-resources unstyled">
+                  <!-- <div class="resource-info"> -->
+                    <!-- <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
+                    <span class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</span>
+                    <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
+                        <thead>
+                            <tr>
+                                <th>Campo</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="adt_info in resource.additional_info">
+                                <td>{{adt_info.clave}}</td>
+                                <td>{{adt_info.valor}}</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                    <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
+                    <ul class="info-adicional dataset-resources unstyled">
+                      <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                      <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
+                        <thead>
+                            <tr>
+                                <th>Campo</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="adt_info in info.additional_info">
+                                <td>{{adt_info.clave}}</td>
+                                <td>{{adt_info.valor}}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </ul>
+                    <div class="resource-actions">
+                          <div class="dropdown no-hover view-resources">
+                              <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  <!-- <span class=""ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span> -->
+                                  <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span>
+                                  <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar iferfox</span> -->
+                              </div>
+                              <ul class="dropdown-menu">
+                                  <li ng-if="resource.contents">
+                                      <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver tabla</a>
+                                  </li>
+                                  <li ng-if="!!resource.resources.data.charts">
+                                      <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver gráfico</a>
+                                  </li>
+                                  <li ng-if="!!resource.resources.data.maps">
+                                      <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver mapa</a>
+                                  </li>
+                                  <li ng-if="(fileTypes[resource.type.id]|| lowercase) == 'pdf'">
+                                      <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver PDF</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="pull-right dropdown no-hover">
+                            <a href class="view-resources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              <div class="dataset-download-button"><span>Descargar</span></div></a>
+                            </a>
+                            <ul class="dropdown-menu" ng-if="!resource.type.api">
+                                <li>
+                                    <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
+                                </li>
+                            </ul>
+                            <ul class="dropdown-menu" ng-if="resource.type.api && i!=resource.type.name">
+                                <li ng-repeat="i in ['xls','xlsx','csv']">
+                                    <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
+                                </li>
+                            </ul>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
