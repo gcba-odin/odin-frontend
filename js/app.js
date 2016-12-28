@@ -56,7 +56,7 @@
                 controller: contactController
             }).when("/layout/:id/preview", {
                 templateUrl: "views/layout.html",
-                controller: LayoutController    
+                controller: LayoutController
             }).otherwise({
                 redirectTo: '/'
             });
@@ -133,6 +133,7 @@
 
         $rootScope.$on('$routeChangeSuccess', function() {
             $window.ga('send', 'pageview', $location.path());
+            window.scrollTo(0, 0);
         });
     }
 })();
