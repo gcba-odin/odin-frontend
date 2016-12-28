@@ -55,6 +55,9 @@
                 redirectTo: '/'
                 // templateUrl: "views/contact.html",
                 // controller: contactController
+            }).when("/layout/:id/preview", {
+                templateUrl: "views/layout.html",
+                controller: LayoutController
             }).otherwise({
                 redirectTo: '/'
             });
@@ -122,6 +125,7 @@
         $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
+        $rootScope.odin_version = EnvironmentConfig.odin_version;
         screenSize.rules = {
             any: '(max-width: 1025px)'
         };
@@ -131,6 +135,7 @@
 
         $rootScope.$on('$routeChangeSuccess', function() {
             $window.ga('send', 'pageview', $location.path());
+            window.scrollTo(0, 0);
         });
     }
 })();

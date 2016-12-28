@@ -1,11 +1,11 @@
     <footer class="site-footer">
         <div class="container">
-            <ul class="menu-footer col-md-12">
+            <ul class="menu-footer col-md-12" ng-hide="!!layout_preview">
                 <a href="{{baseHtml5}}" class="menu-footer-item-specifications"><li>Especificaciones
                 </li></a>
                 <a href="/tyc" class="menu-footer-item-terms-and-conditions"><li>Términos y condiciones
-                <!-- </li></a>
-                <a href="/contact" class="menu-footer-item-contact"><li>Contacto
+                </li></a>
+                <!--<a href="/contact" class="menu-footer-item-contact"><li>Contacto
                 </li></a> -->
             </ul>
             <div class="odin-branding">
@@ -13,7 +13,7 @@
                 <span class="odin-branding-logo-color"></span>
                 <span class="odin-branding-text">Version {{odin_version}}</span>
             </div>
-            <div class="footer-social-networks">
+            <div class="footer-social-networks" ng-hide="!!layout_preview">
                 <a href="https://twitter.com/LABgcba" class="footer-social-networks-icon" title="Twitter">
                     <span class="footer-social-networks-icon-twitter"></span>
                 </a>

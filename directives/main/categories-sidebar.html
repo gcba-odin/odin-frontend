@@ -2,19 +2,20 @@
     <ul class="category-list">
         <li class="category-item" ng-repeat="category in categories" ng-class="{active: (category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}" ng-click="hideCategoriesSidebar()">
             <a ng-href="datasets?categories.slug={{ category.name | slug }}">
-                <div class="category-icon">
-                    <i svg-img="url_api + '/categories/' + category.id + '/image'"></i>
-                </div>
+                <!-- TODO: set data-currentcolor in span -->
+                <span  class="category-icon" svg-img="url_api + '/categories/' + category.id + '/image'">
+                    <!-- <i svg-img="url_api + '/categories/' + category.id + '/image'"></i> -->
+                </span>
                 <div class="category-name">{{category.name}}</div>
             </a>
         </li>
         <li class="category-item" ng-click="hideCategoriesSidebar()">
             <a href="datasets">
-                <div class="category-icon">
-                    <i svg-img="'/images/complete-catalog.svg'"></i>
+                <!-- <div class="category-icon">
+                    <i svg-img="'/images/complete-catalog.svg'"></i> -->
                     <!-- <i class="fa fa-folder-open-o" aria-hidden="true"></i> -->
-                </div>
-                <div class="category-name">Ver catálogo completo de datasets</div>
+                <!-- </div> -->
+                <div class="category-name">Ver catálogo completo</div>
             </a>
         </li>
     </ul>
