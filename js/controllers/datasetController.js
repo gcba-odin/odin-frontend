@@ -13,7 +13,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         slug: $routeParams.id,
         include: 'tags,categories,subcategories'
     };
-    
+
     rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
@@ -178,17 +178,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
                                 var getRandomColor = function (point) {
                                     var palette = ['#88BF48', '#F562A2', '#CCCCCC',
-<<<<<<< HEAD
                                                    '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
                                                    '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
                                                    '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
                                                    '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
-=======
-                                        '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
-                                        '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
-                                        '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
-                                        '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
->>>>>>> card-design
 
                                     return palette[Math.round(point % palette.length)];
                                 }

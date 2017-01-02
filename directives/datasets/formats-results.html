@@ -3,24 +3,6 @@
       Formatos
       <span class="module-heading-clear-icon fa fa-caret-down" ng-click="toggleCustom()" ng-click="removeAll()"></span>
    </h2>
-<<<<<<< HEAD
-   <nav>
-      <ul class="unstyled nav nav-simple nav-facet">
-         <li class="nav-item" ng-repeat="filetype in filetypes" ng-class="{'active': filetype.active}">
-            <a class="tags-item" ng-click="selectFiletype(filetype)" title="{{filetype.name}}">
-               <span>{{filetype.name | truncString | uppercase}} ({{fileTypesCount[filetype.id]}})</span>
-            </a>
-         </li>
-      </ul>
-   </nav>
-  <p class="module-footer" ng-if="(resultFormats.data.length || limitFormats == 0) && !lessThanLimit">
-      <a ng-click="loadFormats(5)" class="read-more">Ver más</a>
-   </p>
-   <p class="module-footer" ng-if="(resultFormats.data.length == 0 && limitFormats != 0) || (filetypes.length > 5 && lessThanLimit)">
-      <a ng-click="showLess(5)" class="read-more">Ver menos</a>
-   </p>
-</section>
-=======
   <div ng-hide="toggle">
      <nav>
         <ul class="unstyled nav nav-simple nav-facet">
@@ -39,4 +21,3 @@
      </p>
   </div>
 </section>
->>>>>>> card-design
