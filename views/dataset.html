@@ -59,7 +59,8 @@
         </div>
       </div>
       <div class="col-lg-10 col-lg-offset-1">
-        <div class="row results wrapper">
+        <!-- <div class="row results wrapper"> -->
+        <div class="row">
           <aside class="secondary col-md-3" ng-if="!isMobile">
               <div class="filters">
                   <div>
@@ -68,7 +69,7 @@
                   </div>
               </div>
           </aside>
-          <div class="primary col-md-9">
+          <div class="primary col-md-12 col-lg-9 col-lg-offset-0">
             <section class="module">
                 <div class="module-content">
                     <result-resources></result-resources>
@@ -78,7 +79,7 @@
                     <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                 </div>
             </section>
-            <section class="module">
+            <section class="module disqus-section">
                 <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
                 <!-- <div id="disqus_thread"></div> -->
                 <dir-disqus config="disqusConfig" disqus-shortname="{{ disqusConfig.disqus_shortname }}" disqus-identifier="{{ disqusConfig.disqus_identifier }}" disqus-url="{{ disqusConfig.disqus_url }}">

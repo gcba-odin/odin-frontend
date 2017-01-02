@@ -3,6 +3,7 @@ function SearchDatasetsController ($scope, $element, $rootScope, $location, Loca
         if ($scope.query) {
             $rootScope.showNavbarSearch = false;
             $location.path('datasets').search('query', $scope.query);
+            // jQuery($element).find('input')[0].val($scope.query);
         } else {
             LocationSearchService.deleteFilter('query');
         }
