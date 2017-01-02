@@ -635,7 +635,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .odin-branding{
   padding-top: 10px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .odin-branding-text{
@@ -1055,6 +1055,10 @@ ul.unstyled-alt{
   .list-heading {
     display: inline;
     font-size: 30px;
+  }
+
+  .odin-branding{
+    margin: 50px auto;
   }
 
   .resource-actions {
