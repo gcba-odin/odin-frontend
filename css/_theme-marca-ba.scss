@@ -184,7 +184,22 @@ body {
 }
 
 .widget-item-footer-download-link-small {
-    background-image: url("../images/download-ba.svg");
+    background-image: url("../images/descargar-01.svg");
+}
+
+.a{
+    color: white;
+    background: #99c25f;
+    font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    margin-right: 12px;
+    padding: 4px 4px 3px 3px;
+    float: right;
+    margin-right: 12px;
+    margin-top: 5px;
+    position: absolute;
+    right: 3%;
+    top: 12%;
 }
 
 .widget-item-footer-download-link {
@@ -397,5 +412,7 @@ h2.slogan {
 }
 
 .dataset-single-tags-item.label {
-    background-color: rgba(32, 149, 242, 0.8);
+    // background-color: rgba(32, 149, 242, 0.8);
+    background-color: #999999;
+
 }

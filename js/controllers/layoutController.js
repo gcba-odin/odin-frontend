@@ -1,10 +1,9 @@
-
 function LayoutController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
     LocationSearchService.init();
     $rootScope.layout_preview = true;
     $rootScope.header = "Guía de datos";
     $scope.type = "files";
-    
+
     var layout = rest().get({
         type: $scope.type,
         id: $routeParams.id,

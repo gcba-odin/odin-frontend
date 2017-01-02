@@ -6,19 +6,20 @@
 <g>
 	<g>
 		<g>
-			<polygon fill="#FF386A" points="36.843,28.426 27.509,28.426 27.509,37.761 18.173,37.761 18.173,28.426 7.903,28.426 
+			<!-- fill="#FF386A" -->
+			<polygon fill="#FFFFFF" points="36.843,28.426 27.509,28.426 27.509,37.761 18.173,37.761 18.173,28.426 7.903,28.426 
 				7.903,19.092 18.173,19.092 18.173,8.822 27.509,8.822 27.509,19.092 36.843,19.092 			"/>
 		</g>
 	</g>
 	<defs>
 		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="7.903" y="8.822" width="28.939" height="28.938">
-			
+
 				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
 		</filter>
 	</defs>
 	<mask maskUnits="userSpaceOnUse" x="7.903" y="8.822" width="28.939" height="28.938" id="SVGID_1_">
 		<g filter="url(#Adobe_OpacityMaskFilter)">
-			
+
 				<image overflow="visible" width="138" height="138" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEBLAEsAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA
 EAMCAwYAAAJ/AAAEIAAABy7/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX
 Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa
@@ -57,7 +58,7 @@ qP1SP1kn3elX9fZ9HzH/2Q==" transform="matrix(0.24 0 0 0.24 5.9033 6.8223)">
 	</mask>
 	<g opacity="0.75" mask="url(#SVGID_1_)">
 		<g>
-			<polygon fill="#BFBFBF" points="36.843,28.426 27.509,28.426 27.509,37.761 18.173,37.761 18.173,28.426 7.903,28.426 
+			<polygon fill="#BFBFBF" points="36.843,28.426 27.509,28.426 27.509,37.761 18.173,37.761 18.173,28.426 7.903,28.426
 				7.903,19.092 18.173,19.092 18.173,8.822 27.509,8.822 27.509,19.092 36.843,19.092 			"/>
 		</g>
 	</g>

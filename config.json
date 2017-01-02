@@ -1,8 +1,8 @@
 {
   "local": {
     "EnvironmentConfig": {
-      "api": "http://localhost:3000",
-      "odin_version": "0.1.1"
+      "api": "http://191.234.181.118/api",
+      "odin_version": "0.1.6"
     },
     "BaseHTML5": {
         "url": "/"

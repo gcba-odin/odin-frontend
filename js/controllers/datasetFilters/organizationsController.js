@@ -9,8 +9,14 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.resultOrganizations = [];
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
-    $scope.loadOrganizations = function(skip) {
-        $scope.limitOrganizations += skip;
+
+    $scope.toggle = false;
+
+    $scope.toggleCustom = function() {
+       $scope.toggle = $scope.toggle === false ? true: false;
+    };
+    $scope.loadOrganizations = function(limit) {
+        $scope.limitOrganizations += limit;
         $scope.resultOrganizations = rest().get({
             type: "organizations",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
@@ -33,7 +39,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
             'files.organization': organizationId,
             'categories.slug': $routeParams['categories.slug'],
         };
-        
+
         DatasetListService.getDatasetsCount($scope.params, function(result) {
             $scope.organizationsCount[organizationId] = result.data.count;
         });

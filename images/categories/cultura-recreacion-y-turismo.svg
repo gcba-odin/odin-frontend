@@ -3,7 +3,8 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="52.333px" height="46.583px" viewBox="0 0 52.333 46.583" enable-background="new 0 0 52.333 46.583" xml:space="preserve">
-<path id="XMLID_271_" fill="#FF386A" stroke="#FFFFFF" stroke-width="0.7138" stroke-miterlimit="10" d="M44.117,14.852
+<!-- fill="#FF386A -->
+<path id="XMLID_271_" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.7138" stroke-miterlimit="10" d="M44.117,14.852
 	c-8.344-4.201-26.164-4.463-35.119,0l-7.3,4.316L12.43,37.592l7.09-3.994c0,0,2.02-1.436,6.998-1.436c4.147,0,6.823,1.35,6.823,1.35
 	l7.303,4.348l10.689-19.039L44.117,14.852z"/>
 <line id="XMLID_269_" fill="none" stroke="#FFFFFF" stroke-width="1.3192" stroke-miterlimit="10" x1="10.184" y1="14.057" x2="20.433" y2="32.916"/>

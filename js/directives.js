@@ -32,6 +32,9 @@
         };
     });
 
+
+
+
     app.directive('ngEnter', function() {
         return function(scope, element, attrs) {
             element.bind("keydown keypress", function(event) {
@@ -57,7 +60,7 @@
                 var attributes = $element.prop("attributes");
 
                 var token_auth = $cookieStore.get('globals').currentUser.token;
-                
+
                 $.ajax({
                     headers: {
                         'Authorization': 'Bearer ' + token_auth,
@@ -83,6 +86,13 @@
 
                         // Removes opacity
                         $element.find("g[opacity='0.75']").css("opacity", 0);
+
+                        if (!!attrs.currentcolor && attrs.currentcolor  !== undefined && attrs.currentcolor  !== "null") {
+                          $element.find("path").css("fill", attrs.currentcolor);
+                          $element.find("rect").css("fill", attrs.currentcolor);
+                          $element.find("polygon").css("fill", attrs.currentcolor);
+                          $element.find("circle").css("fill", attrs.currentcolor);
+                        }
                     }});
             }
         };

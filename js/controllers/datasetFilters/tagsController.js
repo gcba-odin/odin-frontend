@@ -8,9 +8,15 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.tags = [];
     $scope.resultTags = [];
     $scope.lessThanLimit;
-    
-    $scope.loadTags = function(skip) {
-        $scope.limitTags += skip;
+
+    $scope.toggle = false;
+
+    $scope.toggleCustom = function() {
+       $scope.toggle = $scope.toggle === false ? true: false;
+    };
+
+    $scope.loadTags = function(limit) {
+        $scope.limitTags += limit;
         $scope.resultTags = rest().get({
             type: "tags",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitTags

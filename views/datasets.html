@@ -1,4 +1,5 @@
-<search-bar ng-if="!isMobile"></search-bar>
+<!-- <search-bar ng-if="!isMobile"></search-bar> -->
+<search-bar-home ng-if="!isMobile"></search-bar-home>
 <div role="main">
     <div id="content" class="container">
         <categories-row ng-if="!isMobile"></categories-row>
@@ -7,23 +8,43 @@
         <div class="flash-messages">
         </div>
         <div class="row datasets-header">
+          <div class="col-lg-10 col-lg-offset-1">
             <div class="toolbar">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="{{baseHtml5}}">INICIO</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="datasets">DATASETS</a>
+                        <a href="{{baseHtml5}}">{{currentCategory.name}}</a>
                     </li>
                 </ol>
                 <div class="datasets-counter">
-                    <span class="datasets-counter-count">{{countDatasets}}</span>
-                    <span class="datasets-counter-label">Datasets</span>
+                  <div ng-show="countDatasets == 0">
+                    <p> No se han encontrado datasets </p>
+                  </div>
+                  <div ng-show="countDatasets > 0">
+                    <div class="dataset-counter-container">
+                      <span ng-if="currentCategory.id" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></span>
+                      <p class="dataset-quantity">{{countDatasets}}</p>
+                    </div>
+                    <p>Datasets</p>
+                  </div>
                 </div>
             </div>
+          </div>
         </div>
-        <div class="row results wrapper">
-            <div class="primary col-md-9">
+        <div class="row">
+          <aside class="secondary col-lg-4" ng-if="!isMobile">
+            <div class="secondary col-md-3">
+              <div class="filters">
+                  <div>
+                      <order-result></order-result>
+                      <tags-result></tags-result>
+                      <formats-result></formats-result>
+                      <organizations-result></organizations-result>
+                  </div>
+              </div>
+            </div>
+          </aside>
+          <!-- <div class="primary col-lg-8"> -->
+          <div class="primary col-sm-12 col-md-9 col-lg-9">
                 <section class="module">
                     <div class="module-content">
                         <result-datasets></result-datasets>
@@ -33,22 +54,7 @@
                         <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                     </div>
                 </section>
-                <section class="module">
-                    <div class="module-content">
-                    </div>
-                </section>
-            </div>
-            <aside class="secondary col-md-3" ng-if="!isMobile">
-                <div class="filters">
-                    <div>
-                        <subcategories-result></subcategories-result>
-                        <order-result></order-result>
-                        <tags-result></tags-result>
-                        <formats-result></formats-result>
-                        <organizations-result></organizations-result>
-                    </div>
-                </div>
-            </aside>
+          </div>
         </div>
     </div>
 </div>

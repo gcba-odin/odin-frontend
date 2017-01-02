@@ -1,15 +1,18 @@
-<div class="widget-container">
-    <div ng-repeat="item in latestDataset.data">
-        <div class="widget-item">
-            <div ng-click="datasets.goToUrl()" class="widget-item-title"><a ng-href="dataset/{{ item.name | slug }}">{{item.name | limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</a></div>
-            <div class="widget-item-description">
-                <p three-dots="getHtml(item.description)"></p>
-            </div>
-            <div class="widget-item-footer">
-                <span class="widget-item-footer-tags" ng-repeat="fileType in item.fileTypes">{{fileType.name}}</span>
-                <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" target="_blank" class="widget-item-footer-link widget-item-footer-download-small-link">
-                </a>
-            </div>
-        </div>
+<div ng-repeat="item in latestDataset.data">
+  <!-- <div class="col-sm-6 datasets"> -->
+  <div class="col-sm-3 col-md-6 col-lg-6 container-dataset">
+    <div class="thumbnail">
+      <div class="caption widget-item" ng-click="datasets.goToUrl()">
+        <h3 class="widget-item-title">  <a ng-href="dataset/{{ item.name | slug }}">{{item.name | limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</a></h3>
+        <p three-dots="getHtml(item.description)"></p>
+        <p class="thumbnail-dataset-icons">
+          <span class="widget-item-footer-tags" ng-repeat="fileType in item.fileTypes">{{fileType.name}}</span>
+          <!-- <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" target="_blank" class="icon-download widget-item-download-link download-link widget-item-footer-download-link"> -->
+          <a href="{{url(item.id)}}" target="_blank" class="icon-download widget-item-download-link download-link widget-item-footer-download-link">
+            <span><i class="fa fa-arrow-circle-o-down"></i></span>
+          </a>
+        </p>
+      </div>
     </div>
+  </div>
 </div>

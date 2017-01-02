@@ -1,11 +1,33 @@
-<div class="widget-container">
-    <ul class="popular-datasets-list">
+<div class="col-xs-10 col-xs-offset-2 col-sm-3 col-sm-offset-1 col-md-6 col-lg-12">
+    <ul>
         <div ng-repeat="item in categories">
-            <li class="popular-datasets-list-item">
-                <span class="popular-datasets-list-item-icon {{ item.name | slug }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
-                <span class="popular-datasets-list-item-bar" category-percent="porcentual[item.id]"></span>
-                <span class="popular-datasets-list-item-count">{{ statistics[item.id] }}</span>
+            <li class="row popular-datasets-list-item container-dataset">
+                <span  ng-if="item.color !== undefined && item.color !== 'null'" data-currentcolor="{{item.color}}" data-tooltip="{{category.name}}"  class="popular-datasets-list-item-icon {{ item.name | slug }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
+                <span class="popular-list-item-description pull-left" ng-if="item.color === undefined || item.color == 'null'" ng-model="letterLimit" >{{item.name | limitTo:letterLimit }}...</span>
+                <span class="col-xs-3 popular-datasets-list-item-bar" category-percent="porcentual[item.id]"></span>
+                <span class="col-xs-3 popular-datasets-list-item-count">{{ statistics[item.id] }}</span>
             </li>
         </div>
     </ul>
 </div>
+
+
+
+
+<!-- <div ng-repeat="item in starredDataset.data"> -->
+  <!-- <div class="col-sm-6 datasets"> -->
+  <!-- <div class="col-sm-3 col-md-6 col-lg-6 container-dataset">
+    <div class="thumbnail">
+      <div class="caption widget-item" ng-click="datasets.goToUrl()">
+        <h3 class="widget-item-title">  <a ng-href="dataset/{{ item.name | slug }}">{{item.name | limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</a></h3>
+        <p three-dots="getHtml(item.description)"></p>
+        <p>
+          <span class="widget-item-footer-tags" ng-repeat="fileType in item.fileTypes">{{fileType.name}}</span>
+          <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" target="_blank" class="widget-item-download-link download-link widget-item-footer-download-link">
+            <span><i class="fa fa-arrow-circle-o-down"></i></span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->

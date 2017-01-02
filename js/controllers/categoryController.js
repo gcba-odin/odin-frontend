@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer) {
+function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log) {
     $scope.activeCategory = $routeParams['categories.slug'];
     $scope.url_api = $rootScope.url;
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.slug'];
@@ -14,10 +14,12 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.statistics = {};
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
+    $scope.letterLimit = 4;
     $scope.hideCategoriesSidebar = function() {
         $rootScope.showBackdrop = false;
         $rootScope.showCategoriesSidebar = false;
     };
+
 
     rest().get({
         type: $scope.type,
