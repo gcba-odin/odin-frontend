@@ -26,7 +26,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         params: "parent=null&orderBy=createdAt&sort=DESC"
     }, function(categories) {
         $scope.categories = categories.data;
-        $scope.showCategories = false;
+        // $scope.showCategories = false;
 
         $scope.categories.forEach(function(element) {
             $scope.statistics[element.id] = 0;
