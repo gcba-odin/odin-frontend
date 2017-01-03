@@ -11,7 +11,7 @@ function contactController($scope, $http, vcRecaptchaService) {
             vcRecaptchaService.reload(recaptchaId);
             alert('Por favor, completa el captcha.');
         } else {
-          var formData = $("#form").serialize();
+          var formData = $("#contactForm").serialize();
           $.ajax({
             type: 'POST',
             url: '/email/send',
