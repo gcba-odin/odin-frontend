@@ -1,4 +1,4 @@
-function contactController($scope, $http, vcRecaptchaService) {
+function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig) {
     recaptchaId = null;
     $scope.setRecaptchaId = function (widgetId) {
         console.log(widgetId);
@@ -14,7 +14,7 @@ function contactController($scope, $http, vcRecaptchaService) {
           var formData = $("#contactForm").serialize();
           $.ajax({
             type: 'POST',
-            url: '/email/send',
+            url:  EnvironmentConfig.api + '/email/send',
             data: formData
           }).done(function(response) {
               console.log('ok');
