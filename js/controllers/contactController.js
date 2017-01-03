@@ -11,8 +11,16 @@ function contactController($scope, $http, vcRecaptchaService) {
             vcRecaptchaService.reload(recaptchaId);
             alert('Por favor, completa el captcha.');
         } else {
-          // TBD: send email by ODINApi
-
+          var formData = $("#form").serialize();
+          $.ajax({
+            type: 'POST',
+            url: '/email/send',
+            data: formData
+          }).done(function(response) {
+              console.log('ok');
+          }).fail(function(data) {
+            console.log(data.responseText);
+          });
         }
     }
 
