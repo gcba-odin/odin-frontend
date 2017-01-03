@@ -5,14 +5,11 @@
               <div class="lead-container">
                 <p class="lead">Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.</p>
               </div>
-              <!-- <div class="search-home-text">
-                  <h3>Buscá entre {{countDatasets}} Datasets</h3>
-              </div> -->
               <div id="search" class="module-content search-form">
                   <div class="input-group">
                       <input id="search-input" placeholder="{{countDatasets > 0 ? 'Buscá entre ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}} "
                       onfocus="this.placeholder = ''"  name="q" ng-model="query" ng-enter="search()" class="form-control input-md"
-                      autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1">
+                      autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1"  value="{{query}}">
                       <div class="input-group-btn">
                           <button type="button" ng-click="search()" class="btn btn-default"><i class="fa fa-search icon-search"></i></button>
                       </div>

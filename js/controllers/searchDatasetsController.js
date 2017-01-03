@@ -2,13 +2,16 @@ function SearchDatasetsController ($scope, $element, $rootScope, $location, Loca
     $scope.search = function() {
         if ($scope.query) {
             $rootScope.showNavbarSearch = false;
+            $rootScope.query = $scope.query;
             $location.path('datasets').search('query', $scope.query);
-            // jQuery($element).find('input')[0].val($scope.query);
+
         } else {
+            $rootScope.query = "";
             LocationSearchService.deleteFilter('query');
         }
     };
     $scope.$watch('isActive', function(isActive){
       isActive && $($element).find('input').focus();
     });
+
 }
