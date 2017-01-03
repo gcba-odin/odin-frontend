@@ -12,16 +12,26 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig)
             alert('Por favor, completa el captcha.');
         } else {
           var formData = $("#contactForm").serialize();
+          console.log(formData);
           $.ajax({
             type: 'POST',
             url:  EnvironmentConfig.api + '/email/send',
             data: formData
           }).done(function(response) {
-              console.log('ok');
+            showMsg(true);
           }).fail(function(data) {
-            console.log(data.responseText);
+            showMsg(false);
           });
         }
+    }
+
+    function showMsg(result) {
+      if (result) {
+        alert('El mensaje ha sido enviado correctamente');
+      } else {
+        alert('El mensaje no ha sido enviado, intente nuevamente más tarde');
+      }
+      document.location.href="/";
     }
 
 }
