@@ -81,7 +81,8 @@ hr{
 }
 
 .category-box {
-    background-color: #19c3e3;
+    // background-color: #19c3e3;
+    background-color: #CCCCCC;
     border-radius: 3px;
     height: 90px;
     margin: 10px;
@@ -394,8 +395,10 @@ hr{
 .description-header{
   padding-top: 5px;
   position: relative;
+}
 
-
+.branding-data h1 a{
+  color: #3E4F5E;
 }
 
 .dataset-item:last-of-type{
@@ -428,6 +431,10 @@ hr{
 
 .dataset-hide-resource, .dataset-additional-info{
   margin-left: 0px;
+}
+
+.dataset-quantity{
+  font-family: "Chalet-Sixty", "Avenir", "Helvetica, Arial", "sans-serif";
 }
 
 .info-adicional{
@@ -493,8 +500,19 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   -webkit-box-shadow: none;
 }
 
+.footer-ba-logo{
+  padding-top: 15px;
+}
+.footer-list{
+  display: inline-block;
+}
 .footer-social-networks{
-  display: none;
+  margin-top: 3vh;
+  text-align: left;
+}
+.footer-social-networks-icon span{
+    width: 32px;
+    height: 32px;
 }
 
 .icon-download{
@@ -529,7 +547,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   color: white;
   font-size: 16px;
   height: 33px;
-  margin: 3px 0px;
+  margin: 6px 0px;
 }
 
 .module-heading-clear-icon {
@@ -547,34 +565,33 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .menu-footer{
-  padding: 0px;
+  border-bottom: none;
+  display: inline-block;
+  padding: 0;
+  margin-top: -10px;
+  text-align: left;
+
 }
 
 .menu-footer a{
+  display: block;
   font-size: 11px;
   margin-right: 0px;
 }
 
+.menu-footer a:first-child{
+  margin-top: 20px;
+}
+
 .menu-footer a:before{
-  color: black;
-  margin: 0px 2px;
+  display: none;
 }
 
-.menu-footer-item-specifications:before{
-  background: url("../images/especificaciones-01.svg");
-}
-
-.menu-footer-item-terms-and-conditions:before{
-  background: url("../images/terminos-01.svg");
-}
-
-.menu-footer-item-contact:before{
-  background: url("../images/contacto-01.svg");
-
-}
-
-.module-footer{
-  background: #F1F1F1;
+.menu-footer li {
+    float: left;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    padding-top: 10px;
 }
 
 .module-narrow .module-footer:last-of-type:hover{
@@ -634,12 +651,15 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .odin-branding{
-  padding-top: 10px;
-  margin: 0 auto;
+  border-top: none;
+  display: inline-block;
+  float: right;
+  margin: 20px 0 0 0;
+  width: 140px;
 }
 
 .odin-branding-text{
-  color: gray;
+  color: #FFFFFF;
 }
 
 .popular-list-item-description {
@@ -649,6 +669,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .popular-datasets-list-item-bar{
   margin-top: 4px;
+  background: none;
 }
 
 .resource-actions .dropdown-menu{
@@ -730,10 +751,11 @@ ul.unstyled{
 }
 
 .site-footer{
-  color: black;
-  background-color: white;
-  padding: 10px 0px 0px 0px;
-  margin: 0px;
+  // color: black;
+  background-color: #363636;
+  padding: 10px 0 0 0;
+  margin: 0;
+  padding-bottom: 15px;
 }
 
 .resource-tab li a{
@@ -1056,6 +1078,22 @@ ul.unstyled-alt{
     display: inline;
     font-size: 30px;
   }
+  .menu-footer a{
+    display: inline-block;
+  }
+  .menu-footer-item-specifications:before{
+    background: url("../images/especificaciones-01.svg");
+  }
+  .menu-footer-item-terms-and-conditions:before{
+    background: url("../images/terminos-01.svg");
+  }
+
+  .menu-footer-item-contact:before{
+    background: url("../images/contacto-01.svg");
+  }
+  .menu-footer li{
+    display: block;
+  }
   .odin-branding{
     margin-top: 40px;
   }
@@ -1197,7 +1235,7 @@ ul.unstyled-alt{
 
   .lead{
     display: block;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 800;
     line-height: 1.4;
     margin-left: 17px;

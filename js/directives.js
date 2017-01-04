@@ -115,7 +115,10 @@
             link: function postlink(scope, element, attrs) {
                 scope.$watch("categoryPercent", function(newVal, oldVal) {
                     var $element = $(element);
-                    var color = $element.css("color");
+                    var color='#fdd306';
+                    if (attrs.currentcolor !== 'null') {
+                      color = attrs.currentcolor;
+                    }
                     $element.css({
                         background: "linear-gradient(to right, " + color + " 0%, " + color + " " + scope.categoryPercent + "%, #999999 " + scope.categoryPercent + "%, #999999 100%)"
                     });
