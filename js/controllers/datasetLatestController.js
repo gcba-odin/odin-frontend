@@ -5,7 +5,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4"
+        params: "orderBy=updatedAt&sort=DESC&limit=4",
     }, function(result) {
         result.data.forEach(function(dataset) {
             dataset.fileTypes = [];
@@ -14,6 +14,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
                 type: 'files',
                 params: 'include=tags&dataset=' + dataset.id
             }, function(result) {
+              console.log(result.data);
                 $scope.files = result.data;
                 $scope.files.forEach(function(element) {
                     rest().findOne({

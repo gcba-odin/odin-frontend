@@ -119,8 +119,10 @@
                     if (attrs.currentcolor !== 'null') {
                       color = attrs.currentcolor;
                     }
+                    // linear-gradient(to right, #a0d8ef 46%,#feffff 46%,#feffff 99%);
                     $element.css({
-                        background: "linear-gradient(to right, " + color + " 0%, " + color + " " + scope.categoryPercent + "%, #999999 " + scope.categoryPercent + "%, #999999 100%)"
+                        // background: "linear-gradient(to right, " + color + " 0%, " + color + " " + scope.categoryPercent + "%, #F6F6F6 " + scope.categoryPercent + "%, #F6F6F6 100%)"
+                        background: "linear-gradient(to right, " + color + " 0%, " + color + " " + scope.categoryPercent + "%, #F6F6F6 " + scope.categoryPercent + "%, #F6F6F6 100%)"
                     });
                 });
             }
