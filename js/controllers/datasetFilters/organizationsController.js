@@ -15,8 +15,8 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.toggleCustom = function() {
        $scope.toggle = $scope.toggle === false ? true: false;
     };
-    $scope.loadOrganizations = function(limit) {
-        $scope.limitOrganizations += limit;
+    $scope.loadOrganizations = function(skip) {
+        $scope.limitOrganizations += skip;
         $scope.resultOrganizations = rest().get({
             type: "organizations",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
