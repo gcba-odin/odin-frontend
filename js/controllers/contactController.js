@@ -12,7 +12,6 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig)
             alert('Por favor, completa el captcha.');
         } else {
           var formData = $("#contactForm").serialize();
-          console.log(formData);
           $.ajax({
             type: 'POST',
             url:  EnvironmentConfig.api + '/email/send',

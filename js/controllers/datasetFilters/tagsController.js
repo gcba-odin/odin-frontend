@@ -1,7 +1,7 @@
 angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
-function TagsController($rootScope, $scope, $filter, rest, LocationSearchService) {
+function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
     var filterName = 'tags.slug';
     const limit = 5;
     $scope.limitTags = 0;
@@ -53,4 +53,13 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
+
+
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']
+    }, function(resp) {
+      $scope.currentCategory = resp.data[0];
+    });
+
 }

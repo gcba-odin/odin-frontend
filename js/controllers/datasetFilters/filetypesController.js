@@ -69,4 +69,12 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
+
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']
+    }, function(resp) {
+      $scope.currentCategory = resp.data[0];
+    });
+
 }

@@ -348,14 +348,14 @@ hr{
 }
 
 .dataset-category-icon {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     background-size: 100%;
     // margin-left: -5px;
     margin-right: 0px;
     // margin-top: 0px;
-    margin-top: 5px;
+    // margin-top: 3px;
 }
 
 .dataset-content{
@@ -515,6 +515,9 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     height: 32px;
 }
 
+.home-top-line{
+  display: none;
+}
 .icon-download{
   // left: 160px;
   // position: absolute;
@@ -539,29 +542,6 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   vertical-align: middle;
   margin-bottom: 25px;
   padding: 0px;
-}
-
-.module-heading{
-  background: $ba-skyblue;
-  border: none;
-  color: white;
-  font-size: 16px;
-  height: 33px;
-  margin: 6px 0px;
-}
-
-.module-heading-clear-icon {
-    // background-image: url("../images/clear.svg");
-    // background-size: 100%;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    width: 15px;
-    height: 15px;
-    float: right;
-    cursor: pointer;
-    position: relative;
-    left: 5px;
-    top: 1px;
 }
 
 .menu-footer{
@@ -594,15 +574,36 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     padding-top: 10px;
 }
 
-.module-narrow .module-footer:last-of-type:hover{
-  background: white;
+.module-heading{
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 33px;
+  margin: 3px 0px;
+}
+
+.module-heading-clear-icon {
+    // background-image: url("../images/clear.svg");
+    // background-size: 100%;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    width: 15px;
+    height: 15px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 1px;
+}
+
+
+
+.module-footer{
+  background: #F1F1F1;
+  border: none;
 }
 
 .module .read-more{
-  color: $ba-skyblue;
-}
-
-.module .read-more:hover{
   color: $ba-skyblue;
 }
 
@@ -620,9 +621,30 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   margin-right: 20px;
 }
 
+.widgets-heading{
+  margin-bottom: 40px;
+}
+
+.widget-title{
+  display: inline-block;
+  font-size: 23px;
+  vertical-align: middle;
+}
+
+.widgets-first-row  .widgets-heading  .title-container-home{
+  @extend .widget-title;
+  color: $ba-skyblue;
+  white-space:pre-line;
+}
+
+.widgets-second-row  .widgets-heading  .title-container-home{
+  @extend .widget-title;
+  color: #3E4F5E;
+}
+
 .widgets-second-row .popular-datasets-list-item-icon{
   height: 20px;
-  margin-right: 40px;
+  margin-right: 30px;
   margin-left: 20px;
   width: 20px;
   -webkit-filter: none;
@@ -648,14 +670,11 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .nav-simple > li, .nav-aside > li{
   background: #F1F1F1;
+  border: none;
 }
 
 .navbar-button, .navbar-button:hover, .navbar-button:active{
   color: gray;
-}
-
-.nav-simple > li, .nav-aside > li{
-  border: none;
 }
 
 .nav > li > a:hover{
@@ -767,9 +786,8 @@ ul.unstyled{
 .site-footer{
   // color: black;
   background-color: #363636;
-  padding: 10px 0 0 0;
-  margin: 0;
-  padding-bottom: 15px;
+  padding: 10px;
+  margin: 30px 0 0 0;
 }
 
 .resource-tab li a{
@@ -830,7 +848,6 @@ ul.unstyled-alt{
 .widget{
   border: none;
   border-radius: 20px;
-  // padding-right: 0px;
 }
 
 .widgets-heading {
@@ -839,15 +856,9 @@ ul.unstyled-alt{
   display: inline-block;
 }
 
-.widget:first-child{
-  margin-top: 0px;
-}
-
 .widgets-first-row img, .widgets-second-row img{
-  // margin-right: 25px;
-  margin-left: 20px;
-  width: 50px;
-  // margin-left: 14px;
+  margin-left: 15px;
+  width: 40px;
 }
 
 .widget:last-of-type > img{
@@ -1075,6 +1086,31 @@ ul.unstyled-alt{
     margin-top: 0px;
     display: inline;
   }
+  .footer-list{
+    position: absolute;
+    top: 5%;
+    right: 7%;
+  }
+  .footer-social-networks{
+    display: inline-block;
+    float: left;
+  }
+  .footer-social-networks-icon span{
+    margin-right: 20px;
+  }
+  .footer-text{
+    margin-left: 5px;
+  }
+  .footer-text strong, small{
+    display: block
+  }
+
+  .home-top-line{
+    background-color: $ba-yellow;
+    display: block;
+    padding: 3px;
+    width: 99.5%;
+  }
 
   .icon-download{
     // left: 180px;
@@ -1090,8 +1126,18 @@ ul.unstyled-alt{
     display: inline;
     font-size: 30px;
   }
+
+  .menu-footer{
+    margin-bottom: 25px;
+  }
+
   .menu-footer a{
     display: inline-block;
+  }
+  .menu-footer a:before{
+    display: inline-block;
+    float: left;
+    margin-top: 3px;
   }
   .menu-footer-item-specifications:before{
     background: url("../images/especificaciones-01.svg");
@@ -1107,7 +1153,10 @@ ul.unstyled-alt{
     display: block;
   }
   .odin-branding{
-    margin-top: 40px;
+    float: left;
+    margin: 0;
+    margin-left: 5vw;
+    margin-top: 3.2vh;
   }
 
   .popular-list-item-description{
@@ -1147,6 +1196,7 @@ ul.unstyled-alt{
     background: white;
     display: block;
   }
+
   .text-auxiliar-bar:first-of-type{
     font-size: 14px;
   }
@@ -1159,21 +1209,17 @@ ul.unstyled-alt{
   .toolbar{
     display: block;
   }
-
+  .widget-title{
+    margin-left: 20px;
+    font-size: 30px;
+  }
   .widgets-first-row img, .widgets-second-row img{
     margin-left: 0;
+    width: 70px;
   }
 
-  .widget> h2 {
-    font-size: 23px;
-    display: inline-block;
-
-    margin: 0 0 0 5px;
-    vertical-align: middle;
-  }
-
-  .widgets-heading{
-    margin-bottom: 40px;
+  .widgets-first-row .title-container-home{
+    width: 30%;
   }
 
   .widget-item {
