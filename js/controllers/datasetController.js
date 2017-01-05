@@ -138,8 +138,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                                 angular.forEach(feature.properties, function(value, key) {
                                                     html += '<strong>' + key + '</strong>: ' + value + '<br><br>';
                                                 });
+                                                var custom_options = {
+                                                    'maxHeight': '200'
+                                                };
                                                 if (html != '') {
-                                                    layer.bindPopup(html);
+                                                    layer.bindPopup(html, custom_options);
                                                 }
                                             }
                                         }
