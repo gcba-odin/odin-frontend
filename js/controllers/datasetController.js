@@ -13,6 +13,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         slug: $routeParams.id,
         include: 'tags,categories,subcategories'
     };
+    L.Icon.Default.imagePath = '/images/leaflet/';
 
     rest().get({
         type: $scope.type,
@@ -47,15 +48,29 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     centerJSON = function(geo) {
-        leafletData.getMap().then(function(map) {
+        leafletData.getMap('map.id').then(function (map) {
             var latlngs = [];
             for (var i in geo.data.features) {
                 var coord = geo.data.features[i].geometry.coordinates;
+                var typeGeometry = geo.data.features[i].geometry.type;
                 for (var j in coord) {
-                    latlngs.push(L.GeoJSON.coordsToLatLng(coord));
-                }
+                    if(typeGeometry == 'Point') {
+                        latlngs.push(L.GeoJSON.coordsToLatLng(coord));
+                    } else if(typeGeometry == 'LineString' || typeGeometry == 'Polygon') {
+                        for (var k in j) {
+                            if(typeGeometry == 'LineString') {
+                                latlngs.push(L.GeoJSON.coordsToLatLng(coord[j]));
+                            } else if(typeGeometry == 'Polygon') {
+                                for (var h in coord[j][k]) {
+                                    latlngs.push(L.GeoJSON.coordsToLatLng(coord[j][k]));
+                                }
+                            }
+                        }
+                    }            
+                } 
+
             }
-            if(latlngs.length > 0)
+            if (latlngs.length > 0)
                 map.fitBounds(latlngs);
         });
     };
