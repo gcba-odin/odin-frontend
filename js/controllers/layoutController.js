@@ -8,7 +8,6 @@ function LayoutController($scope, $location, rest, $rootScope, $sce, $routeParam
         type: $scope.type,
         id: $routeParams.id,
     }, function(result) {
-        console.log(result);
         $scope.resource = result.data[0];
     });
 

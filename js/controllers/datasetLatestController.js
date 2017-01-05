@@ -14,7 +14,6 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
                 type: 'files',
                 params: 'include=tags&dataset=' + dataset.id
             }, function(result) {
-              console.log(result.data);
                 $scope.files = result.data;
                 $scope.files.forEach(function(element) {
                     rest().findOne({

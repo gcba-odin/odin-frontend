@@ -1,7 +1,7 @@
 angular.module('odin.controllers')
 .controller('OrderingsController', OrderingsController);
 
-function OrderingsController ($scope, $rootScope, LocationSearchService) {
+function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $routeParams) {
     LocationSearchService.init();
     var filterName = 'orderBy';
     $scope.orderings = [
@@ -47,4 +47,13 @@ function OrderingsController ($scope, $rootScope, LocationSearchService) {
     $scope.toggleCustom = function() {
        $scope.toggle = $scope.toggle === false ? true: false;
     };
+
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']
+    }, function(resp) {
+      $scope.currentCategory = resp.data[0];
+      sessionStorage.setItem('categoryColor', $scope.currentCategory.color);
+    });
+
 }
