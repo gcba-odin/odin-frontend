@@ -17,10 +17,11 @@
               </li>
           </ol>
       </div>
-      <div class="col-lg-10 col-lg-offset-1">
+      <!-- <div class="col-lg-10 col-lg-offset-1"> -->
+      <div class="col-md-12 col-lg-10 col-lg-offset-1">
         <div class="row result wrapper">
           <div class="col-xs-12">
-            <div class="dataset-item">
+            <div class="dataset-item" >
               <div class="dataset-content clearfix">
                 <h3 class="dataset-heading">
                   <a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">{{info.name}}</a>
@@ -70,7 +71,9 @@
                   </div>
               </div>
           </aside>
-          <div class="primary col-md-12 col-lg-9 col-lg-offset-0">
+
+          <!-- <div class="primary col-md-12 col-lg-9 col-lg-offset-0"> -->
+          <div class="primary col-lg-9 col-lg-offset-0" ng-class="isMobile ? col-md-12 : col-md-9 ">
             <section class="module">
                 <div class="module-content">
                     <result-resources></result-resources>

@@ -394,7 +394,10 @@ hr{
 // .dataset-latest-update-alt{
 //   color: #606060;
 // }
-
+.dataset-item-padding{
+  padding-left: -15px;
+  padding-right: -15px;
+}
 .dataset-content .dataset-latest-update{
   color: #3E4F5E;
 }
