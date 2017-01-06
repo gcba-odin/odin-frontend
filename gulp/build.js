@@ -5,5 +5,6 @@ gulp.task('build', [
   'vendors',
   'javascript',
   'styles',
-  'static'
+  'static',
+  'leaflet'
 ]);
