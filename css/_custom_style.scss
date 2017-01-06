@@ -171,6 +171,12 @@ hr{
 .colorText {
   display: none;
 }
+.container-resource-categories{
+  display: block;
+}
+.container-resource-categories span{
+  display: inline;
+}
 
 .filter-group .filter-icon, .filter-group .filter-name{
   background-color: #F5F5F5;
