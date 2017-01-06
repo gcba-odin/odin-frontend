@@ -53,8 +53,8 @@
                 controller: termsAndConditionsController
             }).when("/contact", {
                 redirectTo: '/'
-                // templateUrl: "views/contact.html",
-                // controller: contactController
+                templateUrl: "views/contact.html",
+                controller: contactController
             }).when("/layout/:id/preview", {
                 templateUrl: "views/layout.html",
                 controller: LayoutController
