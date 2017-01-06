@@ -6,7 +6,6 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,
     };
 
     $scope.submit = function () {
-      debugger;
         if (!vcRecaptchaService.getResponse(recaptchaId)) {
             $scope.od_captcha = null;
             vcRecaptchaService.reload(recaptchaId);
@@ -24,8 +23,7 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,
           }).done(function(response) {
             showMsg(true);
           }).fail(function(data) {
-            // showMsg(data);
-            console.log(data);
+            showMsg(data);
           });
         }
     }
@@ -34,7 +32,7 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,
       if (result) {
         alert('El mensaje ha sido enviado correctamente');
       } else {
-        // alert('El mensaje no ha sido enviado, intente nuevamente más tarde');
+        alert('El mensaje no ha sido enviado, intente nuevamente más tarde');
       }
       document.location.href="/";
     }
