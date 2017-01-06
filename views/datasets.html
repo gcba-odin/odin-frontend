@@ -14,16 +14,10 @@
                     <li class="breadcrumb-item">
                         <a href="{{baseHtml5}}">{{currentCategory.name}}</a>
                     </li>
-                    <!-- <li class="breadcrumb-item">
-                        <a href="datasets">DATASETS</a>
-                    </li> -->
                 </ol>
                 <div class="datasets-counter">
-                  <!--<div id="category-img" ng-style="{background:blue}" ng-if="currentCategory.id" class="category-image" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></div>-->
                   <div ng-show="countDatasets == 0">
-                   <p>
-                     No se han encontrado datasets
-                   </p>
+                    <p> No se han encontrado datasets </p>
                   </div>
                   <div ng-show="countDatasets > 0">
                     <div class="dataset-counter-container">
@@ -32,7 +26,6 @@
                     </div>
                     <p>Datasets</p>
                   </div>
-                  <!-- <span>{{countDatasets > 0 ? countDatasets + " Datasets" : "No se han encontrado elementos" }}</span> -->
                 </div>
             </div>
           </div>
@@ -51,7 +44,7 @@
             </div>
           </aside>
           <!-- <div class="primary col-lg-8"> -->
-          <div class="primary col-xs-12 col-lg-7 col-lg-offset-0">
+         <div class="primary col-xs-12 col-lg-7 col-lg-offset-0"
                 <section class="module">
                     <div class="module-content">
                         <result-datasets></result-datasets>
@@ -61,14 +54,7 @@
                         <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                     </div>
                 </section>
-                <section class="module">
-                    <div class="module-content">
-                    </div>
-                </section>
-            </div>
-        </div>
-        <div class="row">
-
+          </div>
         </div>
     </div>
 </div>

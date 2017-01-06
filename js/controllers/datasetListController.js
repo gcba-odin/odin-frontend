@@ -2,13 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
 
     // get limit config
-    $scope.config_key = 'frontEndPagination';
-    configs.findKey($scope, function (resp) {
-        if (!!resp.data[0] && !!resp.data[0].value) {
-            $scope.limit = resp.data[0].value;
-        }else {
             $scope.limit = 20;
-        }
 
         $scope.params = {
             sort: 'ASC',
@@ -20,7 +14,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
         var category = rest().get({
           type: 'categories',
-          params: 'slug='+$routeParams['categories.slug']
+          params: 'slug='+$routeParams['categories.slug']+"&match=exact"
         }, function(resp) {
           $scope.currentCategory = resp.data[0];
         });
@@ -120,9 +114,4 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
               // a must be equal to b
               return 0;
           }
-
-    });
-
-
-
 }

@@ -1,20 +1,20 @@
 angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
-function TagsController($rootScope, $scope, $filter, rest, LocationSearchService) {
+function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
     var filterName = 'tags.slug';
+    const limit = 5;
     $scope.limitTags = 0;
     $scope.tags = [];
     $scope.resultTags = [];
     $scope.lessThanLimit;
-    $scope.toggle = false;
 
-    $scope.toggleCustom = function() {
-       $scope.toggle = $scope.toggle === false ? true: false;
+    $scope.collapsed = false;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
     };
-
-    $scope.loadTags = function(limit) {
-        $scope.limitTags += limit;
+    $scope.loadTags = function(skip) {
+        $scope.limitTags += skip;
         $scope.resultTags = rest().get({
             type: "tags",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitTags
@@ -25,7 +25,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
             }
-            $scope.lessThanLimit = $scope.resultTags.data.length < limit;
+            $scope.lessThanLimit = $scope.resultTags.data.length < Math.max(skip, limit);
         });
 
     };
@@ -51,4 +51,21 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
+
+    var currentColor;
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
+    }, function(resp) {
+      if (resp.data[0]) {
+        $scope.currentCategory = resp.data[0];
+        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
+            $scope.currentColor = $scope.currentCategory.color ;
+            sessionStorage.setItem('currentColor', $scope.currentColor);
+        }
+      }else{
+        $scope.currentColor = sessionStorage.getItem('currentColor');
+      }
+    });
+
 }

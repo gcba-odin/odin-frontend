@@ -12,6 +12,7 @@ angular.module('store-directives-dataset')
             $scope.toggleCollapse = function() {
                 $scope.collapsed = !$scope.collapsed;
             };
+            $scope.currentColor = sessionStorage.getItem('currentColor') || '';
         },
         controllerAs: "socials"
     };

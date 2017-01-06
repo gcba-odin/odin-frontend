@@ -1,11 +1,14 @@
 <section class="module module-narrow module-shallow" ng-if="tags.length">
-   <h2 class="module-heading">
+   <h2 class="module-heading"  ng-style="{background:currentColor}">
       Etiquetas
-      <span class="module-heading-clear-icon fa fa-caret-down" ng-click="toggleCustom()"></span>
+      <i class="collapse-icon fa module-action"
+        ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
+        ng-click="toggleCollapse()"
+      ></i>
    </h2>
-   <div ng-hide="toggle">
+   <div ng-hide="collapsed">
      <nav>
-        <ul class="unstyled nav nav-simple nav-facet">
+        <ul  class="unstyled nav nav-simple nav-facet">
            <li class="nav-item " ng-repeat="tag in tags" ng-class="{'active': tag.active}">
               <a class="tags-item" ng-click="selectTag(tag)" title="{{tag.name}}">
                  <span>{{tag.name | truncString}}</span>

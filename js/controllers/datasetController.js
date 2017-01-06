@@ -11,9 +11,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.type = "datasets";
     $scope.params = {
         slug: $routeParams.id,
-        include: 'tags,categories'
+        include: 'tags,categories,subcategories'
     };
-    
+    L.Icon.Default.imagePath = '/images/leaflet/';
+
     rest().get({
         type: $scope.type,
         params: $httpParamSerializer($scope.params)
@@ -47,15 +48,29 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     centerJSON = function(geo) {
-        leafletData.getMap().then(function(map) {
+        leafletData.getMap('map.id').then(function (map) {
             var latlngs = [];
             for (var i in geo.data.features) {
                 var coord = geo.data.features[i].geometry.coordinates;
+                var typeGeometry = geo.data.features[i].geometry.type;
                 for (var j in coord) {
-                    latlngs.push(L.GeoJSON.coordsToLatLng(coord));
+                    if(typeGeometry == 'Point') {
+                        latlngs.push(L.GeoJSON.coordsToLatLng(coord));
+                    } else if(typeGeometry == 'LineString' || typeGeometry == 'Polygon') {
+                        for (var k in j) {
+                            if(typeGeometry == 'LineString') {
+                                latlngs.push(L.GeoJSON.coordsToLatLng(coord[j]));
+                            } else if(typeGeometry == 'Polygon') {
+                                for (var h in coord[j][k]) {
+                                    latlngs.push(L.GeoJSON.coordsToLatLng(coord[j][k]));
+                                }
+                            }
+                        }
+                    }
                 }
+
             }
-            if(latlngs.length > 0)
+            if (latlngs.length > 0)
                 map.fitBounds(latlngs);
         });
     };
@@ -123,8 +138,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                                 angular.forEach(feature.properties, function(value, key) {
                                                     html += '<strong>' + key + '</strong>: ' + value + '<br><br>';
                                                 });
+                                                var custom_options = {
+                                                    'maxHeight': '200'
+                                                };
                                                 if (html != '') {
-                                                    layer.bindPopup(html);
+                                                    layer.bindPopup(html, custom_options);
                                                 }
                                             }
                                         }
@@ -178,10 +196,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
                                 var getRandomColor = function (point) {
                                     var palette = ['#88BF48', '#F562A2', '#CCCCCC',
-                                        '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
-                                        '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
-                                        '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
-                                        '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
+                                                   '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
+                                                   '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
+                                                   '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
+                                                   '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
 
                                     return palette[Math.round(point % palette.length)];
                                 }

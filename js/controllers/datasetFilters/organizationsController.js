@@ -3,18 +3,20 @@ angular.module('odin.controllers')
 
 function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest) {
     var filterName = 'files.organization';
+    const limit = 5;
     $scope.limitOrganizations = 0;
     $scope.organizations = [];
     $scope.resultOrganizations = [];
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
-    $scope.toggle = false;
 
-    $scope.toggleCustom = function() {
-       $scope.toggle = $scope.toggle === false ? true: false;
+    $scope.collapsed = false;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
     };
-    $scope.loadOrganizations = function(limit) {
-        $scope.limitOrganizations += limit;
+
+    $scope.loadOrganizations = function(skip) {
+        $scope.limitOrganizations += skip;
         $scope.resultOrganizations = rest().get({
             type: "organizations",
             params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
@@ -25,7 +27,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 $scope.organizations.push(organization);
                 $scope.loadOrganizationCount(organization.id);
             }
-            $scope.lessThanLimit = $scope.resultOrganizations.data.length < limit;
+            $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);
         });
     };
 
@@ -64,4 +66,21 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
+
+    var currentColor;
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
+    }, function(resp) {
+      if (resp.data[0]) {
+        $scope.currentCategory = resp.data[0];
+        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
+            $scope.currentColor = $scope.currentCategory.color ;
+            sessionStorage.setItem('currentColor', $scope.currentColor);
+        }
+      }else{
+        $scope.currentColor = sessionStorage.getItem('currentColor');
+      }
+    });
+
 }

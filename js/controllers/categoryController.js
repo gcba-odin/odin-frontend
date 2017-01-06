@@ -5,9 +5,12 @@ app.factory('model', function($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log) {
-    $scope.activeCategory = $routeParams['categories.slug'];
+    if ($routeParams['categories.slug']) {
+      sessionStorage.setItem('activeCategory',$routeParams['categories.slug']);
+    }
+    $scope.activeCategory = sessionStorage.getItem('activeCategory');
     $scope.url_api = $rootScope.url;
-    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.slug'];
+    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : sessionStorage.getItem('activeCategory');
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;
@@ -23,10 +26,10 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
 
     rest().get({
         type: $scope.type,
-        params: "orderBy=createdAt&sort=DESC"
+        params: "parent=null&orderBy=createdAt&sort=DESC"
     }, function(categories) {
         $scope.categories = categories.data;
-        $scope.showCategories = false;
+        // $scope.showCategories = false;
 
         $scope.categories.forEach(function(element) {
             $scope.statistics[element.id] = 0;
@@ -44,7 +47,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
             }
 
             for (element in statistics.data) {
-                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;;
+                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;
             }
         });
     });

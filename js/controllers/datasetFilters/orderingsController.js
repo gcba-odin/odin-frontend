@@ -1,7 +1,7 @@
 angular.module('odin.controllers')
 .controller('OrderingsController', OrderingsController);
 
-function OrderingsController ($scope, $rootScope, LocationSearchService) {
+function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $routeParams) {
     LocationSearchService.init();
     var filterName = 'orderBy';
     $scope.orderings = [
@@ -43,8 +43,27 @@ function OrderingsController ($scope, $rootScope, LocationSearchService) {
         LocationSearchService.deleteFilter(filterName);
         LocationSearchService.deleteFilter('sort');
     };
-    $scope.toggle = false;
-    $scope.toggleCustom = function() {
-       $scope.toggle = $scope.toggle === false ? true: false;
+
+
+    $scope.collapsed = false;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
     };
+
+    var currentColor;
+    var category = rest().get({
+      type: 'categories',
+      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
+    }, function(resp) {
+      if (resp.data[0]) {
+        $scope.currentCategory = resp.data[0];
+        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
+            $scope.currentColor = $scope.currentCategory.color ;
+            sessionStorage.setItem('currentColor', $scope.currentColor);
+        }
+      }else{
+        $scope.currentColor = sessionStorage.getItem('currentColor');
+      }
+    });
+
 }

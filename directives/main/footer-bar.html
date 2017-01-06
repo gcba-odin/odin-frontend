@@ -1,29 +1,48 @@
     <footer class="site-footer">
         <div class="container">
-            <ul class="menu-footer col-md-12" ng-hide="!!layout_preview">
-                <a href="{{baseHtml5}}" class="menu-footer-item-specifications"><li>Especificaciones
-                </li></a>
-                <a href="/tyc" class="menu-footer-item-terms-and-conditions"><li>Términos y condiciones
-                </li></a>
-                <!--<a href="/contact" class="menu-footer-item-contact"><li>Contacto
-                </li></a> -->
-            </ul>
-            <div class="odin-branding">
-                <span class="odin-branding-text">Desarrollado con</span>
-                <span class="odin-branding-logo-color"></span>
-                <span class="odin-branding-text">Version {{odin_version}}</span>
-            </div>
-            <div class="footer-social-networks" ng-hide="!!layout_preview">
-                <a href="https://twitter.com/LABgcba" class="footer-social-networks-icon" title="Twitter">
-                    <span class="footer-social-networks-icon-twitter"></span>
-                </a>
-                <a href="https://github.com/gcba-odin/odin" class="footer-social-networks-icon" title="GitHub">
-                    <span class="footer-social-networks-icon-github"></span>
-                </a>
-                <a href="https://www.instagram.com/labgcba/" class="footer-social-networks-icon" title="Instagram">
-                    <span class="footer-social-networks-icon-instagram"></span>
-                </a>
+          <div class="row">
+            <div class="col-xs-12 col-lg-11 col-lg-offset-1">
+
+                  <div class="footer-ba-logo">
+                      <img src="../images/ba-logo-01.svg" alt="BA-Logo" />
+                  </div>
+                  <div class="footer-social-networks" ng-hide="!!layout_preview">
+
+                        <p>Redes Sociales</p>
+
+                      <a href="https://twitter.com/LABgcba" target="_blank" class="footer-social-networks-icon" title="Twitter">
+                          <span class="footer-social-networks-icon-twitter"></span>
+                      </a>
+                      <a href="https://github.com/gcba-odin/odin"  target="_blank" class="footer-social-networks-icon" title="GitHub">
+                          <span class="footer-social-networks-icon-github"></span>
+                      </a>
+                  </div>
+                  <div class="footer-list">
+                    <ul class="menu-footer col-md-12" ng-hide="!!layout_preview">
+                        <a href="http://gcba-odin.github.io/odin-tech-docs/" target="_blank" class="menu-footer-item-specifications"><li>Especificaciones
+                        </li></a>
+                        <a href="/tyc" class="menu-footer-item-terms-and-conditions" target="_blank" ><li>Términos y condiciones
+                        </li></a>
+                        <a href="/contact" class="menu-footer-item-contact"><li>Contacto
+                        </li></a>
+                    </ul>
+                    <div class="footer-text" ng-show ="!isMobile">
+                      <strong>
+                        Direccion General de Innovación y Gobierno Abierto
+                      </strong>
+                      <small>
+                        Ministerio de Modernización
+                      </small>
+                    </div>
+                  </div>
+                  <div class="odin-branding">
+                      <span class="odin-branding-text">Desarrollado con</span>
+                      <span class="odin-branding-logo-color"></span>
+                      <!-- <span class="odin-branding-text" ng-hide="isMobile">Version {{odin_version}}</span> -->
+                  </div>
+
 
             </div>
+          </div>
         </div>
     </footer>

@@ -1,4 +1,4 @@
-function SocialNetworkController($scope, $location, rest, $rootScope, $sce) {
+function SocialNetworkController($scope, $location, rest, $rootScope, $sce, $routeParams) {
     // Flash.clear();
     $scope.modelName = "Category";
     $scope.type = "categories";

@@ -1,14 +1,15 @@
 <!-- <ul class="dataset-list unstyled"> -->
-<div class="dataset-list unstyled">
+<!-- <div class="dataset-list unstyled"> -->
     <!-- <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'"> -->
     <div class="dataset-item" ng-repeat="result in datasets | orderBy:'-downloads'">
       <div class="dataset-content">
-          <span data-currentcolor="{{category.color}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" data-tooltip="{{category.name}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
+          <span data-currentcolor="{{category.color}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
           </span>
           <h3 class="dataset-heading">
               <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
           </h3>
-          <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div>
+          <!-- <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div> -->
+          <div class="dataset-latest-update">Fecha de publicación: {{info.createdAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
           <div class="dataset-description" hm-read-more hm-text="{{ getHtml(result.description) }}" hm-limit="150" hm-more-text=" (ver más)" hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
             <ul class="dataset-resources unstyled list-dataset">
                   <li ng-repeat="fileType in result.fileTypes">
@@ -31,17 +32,7 @@
                           </tr>
                       </tbody>
                   </table>
-
             </ul>
-
-        <!-- <div class="row">
-          <a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP"><span><i class="a">Descargar</i></span></a>
-          <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span> -->
         </div>
       </div>
-
     </div>
-
-    <!-- </li> -->
-</div>
-<!-- </ul> -->

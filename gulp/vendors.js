@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename');
 
 gulp.task('vendors', ['base-url'], function() {
-  return gulp.src('dist/index.html')
+    return gulp.src('dist/index.html')
     .pipe(useref({ searchPath: '.' },
       lazypipe().pipe(sourcemaps.init, { loadMaps: true }))
     )

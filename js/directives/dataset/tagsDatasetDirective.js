@@ -5,7 +5,7 @@ angular.module('store-directives-dataset')
         templateUrl: "directives/dataset/tags-datasets.html",
 
         controller: function($scope) {
-
+        
         },
         controllerAs: "tags"
     };
