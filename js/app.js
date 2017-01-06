@@ -52,7 +52,6 @@
                 templateUrl: "views/terms_and_conditions.html",
                 controller: termsAndConditionsController
             }).when("/contact", {
-                redirectTo: '/'
                 templateUrl: "views/contact.html",
                 controller: contactController
             }).when("/layout/:id/preview", {
