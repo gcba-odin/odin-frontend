@@ -2,11 +2,12 @@
     <ul class="popular-datasets-list">
         <div ng-repeat="item in categories">
             <li class="row popular-datasets-list-item container-dataset">
+              <div class="divColors">
                 <span  ng-if="item.color !== undefined && item.color !== 'null'" data-currentcolor="{{item.color}}"  class="popular-datasets-list-item-icon {{ item.name | slug }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
-                <span class="popular-list-item-description pull-left" ng-if="item.color === undefined || item.color == 'null'" ng-model="letterLimit" >{{item.name | limitTo:letterLimit }}...</span>
-                <span class="col-xs-3 popular-datasets-list-item-bar"
-                data-currentcolor="{{item.color}}"  category-percent="porcentual[item.id]"></span>
+                <span class="popular-list-item-description pull-left colorText" ng-model="letterLimit" >{{item.name | limitTo:letterLimit }}...</span>
+                <span class="col-xs-3 popular-datasets-list-item-bar" data-currentcolor="{{item.color}}"  category-percent="porcentual[item.id]"></span>
                 <!-- <span class="col-xs-3 popular-datasets-list-item-count">{{ statistics[item.id] }}</span> -->
+              </div>
             </li>
         </div>
     </ul>

@@ -168,6 +168,10 @@ hr{
   right: 6%;
 }
 
+.colorText {
+  display: none;
+}
+
 .filter-group .filter-icon, .filter-group .filter-name{
   background-color: #F5F5F5;
   color: #545D6F !important;
@@ -603,11 +607,13 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     top: 1px;
 }
 
-
-
 .module-footer{
   background: #F1F1F1;
   border: none;
+}
+
+.module-footer:hover{
+  background: #FFFFFF;
 }
 
 .module .read-more{
@@ -1368,7 +1374,7 @@ ul.unstyled-alt{
   }
 
   .dataset-list.unstyled {
-  margin-right:-15px;
+  // margin-right:-15px;
   }
 
   .dataset-content {

@@ -93,10 +93,17 @@
                           $element.find("polygon").css("fill", attrs.currentcolor);
                           $element.find("circle").css("fill", attrs.currentcolor);
                         }
-                    }});
+                    },
+                    error: function(data){
+                      $element.parent().find(".colorText").css("display", "block");
+                      $element.parent().find(".popular-datasets-list-item-icon").css("display", "none");
+                    }
+                  });
             }
         };
     });
+
+
 
     app.directive('brandingData', function() {
         return {
