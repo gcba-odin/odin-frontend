@@ -807,7 +807,7 @@ ul.unstyled{
 
 .site-footer{
   background-color: #363636;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 0;
 }
 
@@ -1231,6 +1231,9 @@ ul.unstyled-alt{
     display: block;
   }
 
+  .site-footer{
+    padding: 0;
+  }
   .text-auxiliar-bar:first-of-type{
     font-size: 14px;
   }
