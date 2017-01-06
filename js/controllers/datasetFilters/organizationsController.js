@@ -10,11 +10,11 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
 
-    $scope.toggle = false;
-
-    $scope.toggleCustom = function() {
-       $scope.toggle = $scope.toggle === false ? true: false;
+    $scope.collapsed = false;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
     };
+
     $scope.loadOrganizations = function(skip) {
         $scope.limitOrganizations += skip;
         $scope.resultOrganizations = rest().get({

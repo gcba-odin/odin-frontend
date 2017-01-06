@@ -5,7 +5,7 @@ angular.module('store-directives-dataset')
         templateUrl: "directives/dataset/organizations-dataset.html",
 
         controller: function($scope) {
-          $scope.collapsed = true;
+          $scope.collapsed = false;
           $scope.toggleCollapse = function() {
               $scope.collapsed = !$scope.collapsed;
           };

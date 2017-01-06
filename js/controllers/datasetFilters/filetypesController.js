@@ -10,10 +10,9 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
 
-    $scope.toggle = false;
-
-    $scope.toggleCustom = function() {
-       $scope.toggle = $scope.toggle === false ? true: false;
+    $scope.collapsed = false;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
     };
 
     $scope.loadFormats = function(skip) {
