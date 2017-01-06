@@ -14,7 +14,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
         var category = rest().get({
           type: 'categories',
-          params: 'slug='+$routeParams['categories.slug']
+          params: 'slug='+$routeParams['categories.slug']+"&match=exact"
         }, function(resp) {
           $scope.currentCategory = resp.data[0];
         });

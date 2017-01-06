@@ -66,8 +66,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                 }
                             }
                         }
-                    }            
-                } 
+                    }
+                }
 
             }
             if (latlngs.length > 0)

@@ -55,7 +55,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     var currentColor;
     var category = rest().get({
       type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']
+      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
     }, function(resp) {
       if (resp.data[0]) {
         $scope.currentCategory = resp.data[0];

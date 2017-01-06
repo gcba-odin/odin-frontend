@@ -15,7 +15,7 @@ function SubcategoriesController($rootScope, $scope, $routeParams, $filter, rest
         $scope.limitSubcategories += skip;
         $scope.resultSubcategories = rest().get({
             type: "categories",
-            params: "include=subcategories&parent=null&condition=AND&slug=" + categorySlug + "&orderBy=name&sort=ASC&limit=" + limit + "&skip=" + $scope.limitSubcategories
+            params: "include=subcategories&parent=null&condition=AND&slug=" + categorySlug + "&orderBy=name&sort=ASC&limit=" + limit + "&skip=" + $scope.limitSubcategories+"&match=exact"
         }, function () {
             var subcategories = $scope.resultSubcategories.data[0].subcategories;
             for (var i = 0; i < subcategories.length; i++) {
