@@ -4,15 +4,15 @@
         <a ng-href="datasets?categories.slug={{ category.name | slug }}"
         class="categories-item categories-row-item" ng-repeat="category in categories"
         style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
-        ng-style="hoverActive && category.color !== 'null'   ? {'background-color': category.color} : {'background-color':'#E5E5E5'}"
+        ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' )  ? {'background-color': category.color} : {'background-color':'#E5E5E5'}"
         ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
-            <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
-            <!-- <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4> -->
+      
+            <!-- <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div> -->
+          <!-- <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4> -->
         </a>
     </div>
   </div>
 </div>
-
 
 <!-- TODO replace with a better loader
 <div class="row center-spin" ng-if="showCategories">

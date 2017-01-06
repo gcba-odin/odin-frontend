@@ -5,9 +5,12 @@ app.factory('model', function($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log) {
-    $scope.activeCategory = $routeParams['categories.slug'];
+    if ($routeParams['categories.slug']) {
+      sessionStorage.setItem('activeCategory',$routeParams['categories.slug']);
+    }
+    $scope.activeCategory = sessionStorage.getItem('activeCategory');
     $scope.url_api = $rootScope.url;
-    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : $routeParams['categories.slug'];
+    $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : sessionStorage.getItem('activeCategory');
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;

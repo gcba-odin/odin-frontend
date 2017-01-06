@@ -48,12 +48,25 @@ function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $
        $scope.toggle = $scope.toggle === false ? true: false;
     };
 
+    $scope.collapsed = true;
+    $scope.toggleCollapse = function() {
+        $scope.collapsed = !$scope.collapsed;
+    };
+
+    var currentColor;
     var category = rest().get({
       type: 'categories',
       params: 'slug='+$routeParams['categories.slug']
     }, function(resp) {
-      $scope.currentCategory = resp.data[0];
-      sessionStorage.setItem('categoryColor', $scope.currentCategory.color);
+      if (resp.data[0]) {
+        $scope.currentCategory = resp.data[0];
+        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
+            $scope.currentColor = $scope.currentCategory.color ;
+            sessionStorage.setItem('currentColor', $scope.currentColor);
+        }
+      }else{
+        $scope.currentColor = sessionStorage.getItem('currentColor');
+      }
     });
 
 }
