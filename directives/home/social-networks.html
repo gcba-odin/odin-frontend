@@ -1,6 +1,11 @@
 <!-- <div class="col-lg-9 social-networks"> -->
 <div class="social-networks">
-    <a href="https://twitter.com/LABgcba" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir</a>
+    <!-- <a href="https://twitter.com/LABgcba" class="twitter-follow-button" data-show-count="false" data-lang="es"> -->
+
+    <a ng-click="active = !active" href="https://twitter.com/LABgcba"  data-show-count="false" data-lang="es" target="_blank">
+      <div  ng-class="active === true ? 'twitter-follow-button-onclick' : 'twitter-follow-button'"></div>
+    </a>
+
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <twitter-timeline>
         <a class="twitter-timeline" data-widget-id="600720083413962752" href="https://twitter.com/LABgcba" data-screen-name="LABgcba" data-chrome="noheader nofooter noscrollbar" data-tweet-limit="1" data-lang="es">Tweets por @LABgcba</a>

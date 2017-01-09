@@ -10,7 +10,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
 
-    $scope.collapsed = false;
+    $scope.collapsed = true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };

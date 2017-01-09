@@ -10,7 +10,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
 
-    $scope.collapsed = false;
+    $scope.collapsed = true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };

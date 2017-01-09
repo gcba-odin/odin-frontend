@@ -40,16 +40,16 @@
                             </div>
                             <ul class="dropdown-menu">
                                 <li ng-if="resource.contents">
-                                    <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver tabla</a>
+                                    <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Tabla</a>
                                 </li>
                                 <li ng-if="!!resource.resources.data.charts">
-                                    <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver gráfico</a>
+                                    <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Gráfico</a>
                                 </li>
                                 <li ng-if="!!resource.resources.data.maps">
-                                    <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver mapa</a>
+                                    <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Mapa</a>
                                 </li>
                                 <li ng-if="(fileTypes[resource.type.id]|| lowercase) == 'pdf'">
-                                    <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Ver PDF</a>
+                                    <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">PDF</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,7 +62,7 @@
                                   <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id]}}" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
                               </li>
                           </ul>
-                          <ul class="dropdown-menu" ng-if="resource.type.api && i!=resource.type.name">
+                          <ul class="dropdown-menu-filetype" ng-if="resource.type.api && i!=resource.type.name">
                               <li ng-repeat="i in ['xls','xlsx','csv']">
                                   <a target="_blank" href="{{ resource.url}}/{{i | lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i | uppercase}}</a>
                               </li>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
               </div>
-                <div class="clear-both clearfix">
+                <!-- <div class="clear-both clearfix">
                     <div ng-show="resource.type_resource" class="pull-left">
                         <ul class="resource-tab">
                             <li>
@@ -84,7 +84,7 @@
                                 <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- <div ng-show="resource.type_resource" class="pull-right">
                         <ul class="resource-tab">
                             <li ng-repeat="element in resource.resources.data[resource.type_resource]">

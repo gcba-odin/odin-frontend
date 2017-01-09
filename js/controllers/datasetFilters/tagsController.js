@@ -9,7 +9,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.resultTags = [];
     $scope.lessThanLimit;
 
-    $scope.collapsed = false;
+    $scope.collapsed = true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };
