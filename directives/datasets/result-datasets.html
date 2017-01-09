@@ -6,12 +6,12 @@
           <div class="container-resource-categories">
             <span data-currentcolor="{{category.color}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
             </span>
+            <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
           </div>
           <h3 class="dataset-heading">
               <a ng-href="dataset/{{result.name | slug}}" ng-title="{{result.name}}">{{result.name}}</a>
           </h3>
           <!-- <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}</div> -->
-          <div class="dataset-latest-update">Fecha de publicación: {{info.createdAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
           <div class="dataset-description" hm-read-more hm-text="{{ getHtml(result.description) }}" hm-limit="150" hm-more-text=" (ver más)" hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
             <ul class="dataset-resources unstyled list-dataset">
                   <li ng-repeat="fileType in result.fileTypes">
