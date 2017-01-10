@@ -294,6 +294,7 @@ hr{
   transform: rotate(90deg);
 }
 
+
 .view-resources .open .dataset-view-info:after  {
   -webkit-transform: rotate(-90deg);
      -moz-transform: rotate(-90deg);
@@ -302,11 +303,14 @@ hr{
           transform: rotate(-90deg);
 }
 
+
+.dataset-view-info:after{
+  margin: 0 10px 0 5px;
+}
 .dataset-view-info{
   @extend .dataset-button;
   background-color: $ba-skyblue;
 }
-
 .dataset-download-button{
   @extend .dataset-button;
   background-color: $light-green;
@@ -434,7 +438,15 @@ hr{
 .dataset-hide-resource, .dataset-additional-info{
   margin-left: 0px;
 }
-
+.dataset-hide-resource{
+  @extend .dataset-view-info;
+}
+.dataset-hide-resource:hover{
+  color: #FFFFFF;
+}
+.dataset-hide-resource:after{
+  display: none;
+}
 .dataset-quantity{
   font-family: "Chalet-Sixty", "Avenir", "Helvetica, Arial", "sans-serif";
 }
@@ -1048,9 +1060,17 @@ ul.unstyled-alt{
     padding: 5px;
   }
 
+
   .dataset-additional-info{
     display: inline;
     padding: 10px 15px 10px 10px;
+  }
+  .dataset-view-info{
+    padding-left: 15px;
+  }
+  .dataset-hide-resource{
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .datasets-counter p{
