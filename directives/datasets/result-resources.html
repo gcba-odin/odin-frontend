@@ -33,10 +33,12 @@
                   </ul>
                   <div class="resource-actions">
                         <div class="dropdown no-hover view-resources">
-                            <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                <!-- <span class=""ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span> -->
-                                <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span>
-                                <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar iferfox</span> -->
+                            <!-- <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
+                            <div class="" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <span class="dataset-view-info" ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span>
+                                <!-- <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span> -->
+                                <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span> -->
+                                <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span>
                             </div>
                             <ul class="dropdown-menu">
                                 <li ng-if="resource.contents">

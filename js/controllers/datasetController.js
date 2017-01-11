@@ -11,7 +11,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.type = "datasets";
     $scope.params = {
         slug: $routeParams.id,
-        include: 'tags,categories,subcategories'
+        // include: 'tags,categories,subcategories'
+        include: 'tags,categories'
     };
     L.Icon.Default.imagePath = '/images/leaflet/';
 
