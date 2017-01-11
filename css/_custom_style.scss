@@ -78,12 +78,12 @@ hr{
 }
 
 .toolbar .breadcrumb-item a{
-  color: #CCC;
+  color: #999;
   font-size: 22px;
   font-weight: 400;
 }
 .toolbar .breadcrumb li:after{
-  color: #E4E4E4;
+  color: #999;
   content: "|";
 }
 
@@ -317,6 +317,7 @@ hr{
 .dataset-view-info{
   @extend .dataset-button;
   background-color: $ba-skyblue;
+  padding-left: 15px;
 }
 .dataset-download-button{
   @extend .dataset-button;
@@ -431,6 +432,7 @@ hr{
 
 .dataset-resources .unstyled{
   margin-left: 5px;
+  margin-top: 10px;
 
 }
 
@@ -763,7 +765,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     // display: inline;
     position: absolute;
     right: 5px;
-    top: 0;
+    top: 3vh;
     // float: right;
     // margin-top: 10px;
     // margin-left:20px;
@@ -1158,7 +1160,10 @@ ul.unstyled-alt{
     vertical-align: middle;
     width: 29px;
   }
-
+  .dataset-resources.unstyled{
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
   .dataset-single-tags{
     margin-top: 0px;
     display: inline;
@@ -1195,8 +1200,9 @@ ul.unstyled-alt{
     // top: 1px;
   }
 
-  .info-adicional{
-    margin-top: 0px;
+  ul.info-adicional{
+    // margin-top: 0px;
+    display: inline;
   }
 
   .list-heading {
@@ -1247,9 +1253,10 @@ ul.unstyled-alt{
     width: 75%;
   }
   .resource-actions {
+    // float: right;
     width: 250px;
     position: absolute;
-    top: 0;
+    top: 25px;
     margin-top: 0;
   }
 
