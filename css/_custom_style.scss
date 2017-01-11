@@ -668,6 +668,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .widgets-second-row .widgets-heading .title-container-home.special{
   color: $ba-skyblue;
+
 }
 
 
@@ -1279,6 +1280,7 @@ ul.unstyled-alt{
     width: 80%;
   }
 
+
   .toolbar{
     display: block;
   }
@@ -1293,6 +1295,10 @@ ul.unstyled-alt{
 
   .widgets-first-row .title-container-home{
     width: 30%;
+  }
+
+  .widgets-second-row .widgets-heading .title-container-home.special{
+    max-width: 43%;
   }
 
   .widget-item {
