@@ -1123,7 +1123,12 @@ ul.unstyled-alt{
     display: block;
   }
   .dataset-content .dataset-latest-update{
-    display: inline-block;
+    color: #999;
+    font-size: 11px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+  }
+  .dataset-latest-update-special{
     font-size: 12px;
     float: right;
     margin-top: 15px;
@@ -1335,8 +1340,13 @@ ul.unstyled-alt{
     margin-bottom: 10px;
   }
 
+
   .widget-item-footer-download-link{
     // margin-left: -30px;
+  }
+  .widget-item-footer-tags{
+    font-size: 10px;
+    padding: 2px 2px;
   }
 
   .widgets-second-row .popular-datasets-list-item-icon{

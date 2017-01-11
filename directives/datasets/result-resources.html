@@ -87,7 +87,7 @@
                                 <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
                             </li>
                         </ul>
-                    </div> 
+                    </div>
                     <div ng-show="resource.type_resource" class="pull-right">
                         <ul class="resource-tab">
                             <li ng-repeat="element in resource.resources.data[resource.type_resource]">
