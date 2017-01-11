@@ -7,6 +7,7 @@
         ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#E5E5E5'}"
         ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
             <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
+            <span ng-show="(category.name | slug) === activeCategory"class="categories-underlined" ng-style="{'background-color': category.color}"></span>
           <!-- <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4> -->
         </a>
     </div>
