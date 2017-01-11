@@ -1,9 +1,8 @@
 <section class="module module-narrow module-shallow" ng-if="filetypes.length">
-   <h2  ng-style="{background:currentColor}" class="module-heading">
+   <h2  ng-style="{background:currentColor}" class="module-heading" ng-click="toggleCollapse()">
       Formatos
       <i class="collapse-icon fa module-action"
         ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
-        ng-click="toggleCollapse()"
       ></i>
       <!-- <span class="module-heading-clear-icon fa fa-caret-down" ng-click="toggleCustom()" ng-click="removeAll()"></span> -->
    </h2>

@@ -74,7 +74,7 @@
                       </div>
                   </div>
               </div>
-                <!-- <div class="clear-both clearfix">
+                 <div class="clear-both clearfix">
                     <div ng-show="resource.type_resource" class="pull-left">
                         <ul class="resource-tab">
                             <li>
@@ -87,8 +87,8 @@
                                 <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
                             </li>
                         </ul>
-                    </div> -->
-                    <!-- <div ng-show="resource.type_resource" class="pull-right">
+                    </div> 
+                    <div ng-show="resource.type_resource" class="pull-right">
                         <ul class="resource-tab">
                             <li ng-repeat="element in resource.resources.data[resource.type_resource]">
                                 <a ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">
@@ -96,7 +96,7 @@
                         </a>
                             </li>
                         </ul>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="resource-map" ng-if="resource.type_resource === 'maps'">
                     <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">

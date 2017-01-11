@@ -4,7 +4,7 @@
     <div class="dataset-item" ng-repeat="result in datasets | orderBy:'-downloads'">
       <div class="dataset-content">
           <div class="container-resource-categories">
-            <span data-currentcolor="{{category.color}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
+            <span data-currentcolor="{{category.color}}" data-tooltip="{{category.name}}" class="dataset-category-icon {{ category.name | slug }}" ng-style="{background:{{category.color}}}" svg-img="url_api + '/categories/' + category.id + '/image'" ng-repeat="category in result.categories">
             </span>
             <div class="dataset-latest-update">Fecha de publicación: {{result.publishedAt | amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
           </div>

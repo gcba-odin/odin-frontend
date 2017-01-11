@@ -854,6 +854,11 @@ ul.unstyled{
   background: #666666;
 }
 
+.nav-item.active {
+    background-color: white;
+    color: black;
+}
+
 .text-auxiliar-bar:first-of-type{
   background-color: $ba-yellow;
   border-radius: 5px;

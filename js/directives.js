@@ -156,6 +156,10 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/home/auxiliar-bar.html',
+            controller: function() {
+                sessionStorage.removeItem('currentColor');
+                sessionStorage.removeItem('activeCategory');
+            }
         };
     });
 
