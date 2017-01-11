@@ -49,9 +49,11 @@
                     <div class="module-content">
                         <result-datasets></result-datasets>
                     </div>
-                    <paging page="page" page-size="params.limit" total="countDatasets" paging-action="paging('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
-                    <div class="row center-spin" ng-if="showLoading">
-                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                    <div class="text-center">
+                        <paging page="page" page-size="params.limit" total="countDatasets" paging-action="paging('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                        <div class="row center-spin" ng-if="showLoading">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>
                     </div>
                 </section>
           </div>

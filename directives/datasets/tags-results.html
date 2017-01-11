@@ -1,9 +1,8 @@
 <section class="module module-narrow module-shallow" ng-if="tags.length">
-   <h2 class="module-heading"  ng-style="{background:currentColor}">
+   <h2 class="module-heading"  ng-style="{background:currentColor}" ng-click="toggleCollapse()">
       Etiquetas
       <i class="collapse-icon fa module-action"
         ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
-        ng-click="toggleCollapse()"
       ></i>
    </h2>
    <div ng-hide="collapsed">
