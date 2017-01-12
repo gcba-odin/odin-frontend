@@ -85,6 +85,7 @@ hr{
 .toolbar .breadcrumb li:after{
   color: #999;
   content: "|";
+  font-size: 23px;
 }
 
 .category-box {
@@ -222,6 +223,7 @@ hr{
   color: #4D4D4D;
   padding: 5px 10px;
   font-size:11px;
+
 }
 
 .dataset-additional-info-active{
@@ -230,41 +232,42 @@ hr{
 }
 
 .dataset-additional-info-table{
-  background: white;
-  color: #717170;
   font-family: "Open Sans", sans-serif;
   margin-top: 20px;
 }
 
-.dataset-additional-info-table th {
-    color: #717170;
-    background: white;
-    border-bottom: 1px solid gray;
-    border-top: 1px solid gray;
-    border-right: none;
-    // font-weight: 700;
-    font-family: 'Chalet-Eighty' !important;
-    font-size: 13px;
-    padding: 3px 7px 2px 7px;
-
-}
-
-.dataset-additional-info-table th:last-of-type {
-    border-right: none;
-}
 
 .dataset-additional-info-table td {
+    background: white;
     color: #717170;
     font-size: 12px;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid #999999;
-  }
-
-.dataset-additional-info-table td, .dataset-additional-info-table th {
+    border-bottom: 1px solid #ccc;
     padding: 2px 7px 1px 7px;
     width: 15vw;
+  }
+
+.dataset-additional-info-table th {
+    color: #FFF;
+    background: #999;
+    border-bottom: 1px solid #999;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    font-family: 'Chalet-Eighty' !important;
+    font-size: 13px;
+    padding: 3px 7px 2px 7px;
 }
+
+
+
+
+// .dataset-additional-info-table td {
+//   padding: 2px 7px 1px 7px;
+//   width: 15vw;
+// }
+
 
 .dataset-hide-resource:hover, .dataset-hide-resource:hover:after,.dataset-additional-info:hover, .dataset-additional-info:hover:after{
   color: inherit;
@@ -431,7 +434,8 @@ hr{
 }
 
 .dataset-resources .unstyled{
-  margin-left: 5px;
+  // margin-left: 5px;
+  margin-bottom: 10px;
   margin-top: 10px;
 
 }
@@ -766,10 +770,11 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     position: absolute;
     right: 5px;
     top: 3vh;
+    margin-top: 10px;
     // float: right;
     // margin-top: 10px;
     // margin-left:20px;
-    width: 200px;
+    width: 210px;
 }
 
 .resource-format-label{
@@ -1079,6 +1084,7 @@ ul.unstyled-alt{
   .dataset-additional-info{
     display: inline;
     padding: 10px 15px 10px 10px;
+
   }
   .dataset-view-info{
     padding-left: 15px;

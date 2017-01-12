@@ -17,8 +17,12 @@
                   <li ng-repeat="fileType in result.fileTypes">
                       <span class="label resource-format-label" data-format="{{fileType | lowercase}}">{{fileType | uppercase}}</span>
                   </li>
-                  <li><a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank"><div class="dataset-download-button-alt pull-right"><span>Descargar</span></div></a>
+
                   <!-- <span class="dataset-statistics">{{stats[result.id].downloads || 0}} descargas</span> --></li>
+            </ul>
+            <div class="dataset-resources unstyled list-dataset ">
+                <ul class="info-adicional dataset-resources unstyled">
+                  <li><a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank"><div class="dataset-download-button-alt pull-right"><span>Descargar</span></div></a>
                   <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="result.additional_info && result.additional_info.length > 0">Info adicional</li>
                   <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="result.additional_info && result.additional_info.length > 0">
                       <thead>
@@ -34,7 +38,8 @@
                           </tr>
                       </tbody>
                   </table>
-            </ul>
+                </ul>
+            </div>
         </div>
       </div>
     </div>
