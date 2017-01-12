@@ -8,13 +8,19 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];
+
     $scope.type = "datasets";
     $scope.params = {
         slug: $routeParams.id,
         include: 'tags,categories'//,subcategories'
 
     };
+
+    $scope.activeCategory =   localStorage.getItem('currentCategory');
+
     L.Icon.Default.imagePath = '/images/leaflet/';
+
+
 
     rest().get({
         type: $scope.type,

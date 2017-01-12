@@ -1204,11 +1204,6 @@ ul.unstyled-alt{
     width: 99.5%;
   }
 
-  .icon-download{
-    // left: 180px;
-    // position: absolute;
-    // top: 1px;
-  }
 
   ul.info-adicional{
     // margin-top: 0px;
@@ -1348,7 +1343,7 @@ ul.unstyled-alt{
   .widget-item-footer-tags{
     font-size: 10px;
     padding: 2px 2px;
-
+  }
 
   .download-link {
       color: #5F4600;
@@ -1480,35 +1475,35 @@ and (min-device-width: 768px)
 and (max-device-width: 1024px)
 and (orientation: landscape){
   .ba-logo-mobile {
-  right:0;
+    right:0;
   }
 
   .categories-sidebar {
-  overflow:hidden;
+    overflow:hidden;
   }
 
   .description-header {
-  margin-top:30px;
-  margin-left:10px;
+    margin-top:30px;
+    margin-left:10px;
   }
 
   .navbar-theme {
-  display:block;
+    display:block;
   }
 
   .resource-footer {
-  margin-left:-25px;
+    margin-left:-25px;
   }
 
   .row.wrapper {
-  margin-left:0;
+    margin-left:0;
   }
 
   .breadcrumb,.disqus-section {
-  margin-left:15px;
+    margin-left:15px;
   }
 
   .unstyled,.pagination {
-  margin-left:20px;
+    margin-left:20px;
   }
 }

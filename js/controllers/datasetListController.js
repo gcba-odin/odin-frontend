@@ -17,6 +17,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           params: 'slug='+$routeParams['categories.slug']+"&match=exact"
         }, function(resp) {
           $scope.currentCategory = resp.data[0];
+          localStorage.setItem('currentCategory',resp.data[0].name);
         });
 
 

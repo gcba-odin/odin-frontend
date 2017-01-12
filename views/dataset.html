@@ -10,7 +10,10 @@
       <div class="col-lg-offset-1 toolbar">
           <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                  <a ng-href="{{baseHtml5}}">{{activeCategories[0]}}</a>
+                  <a ng-href="{{baseHtml5}}">Inicio</a>
+              </li>
+              <li class="breadcrumb-item">
+                  <a ng-href="datasets?categories.slug={{activeCategory | slug}}">{{activeCategory}}</a>
               </li>
               <li class="breadcrumb-item">
                   <a ng-href="dataset/{{info.name| slug}}">{{info.name| truncString }}</a>
