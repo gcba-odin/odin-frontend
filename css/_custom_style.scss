@@ -169,13 +169,24 @@ hr{
   color: #545D6F !important;
 }
 
+.categories-sidebar .category-item{
+  min-height: 60px;
+}
+
+.categories-sidebar .category-name{
+  margin-top: 12px;
+}
+
 .categories-underlined{
   border-bottom: none !important;
   max-height: 5px;
   margin-top: 9px;
 
 }
-
+.categories-underlined-push-down{
+  @extend .categories-underlined;
+  margin-top: 64px;
+}
 .collapse-icon {
   cursor: pointer;
   padding: 0 5px;
@@ -416,7 +427,8 @@ hr{
 
 .dataset-item:last-of-type{
   border-bottom: none;
-  padding-bottom: 15px;
+  // padding-bottom: 15px;
+  padding-bottom: 30px;
   margin-bottom: 0px;
 }
 
@@ -686,10 +698,12 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 
 .widgets-second-row .popular-datasets-list-item-icon{
-  height: 20px;
+  // height: 20px;
+  height: 40px;
   margin-right: 30px;
   margin-left: 20px;
-  width: 20px;
+  width: 40px;
+  // width: 20px;
   -webkit-filter: none;
      -moz-filter: none;
        -o-filter: none;
@@ -738,12 +752,13 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .popular-list-item-description {
-  margin: 0 0 0 30px;
+  font-size: 15px;
+  margin: 8px 20px 0 32px;
   width: 40px;
 }
 
 .popular-datasets-list-item-bar{
-  margin-top: 4px;
+  margin-top: 15px;
   background: none;
   width: 55%;
 }
@@ -852,11 +867,15 @@ ul.unstyled{
   color: #666666;
   margin-right: 8px;
   padding: 5px 25px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .resource-tab li a.active{
-  color: white ;
   background: #666666;
+  color: white ;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .nav-item.active {
@@ -1164,6 +1183,7 @@ ul.unstyled-alt{
     background: #F1F1F1;
     border-bottom: none;
     margin-bottom: 28px;
+    // padding-bottom: 15px;
   }
 
   .dataset-resources-heading{
@@ -1261,6 +1281,7 @@ ul.unstyled-alt{
   .popular-datasets-list-item-bar{
     float: right;
     height:20px;
+    margin-top: 5px;
     width: 75%;
   }
   .resource-actions {
@@ -1358,8 +1379,6 @@ ul.unstyled-alt{
 
   .widgets-second-row .popular-datasets-list-item-icon{
     margin: -4px 20px 0 20px;
-    height: 40px;
-    width: 40px;
   }
 
   ul.unstyled{
