@@ -292,8 +292,9 @@ hr{
   font-family: "Chalet-Eighty", "Avenir", Helvetica, Arial, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  padding: 1px;
+  padding: 1px 3px;
 }
+
 
 .dataset-button span{
   display: inline;
@@ -332,6 +333,10 @@ hr{
   @extend .dataset-button;
   background-color: $ba-skyblue;
   padding-left: 15px;
+}
+.dataset-hide-resource{
+  padding: 1px 10px;
+  margin-left: none;
 }
 .dataset-download-button{
   @extend .dataset-button;
@@ -500,9 +505,18 @@ hr{
 .dataset-single-tags-item.label{
   margin-bottom: 10px;
 }
+.dataset-single-tags-item.label:hover{
+  background: #4D4D4D;
+}
 
 .dataset-single-tags{
   margin-top: 15px;
+}
+.dataset-single-tags-footer{
+  padding: 0 15px  0 5px;
+}
+.div-table .table-responsive{
+  border: none;
 }
 .dropdown-menu{
   min-width: 117px;
@@ -655,7 +669,15 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .module .read-more{
   color: $ba-skyblue;
 }
-
+.pagination{
+  background: white;
+}
+.table-loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 .popular-datasets-list{
   background: #FFFFFF;
   border-radius: 10px;
@@ -789,7 +811,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
     // float: right;
     // margin-top: 10px;
     // margin-left:20px;
-    width: 210px;
+    width: 216px;
 }
 
 .resource-format-label{
@@ -801,8 +823,9 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .resource-tab{
-  margin-top: 60px;
-  padding-left: 25px;
+  margin-top: 30px;
+  // margin-top: 60px;
+  // padding-left: 25px;
 }
 
 ul.dataset-resources > li:first-child > span {
@@ -1203,6 +1226,9 @@ ul.unstyled-alt{
   .dataset-single-tags{
     margin-top: 0px;
     display: inline;
+  }
+  .dataset-single-tags-footer{
+    padding: 0 15px 0 20px;
   }
   .footer-list{
     position: absolute;

@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="clear-both clearfix resource-table">
-                    <div ng-if="resource.type_resource === 'tables'" class="div-table">
+                    <div ng-if="resource.type_resource === 'tables'" class="div-table" ng-hide="showLoader">
                         <div class="table-responsive">
                             <table class="table dataset-additional-info-table">
                                 <thead>
@@ -132,8 +132,12 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!-- <div class="paging"> -->
                         <div class="paging">
-                            <paging page="resource.contents.meta.page" page-size="params.limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
+                          <paging page="resource.contents.meta.page" page-size="params.limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
+                        </div>
+                        <div class="table-loader" ng-show="showLoader">
+                          <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                         </div>
                     </div>
                 </div>

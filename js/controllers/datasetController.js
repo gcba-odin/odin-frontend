@@ -87,6 +87,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     $scope.loadResults = function(limit) {
+
         $scope.params = $.extend({
             dataset: $scope.info.id,
             include: 'tags',
@@ -248,18 +249,24 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
             });
         });
+
     }
 
+    function prueba(resource,skip) {
+      rest().contents({
+          id: resource.id,
+          type: 'files',
+          params: "skip=" + skip + "&limit=" + $scope.params.limit
+      })
 
+    }
 
     $scope.paging = function(event, page, pageSize, total, resource) {
+        $scope.showLoading=true;
         var skip = (page - 1) * $scope.params.limit;
-        //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
-        resource.contents = rest().contents({
-            id: resource.id,
-            type: 'files',
-            params: "skip=" + skip + "&limit=" + $scope.params.limit
-        });
+        $scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
+        resource.contents = setTimeout(prueba(resource,skip),3000);
+        $scope.showLoading=false;
     };
 
     $scope.pagingAll = function(event, page, pageSize, total) {

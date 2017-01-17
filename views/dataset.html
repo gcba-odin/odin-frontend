@@ -35,26 +35,28 @@
                   <li ng-repeat="tag in info.tags" style="display:inline" >
                     <a class="dataset-single-tags-item label" ng-href="datasets?tags.slug={{tag.name | slug}}">{{tag.name}}</a>
                   </li>
-                  <ul class="dataset-resources unstyled">
-                    <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
-                  </ul>
-                    <ul class="info-adicional dataset-resources unstyled">
-                      <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
-                      <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
-                        <thead>
-                          <tr>
-                            <th>Campo</th>
-                            <th>Valor</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr ng-repeat="adt_info in info.additional_info">
-                            <td>{{adt_info.clave}}</td>
-                            <td>{{adt_info.valor}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </ul>
+                </ul>
+              </div>
+              <div class="dataset-single-tags-footer">
+                <ul class="dataset-resources unstyled">
+                  <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
+                </ul>
+                <ul class="info-adicional dataset-resources unstyled">
+                  <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                  <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
+                    <thead>
+                      <tr>
+                        <th>Campo</th>
+                        <th>Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="adt_info in info.additional_info">
+                        <td>{{adt_info.clave}}</td>
+                        <td>{{adt_info.valor}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </ul>
               </div>
             </div>
@@ -80,11 +82,17 @@
                 <div class="module-content">
                     <result-resources></result-resources>
                 </div>
-                <paging page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                <!-- <paging class="text-center" page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging> -->
                 <div class="row center-spin" ng-if="showLoading">
                     <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                 </div>
             </section>
+            </div>
+            <div class="col-lg-7 col-lg-offset-4 text-center">
+                <paging page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+            </div>
+            <!-- <div class="primary col-lg-9 col-lg-offset-0" ng-class="isMobile ? col-md-12 : col-md-9 "> -->
+            <div class="primary col-lg-7 col-lg-offset-4" ng-class="isMobile ? col-md-12 : col-md-9 ">
             <section class="module disqus-section">
                 <!-- <span class="disqus-comment-count" data-disqus-identifier="{{ disqusConfig.disqus_identifier }}">Comentarios</span> -->
                 <!-- <div id="disqus_thread"></div> -->
