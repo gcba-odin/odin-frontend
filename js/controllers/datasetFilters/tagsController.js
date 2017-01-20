@@ -25,6 +25,9 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
             }
+            if ($scope.tags.filter(tag=>tag.active)[0]!==undefined) {
+              $scope.collapsed=false;
+            }
             $scope.lessThanLimit = $scope.resultTags.data.length < Math.max(skip, limit);
         });
 

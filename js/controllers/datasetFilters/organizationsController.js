@@ -27,6 +27,9 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 $scope.organizations.push(organization);
                 $scope.loadOrganizationCount(organization.id);
             }
+            if ($scope.organizations.filter(org=>org.active)[0]!==undefined) {
+              $scope.collapsed=false;
+            }
             $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);
         });
     };
