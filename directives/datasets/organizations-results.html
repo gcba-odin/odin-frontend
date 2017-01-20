@@ -1,10 +1,12 @@
 <section class="module module-narrow module-shallow">
-   <h2 class="module-heading"  ng-style="{background:currentColor}" ng-click="toggleCollapse()">
+  <div class="filter-title-wrap"ng-click="toggleCollapse()">
+    <h2 class="module-heading"  ng-style="{background:currentColor}" >
       Organizaciones
       <i class="collapse-icon fa module-action"
-        ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
+      ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
       ></i>
-   </h2>
+    </h2>
+  </div>
   <div  ng-hide="collapsed">
      <nav>
         <ul class="unstyled nav nav-simple nav-facet">

@@ -205,7 +205,9 @@ hr{
 .filter-group .filter-name{
   margin-left: 35px;
 }
-
+.filter-title-wrap{
+  cursor: pointer;
+}
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
   // @include svg-color(#545D6F);
