@@ -28,6 +28,9 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
                 $scope.filetypes.push(filetype);
                 $scope.loadFileTypeCount(filetype.id);
             }
+            if ($scope.filetypes.filter(file=>file.active)[0]!==undefined) {
+              $scope.collapsed=false;
+            }
             $scope.lessThanLimit = $scope.resultFormats.data.length < Math.max(skip, limit);
         });
         $scope.datasetCount = {};

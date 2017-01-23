@@ -136,7 +136,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                     type: 'basemaps',
                                     id: maps.basemap.id
                                 }, function() {
-
                                     maps.geoData = {
                                         data: maps.geojson,
                                         onEachFeature: function(feature, layer) {
