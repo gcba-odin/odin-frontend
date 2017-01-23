@@ -695,7 +695,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   color: #CCC;
   font-size: 15px;
   float: right;
-  margin: 15px 10px 10px 0;
+  margin: 15px 20px 10px -7px;
   text-align: right;
 
 }
@@ -753,7 +753,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .widgets-second-row .popular-datasets-list-item-icon{
   height: 40px;
   margin-right: 0;
-  margin-left: 10px;
+  margin-left: 6px;
   width: 40px;
   // width: 20px;
   -webkit-filter: none;
@@ -805,7 +805,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .popular-list-item-description {
   font-size: 15px;
-  margin: 15px 0 0 20px;
+  margin: 15px 0 0 13px;
   width: 40px;
 }
 
@@ -968,6 +968,7 @@ ul.unstyled{
   background-image: url("../images/seguinosentwt-blanco.svg");
   background-repeat: no-repeat;
   height: 50px;
+  margin-top: 15px;
   width: 200px;
 }
 
