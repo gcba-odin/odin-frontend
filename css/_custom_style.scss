@@ -431,7 +431,7 @@ hr{
 .dataset-item:last-of-type{
   border-bottom: none;
   // padding-bottom: 15px;
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
   margin-bottom: 0px;
 }
 
@@ -493,8 +493,12 @@ hr{
   background: #F1F1F1;
   border-bottom: none;
   margin-bottom: 28px;
-  padding-bottom: 30px;
 
+
+}
+.dataset-item-single{
+  @extend .dataset-item;
+  padding-bottom: 30px;
 }
 
 .dataset-single {
@@ -1221,7 +1225,7 @@ ul.unstyled-alt{
 
   .dataset-item:last-of-type{
     border-bottom: none;
-    padding-bottom: 30px;
+    // padding-bottom: 30px;
   }
 
   .datasets-counter{
@@ -1249,15 +1253,16 @@ ul.unstyled-alt{
     width: 29px;
   }
   .dataset-resources.unstyled{
-    margin-bottom: 10px;
-    margin-top: 10px;
+    // margin-bottom: 20px;
+    margin-top: 15px;
   }
   .dataset-single-tags{
     margin-top: 0px;
     display: inline;
   }
   .dataset-single-tags-footer{
-    padding: 0 15px 0 20px;
+    // padding: 0 15px 15px 20px;
+    padding: 3px 15px 0 20px;
   }
   .footer-list{
     position: absolute;
