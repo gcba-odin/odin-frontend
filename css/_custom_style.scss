@@ -705,7 +705,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 
 .resource-footer{
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   margin-top: 18px;
 }
 .resource-resources-title{
@@ -1261,8 +1261,8 @@ ul.unstyled-alt{
     display: inline;
   }
   .dataset-single-tags-footer{
-    // padding: 0 15px 15px 20px;
-    padding: 3px 15px 0 20px;
+    padding: 0px 15px 0 20px;
+    // margin-top: -20px;
   }
   .footer-list{
     position: absolute;
@@ -1355,12 +1355,9 @@ ul.unstyled-alt{
     margin-top: 0;
   }
 
-  .resource-footer{
-    // padding-left: 25px;
-    // position: absolute;
-    // top: 0px;
+  .resources-footer-buttons{
+    padding-bottom: 20px;
   }
-
   .resource-info{
     display: inline;
     // position: absolute;
