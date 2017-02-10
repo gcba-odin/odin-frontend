@@ -2,7 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
 
     // get limit config
-            $scope.limit = 20;
+        $scope.limit = 20;
 
         $scope.params = {
             sort: 'ASC',
@@ -30,6 +30,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           $scope.url_api = $rootScope.url;
           $scope.page = 1;
 
+          $scope.countDatasets=-1;
           DatasetListService.getDatasetsCount(null, function(result) {
               $scope.countDatasets = result.data.count;
           });

@@ -19,6 +19,9 @@
                     </li>
                 </ol>
                 <div class="datasets-counter">
+                  <div ng-show="countDatasets == -1">
+                    <p> Buscando datasets </p>
+                  </div>
                   <div ng-show="countDatasets == 0">
                     <p> No se han encontrado datasets </p>
                   </div>
