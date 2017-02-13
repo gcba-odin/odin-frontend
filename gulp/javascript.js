@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('javascript', ['ng-config'], function() {
+gulp.task('javascript', ['ng-config', 'ng-version'], function() {
   return gulp.src('js/**/*.js')
     .pipe(plumber())
     .pipe(sourcemaps.init())
