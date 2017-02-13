@@ -5,6 +5,7 @@ app.factory('model', function($resource) {
 });
 
 function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
+    sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
     $scope.activeCategories = [];

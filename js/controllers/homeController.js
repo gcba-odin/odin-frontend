@@ -1,4 +1,5 @@
 function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService) {
+    sessionStorage.removeItem('query');
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
     $rootScope.header = "Odin";
