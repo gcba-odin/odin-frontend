@@ -1,5 +1,7 @@
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs) {
     $rootScope.isDatasetView = true;
+    sessionStorage.removeItem('activeCategory');
+    localStorage.removeItem('currentCategory');
 
     // get limit config
         $scope.limit = 20;
@@ -16,8 +18,10 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           type: 'categories',
           params: 'slug='+$routeParams['categories.slug']+"&match=exact"
         }, function(resp) {
-          $scope.currentCategory = resp.data[0];
-          localStorage.setItem('currentCategory',resp.data[0].name);
+            if(!!resp.data[0]) {
+                $scope.currentCategory = resp.data[0];
+                localStorage.setItem('currentCategory',resp.data[0].name);
+            } 
         });
 
 
