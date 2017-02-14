@@ -40,6 +40,7 @@ config.local.json
 js/config.js
 js/templates.js
 dist/
+js/version.js
 
 # OS X
 .DS_STORE

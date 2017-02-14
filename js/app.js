@@ -2,6 +2,7 @@
     var app = angular.module('odin', [
         "ngRoute",
         "odin.config",
+        "odin.version",
         "ngResource",
         "ngProgress",
         "odin.controllers",
@@ -119,12 +120,12 @@
     app.run(run);
 
 
-    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize) {
+    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize, odin_version) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
-        $rootScope.odin_version = EnvironmentConfig.odin_version;
+        $rootScope.odin_version = odin_version;
         $rootScope.query = "";
         screenSize.rules = {
             any: '(max-width: 1025px)'

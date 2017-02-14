@@ -12,7 +12,7 @@
               <li class="breadcrumb-item">
                   <a ng-href="{{baseHtml5}}">Inicio</a>
               </li>
-              <li class="breadcrumb-item">
+              <li class="breadcrumb-item" ng-if="!!activeCategory">
                   <a ng-href="datasets?categories.slug={{activeCategory | slug}}">{{activeCategory}}</a>
               </li>
               <li class="breadcrumb-item">
