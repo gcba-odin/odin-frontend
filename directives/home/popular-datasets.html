@@ -5,7 +5,8 @@
           <div class="divColors">
             <span data-tooltip="{{item.name}}" ng-if="item.color !== undefined && item.color !== 'null'" data-currentcolor="{{item.color}}"  class="popular-datasets-list-item-icon {{ item.name | slug }}" svg-img="url_api + '/categories/' + item.id + '/image'"></span>
             <span data-tooltip="{{item.name}}" class="popular-list-item-description pull-left colorText" ng-model="letterLimit" >{{item.name | limitTo:letterLimit }}...</span>
-            <span class="col-xs-2 popular-dataset-list-porcentual">{{porcentual[item.id] | number:1}}%</span><span class="col-xs-3 popular-datasets-list-item-bar" data-currentcolor="{{item.color}}"  category-percent="porcentual[item.id]"></span>
+            <span class="col-xs-2 popular-dataset-list-porcentual">{{item.porcentaje | number:1}}%</span><span class="col-xs-3 popular-datasets-list-item-bar" data-currentcolor="{{item.color}}"  category-percent="item.porcentaje"></span>
+            <!-- <span class="col-xs-2 popular-dataset-list-porcentual">{{porcentual[item.id] | number:1}}%</span><span class="col-xs-3 popular-datasets-list-item-bar" data-currentcolor="{{item.color}}"  category-percent="porcentual[item.id]"></span> -->
             <!-- <span class="col-xs-3 popular-datasets-list-item-count">{{ statistics[item.id] }}</span> -->
           </div>
         </li>
