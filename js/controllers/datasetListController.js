@@ -88,7 +88,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                       $scope.showLoading = false;                      
                       return dataset;
                   });
-                  
+                  $scope.showLoading = false; 
               });
               $anchorScroll('pagingDatasets');
           };
