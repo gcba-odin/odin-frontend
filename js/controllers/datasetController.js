@@ -4,7 +4,7 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll) {
     sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
@@ -88,11 +88,14 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     $scope.loadResults = function(limit) {
+        $anchorScroll('pagingDatasetResult');
+        $scope.showLoading = true;     
         $scope.params = $.extend({
             dataset: $scope.info.id,
             include: 'tags',
-            limit: 10,
-            skip: 0
+            limit: 2,
+            skip: 0,
+            limitTable: 15
         }, LocationSearchService.searchParams());
 
         if (limit) {
@@ -110,12 +113,14 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.countResources = result.meta.count;
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
-                rest().findOne({
-                    id: element.type.id,
-                    type: 'filetypes'
-                }, function(resultFileType) {
-                    $scope.fileTypes[element.type.id] = resultFileType.name;
-                });
+                if(!!element.type && !!element.type.id) { 
+                    rest().findOne({
+                        id: element.type.id,
+                        type: 'filetypes'
+                    }, function(resultFileType) {
+                        $scope.fileTypes[element.type.id] = resultFileType.name;
+                    });
+                }
 
                 element.additional_info = []
 
@@ -224,11 +229,11 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     }
                 });
 
-                if (element.type.api) {
+                if (!!element.type && !!element.type.api) {
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
-                        params: 'limit=' + $scope.params.limit
+                        params: 'limit=' + $scope.params.limitTable
                     });
                 }
 
@@ -247,18 +252,27 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     valor: val
                 });
             });
+            
+            $scope.showLoading = false;
+        }, function(error) {
+            $scope.showLoading = false;
         });
     }
 
 
 
     $scope.paging = function(event, page, pageSize, total, resource) {
-        var skip = (page - 1) * $scope.params.limit;
+        $scope.showLoadingResource = true;     
+        var skip = (page - 1) * $scope.params.limitTable;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
             id: resource.id,
             type: 'files',
-            params: "skip=" + skip + "&limit=" + $scope.params.limit
+            params: "skip=" + skip + "&limit=" + $scope.params.limitTable
+        }, function(resp) {
+            $scope.showLoadingResource = false;     
+        }, function(error) {
+            $scope.showLoadingResource = false;     
         });
     };
 

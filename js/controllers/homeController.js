@@ -4,6 +4,9 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     localStorage.removeItem('currentCategory');
     $rootScope.header = "Odin";
     $rootScope.isDatasetView = false;
+    $rootScope.showLoadingLatest = true;
+    $rootScope.showLoadingStarred = true;
+    $rootScope.showLoadingPopular = true;
 
     DatasetListService.getDatasetsCount($scope.params, function(result) {
         $scope.countDatasets = result.data.count;

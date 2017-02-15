@@ -21,7 +21,6 @@
         "matchMedia",
         "hm.readmore",
         "vcRecaptcha"
-
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider) {
 

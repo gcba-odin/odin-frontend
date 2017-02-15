@@ -1,4 +1,4 @@
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs) {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs, $anchorScroll) {
     $rootScope.isDatasetView = true;
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
@@ -72,22 +72,25 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                       }, function(result) {
                           $scope.files = result.data;
                           $scope.files.forEach(function(element) {
-                              rest().findOne({
-                                  id: element.type.id,
-                                  type: 'filetypes'
-                              }, function(resultFileType) {
-                                  var resultFileTypeName = resultFileType.name;
-                                  if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
-                                      dataset.fileTypes.push(resultFileTypeName);
-                                  }
-                              });
+                              if(!!element.type && !!element.type.id) { 
+                                rest().findOne({
+                                    id: element.type.id,
+                                    type: 'filetypes'
+                                }, function(resultFileType) {
+                                    var resultFileTypeName = resultFileType.name;
+                                    if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
+                                        dataset.fileTypes.push(resultFileTypeName);
+                                    }
+                                });
+                            }
                           });
                       });
-
+                      $scope.showLoading = false;                      
                       return dataset;
                   });
-                  $scope.showLoading = false;
+                  
               });
+              $anchorScroll('pagingDatasets');
           };
 
           DatasetListService.getDownloadResults($scope.params, function(downloads) {

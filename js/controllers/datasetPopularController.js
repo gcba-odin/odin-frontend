@@ -7,6 +7,9 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce) {
         type: $scope.type,
         params: "orderBy=createdAt&sort=DESC"
     }, function() {
+        $rootScope.showLoadingPopular = false;
         $scope.showCategories = false;
+    }, function(error) {
+        $rootScope.showLoadingPopular = false;
     });
 }

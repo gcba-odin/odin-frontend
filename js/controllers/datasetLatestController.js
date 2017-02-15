@@ -16,20 +16,25 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
             }, function(result) {
                 $scope.files = result.data;
                 $scope.files.forEach(function(element) {
-                    rest().findOne({
-                        id: element.type.id,
-                        type: 'filetypes'
-                    }, function(resultFileType) {
-                        if (dataset.fileTypesNames.indexOf(resultFileType.name) === -1) {
-                            dataset.fileTypesNames.push(resultFileType.name);
-                            dataset.fileTypes.push(resultFileType);
-                        }
-                    });
+                    if(!!element.type && element.type.id) {
+                        rest().findOne({
+                            id: element.type.id,
+                            type: 'filetypes'
+                        }, function(resultFileType) {
+                            if (dataset.fileTypesNames.indexOf(resultFileType.name) === -1) {
+                                dataset.fileTypesNames.push(resultFileType.name);
+                                dataset.fileTypes.push(resultFileType);
+                            }
+                        });
+                    }
                 });
             });
         });
+        $rootScope.showLoadingLatest = false;
+    }, function(error) {
+        $rootScope.showLoadingLatest = false;
     });
-
+   
     $scope.url = function(id) {
         return $rootScope.url + '/datasets/' + id + '/download'
     };
