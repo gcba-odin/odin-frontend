@@ -1,6 +1,9 @@
 function SearchDatasetsController ($scope, $element, $rootScope, $location, LocationSearchService) {
     $scope.query = sessionStorage.getItem('query') || '';
     $scope.search = function() {
+        sessionStorage.removeItem('activeCategory');
+        localStorage.removeItem('currentCategory');
+        sessionStorage.removeItem('currentColor');
         if ($scope.query) {
             sessionStorage.setItem('query', $scope.query);
             
