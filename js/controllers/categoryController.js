@@ -30,7 +30,9 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     }, function(categories) {
         $scope.categories = categories.data;
         // $scope.showCategories = false;
-
+        for (var i = 0; i < $scope.categories.length; i++) {
+          $scope.categories[i]['porcentaje']=0;
+        }
         $scope.categories.forEach(function(element) {
             $scope.statistics[element.id] = 0;
             $scope.porcentual[element.id] = 0;
@@ -45,10 +47,14 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
                 $scope.statistics[element] = cat.count.GET;
                 $scope.totalStatistics += cat.count.GET;
             }
-
             for (element in statistics.data) {
-                $scope.porcentual[element] = $scope.statistics[element] * 100 / $scope.totalStatistics;
+                for (var i = 0; i < $scope.categories.length; i++) {
+                  if ($scope.categories[i].id == element) {
+                    $scope.categories[i]['porcentaje'] = $scope.statistics[element] * 100 / $scope.totalStatistics;
+                  }
+                }
             }
+            $scope.categories.sort(function(a,b){return b['porcentaje']-a['porcentaje']});
         });
     });
 }

@@ -1,8 +1,10 @@
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs) {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs, $anchorScroll) {
     $rootScope.isDatasetView = true;
+    sessionStorage.removeItem('activeCategory');
+    localStorage.removeItem('currentCategory');
 
     // get limit config
-            $scope.limit = 20;
+        $scope.limit = 20;
 
         $scope.params = {
             sort: 'ASC',
@@ -16,8 +18,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           type: 'categories',
           params: 'slug='+$routeParams['categories.slug']+"&match=exact"
         }, function(resp) {
-          $scope.currentCategory = resp.data[0];
-          localStorage.setItem('currentCategory',resp.data[0].name);
+            if(!!resp.data[0]) {
+                sessionStorage.removeItem('query');
+                $scope.currentCategory = resp.data[0];
+                localStorage.setItem('currentCategory',resp.data[0].name);
+            } 
         });
 
 
@@ -30,6 +35,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           $scope.url_api = $rootScope.url;
           $scope.page = 1;
 
+          $scope.countDatasets=-1;
           DatasetListService.getDatasetsCount(null, function(result) {
               $scope.countDatasets = result.data.count;
           });
@@ -66,22 +72,25 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                       }, function(result) {
                           $scope.files = result.data;
                           $scope.files.forEach(function(element) {
-                              rest().findOne({
-                                  id: element.type.id,
-                                  type: 'filetypes'
-                              }, function(resultFileType) {
-                                  var resultFileTypeName = resultFileType.name;
-                                  if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
-                                      dataset.fileTypes.push(resultFileTypeName);
-                                  }
-                              });
+                              if(!!element.type && !!element.type.id) { 
+                                rest().findOne({
+                                    id: element.type.id,
+                                    type: 'filetypes'
+                                }, function(resultFileType) {
+                                    var resultFileTypeName = resultFileType.name;
+                                    if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
+                                        dataset.fileTypes.push(resultFileTypeName);
+                                    }
+                                });
+                            }
                           });
                       });
-
+                      $scope.showLoading = false;                      
                       return dataset;
                   });
-                  $scope.showLoading = false;
+                  
               });
+              $anchorScroll('pagingDatasets');
           };
 
           DatasetListService.getDownloadResults($scope.params, function(downloads) {

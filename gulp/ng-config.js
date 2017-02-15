@@ -14,3 +14,11 @@ gulp.task('ng-config', function() {
     .pipe(rename('config.js'))
     .pipe(gulp.dest('js'));
 });
+
+gulp.task('ng-version', function() {
+  var versionFile = 'version.json';
+  return gulp.src(versionFile)
+    .pipe(ngConfig('odin.version'))
+    .pipe(rename('version.js'))
+    .pipe(gulp.dest('js'));
+});
