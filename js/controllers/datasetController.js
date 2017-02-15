@@ -93,7 +93,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.params = $.extend({
             dataset: $scope.info.id,
             include: 'tags',
-            limit: 2,
+            limit: 5,
             skip: 0,
             limitTable: 15
         }, LocationSearchService.searchParams());

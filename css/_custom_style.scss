@@ -328,6 +328,7 @@ hr{
   @extend .dataset-button;
   background-color: $ba-skyblue;
   padding-left: 15px;
+  cursor: pointer;
 }
 .dataset-hide-resource{
   padding: 1px 10px;
