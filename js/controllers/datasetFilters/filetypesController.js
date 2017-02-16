@@ -15,6 +15,8 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
         $scope.collapsed = !$scope.collapsed;
     };
 
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
+
     $scope.loadFormats = function(skip) {
         $scope.limitFormats += skip;
         $scope.resultFormats = rest().get({
@@ -71,21 +73,5 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
-
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      }else{
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
 
 }

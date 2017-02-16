@@ -1,4 +1,7 @@
-function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs, $anchorScroll) {
+function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs, $anchorScroll, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
+    $scope.viewFilter = false;
     $rootScope.isDatasetView = true;
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
@@ -24,7 +27,15 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 sessionStorage.removeItem('query');
                 $scope.currentCategory = resp.data[0];
                 localStorage.setItem('currentCategory',resp.data[0].name);
+                sessionStorage.setItem('currentColor', resp.data[0].color);
             } 
+            $scope.viewFilter = true;
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+        }, function(error) {
+            $scope.viewFilter = true;
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
 
 
@@ -37,12 +48,17 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
           $scope.url_api = $rootScope.url;
           $scope.page = 1;
 
+          $rootScope.countQuery ++;
           $scope.countDatasets=-1;
           DatasetListService.getDatasetsCount(null, function(result) {
               $scope.countDatasets = result.data.count;
+              $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
           });
 
           $scope.loadResults = function(skip) {
+              usSpinnerService.spin('spinner');
+              
               $scope.showLoading = true;
               $scope.params.skip = skip;
 
@@ -74,7 +90,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                       }, function(result) {
                           $scope.files = result.data;
                           $scope.files.forEach(function(element) {
-                              if(!!element.type && !!element.type.id) { 
+                              if(!!element.type && !!element.type.id) {
+                                  $rootScope.countQuery ++;
                                 rest().findOne({
                                     id: element.type.id,
                                     type: 'filetypes'
@@ -83,11 +100,19 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                                     if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
                                         dataset.fileTypes.push(resultFileTypeName);
                                     }
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                                }, function(error) {
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                                 });
                             }
                           });
+                      }, function(error) {
+                          $rootScope.countQuery --;
+                          if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                       });
-                      $scope.showLoading = false;                      
+                      $scope.showLoading = false;    
                       return dataset;
                   });
                   $scope.showLoading = false; 

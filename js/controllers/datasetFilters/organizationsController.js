@@ -9,6 +9,8 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.resultOrganizations = [];
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
+    
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.collapsed = true;
     $scope.toggleCollapse = function() {
@@ -69,21 +71,5 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
-
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      }else{
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
 
 }
