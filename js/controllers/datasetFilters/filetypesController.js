@@ -3,7 +3,7 @@ angular.module('odin.controllers')
 
 function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
-    const limit = 5;
+    var limit = 5;
     $scope.limitFormats = 0;
     $scope.filetypes = [];
     $scope.resultFormats = [];
@@ -28,7 +28,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
                 $scope.filetypes.push(filetype);
                 $scope.loadFileTypeCount(filetype.id);
             }
-            if ($scope.filetypes.filter(file=>file.active)[0]!==undefined) {
+            if ($filter('filter')($scope.filetypes, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
             $scope.lessThanLimit = $scope.resultFormats.data.length < Math.max(skip, limit);
@@ -43,7 +43,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
             condition: 'AND',
             include: ['files', 'tags', 'categories'].join(),
             'files.type': fileTypeId,
-            'categories.slug': $routeParams['categories.slug'],
+            'categories.slug': $routeParams['categories.slug']
         };
         DatasetListService.getDatasetsCount($scope.params, function(result) {
             $scope.fileTypesCount[fileTypeId] = result.data.count;

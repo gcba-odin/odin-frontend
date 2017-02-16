@@ -1,9 +1,9 @@
 angular.module('odin.controllers')
 .controller('OrganizationsController', OrganizationsController);
 
-function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest) {
+function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
-    const limit = 5;
+    var limit = 5;
     $scope.limitOrganizations = 0;
     $scope.organizations = [];
     $scope.resultOrganizations = [];
@@ -27,7 +27,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 $scope.organizations.push(organization);
                 $scope.loadOrganizationCount(organization.id);
             }
-            if ($scope.organizations.filter(org=>org.active)[0]!==undefined) {
+            if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
             $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);

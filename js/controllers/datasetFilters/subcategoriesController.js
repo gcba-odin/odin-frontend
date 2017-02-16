@@ -3,7 +3,7 @@ angular.module('odin.controllers')
 
 function SubcategoriesController($rootScope, $scope, $routeParams, $filter, rest, LocationSearchService) {
     var filterName = 'subcategories.slug';
-    const limit = 5;
+    var limit = 5;
     $scope.limitSubcategories = 0;
     $scope.subcategories = [];
     $scope.resultSubcategories = [];

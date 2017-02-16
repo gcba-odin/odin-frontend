@@ -2,6 +2,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $rootScope.isDatasetView = true;
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
+    sessionStorage.removeItem('currentColor');
 
     // get limit config
         $scope.limit = 20;
