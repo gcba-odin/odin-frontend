@@ -4,7 +4,9 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
@@ -49,6 +51,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             })
         }
 
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+
         $scope.tags = tags;
         $scope.fileTypes = {};
 
@@ -88,12 +93,14 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     $scope.loadResults = function(limit) {
+        usSpinnerService.spin('spinner');
+        
         $anchorScroll('pagingDatasetResult');
         $scope.showLoading = true;     
         $scope.params = $.extend({
             dataset: $scope.info.id,
             include: 'tags',
-            limit: 2,
+            limit: 5,
             skip: 0,
             limitTable: 15
         }, LocationSearchService.searchParams());
@@ -114,11 +121,17 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
                 if(!!element.type && !!element.type.id) { 
+                    $rootScope.countQuery ++;
                     rest().findOne({
                         id: element.type.id,
                         type: 'filetypes'
                     }, function(resultFileType) {
                         $scope.fileTypes[element.type.id] = resultFileType.name;
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                    }, function(error) {
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                     });
                 }
 
@@ -138,6 +151,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     if (!!element.resources.data) {
                         angular.forEach(element.resources.data.maps, function(maps) {
                             if (!!maps.basemap) {
+                                $rootScope.countQuery ++;
                                 maps.base = rest().findOne({
                                     type: 'basemaps',
                                     id: maps.basemap.id
@@ -186,6 +200,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                             logic: 'emit'
                                         }
                                     }
+                                    
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                                }, function(error) {
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                                 });
                             }
                         });
@@ -230,10 +250,17 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 });
 
                 if (!!element.type && !!element.type.api) {
+                    $rootScope.countQuery ++;
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
                         params: 'limit=' + $scope.params.limitTable
+                    }, function(resp) {
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                    }, function(error) {
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                     });
                 }
 

@@ -1,14 +1,16 @@
 angular.module('odin.controllers')
 .controller('OrganizationsController', OrganizationsController);
 
-function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest) {
+function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
-    const limit = 5;
+    var limit = 5;
     $scope.limitOrganizations = 0;
     $scope.organizations = [];
     $scope.resultOrganizations = [];
     $scope.lessThanLimit;
     $scope.organizationsCount = {}
+    
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.collapsed = true;
     $scope.toggleCollapse = function() {
@@ -27,7 +29,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 $scope.organizations.push(organization);
                 $scope.loadOrganizationCount(organization.id);
             }
-            if ($scope.organizations.filter(org=>org.active)[0]!==undefined) {
+            if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
             $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);
@@ -69,21 +71,5 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
-
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      }else{
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
 
 }

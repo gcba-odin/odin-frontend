@@ -3,11 +3,13 @@ angular.module('odin.controllers')
 
 function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
     var filterName = 'tags.slug';
-    const limit = 5;
+    var limit = 5;
     $scope.limitTags = 0;
     $scope.tags = [];
     $scope.resultTags = [];
     $scope.lessThanLimit;
+    
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.collapsed = true;
     $scope.toggleCollapse = function() {
@@ -25,7 +27,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
             }
-            if ($scope.tags.filter(tag=>tag.active)[0]!==undefined) {
+            if ($filter('filter')($scope.tags, {active: true})[0] !== undefined) {
               $scope.collapsed=false;
             }
             $scope.lessThanLimit = $scope.resultTags.data.length < Math.max(skip, limit);
@@ -54,21 +56,5 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
-
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      }else{
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
 
 }

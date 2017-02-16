@@ -1,11 +1,12 @@
 function SearchDatasetsController ($scope, $element, $rootScope, $location, LocationSearchService) {
-    $scope.query = sessionStorage.getItem('query') || '';
+    $rootScope.query = sessionStorage.getItem('query') || '';
     $scope.search = function() {
+        $rootScope.query = $scope.query;
         sessionStorage.removeItem('activeCategory');
         localStorage.removeItem('currentCategory');
         sessionStorage.removeItem('currentColor');
-        if ($scope.query) {
-            sessionStorage.setItem('query', $scope.query);
+        if ($rootScope.query) {
+            sessionStorage.setItem('query', $rootScope.query);
             
             $rootScope.showNavbarSearch = false;
             //$rootScope.query = sessionStorage.getItem('query') || '';
@@ -15,7 +16,7 @@ function SearchDatasetsController ($scope, $element, $rootScope, $location, Loca
             LocationSearchService.deleteFilter('tags.slug');
             LocationSearchService.deleteFilter('files.type');
             LocationSearchService.deleteFilter('files.organization');
-            $location.path('datasets').search('query', $scope.query);
+            $location.path('datasets').search('query', $rootScope.query);
 
         } else {
             sessionStorage.removeItem('query');

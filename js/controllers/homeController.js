@@ -1,4 +1,5 @@
-function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService) {
+function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService, usSpinnerService) {
+    usSpinnerService.spin('spinner');
     sessionStorage.removeItem('query');
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
@@ -8,8 +9,11 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     $rootScope.showLoadingStarred = true;
     $rootScope.showLoadingPopular = true;
 
+    $rootScope.countQuery ++;
     DatasetListService.getDatasetsCount($scope.params, function(result) {
         $scope.countDatasets = result.data.count;
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
     });
 
     $scope.getHtml = function(html) {

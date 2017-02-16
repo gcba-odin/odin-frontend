@@ -20,9 +20,10 @@
         "ngtweet",
         "matchMedia",
         "hm.readmore",
-        "vcRecaptcha"
+        "vcRecaptcha",
+        "angularSpinner"
     ]);
-    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider) {
+    app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider, usSpinnerConfigProvider) {
 
         $locationProvider.html5Mode(true);
 
@@ -32,6 +33,30 @@
             //            stoken: '--- YOUR GENERATED SECURE TOKEN ---',
             //            size: '---- compact or normal ----',
             //            type: '---- audio or image ----'
+        });
+
+        usSpinnerConfigProvider.setDefaults({
+            lines: 10,
+            length: 40,
+            width: 20,
+            radius: 49,
+            scale: 0.35,
+            corners: 1,
+            color: '#19c3e3' //Odin: '#ff386a' // MarcaBA: '#19c3e3'
+            ,
+            opacity: 0.3,
+            rotate: 5,
+            direction: 1,
+            speed: 1,
+            trail: 63,
+            fps: 20,
+            zIndex: 2e9,
+            className: 'spinner',
+            top: '50%',
+            left: '50%',
+            shadow: false,
+            hwaccel: false,
+            position: 'fixed' // Element positioning
         });
 
         $routeProvider
@@ -126,6 +151,8 @@
         $rootScope.baseHtml5 = BaseHTML5.url;
         $rootScope.odin_version = odin_version;
         $rootScope.query = "";
+        $rootScope.countQuery = 0;
+        $rootScope.countFilter = 0;
         screenSize.rules = {
             any: '(max-width: 1025px)'
         };

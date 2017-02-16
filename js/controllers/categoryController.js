@@ -4,7 +4,9 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log) {
+function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     if ($routeParams['categories.slug']) {
       sessionStorage.setItem('activeCategory',$routeParams['categories.slug']);
     }
@@ -55,6 +57,12 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
                 }
             }
             $scope.categories.sort(function(a,b){return b['porcentaje']-a['porcentaje']});
+            
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+        }, function(error) {
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
     });
 }

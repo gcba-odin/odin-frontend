@@ -1,4 +1,6 @@
-function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
+function DatasetLatestController($scope, $location, rest, $rootScope, $sce, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     // Flash.clear();
     $scope.modelName = "Dataset";
     $scope.type = "datasets";
@@ -17,6 +19,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
                 $scope.files = result.data;
                 $scope.files.forEach(function(element) {
                     if(!!element.type && element.type.id) {
+                        $rootScope.countQuery ++;
                         rest().findOne({
                             id: element.type.id,
                             type: 'filetypes'
@@ -25,14 +28,23 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce) {
                                 dataset.fileTypesNames.push(resultFileType.name);
                                 dataset.fileTypes.push(resultFileType);
                             }
+                            $rootScope.countQuery --;
+                            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                        }, function(error) {
+                            $rootScope.countQuery --;
+                            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                         });
                     }
                 });
             });
         });
         $rootScope.showLoadingLatest = false;
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
     }, function(error) {
         $rootScope.showLoadingLatest = false;
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
     });
    
     $scope.url = function(id) {

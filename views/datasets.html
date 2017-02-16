@@ -41,10 +41,10 @@
                 <div class="col-lg-9 col-lg-offset-3">
                     <div class="filters">
                         <div>
-                            <order-result></order-result>
-                            <tags-result></tags-result>
-                            <formats-result></formats-result>
-                            <organizations-result></organizations-result>
+                            <order-result ng-if="viewFilter"></order-result>
+                            <tags-result ng-if="viewFilter"></tags-result>
+                            <formats-result ng-if="viewFilter"></formats-result>
+                            <organizations-result ng-if="viewFilter"></organizations-result>
                         </div>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
             <div class="primary col-xs-12 col-lg-7 col-lg-offset-0">
                  <section class="module">
                     <div class="module-content">
-                        <div class="row center-spin" ng-if="showLoading">
+                        <!--<div class="row center-spin" ng-if="showLoading">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-                        </div>
+                        </div>-->
                         <result-datasets ng-if="!showLoading"></result-datasets>
                     </div>
                     <div class="text-center">
