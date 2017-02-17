@@ -3,25 +3,30 @@ angular.module('odin.controllers')
 
 function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
-    var limit = 5;
-    $scope.limitFormats = 0;
+    var formatsAutocomplete;
+
     $scope.filetypes = [];
     $scope.resultFormats = [];
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
 
+    $scope.selectedFormats = JSON.parse(sessionStorage.getItem('selectedFormats'));
+    $scope.formatNames = [];
+
     $scope.collapsed = true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };
+    if (!$.isArray($scope.selectedFormats)) {
+      $scope.selectedFormats = [];
+    }
 
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
-    $scope.loadFormats = function(skip) {
-        $scope.limitFormats += skip;
+    $scope.loadFormats = function() {
         $scope.resultFormats = rest().get({
             type: "filetypes",
-            params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitFormats
+            params: "orderBy=name&sort=ASC&"
         }, function() {
             for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                 var filetype = $scope.resultFormats.data[i];
@@ -29,11 +34,17 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
                 filetype.slug = $filter('slug')(filetype.name);
                 $scope.filetypes.push(filetype);
                 $scope.loadFileTypeCount(filetype.id);
+                $scope.formatNames.push(filetype.name);
+            }
+            formatsAutocomplete = JSON.parse(sessionStorage.getItem('formatsAutocomplete'));
+            if (formatsAutocomplete) {
+              $scope.formatNames=formatsAutocomplete;
+            } else {
+              formatsAutocomplete =  $scope.formatNames;
             }
             if ($filter('filter')($scope.filetypes, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
-            $scope.lessThanLimit = $scope.resultFormats.data.length < Math.max(skip, limit);
         });
         $scope.datasetCount = {};
     };
@@ -52,24 +63,34 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
         });
     };
 
-    $scope.showLess = function(limit) {
-        var countFormats = $scope.filetypes.length;
-        var minCount = Math.min(countFormats, limit);
-        $scope.filetypes.splice(minCount, countFormats - minCount);
-        $scope.limitFormats = 0;
-        $scope.lessThanLimit = false;
-    };
-
     $scope.loadFormats(0);
     $scope.selectFiletype = function(filetype) {
         $rootScope.showFiltersMenu = false;
         $rootScope.showBackdrop = false;
         if(filetype.active) {
+            $scope.selectedFormats.splice($scope.selectedFormats.indexOf(filetype.name),1);
+            formatsAutocomplete.push(filetype)
             LocationSearchService.removeFilterValue(filterName, filetype.id);
         } else {
+            debugger;
+            filetype.active = true;
+            $scope.selectedFormats.push(filetype);
+            formatsAutocomplete.splice(formatsAutocomplete.indexOf(filetype.name),1);
             LocationSearchService.addFilterValue(filterName, filetype.id);
         }
+
+        sessionStorage.setItem('formatsAutocomplete',JSON.stringify(formatsAutocomplete));
+        sessionStorage.setItem('selectedFormats', JSON.stringify($scope.selectedFormats));
     };
+
+    $scope.formatTypedSelected = function(formatSelected){
+      formatSelected=$scope.filetypes.filter(function(format){
+        return format.name == formatSelected;
+      });
+      $scope.selectFiletype(formatSelected[0]);
+      $scope.formatNames.splice($scope.formatNames.indexOf(formatSelected[0].name),1);
+    };
+
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
