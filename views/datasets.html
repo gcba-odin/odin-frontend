@@ -19,12 +19,12 @@
                         </li>
                     </ol>
                     <div class="datasets-counter" id="pagingDatasets">
-                        <div ng-show="countDatasets == -1">
+                        <!--<div ng-show="countDatasets == -1">
                             <p> Buscando datasets </p>
-                        </div>
-                        <div ng-show="countDatasets == 0">
+                        </div>-->
+                        <!--<div ng-show="countDatasets == 0">
                             <p> No se han encontrado datasets </p>
-                        </div>
+                        </div>-->
                         <div ng-show="countDatasets > 0">
                             <div class="dataset-counter-container">
                                 <span ng-if="currentCategory.id" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></span>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row">
-            <aside class="secondary col-lg-4" ng-if="!isMobile">
+            <aside class="secondary col-lg-4" ng-if="!isMobile && countDatasets > 0">
                 <div class="col-lg-9 col-lg-offset-3">
                     <div class="filters">
                         <div>
@@ -50,7 +50,10 @@
                 </div>
             </aside>
             <!-- <div class="primary col-lg-8"> -->
-            <div class="primary col-xs-12 col-lg-7 col-lg-offset-0">
+            <div class="primary col-xs-12 text-center" ng-show="countDatasets == 0">
+                <p class="no-data"> No se han encontrado datasets </p>
+            </div>
+            <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasets > 0">
                  <section class="module">
                     <div class="module-content">
                         <!--<div class="row center-spin" ng-if="showLoading">
@@ -59,7 +62,15 @@
                         <result-datasets ng-if="!showLoading"></result-datasets>
                     </div>
                     <div class="text-center">
-                        <paging page="page" page-size="params.limit" total="countDatasets" paging-action="paging('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                        <paging page="page" page-size="params.limit" 
+                                total="countDatasets" 
+                                paging-action="paging('pageClick', page, pageSize, total)" 
+                                hide-if-empty="true" show-prev-next="true" show-first-last="true"
+                                text-title-page="Página {page}"
+                                text-title-first="Primera página"
+                                text-title-last="Última página"
+                                text-title-next="Siguiente"
+                                text-title-prev="Anterior"></paging>
                     </div>
                 </section>
             </div>

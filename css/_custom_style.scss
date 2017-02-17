@@ -74,6 +74,10 @@ hr{
   color: #999;
   font-size: 22px;
   font-weight: 400;
+  
+  &:hover {
+      color: #3E4F5E;
+  }
 }
 .toolbar .breadcrumb li:after{
   color: #999;

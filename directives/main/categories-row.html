@@ -1,7 +1,7 @@
 <div class="categories-container col-lg-offset-1">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
     <div class="categories-row-container auxiliar-bar-line">
-        <a ng-href="datasets?categories.slug={{ category.name | slug }}"
+        <a ng-href="datasets?categories.slug={{ category.name | slug }}" data-tooltip="{{category.name}}"
         class="categories-item categories-row-item" ng-repeat="category in categories"
         style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
         ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#E5E5E5'}"

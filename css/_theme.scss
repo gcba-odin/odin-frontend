@@ -1006,12 +1006,18 @@ h2 {
 //     background: inherit !important;
 // }
 
+.no-data {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 16px;
+}
+
 [role=main] .primary {
     // padding-left: 25px;
 }
 
 [data-tooltip]:hover:after {
-    background: #FFb600;
+    background: #fdd306;
     color: white;
     border-radius: 2px;
     content: attr(data-tooltip);
@@ -1022,8 +1028,8 @@ h2 {
     max-width: 500px;
     text-align: center;
     font-size: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+    //margin-top: 20px;
+    //margin-left: 20px;
     white-space: nowrap;
 }
 
