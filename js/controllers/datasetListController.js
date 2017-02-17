@@ -28,7 +28,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 $scope.currentCategory = resp.data[0];
                 localStorage.setItem('currentCategory',resp.data[0].name);
                 sessionStorage.setItem('currentColor', resp.data[0].color);
-            } 
+            }
             $scope.viewFilter = true;
             $rootScope.countQuery --;
             if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
@@ -58,7 +58,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
           $scope.loadResults = function(skip) {
               usSpinnerService.spin('spinner');
-              
+
               $scope.showLoading = true;
               $scope.params.skip = skip;
 
@@ -112,10 +112,10 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                           $rootScope.countQuery --;
                           if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                       });
-                      $scope.showLoading = false;    
+                      $scope.showLoading = false;
                       return dataset;
                   });
-                  $scope.showLoading = false; 
+                  $scope.showLoading = false;
               });
               $anchorScroll('pagingDatasets');
           };
