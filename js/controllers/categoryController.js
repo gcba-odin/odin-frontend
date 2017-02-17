@@ -64,5 +64,8 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
             $rootScope.countQuery --;
             if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
+    }, function(error) {
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
     });
 }

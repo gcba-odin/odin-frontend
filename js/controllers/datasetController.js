@@ -283,6 +283,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.showLoading = false;
         }, function(error) {
             $scope.showLoading = false;
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
     }
 

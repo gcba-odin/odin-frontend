@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row">
-            <aside class="secondary col-lg-4" ng-if="!isMobile && countDatasets > 0">
+            <aside class="secondary col-lg-4" ng-if="!isMobile">
                 <div class="col-lg-9 col-lg-offset-3">
                     <div class="filters">
                         <div>
@@ -50,7 +50,7 @@
                 </div>
             </aside>
             <!-- <div class="primary col-lg-8"> -->
-            <div class="primary col-xs-12 text-center" ng-show="countDatasets == 0">
+            <div class="primary col-xs-12 col-lg-7 text-center" ng-show="countDatasets == 0">
                 <p class="no-data"> No se han encontrado datasets </p>
             </div>
             <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasets > 0">

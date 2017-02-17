@@ -69,10 +69,9 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
         $rootScope.showBackdrop = false;
         if(filetype.active) {
             $scope.selectedFormats.splice($scope.selectedFormats.indexOf(filetype.name),1);
-            formatsAutocomplete.push(filetype)
+            formatsAutocomplete.push(filetype.name);
             LocationSearchService.removeFilterValue(filterName, filetype.id);
         } else {
-            debugger;
             filetype.active = true;
             $scope.selectedFormats.push(filetype);
             formatsAutocomplete.splice(formatsAutocomplete.indexOf(filetype.name),1);

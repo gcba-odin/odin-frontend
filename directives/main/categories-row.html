@@ -4,7 +4,7 @@
         <a ng-href="datasets?categories.slug={{ category.name | slug }}" data-tooltip="{{category.name}}"
         class="categories-item categories-row-item" ng-repeat="category in categories"
         style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
-        ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#E5E5E5'}"
+        ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#ccc'}"
         ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
             <div ng-if="category.id" class="category-image" svg-img="url_api + '/categories/' + category.id + '/image'"></div>
             <span ng-show="(category.name | slug) === activeCategory" ng-style="{'background-color': category.color}"

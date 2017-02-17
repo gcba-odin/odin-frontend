@@ -153,6 +153,8 @@ hr{
   font-size: 10px;
   margin: 0px 0px;
   width: 100%;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 .categories-item{
@@ -1530,6 +1532,9 @@ ul.unstyled-alt{
     background: white;
   }
 
+  .container-data {
+        margin-left: 15px;
+  }
 }
 
 @media only screen and (min-width : $max-phone-portrait) {
@@ -1629,6 +1634,10 @@ ul.unstyled-alt{
 
   .results.wrapper {
   margin:0;
+  }
+  
+  .container-data {
+      right: 2%;
   }
 }
 

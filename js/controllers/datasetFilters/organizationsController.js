@@ -69,7 +69,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
         $rootScope.showBackdrop = false;
         if(organization.active) {
             $scope.selectedOrgs.splice($scope.selectedOrgs.indexOf(organization.name),1);
-            orgsAutocomplete.push(organization)
+            orgsAutocomplete.push(organization.name);
             LocationSearchService.removeFilterValue(filterName, organization.id);
         } else {
             organization.active = true;

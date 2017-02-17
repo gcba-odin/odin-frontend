@@ -341,13 +341,16 @@
 
                         // Removes opacity
                         $element.find("g[opacity='0.75']").css("opacity", 0);
+                        var color_fill = '#fff';
 
                         if (!!attrs.currentcolor && attrs.currentcolor  !== undefined && attrs.currentcolor  !== "null") {
-                          $element.find("path").css("fill", attrs.currentcolor);
-                          $element.find("rect").css("fill", attrs.currentcolor);
-                          $element.find("polygon").css("fill", attrs.currentcolor);
-                          $element.find("circle").css("fill", attrs.currentcolor);
-                        }
+                            color_fill = attrs.currentcolor;
+                        } 
+                        
+                        $element.find("path").css("fill", color_fill);
+                        $element.find("rect").css("fill", color_fill);
+                        $element.find("polygon").css("fill", color_fill);
+                        $element.find("circle").css("fill", color_fill);
                     },
                     error: function(data){
                       $element.parent().find(".colorText").css("display", "block");
