@@ -1,0 +1,22 @@
+<div class="autocomplete {{ attrs.class }}" id="{{ attrs.id }}">
+  <input
+    type="text"
+    ng-model="searchParam"
+    placeholder="{{ attrs.placeholder }}"
+    class="{{ attrs.inputclass }}"
+    tabindex="{{ attrs.tabindex }}"
+    id="{{ attrs.inputid }}"
+    name="{{ attrs.name }}"
+    ng-required="{{ autocompleteRequired }}" />
+  <ul class="autocomplete-suggestion" ng-if="!noAutoSort" ng-show="(suggestions).length > 0">
+    <li suggestion
+        ng-repeat="suggestion in suggestions |  filter:searchFilter | limitTo:5 | orderBy:'toString()' track by $index"
+        index="{{ $index }}"
+        val="{{ suggestion }}"
+        ng-class="{ active: ($index === selectedIndex) }"
+        ng-click="select(suggestion)"
+        ng-bind-html="suggestion"
+        >
+    </li>
+  </ul>
+</div>

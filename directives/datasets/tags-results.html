@@ -7,23 +7,23 @@
         ></i>
      </h2>
   </div>
-   <div ng-hide="collapsed">
-     <nav>
-        <ul  class="unstyled nav nav-simple nav-facet">
-          <autocomplete ng-model="result" attr-placeholder="Buscar etiqueta" click-activation="true" data="tags" on-type="searchTag" on-select="selectTag(tag)"></autocomplete>
-           <li class="nav-item " ng-repeat="tag in tags" ng-class="{'active': tag.active}">
-              <a class="tags-item" ng-click="selectTag(tag)" title="{{tag.name}}">
-                 <span>{{tag.name | truncString}}</span>
-              </a>
-           </li>
-        </ul>
-     </nav>
-    <p class="module-footer" ng-if="(resultTags.data.length || limitTags == 0) && !lessThanLimit">
-        <a ng-click="loadTags(5)" class="read-more">Ver más</a>
-     </p>
-     <p class="module-footer" ng-if="(resultTags.data.length == 0 && limitTags != 0) || lessThanLimit">
-        <a ng-click="showLess(5)" class="read-more">Ver menos</a>
-     </p>
-   </div>
+  <div ng-hide="collapsed">
+       <nav>
+         <autocomplete  ng-model="result" attr-placeholder="Buscar etiqueta..." click-activation="true" data="tagNames"  on-select="tagTypedSelected"></autocomplete>
+          <ul  class="unstyled nav nav-simple nav-facet">
+             <li class="nav-item " ng-repeat="tag in selectedTags" ng-class="{'active': tag.active}">
+                 <a class="tags-item" ng-click="selectTag(tag)" title="{{tag.name}}">
+                   <span>{{tag.name | truncString}}</span>
+                </a>
+             </li>
+          </ul>
+       </nav>
+      <!-- <p class="module-footer" ng-if="(resultTags.data.length || limitTags == 0) && !lessThanLimit">
+          <a ng-click="loadTags(5)" class="read-more">Ver más</a>
+       </p>
+       <p class="module-footer" ng-if="(resultTags.data.length == 0 && limitTags != 0) || lessThanLimit">
+          <a ng-click="showLess(5)" class="read-more">Ver menos</a>
+       </p> -->
+     </div>
 
 </section>
