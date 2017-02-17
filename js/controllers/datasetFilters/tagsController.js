@@ -3,17 +3,12 @@ angular.module('odin.controllers')
 
 function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
     var filterName = 'tags.slug';
-    const limit = 5;
     var tagsAutocomplete;
-
-    $scope.limitTags = 0;
     $scope.tags = [];
     $scope.resultTags = [];
-    $scope.lessThanLimit;
     $scope.selectedTags = JSON.parse(sessionStorage.getItem('selectedTags'));
     $scope.tagNames = [];
     $scope.collapsed = true;
-    $scope.loadAutocompleteTags=true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };

@@ -3,16 +3,13 @@ angular.module('odin.controllers')
 
 function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
-    var limit = 5;
     var orgsAutocomplete;
 
     $scope.selectedOrgs = JSON.parse(sessionStorage.getItem('selectedOrgs'));
     $scope.orgsNames = [];
 
-    $scope.limitOrganizations = 0;
     $scope.organizations = [];
     $scope.resultOrganizations = [];
-    $scope.lessThanLimit;
     $scope.organizationsCount = {}
 
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
