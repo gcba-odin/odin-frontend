@@ -36,10 +36,12 @@ angular.module('store-factories')
     },
     removeFilterValue: function(filter, value) {
       var filterValues = locationSearch[filter];
-      filterValues = filterValues.filter(function(valueInArray){
-        return valueInArray !== value;
-      });
-      $location.search(filter, filterValues);
+      if(!!filterValues) {
+        filterValues = filterValues.filter(function(valueInArray){
+          return valueInArray !== value;
+        });
+        $location.search(filter, filterValues);
+    }
     },
     searchParams: function() {
       var searchParams = angular.copy(locationSearch);

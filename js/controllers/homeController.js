@@ -2,7 +2,15 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     usSpinnerService.spin('spinner');
     sessionStorage.removeItem('query');
     sessionStorage.removeItem('activeCategory');
+
     localStorage.removeItem('currentCategory');
+    sessionStorage.removeItem('tagsAutocomplete');
+    sessionStorage.removeItem('orgsAutocomplete');
+    sessionStorage.removeItem('formatsAutocomplete');
+    sessionStorage.removeItem('selectedTags');
+    sessionStorage.removeItem('selectedOrgs');
+    sessionStorage.removeItem('selectedFormats');
+
     $rootScope.header = "Odin";
     $rootScope.isDatasetView = false;
     $rootScope.showLoadingLatest = true;

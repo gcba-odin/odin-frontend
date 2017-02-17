@@ -5,24 +5,18 @@
         <i class="collapse-icon fa module-action"
           ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
         ></i>
-        <!-- <span class="module-heading-clear-icon fa fa-caret-down" ng-click="toggleCustom()" ng-click="removeAll()"></span> -->
      </h2>
   </div>
   <div  ng-hide="collapsed">
      <nav>
+        <autocomplete  ng-model="result" attr-placeholder="Buscar formato..." click-activation="true" data="formatNames"  on-select="formatTypedSelected"></autocomplete>
         <ul class="unstyled nav nav-simple nav-facet">
-           <li class="nav-item" ng-repeat="filetype in filetypes" ng-class="{'active': filetype.active}">
+           <li class="nav-item" ng-repeat="filetype in selectedFormats" ng-class="{'active': filetype.active}">
               <a class="tags-item" ng-click="selectFiletype(filetype)" title="{{filetype.name}}">
-                 <span>{{filetype.name | truncString | uppercase}} ({{fileTypesCount[filetype.id]}})</span>
+                 <span>{{filetype.name | truncString | lowercase}} ({{fileTypesCount[filetype.id]}})</span>
               </a>
            </li>
         </ul>
      </nav>
-    <p class="module-footer" ng-if="(resultFormats.data.length || limitFormats == 0) && !lessThanLimit">
-        <a ng-click="loadFormats(5)" class="read-more">Ver más</a>
-     </p>
-     <p class="module-footer" ng-if="(resultFormats.data.length == 0 && limitFormats != 0) || lessThanLimit">
-        <a ng-click="showLess(5)" class="read-more">Ver menos</a>
-     </p>
   </div>
 </section>

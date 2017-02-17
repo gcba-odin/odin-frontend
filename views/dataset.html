@@ -89,7 +89,14 @@
             </section>
             </div>
             <div class="col-lg-7 col-lg-offset-4 text-center">
-                <paging page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
+                <paging page="page" page-size="params.limit" total="countResources" 
+                        paging-action="pagingAll('pageClick', page, pageSize, total)" 
+                        hide-if-empty="true" show-prev-next="true" show-first-last="true"
+                        text-title-page="Página {page}"
+                        text-title-first="Primera página"
+                        text-title-last="Última página"
+                        text-title-next="Siguiente"
+                        text-title-prev="Anterior"></paging>
             </div>
             <!-- <div class="primary col-lg-9 col-lg-offset-0" ng-class="isMobile ? col-md-12 : col-md-9 "> -->
             <div class="primary col-lg-7 col-lg-offset-4" ng-class="isMobile ? col-md-12 : col-md-9 ">
