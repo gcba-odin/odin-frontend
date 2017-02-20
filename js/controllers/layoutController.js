@@ -1,4 +1,5 @@
-function LayoutController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
+function LayoutController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService) {
+    PDFJS.workerSrc = $rootScope.baseHtml5 + 'plugins/pdf/pdf.worker.js';
     LocationSearchService.init();
     $rootScope.layout_preview = true;
     $rootScope.header = "Guía de datos";

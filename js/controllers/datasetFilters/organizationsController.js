@@ -38,9 +38,9 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
             }
             orgsAutocomplete = JSON.parse(sessionStorage.getItem('orgsAutocomplete'));
             if (orgsAutocomplete) {
-              $scope.orgsNames=orgsAutocomplete;
+              $scope.orgsNames=orgsAutocomplete.sort();
             } else {
-              orgsAutocomplete =  $scope.orgsNames;
+              orgsAutocomplete =  $scope.orgsNames.sort();
             }
             if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
@@ -68,6 +68,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
         $rootScope.showFiltersMenu = false;
         $rootScope.showBackdrop = false;
         if(organization.active) {
+            organization.active = false;
             $scope.selectedOrgs.splice($scope.selectedOrgs.indexOf(organization.name),1);
             orgsAutocomplete.push(organization.name);
             LocationSearchService.removeFilterValue(filterName, organization.id);

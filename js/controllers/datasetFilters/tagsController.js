@@ -4,7 +4,7 @@ angular.module('odin.controllers')
 function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
     var filterName = 'tags.slug';
     var tagsAutocomplete;
-    
+
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.tags = [];
@@ -34,9 +34,9 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
 
             tagsAutocomplete = JSON.parse(sessionStorage.getItem('tagsAutocomplete'));
             if (tagsAutocomplete) {
-              $scope.tagNames=tagsAutocomplete;
+              $scope.tagNames=tagsAutocomplete.sort();
             } else {
-              tagsAutocomplete =  $scope.tagNames;
+              tagsAutocomplete =  $scope.tagNames.sort();
             }
             if ($filter('filter')($scope.tags, {active: true})[0] !== undefined) {
               $scope.collapsed=false;
@@ -51,6 +51,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
         $rootScope.showFiltersMenu = false;
         $rootScope.showBackdrop = false;
         if(tag.active) {
+            tag.active = false;
             $scope.selectedTags.splice($scope.selectedTags.indexOf(tag.name),1);
             tagsAutocomplete.push(tag.name);
             LocationSearchService.removeFilterValue(filterName, tag.slug);
