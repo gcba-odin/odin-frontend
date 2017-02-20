@@ -153,6 +153,7 @@
         $rootScope.query = "";
         $rootScope.countQuery = 0;
         $rootScope.countFilter = 0;
+        $rootScope.isHome = false;
         screenSize.rules = {
             any: '(max-width: 1025px)'
         };

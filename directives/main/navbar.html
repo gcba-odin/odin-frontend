@@ -3,26 +3,26 @@
         <div class="navbar-left-section">
             <a class="navbar-button navbar-sidebar-button"
               ng-click="toggleCategoriesSidebar()"
-              ng-show="isDatasetView"
+              ng-show="!isHome"
             >
               <i class="fa fa-bars"></i>
             </a>
         </div>
         <div class="navbar-center-section">
             <a class="navbar-ba-logo" ng-href="{{!!layout_preview ? '#' : baseHtml5}}"></a>
-            <navbar-search is-active="isDatasetView && showNavbarSearch"></navbar-search>
+            <navbar-search is-active="!isHome && showNavbarSearch"></navbar-search>
         </div>
         <div class="navbar-right-section">
             <a class="navbar-button navbar-search-button"
               ng-click="toggleNavbarSearch()"
               ng-class="{active: showNavbarSearch}"
-              ng-show="isDatasetView"
+              ng-show="!isHome"
             >
               <i class="fa fa-search"></i>
             </a>
             <a class="navbar-button navbar-filters-button"
               ng-click="toggleFiltersMenu()"
-              ng-show="isDatasetView"
+              ng-show="!isHome"
             >
               <i class="fa fa-ellipsis-v"></i>
             </a>

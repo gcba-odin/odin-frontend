@@ -13,6 +13,7 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
 
     $rootScope.header = "Odin";
     $rootScope.isDatasetView = false;
+    $rootScope.isHome = true;
     $rootScope.showLoadingLatest = true;
     $rootScope.showLoadingStarred = true;
     $rootScope.showLoadingPopular = true;

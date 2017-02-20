@@ -11,6 +11,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
+    $rootScope.isHome = false;
     $scope.activeCategories = [];
 
     $scope.type = "datasets";
@@ -95,9 +96,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
     $scope.loadResults = function(limit) {
         usSpinnerService.spin('spinner');
-        
+
         $anchorScroll('pagingDatasetResult');
-        $scope.showLoading = true;     
+        $scope.showLoading = true;
         $scope.params = $.extend({
             dataset: $scope.info.id,
             include: 'tags',
@@ -121,7 +122,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.countResources = result.meta.count;
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
-                if(!!element.type && !!element.type.id) { 
+                if(!!element.type && !!element.type.id) {
                     $rootScope.countQuery ++;
                     rest().findOne({
                         id: element.type.id,
@@ -201,7 +202,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                             logic: 'emit'
                                         }
                                     }
-                                    
+
                                     $rootScope.countQuery --;
                                     if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                                 }, function(error) {
@@ -280,7 +281,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     valor: val
                 });
             });
-            
+
             $scope.showLoading = false;
         }, function(error) {
             $scope.showLoading = false;
@@ -292,7 +293,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
 
     $scope.paging = function(event, page, pageSize, total, resource) {
-        $scope.showLoadingResource = true;     
+        $scope.showLoadingResource = true;
         var skip = (page - 1) * $scope.params.limitTable;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
@@ -300,9 +301,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             type: 'files',
             params: "skip=" + skip + "&limit=" + $scope.params.limitTable
         }, function(resp) {
-            $scope.showLoadingResource = false;     
+            $scope.showLoadingResource = false;
         }, function(error) {
-            $scope.showLoadingResource = false;     
+            $scope.showLoadingResource = false;
         });
     };
 

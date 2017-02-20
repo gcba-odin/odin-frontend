@@ -2,7 +2,8 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     usSpinnerService.spin('spinner');
     $rootScope.countQuery ++;    
     $scope.viewFilter = false;
-    $rootScope.isDatasetView = true;
+    $rootScope.isDatasetView = false;
+    $rootScope.isHome = false;
     sessionStorage.removeItem('activeCategory');
     localStorage.removeItem('currentCategory');
     sessionStorage.removeItem('currentColor');
