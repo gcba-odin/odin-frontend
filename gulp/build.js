@@ -6,5 +6,6 @@ gulp.task('build', [
   'javascript',
   'styles',
   'static',
-  'leaflet'
+  'leaflet',
+  'pdf-build'
 ]);
