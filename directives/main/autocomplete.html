@@ -12,7 +12,7 @@
     />
   <ul class="autocomplete-suggestion" ng-if="!noAutoSort" ng-show="(suggestions).length > 0">
     <li suggestion
-        onmouseout="$('.autocomplete')[0].firstElementChild.value='';"
+        onmouseout="$('.autocomplete')[0].firstElementChild.value='';$('.autocomplete')[1].firstElementChild.value='';$('.autocomplete')[2].firstElementChild.value='';"
         class="autocomplete-element"
         ng-repeat="suggestion in suggestions |  filter:searchFilter | limitTo:5 | orderBy:'toString()' track by $index"
         index="{{ $index }}"
