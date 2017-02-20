@@ -14,7 +14,7 @@ gulp.task('vendors', ['base-url'], function() {
       lazypipe().pipe(sourcemaps.init, { loadMaps: true }))
     )
     .pipe(gulpif('*.js', process.env.NODE_ENV ? uglify() : util.noop()))
-    .pipe(gulpif('*.css', process.env.NODE_ENV ? cleanCSS() : util.noop()))
+    .pipe(gulpif('*.css', cleanCSS()))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });

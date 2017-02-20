@@ -5,6 +5,7 @@ app.factory('model', function($resource) {
 });
 
 function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll, usSpinnerService) {
+    PDFJS.workerSrc = $rootScope.baseHtml5 + 'plugins/pdf/pdf.worker.js';
     usSpinnerService.spin('spinner');
     $rootScope.countQuery ++;
     sessionStorage.removeItem('query');
