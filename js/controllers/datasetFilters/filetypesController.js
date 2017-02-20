@@ -38,9 +38,9 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
             }
             formatsAutocomplete = JSON.parse(sessionStorage.getItem('formatsAutocomplete'));
             if (formatsAutocomplete) {
-              $scope.formatNames=formatsAutocomplete;
+              $scope.formatNames=formatsAutocomplete.sort();
             } else {
-              formatsAutocomplete =  $scope.formatNames;
+              formatsAutocomplete =  $scope.formatNames.sort();
             }
             if ($filter('filter')($scope.filetypes, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
@@ -68,6 +68,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
         $rootScope.showFiltersMenu = false;
         $rootScope.showBackdrop = false;
         if(filetype.active) {
+            filetype.active = false;
             $scope.selectedFormats.splice($scope.selectedFormats.indexOf(filetype.name),1);
             formatsAutocomplete.push(filetype.name);
             LocationSearchService.removeFilterValue(filterName, filetype.id);
