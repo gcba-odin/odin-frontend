@@ -56,7 +56,6 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
         DatasetListService.getDatasets($scope.params, function (datasets) {
             $scope.datasets = datasets.map(function (dataset) {
-                $rootScope.countQuery++;
                 if ($scope.downloads.length) {
                     var downloadsCount = $scope.downloads
                             .filter(function (download) {
@@ -106,17 +105,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 //                                });
 //                            }
                     });
-                    console.log($rootScope.countQuery);
-                    $rootScope.countQuery--;
-                    if ($rootScope.countQuery == 0) {
-                        usSpinnerService.stop('spinner');
-                    }
                 }, function (error) {
-                    console.log($rootScope.countQuery);
-                    $rootScope.countQuery--;
-                    if ($rootScope.countQuery == 0) {
-                        usSpinnerService.stop('spinner');
-                    }
                 });
                 $scope.showLoading = false;
                 return dataset;

@@ -19,9 +19,9 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce, usS
             }, function (result) {
                 $scope.files = result.data;
                 $scope.files.forEach(function (element) {
-                    if (!!element.type && element.type.id) {
+                    if (!!element.type && !!element.type.id) {
                         if (dataset.fileTypes.indexOf(element.type.id) === -1) {
-                            dataset.fileTypes.push(element.type);
+                            dataset.fileTypes.push(element.type.id);
                         }
 //                        $rootScope.countQuery ++;
 //                        rest().findOne({
