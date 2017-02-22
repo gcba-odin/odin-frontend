@@ -3,7 +3,7 @@ angular.module('store-directives-datasets')
         return {
             restrict: "E",
             templateUrl: "directives/datasets/result-datasets.html",
-            controller: function($scope, $window, $location, rest) {
+            controller: function($scope, $window, $location, rest) {                
                 $scope.stats = {};
                 $scope.views = {};
 

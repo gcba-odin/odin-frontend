@@ -17,7 +17,8 @@
             <div class="dataset-resources unstyled list-dataset ">
                 <div class="resource-footer">
                     <div class="dataset-resources unstyled">
-                        <div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>
+                        <dataset-filetypes ng-if="dataFiletypes.length > 0" info="resource.type.id" info-class="label resource-format-label" info-li="false"></dataset-filetypes>
+                        <!--<div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>-->
                     </div>
                     <ul class="info-adicional dataset-resources unstyled">
                         <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</li>

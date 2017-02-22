@@ -16,8 +16,7 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     $rootScope.isHome = true;
     $rootScope.showLoadingLatest = true;
     $rootScope.showLoadingStarred = true;
-    $rootScope.showLoadingPopular = true;
-
+    
     $rootScope.countQuery ++;
     DatasetListService.getDatasetsCount($scope.params, function(result) {
         $scope.countDatasets = result.data.count;

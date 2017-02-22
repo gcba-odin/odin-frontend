@@ -50,7 +50,7 @@
                         <!--<div class="row center-spin" ng-if="showLoadingPopular">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                         </div>-->
-                        <popular-datasets></popular-datasets>
+                        <popular-datasets ng-if="!!categories && categories.length > 0" info="categories"></popular-datasets>
                     </article>
                     <article class="col-xs-12 col-md-6 col-lg-5 widget">
                         <div class="widgets-heading">

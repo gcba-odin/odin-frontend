@@ -27,7 +27,7 @@
                         </div>-->
                         <div ng-show="countDatasets > 0">
                             <div class="dataset-counter-container">
-                                <span ng-if="currentCategory.id" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></span>
+                                <span ng-if="currentCategory.image" svg-img="currentCategory.image" data-currentcolor="{{currentCategory.color}}"></span>
                                 <p class="dataset-quantity">{{countDatasets}}</p>
                             </div>
                             <p>Datasets</p>

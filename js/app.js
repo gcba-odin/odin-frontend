@@ -154,6 +154,8 @@
         $rootScope.countQuery = 0;
         $rootScope.countFilter = 0;
         $rootScope.isHome = false;
+        $rootScope.dataCategories = [];
+        $rootScope.dataFiletypes = [];
         screenSize.rules = {
             any: '(max-width: 1025px)'
         };
