@@ -375,6 +375,7 @@ hr{
   @extend .dataset-button;
   background-color: $ba-skyblue;
   padding-left: 15px;
+  cursor: pointer;
 }
 .dataset-hide-resource{
   padding: 1px 10px;
@@ -604,10 +605,19 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   box-shadow: none
 }
 
-.form-control:focus{
-  border-color: #C8C8C8;
-  box-shadow: none;
-  -webkit-box-shadow: none;
+// .form-control:focus{
+//
+//     border-color: rgba(0,0,0,0.12);
+//  }
+
+.form-control{
+    background-color: #fff;
+    height: 34px;
+}
+.form-control:hover{
+  box-shadow: 0 3px 8px 0
+  rgba(0,0,0,0.2),0 0 0 1px
+  rgba(0,0,0,0.08);
 }
 
 .footer-ba-logo{
@@ -869,7 +879,6 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .resource-actions .dropdown-menu{
   border: none;
   margin-top: 3px;
-
 }
 
 .resource-actions .dropdown-menu a{
@@ -1119,9 +1128,9 @@ ul.unstyled-alt{
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 
   .category-item:last-child .category-name {
-    margin-left: 60px; }
+    margin-left: 75px; }
 
-  .dataset-additional-info { padding: 6px 10px;}
+  .dataset-additional-info { padding: 6px 10px; }
 
   .dataset-download-button {
     margin-top: -23px; }
@@ -1155,13 +1164,13 @@ ul.unstyled-alt{
   //   margin: 2px 2px;
   //   width: 91px;
   // }
-  .categories-item-title { font-size: 7px;}
+  .categories-item-title {
+    font-size: 10px; }
+
   .dataset-resources li {
-    margin-left: 4px;
-  }
+    margin-left: 4px; }
   .text-auxiliar-bar:first-of-type {
-    width: 100%;
-  }
+    width: 100%; }
   .popular-list-item-description {
     width: 0px;
     font-size: 10px; }
@@ -1174,7 +1183,7 @@ ul.unstyled-alt{
     margin-left: 15px;
     padding: 0; }
 
-  .recouce-tab li a { margin-right: 5px; padding: 4px 22px;}
+  .resource-tab li a { margin-right: 8px; padding: 4px 25px; margin-top: 10px; }
 
   .widget > h2 {
     font-size: 18px; }
@@ -1240,9 +1249,13 @@ ul.unstyled-alt{
     font-size: 14px;
     margin-top: 10px;
   }
+  .categories-home {
+    color: #999;
 
+  }
   .categories-row-item{
       margin: 10px;
+      width: 75px;
   }
 
   .container-dataset{
@@ -1294,7 +1307,12 @@ ul.unstyled-alt{
 
   .dataset-download-button-alt:after{
     content: none;
+
   }
+  .dataset-view-info:hover, .dataset-download-button-alt:hover, .dataset-download-button:hover, .dataset-guide-data:hover {
+    opacity: 0.7;
+  }
+
   .dataset-heading{
     display: inline-block;
   }
@@ -1656,7 +1674,7 @@ ul.unstyled-alt{
   .results.wrapper {
   margin:0;
   }
-  
+
   .container-data {
       right: 2%;
   }
