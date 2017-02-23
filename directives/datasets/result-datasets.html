@@ -21,22 +21,22 @@
         </div>
         <div class="dataset-resources unstyled list-dataset resources-footer-buttons">
             <ul class="info-adicional dataset-resources unstyled">
-                <li><a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank" data-tooltip="Descargar ZIP"><div class="dataset-download-button-alt pull-right"><span>Descargar</span></div></a>
-                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="result.additional_info && result.additional_info.length > 0">Info adicional</li>
-                    <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="result.additional_info && result.additional_info.length > 0">
-                        <thead>
-                            <tr>
-                                <th>Campo</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="adt_info in result.additional_info">
-                                <td>{{adt_info.clave}}</td>
-                                <td>{{adt_info.valor}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <li><a href="{{url_api + '/datasets/' + result.id + '/download'}}" target="_blank"><div class="dataset-download-button-alt pull-right"><span data-tooltip="Descargar ZIP">Descargar</span></div></a>
+                <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="result.additional_info && result.additional_info.length > 0">Info adicional</li>
+                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="result.additional_info && result.additional_info.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="adt_info in result.additional_info">
+                            <td>{{adt_info.clave}}</td>
+                            <td>{{adt_info.valor}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </ul>
         </div>
     </div>

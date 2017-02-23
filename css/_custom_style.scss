@@ -24,7 +24,8 @@ hr{
   background: #F1F1F1;
   padding-top: 5px;
   &>input[type="text"]{
-    width: 100%;
+    width: 90%;
+    margin-left: 12px;
   }
 }
 
@@ -258,6 +259,12 @@ hr{
   background-color: white;
 }
 
+[data-tooltip]:hover:after{
+  background-color: #c0edf6;
+  color: #3e4f5e;
+
+}
+
 .dataset-additional-info{
   background: white;
   border-radius: 3px;
@@ -400,6 +407,7 @@ hr{
     // top: 210px;
     // right: 9%;
 }
+
 
 .dataset-download-button-alt:after{
     content: none;
@@ -604,24 +612,32 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   margin-top: 20px;
 }
 
-.filters-menu{
+.filters-menu {
   box-shadow: none
 }
+.autocomplete input:focus {
+  border-color: #e5e5e5 !important;
+  box-shadow: inset 0 1px 1px #e5e5e5, 0 0 8px #e5e5e5 !important;
+}
+.search-bar .input-group input:focus {
+  border-color: #e5e5e5 !important;
+  box-shadow: inset 0 1px 1px #e5e5e5,0 0 8px #e5e5e5 !important;
+}
 
-// .form-control:focus{
+// .form-control:focus {
+//     border: 1px solid  #DCDCDC;
 //
-//     border-color: rgba(0,0,0,0.12);
 //  }
 
 .form-control{
     background-color: #fff;
-    height: 34px;
-}
-.form-control:hover{
-  box-shadow: 0 3px 8px 0
-  rgba(0,0,0,0.2),0 0 0 1px
-  rgba(0,0,0,0.08);
-}
+    height: 34px;}
+// }
+// .form-control:hover{
+//   box-shadow: 0 3px 8px 0
+//   rgba(0,0,0,0.2),0 0 0 1px
+//   rgba(0,0,0,0.08);
+// }
 
 .footer-ba-logo{
   padding-top: 15px;
@@ -1650,6 +1666,8 @@ ul.unstyled-alt{
   .row.wrapper {
   margin:0;
   }
+  .dataset-download-button-alt {
+  margin-top: -20px;}
 
   .toolbar {
   margin-right:20px;
