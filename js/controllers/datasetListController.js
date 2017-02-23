@@ -11,10 +11,11 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
 
     $scope.params = {
         sort: 'ASC',
-        include: ['files', 'tags', 'categories.id'].join(),
+        include: ['categories.id'],//['files', 'tags', 'categories.id'].join(),
         limit: 5,
         skip: 0,
         'categories.slug': $routeParams['categories.slug'],
+        fields: ['description', 'id', 'name', 'optionals', 'publishedAt'].join()
     };
 
     var category = rest().get({
@@ -78,7 +79,7 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 dataset.fileTypes = [];
                 $scope.filesResults = rest().get({
                     type: 'files',
-                    params: 'include=tags&dataset=' + dataset.id
+                    params: 'fields=type&dataset=' + dataset.id
                 }, function (result) {
                     $scope.files = result.data;
                     $scope.files.forEach(function (element) {

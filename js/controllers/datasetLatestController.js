@@ -7,7 +7,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce, usSp
 
     $scope.latestDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4",
+        params: "fields=id,name,slug,description&orderBy=updatedAt&sort=DESC&limit=4",
     }, function (result) {
         result.data.forEach(function (dataset) {
             $rootScope.countQuery++;
@@ -15,7 +15,7 @@ function DatasetLatestController($scope, $location, rest, $rootScope, $sce, usSp
             dataset.fileTypesNames = [];
             $scope.filesResults = rest().get({
                 type: 'files',
-                params: 'include=tags&dataset=' + dataset.id
+                params: 'fields=type&dataset=' + dataset.id
             }, function (result) {
                 $scope.files = result.data;
                 $scope.files.forEach(function (element) {

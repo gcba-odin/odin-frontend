@@ -7,7 +7,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce, usS
 
     $scope.starredDataset = rest().get({
         type: $scope.type,
-        params: "orderBy=updatedAt&sort=DESC&limit=4&starred=true"
+        params: "fields=id,name,slug,description&orderBy=updatedAt&sort=DESC&limit=4&starred=true"
     }, function (result) {
         result.data.forEach(function (dataset) {
             $rootScope.countQuery++;
@@ -15,7 +15,7 @@ function DatasetStarredController($scope, $location, rest, $rootScope, $sce, usS
             dataset.fileTypesNames = [];
             $scope.filesResults = rest().get({
                 type: 'files',
-                params: 'include=tags&dataset=' + dataset.id
+                params: 'fields=type&dataset=' + dataset.id
             }, function (result) {
                 $scope.files = result.data;
                 $scope.files.forEach(function (element) {
