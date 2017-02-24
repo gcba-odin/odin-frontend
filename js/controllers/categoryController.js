@@ -5,6 +5,7 @@ app.factory('model', function ($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
+
     usSpinnerService.spin('spinner');
     $rootScope.countQuery++;
     $rootScope.countQuery++;
@@ -12,12 +13,19 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     var cache = false;
     var cacheFilt = false;
 
+
     if ($routeParams['categories.slug']) {
-        sessionStorage.setItem('activeCategory', $routeParams['categories.slug']);
+        var activeCategory = $routeParams['categories.slug'];
+        sessionStorage.setItem('activeCategory', activeCategory);
+        checkFilters(activeCategory);
+        sessionStorage.setItem('selectedCategory', $routeParams['categories.slug']);
     }
+
+
     $scope.activeCategory = sessionStorage.getItem('activeCategory');
     $scope.url_api = $rootScope.url;
     $scope.activeCategory = $.isArray($scope.activeCategory) ? $scope.activeCategory[0] : sessionStorage.getItem('activeCategory');
+
     $scope.modelName = "Category";
     $scope.type = "categories";
     $scope.showCategories = true;
@@ -162,4 +170,20 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         });
     }
     ;
+}
+
+function checkFilters(activeCategory){
+  activeCategory = $.isArray(activeCategory) ? activeCategory[0] : sessionStorage.getItem('activeCategory');
+  var selected = sessionStorage.getItem('selectedCategory');
+  if (selected && activeCategory != selected) {
+    clearFilters();
+  }
+}
+function clearFilters(){
+  sessionStorage.removeItem('tagsAutocomplete');
+  sessionStorage.removeItem('orgsAutocomplete');
+  sessionStorage.removeItem('formatsAutocomplete');
+  sessionStorage.removeItem('selectedTags');
+  sessionStorage.removeItem('selectedOrgs');
+  sessionStorage.removeItem('selectedFormats');
 }
