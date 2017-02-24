@@ -33,7 +33,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
                 filetype.active = LocationSearchService.isActive(filterName, filetype.id);
                 filetype.slug = $filter('slug')(filetype.name);
                 $scope.filetypes.push(filetype);
-                $scope.loadFileTypeCount(filetype.id);
+                // $scope.loadFileTypeCount(filetype.id);
                 $scope.formatNames.push(filetype.name);
             }
             formatsAutocomplete = JSON.parse(sessionStorage.getItem('formatsAutocomplete'));
@@ -50,18 +50,18 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     };
 
     //This won't scale. TODO: Change to /count
-    $scope.loadFileTypeCount = function(fileTypeId){
-        $scope.fileTypesCount[fileTypeId] = 0;
-        $scope.params = {
-            condition: 'AND',
-            include: ['files', 'tags', 'categories'].join(),
-            'files.type': fileTypeId,
-            'categories.slug': $routeParams['categories.slug']
-        };
-        DatasetListService.getDatasetsCount($scope.params, function(result) {
-            $scope.fileTypesCount[fileTypeId] = result.data.count;
-        });
-    };
+    // $scope.loadFileTypeCount = function(fileTypeId){
+    //     $scope.fileTypesCount[fileTypeId] = 0;
+    //     $scope.params = {
+    //         condition: 'AND',
+    //         include: ['files', 'tags', 'categories'].join(),
+    //         'files.type': fileTypeId,
+    //         'categories.slug': $routeParams['categories.slug']
+    //     };
+    //     DatasetListService.getDatasetsCount($scope.params, function(result) {
+    //         $scope.fileTypesCount[fileTypeId] = result.data.count;
+    //     });
+    // };
 
     $scope.loadFormats(0);
     $scope.selectFiletype = function(filetype) {
