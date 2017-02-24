@@ -241,6 +241,8 @@ hr{
 .filter-title-wrap{
   cursor: pointer;
 }
+.filter-title-wrap:hover{ opacity: .7}
+
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
   // @include svg-color(#545D6F);
