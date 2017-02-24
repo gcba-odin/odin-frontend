@@ -1217,15 +1217,15 @@ h2 {
 
 .dataset-additional-info:after {
     font-family: "FontAwesome";
-    content: "\f04b";
+    content: "\f0d7";
     display: inline-block;
     position: relative;
     left: 5px;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
 .dataset-hide-resource:after {

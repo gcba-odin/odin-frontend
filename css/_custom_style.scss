@@ -1,4 +1,4 @@
-body{
+  body{
   background-color: #F6F6F6;
   overflow-x: hidden;
 }
@@ -276,7 +276,6 @@ hr{
 [data-tooltip]:hover:after{
   background-color: #c0edf6;
   color: #3e4f5e;
-
 }
 
 .dataset-additional-info{
@@ -371,15 +370,15 @@ hr{
   float: right;
   font-family: "FontAwesome";
   color: #FFFFFF;
-  content: "\f04b";
+  content: "\f0d7";
   display: inline-block;
   margin-right: 5px;
   position: relative;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 
@@ -411,7 +410,8 @@ hr{
 }
 
 .dataset-download-button:after{
-  content: none;
+  transform: rotate(0deg);
+
 }
 
 .dataset-download-button-alt{
@@ -423,9 +423,9 @@ hr{
 }
 
 
-.dataset-download-button-alt:after{
-    content: none;
-}
+// .dataset-download-button-alt:after{
+//     content: none;
+// }
 
 .dataset-guide-data{
   @extend .dataset-button;
@@ -1335,7 +1335,7 @@ ul.unstyled-alt{
   }
 
   .dataset-download-button:after{
-    content: "\f04b";
+    content: "\f0d7";
   }
 
   .dataset-download-button-alt:after{
