@@ -250,10 +250,22 @@ hr{
   background-color: $ba-yellow;
 }
 
-.loading-dot {
-    background-image: url("../images/dots_2.gif");
-}
+.div-no-datasets {
+  padding-top: 20px;
+  height: 69px;
+  padding-left: 15%;
 
+  & .no-datasets {
+    float: left;
+    margin-right: 20px;
+  }
+  & .no-data {
+      padding-top: 20px;
+      font-size: 16px;
+      font-family: Chalet-Sixty,Avenir,Helvetica,Arial,sans-serif;
+      font-weight: 400;
+  }
+}
 
 .container-search-bar{
   background-color: white;

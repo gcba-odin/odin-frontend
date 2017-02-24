@@ -50,8 +50,11 @@
                 </div>
             </aside>
             <!-- <div class="primary col-lg-8"> -->
-            <div class="primary col-xs-12 col-lg-7 text-center" ng-show="countDatasets == 0">
-                <p class="no-data"> No se han encontrado datasets </p>
+            <div class="primary col-xs-12 col-lg-7" ng-show="countDatasets == 0">
+              <div class="div-no-datasets">
+                <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
+                <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
+              </div>
             </div>
             <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasets > 0">
                  <section class="module">
