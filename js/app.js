@@ -157,9 +157,10 @@
         $rootScope.dataCategories = [];
         $rootScope.dataFiletypes = [];
         screenSize.rules = {
-            any: '(max-width: 1025px)'
+            any: '(max-width: 767px)'
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
+          console.log(match);
             $rootScope.isMobile = match;
         });
 
