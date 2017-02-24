@@ -241,6 +241,8 @@ hr{
 .filter-title-wrap{
   cursor: pointer;
 }
+.filter-title-wrap:hover{ opacity: .7}
+
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
   // @include svg-color(#545D6F);
@@ -250,10 +252,22 @@ hr{
   background-color: $ba-yellow;
 }
 
-.loading-dot {
-    background-image: url("../images/dots_2.gif");
-}
+.div-no-datasets {
+  padding-top: 20px;
+  height: 69px;
+  padding-left: 15%;
 
+  & .no-datasets {
+    float: left;
+    margin-right: 20px;
+  }
+  & .no-data {
+      padding-top: 20px;
+      font-size: 16px;
+      font-family: Chalet-Sixty,Avenir,Helvetica,Arial,sans-serif;
+      font-weight: 400;
+  }
+}
 
 .container-search-bar{
   background-color: white;

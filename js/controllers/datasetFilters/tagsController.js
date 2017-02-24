@@ -26,7 +26,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
         }, function() {
             for (var i = 0; i < $scope.resultTags.data.length; i++) {
                 var tag = $scope.resultTags.data[i];
-                tag.slug = $filter('slug')(tag.name);
+                //tag.slug = $filter('slug')(tag.name);
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
                 $scope.tagNames.push(tag.name);
@@ -68,22 +68,6 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
         LocationSearchService.deleteFilter(filterName);
         sessionStorage.removeItem('selectedTags');
     };
-
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      } else {
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
 
     $scope.tagTypedSelected = function(tagSelected){
       tagSelected=$scope.tags.filter(function(tag){

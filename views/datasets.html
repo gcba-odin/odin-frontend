@@ -25,10 +25,10 @@
                         <!--<div ng-show="countDatasets == 0">
                             <p> No se han encontrado datasets </p>
                         </div>-->
-                        <div ng-show="countDatasets > 0">
+                        <div ng-show="countDatasetsByCategory > 0">
                             <div class="dataset-counter-container">
                                 <span ng-if="currentCategory.image" svg-img="currentCategory.image" data-currentcolor="{{currentCategory.color}}"></span>
-                                <p class="dataset-quantity">{{countDatasets}}</p>
+                                <p class="dataset-quantity">{{countDatasetsByCategory}}</p>
                             </div>
                             <p>Datasets</p>
                         </div>
@@ -50,10 +50,13 @@
                 </div>
             </aside>
             <!-- <div class="primary col-lg-8"> -->
-            <div class="primary col-xs-12 col-lg-7 text-center" ng-show="countDatasets == 0">
-                <p class="no-data"> No se han encontrado datasets </p>
+            <div class="primary col-xs-12 col-lg-7" ng-show="countDatasetsByCategory == 0">
+              <div class="div-no-datasets">
+                <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
+                <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
+              </div>
             </div>
-            <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasets > 0">
+            <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasetsByCategory > 0">
                  <section class="module">
                     <div class="module-content">
                         <!--<div class="row center-spin" ng-if="showLoading">
@@ -63,7 +66,7 @@
                     </div>
                     <div class="text-center">
                         <paging page="page" page-size="params.limit"
-                                total="countDatasets"
+                                total="countDatasetsByCategory"
                                 paging-action="paging('pageClick', page, pageSize, total)"
                                 hide-if-empty="true" show-prev-next="true" show-first-last="true"
                                 text-title-page="Página {page}"
