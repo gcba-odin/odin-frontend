@@ -16,10 +16,10 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     $rootScope.isHome = true;
     $rootScope.showLoadingLatest = true;
     $rootScope.showLoadingStarred = true;
-    
+
     $rootScope.countQuery ++;
     DatasetListService.getDatasetsCount($scope.params, function(result) {
-        $scope.countDatasets = result.data.count;
+        $rootScope.countDatasets = result.data.count;
         $rootScope.countQuery --;
         if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
     });

@@ -42,10 +42,10 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.url_api = $rootScope.url;
     $scope.page = 1;
 
-    $scope.countDatasets = -1;
-    DatasetListService.getDatasetsCount(null, function (result) {
-        $scope.countDatasets = result.data.count;
-    });
+    //$scope.countDatasets = 0;
+    //DatasetListService.getDatasetsCount(null, function (result) {
+    //    $scope.countDatasets = result.data.count;
+    //});
 
     $scope.loadResults = function (skip) {
         usSpinnerService.spin('spinner');
