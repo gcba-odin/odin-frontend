@@ -5,7 +5,6 @@ app.factory('model', function ($resource) {
 });
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
-
     usSpinnerService.spin('spinner');
     $rootScope.countQuery++;
     $rootScope.countQuery++;
@@ -13,14 +12,12 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     var cache = false;
     var cacheFilt = false;
 
-
     if ($routeParams['categories.slug']) {
         var activeCategory = $routeParams['categories.slug'];
         sessionStorage.setItem('activeCategory', activeCategory);
         checkFilters(activeCategory);
         sessionStorage.setItem('selectedCategory', $routeParams['categories.slug']);
     }
-
 
     $scope.activeCategory = sessionStorage.getItem('activeCategory');
     $scope.url_api = $rootScope.url;
@@ -171,6 +168,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     }
     ;
 }
+
 
 function checkFilters(activeCategory){
   activeCategory = $.isArray(activeCategory) ? activeCategory[0] : sessionStorage.getItem('activeCategory');
