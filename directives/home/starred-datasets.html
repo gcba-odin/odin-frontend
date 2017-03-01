@@ -7,13 +7,17 @@
                     <h3 class="widget-item-title">  {{item.name| limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</h3>
                     <p three-dots="getHtml(item.description)"></p>
                 </a>
-                <p class="thumbnail-dataset-icons">
-                    <span class="widget-item-footer-tags" ng-repeat="fileType in item.fileTypes">{{fileType.name}}</span>
+                <div class="thumbnail-dataset-icons">
+                    <dataset-filetypes ng-if="dataFiletypes.length > 0" ng-repeat="filetype in item.fileTypes" info="filetype" info-class="widget-item-footer-tags" info-li="false"></dataset-filetypes>
+                    <div ng-if="dataFiletypes == 0">
+                        <div ng-include="'views/loading-dots.html'"></div>
+                    </div>
+                    <!--<span class="widget-item-footer-tags" ng-repeat="fileType in item.fileTypes">{{fileType.name}}</span>-->
                     <!-- <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" target="_blank" class="icon-download widget-item-download-link download-link widget-item-footer-download-link"> -->
                     <a href="{{url(item.id)}}" data-tooltip="Descargar ZIP" target="_blank" class="widget-item-download-link download-link">
                         <span><i class="fa fa-arrow-circle-o-down"></i></span>
                     </a>
-                </p>
+                </div>
             </div>
         </div>
     </div>

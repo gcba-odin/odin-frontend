@@ -8,61 +8,83 @@
         <div class="flash-messages">
         </div>
         <div class="row datasets-header">
-          <div class="col-lg-10 col-lg-offset-1">
-            <div class="toolbar">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                      <a ng-href="{{baseHtml5}}">Inicio</a>
-                  </li>
-                    <li class="breadcrumb-item" ng-if="!!currentCategory">
-                        <a ng-href="datasets?categories.slug={{currentCategory.name| slug}}">{{currentCategory.name}}</a>
-                    </li>
-                </ol>
-                <div class="datasets-counter">
-                  <div ng-show="countDatasets == -1">
-                    <p> Buscando datasets </p>
-                  </div>
-                  <div ng-show="countDatasets == 0">
-                    <p> No se han encontrado datasets </p>
-                  </div>
-                  <div ng-show="countDatasets > 0">
-                    <div class="dataset-counter-container">
-                      <span ng-if="currentCategory.id" svg-img="url_api + '/categories/' + currentCategory.id + '/image'" data-currentcolor="{{currentCategory.color}}"></span>
-                      <p class="dataset-quantity">{{countDatasets}}</p>
-                    </div>
-                    <p>Datasets</p>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <aside class="secondary col-lg-4" ng-if="!isMobile">
-           <div class="col-lg-9 col-lg-offset-3">
-              <div class="filters">
-                  <div>
-                      <order-result></order-result>
-                      <tags-result></tags-result>
-                      <formats-result></formats-result>
-                      <organizations-result></organizations-result>
-                  </div>
-              </div>
-            </div>
-          </aside>
-          <!-- <div class="primary col-lg-8"> -->
-         <div class="primary col-xs-12 col-lg-7 col-lg-offset-0"
-                <section class="module">
-                    <div class="module-content">
-                        <result-datasets></result-datasets>
-                    </div>
-                    <div class="text-center">
-                        <paging page="page" page-size="params.limit" total="countDatasets" paging-action="paging('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging>
-                        <div class="row center-spin" ng-if="showLoading">
-                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="toolbar">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a ng-href="{{baseHtml5}}">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item" ng-if="!!currentCategory">
+                            <a ng-href="datasets?categories.slug={{currentCategory.name| slug}}">{{currentCategory.name}}</a>
+                        </li>
+                    </ol>
+                    <div class="datasets-counter" id="pagingDatasets">
+                        <!--<div ng-show="countDatasets == -1">
+                            <p> Buscando datasets </p>
+                        </div>-->
+                        <!--<div ng-show="countDatasets == 0">
+                            <p> No se han encontrado datasets </p>
+                        </div>-->
+                        <div ng-show="countDatasetsByCategory > 0">
+                            <div class="dataset-counter-container">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <span ng-if="currentCategory.image" svg-img="currentCategory.image" data-currentcolor="{{currentCategory.color}}"></span>
+                                    </div>
+                                    <div class="col-xs-7 dataset-counter-text">
+                                        <p class="dataset-quantity">{{countDatasetsByCategory}}</p>
+                                        <p>Datasets</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <aside class="secondary col-lg-4" ng-if="!isMobile">
+                <div class="col-lg-9 col-lg-offset-3">
+                    <div class="filters">
+                        <div>
+                            <order-result ng-if="viewFilter"></order-result>
+                            <tags-result ng-if="viewFilter"></tags-result>
+                            <formats-result ng-if="viewFilter"></formats-result>
+                            <organizations-result ng-if="viewFilter"></organizations-result>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- <div class="primary col-lg-8"> -->
+            <div class="primary col-xs-12 col-lg-7" ng-show="countDatasetsByCategory == 0">
+                <div class="div-no-datasets">
+                    <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
+                    <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
+                </div>
+            </div>
+            <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasetsByCategory > 0">
+                <section class="module">
+                    <div class="module-content">
+                        <!--<div class="row center-spin" ng-if="showLoading">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>-->
+                        <result-datasets ng-if="!showLoading"></result-datasets>
+                    </div>
+                    <div class="text-center">
+                        <paging page="page" page-size="params.limit"
+                                total="countDatasetsByCategory"
+                                paging-action="paging('pageClick', page, pageSize, total)"
+                                hide-if-empty="true" show-prev-next="true" show-first-last="true"
+                                text-title-page="Página {page}"
+                                text-title-first="Primera página"
+                                text-title-last="Última página"
+                                text-title-next="Siguiente"
+                                text-title-prev="Anterior"></paging>
+                    </div>
                 </section>
-          </div>
+            </div>
         </div>
     </div>
 </div>

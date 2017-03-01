@@ -1,0 +1,4 @@
+<li ng-if="divLi">
+    <span class="{{divClass}}" data-format="{{fileType.name | lowercase}}">{{fileType.name | uppercase}}</span>
+</li>
+<span ng-if="!divLi" class="{{divClass}}" data-format="{{fileType.name | lowercase}}">{{fileType.name | uppercase}}</span>

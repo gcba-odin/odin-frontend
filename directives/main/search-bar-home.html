@@ -7,7 +7,7 @@
               </div>
               <div id="search" class="module-content search-form">
                   <div class="input-group">
-                      <input id="search-input" placeholder="{{countDatasets > 0 ? 'Buscá entre ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}} "
+                      <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}"
                       onfocus="this.placeholder = ''"  name="q" ng-model="query" ng-enter="search()" class="form-control input-md"
                       autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1"  value="{{query}}">
                       <div class="input-group-btn">

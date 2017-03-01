@@ -12,7 +12,7 @@ gulp.task('styles', function () {
   .pipe(sourcemaps.init())
     .pipe(sass.sync())
     //TODO: add autoprefixer
-    .pipe(process.env.NODE_ENV ? cleanCSS() : util.noop())
+    .pipe(cleanCSS())
   .pipe(sourcemaps.write())
   .pipe(rename('bundle.min.css'))
   .pipe(gulp.dest('dist'))

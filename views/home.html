@@ -1,60 +1,69 @@
 <search-bar-home></search-bar-home>
 <div class="homepage layout-1">
-  <div class="categories-container">
-    <div class="container">
-        <div class="row">
-            <!-- <div class="container-navigation col-md-12"> -->
-            <categories-grid></categories-grid>
-            <!-- </div> -->
-        </div>
-        <div class="row">
-            <auxiliar-bar></auxiliar-bar>
+    <div class="categories-container">
+        <div class="container">
+            <div class="row">
+                <!-- <div class="container-navigation col-md-12"> -->
+                <categories-grid></categories-grid>
+                <!-- </div> -->
+            </div>
+            <div class="row">
+                <auxiliar-bar></auxiliar-bar>
+            </div>
         </div>
     </div>
-  </div>
 
     <!-- <div class="container-widget-wide"> -->
-      <div class="container">
+    <div class="container">
         <!-- <section class="container-widgets col-md-12"> -->
         <section class="row">
             <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-              <div class="widgets-first-row">
-                  <article class="col-xs-12 col-md-6 col-lg-6 widget">
-                    <div class="widgets-heading">
-                      <img src="images/ds-actualizaciones.svg" alt="" />
-                      <h2 class="title-container-home">Últimas Actualizaciones</h2>
-                    </div>
-                      <latest-datasets></latest-datasets>
-                  </article>
-
-                  <article class="col-xs-12 col-md-6 col-lg-6 widget pull-right">
-                    <div class="widgets-heading">
-                      <img src="images/ds-destacados.svg" alt="" />
-                      <h2 class="title-container-home">Datasets Destacados</h2>
-                    </div>
-                      <starred-datasets></starred-datasets>
-                  </article>
-              </div>
-              <div class="widgets-second-row">
-                  <article class="col-xs-12 col-md-6 col-lg-7 widget">
-                    <div class="widgets-heading">
-                      <img src="images/ds-descargados.svg" alt="" />
-                      <h2 class="title-container-home special">Descarga de datasets</h2>
-                    </div>
-                      <popular-datasets></popular-datasets>
-                  </article>
-                  <article class="col-xs-12 col-md-6 col-lg-5 widget">
-                    <div class="widgets-heading">
-                      <img src="images/ds-redes.svg" alt="" />
-                      <h2 class="title-container-home">Redes Sociales</h2>
-                    </div>
-                      <social-networks></social-networks>
-                  </article>
-              </div>
+                <div class="widgets-first-row">
+                    <article class="col-xs-12 col-md-6 col-lg-6 widget">
+                        <div class="widgets-heading">
+                            <img src="images/ds-actualizaciones.svg" alt="" />
+                            <h2 class="title-container-home">Últimas Actualizaciones</h2>
+                        </div>
+                        <!--<div class="row center-spin" ng-if="showLoadingLatest">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>-->
+                        <latest-datasets></latest-datasets>
+                    </article>
+                    
+                    <article class="col-xs-12 col-md-6 col-lg-6 widget pull-right">
+                        <div class="widgets-heading">
+                            <img src="images/ds-destacados.svg" alt="" />
+                            <h2 class="title-container-home">Datasets Destacados</h2>
+                        </div>
+                        <!--<div class="row center-spin" ng-if="showLoadingStarred">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>-->
+                        <starred-datasets></starred-datasets>
+                    </article>
+                </div>
+                <div class="widgets-second-row">
+                    <article class="col-xs-12 col-md-6 col-lg-7 widget">
+                        <div class="widgets-heading">
+                            <img src="images/ds-descargados.svg" alt="" />
+                            <h2 class="title-container-home special">Descarga de datasets</h2>
+                        </div>
+                        <!--<div class="row center-spin" ng-if="showLoadingPopular">
+                            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                        </div>-->
+                        <popular-datasets ng-if="!!categories && categories.length > 0" info="categories"></popular-datasets>
+                    </article>
+                    <article class="col-xs-12 col-md-6 col-lg-5 widget">
+                        <div class="widgets-heading">
+                            <img src="images/ds-redes.svg" alt="" />
+                            <h2 class="title-container-home">Redes Sociales</h2>
+                        </div>
+                        <social-networks></social-networks>
+                    </article>
+                </div>
             </div>
 
         </section>
-      </div>
+    </div>
     <!-- </div> -->
 
 

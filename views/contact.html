@@ -1,34 +1,39 @@
 <div role="main">
     <div id="content" class="container">
-        <div class="flash-messages"></div>
+        <section class="row">
+            <div class="col-xs-12 col-lg-10 col-lg-offset-1 text-justify">
+                <div class="container-data">
+                    <div class="flash-messages"></div>
 
-        <h1 class="section-title">Contactanos</h1>
+                    <h1 class="section-title">Contactanos</h1>
 
-        <br>
-        <section class="center-block">
+                    <br>
+                    <section class="center-block">
 
-            <form id="contactForm" ng-submit="submit()">
-                <div class="form-group">
-                    <small for="name">Nombre</small>
-                    <input ng-model="name" type="text"pattern="[a-zA-Z\s]+" class="form-control" name="name" id="name" placeholder="Nombre" required>
-                </div>
-                <div class="form-group">
-                    <small for="mail">Mail</small>
-                    <input ng-model="mail" type="email" class="form-control" name="mail" id="mail" placeholder="Mail" required>
-                </div>
-                <div class="form-group">
-                    <small for="description">Descripción</small>
-                    <textarea ng-model="comment" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6Ldn4QsUAAAAAAqW7VwrjFyNCPoBOnb-KpJY4amZ"></div>
-                    <div vc-recaptcha ng-model="vm.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
-                </div>
+                        <form id="contactForm" ng-submit="submit()">
+                            <div class="form-group">
+                                <small for="name">Nombre</small>
+                                <input ng-model="name" type="text"pattern="[a-zA-Z\s]+" class="form-control" name="name" id="name" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <small for="mail">Mail</small>
+                                <input ng-model="mail" type="email" class="form-control" name="mail" id="mail" placeholder="Mail" required>
+                            </div>
+                            <div class="form-group">
+                                <small for="description">Descripción</small>
+                                <textarea ng-model="comment" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6Ldn4QsUAAAAAAqW7VwrjFyNCPoBOnb-KpJY4amZ"></div>
+                                <div vc-recaptcha ng-model="vm.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
+                            </div>
 
-                <button type="submit" class="btn btn-success pull-right">Enviar</button>
-            </form>
+                            <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                        </form>
+                    </section>
+
+                </div>
+            </div>
         </section>
-
-
     </div>
 </div>

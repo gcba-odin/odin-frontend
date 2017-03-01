@@ -4,17 +4,21 @@ app.factory('model', function($resource) {
     return $resource();
 });
 
-function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs) {
+function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll, usSpinnerService) {
+    PDFJS.workerSrc = $rootScope.baseHtml5 + 'plugins/pdf/pdf.worker.js';
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
+    $rootScope.isHome = false;
     $scope.activeCategories = [];
 
     $scope.type = "datasets";
     $scope.params = {
         slug: $routeParams.id,
-        include: 'tags,categories'//,subcategories'
-
+        include: 'tags,categories',//,subcategories'
+        fields: ['description', 'id', 'name', 'optionals', 'publishedAt', 'slug'].join()
     };
 
     $scope.activeCategory =   localStorage.getItem('currentCategory');
@@ -48,6 +52,9 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                 selected: false
             })
         }
+
+        $rootScope.countQuery --;
+        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
 
         $scope.tags = tags;
         $scope.fileTypes = {};
@@ -88,11 +95,17 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     });
 
     $scope.loadResults = function(limit) {
+        usSpinnerService.spin('spinner');
+
+        $anchorScroll('pagingDatasetResult');
+        $scope.showLoading = true;
         $scope.params = $.extend({
             dataset: $scope.info.id,
-            include: 'tags',
-            limit: 10,
-            skip: 0
+            //include: 'tags',
+            limit: 5,
+            skip: 0,
+            limitTable: 15,
+            fields: ['description', 'fileName', 'id', 'layout', 'optionals', 'organization.name', 'name', 'publishedAt', 'type', 'updatedAt', 'url'].join()
         }, LocationSearchService.searchParams());
 
         if (limit) {
@@ -110,12 +123,21 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.countResources = result.meta.count;
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
-                rest().findOne({
-                    id: element.type.id,
-                    type: 'filetypes'
-                }, function(resultFileType) {
-                    $scope.fileTypes[element.type.id] = resultFileType.name;
-                });
+                //console.log(element);
+//                if(!!element.type && !!element.type.id) {
+//                    $rootScope.countQuery ++;
+//                    rest().findOne({
+//                        id: element.type.id,
+//                        type: 'filetypes'
+//                    }, function(resultFileType) {
+//                        $scope.fileTypes[element.type.id] = resultFileType.name;
+//                        $rootScope.countQuery --;
+//                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+//                    }, function(error) {
+//                        $rootScope.countQuery --;
+//                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+//                    });
+//                }
 
                 element.additional_info = []
 
@@ -133,6 +155,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     if (!!element.resources.data) {
                         angular.forEach(element.resources.data.maps, function(maps) {
                             if (!!maps.basemap) {
+                                $rootScope.countQuery ++;
                                 maps.base = rest().findOne({
                                     type: 'basemaps',
                                     id: maps.basemap.id
@@ -181,6 +204,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                             logic: 'emit'
                                         }
                                     }
+
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                                }, function(error) {
+                                    $rootScope.countQuery --;
+                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                                 });
                             }
                         });
@@ -202,11 +231,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                                 }
 
                                 var getRandomColor = function (point) {
-                                    var palette = ['#88BF48', '#F562A2', '#CCCCCC',
-                                                   '#F54789', '#FDD306', '#009588', '#666666', '#BC0067',
-                                                   '#F800FF', '#18B596', '#FFF800', '#00B3E3', '#888888',
-                                                   '#037DBF', '#AAAAAA', '#00FFC2', '#9D6DB6', '#FF7300',
-                                                   '#58FF00', '#00F3FF', '#C5D436', '#34485E', '#9B59B6'];
+                                    var palette = ['#e74c3c', '#3e4f5e', '#19c3e3',
+                                                   '#f39c12', '#18b596', '#fdd306', '#f56292', '#3e4f5e',
+                                                   '#037dbf', '#88bf48', '#9b59b6', '#fcda59', '#e74c3c',
+                                                   '#ffffff', '#19c3e3', '#9b59b6'];
 
                                     return palette[Math.round(point % palette.length)];
                                 }
@@ -224,11 +252,18 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     }
                 });
 
-                if (element.type.api) {
+                if (!!element.type && !!element.type.api) {
+                    $rootScope.countQuery ++;
                     element.contents = rest().contents({
                         id: element.id,
                         type: 'files',
-                        params: 'limit=' + $scope.params.limit
+                        params: 'limit=' + $scope.params.limitTable
+                    }, function(resp) {
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+                    }, function(error) {
+                        $rootScope.countQuery --;
+                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
                     });
                 }
 
@@ -247,18 +282,29 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
                     valor: val
                 });
             });
+
+            $scope.showLoading = false;
+        }, function(error) {
+            $scope.showLoading = false;
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
     }
 
 
 
     $scope.paging = function(event, page, pageSize, total, resource) {
-        var skip = (page - 1) * $scope.params.limit;
+        $scope.showLoadingResource = true;
+        var skip = (page - 1) * $scope.params.limitTable;
         //$scope.q = "&skip=" + skip + "&limit=" + $scope.limit;
         resource.contents = rest().contents({
             id: resource.id,
             type: 'files',
-            params: "skip=" + skip + "&limit=" + $scope.params.limit
+            params: "skip=" + skip + "&limit=" + $scope.params.limitTable
+        }, function(resp) {
+            $scope.showLoadingResource = false;
+        }, function(error) {
+            $scope.showLoadingResource = false;
         });
     };
 

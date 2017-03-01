@@ -1,89 +1,98 @@
 angular.module('odin.controllers')
 .controller('OrganizationsController', OrganizationsController);
 
-function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest) {
+function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
-    const limit = 5;
-    $scope.limitOrganizations = 0;
+    var orgsAutocomplete;
+
+    $scope.selectedOrgs = JSON.parse(sessionStorage.getItem('selectedOrgs'));
+    $scope.orgsNames = [];
+
     $scope.organizations = [];
     $scope.resultOrganizations = [];
-    $scope.lessThanLimit;
-    $scope.organizationsCount = {}
+    // $scope.organizationsCount = {}
+
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.collapsed = true;
+
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };
 
-    $scope.loadOrganizations = function(skip) {
-        $scope.limitOrganizations += skip;
+    if (!$.isArray($scope.selectedOrgs)) {
+      $scope.selectedOrgs = [];
+    }
+
+    $scope.loadOrganizations = function() {
         $scope.resultOrganizations = rest().get({
             type: "organizations",
-            params: "orderBy=name&sort=ASC&limit=5&skip=" + $scope.limitOrganizations
+            params: "orderBy=name&sort=ASC"
         }, function() {
             for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                 var organization = $scope.resultOrganizations.data[i];
                 organization.active = LocationSearchService.isActive(filterName, organization.id);
                 $scope.organizations.push(organization);
-                $scope.loadOrganizationCount(organization.id);
+                // $scope.loadOrganizationCount(organization.id);
+                $scope.orgsNames.push(organization.name);
             }
-            if ($scope.organizations.filter(org=>org.active)[0]!==undefined) {
+            orgsAutocomplete = JSON.parse(sessionStorage.getItem('orgsAutocomplete'));
+            if (orgsAutocomplete) {
+              $scope.orgsNames=orgsAutocomplete.sort();
+            } else {
+              orgsAutocomplete =  $scope.orgsNames.sort();
+            }
+            // if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
+            if ($filter('filter')($scope.selectedOrgs, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
-            $scope.lessThanLimit = $scope.resultOrganizations.data.length < Math.max(skip, limit);
         });
     };
 
-    $scope.loadOrganizationCount = function(organizationId){
-        $scope.organizationsCount[organizationId] = 0;
-        $scope.params = {
-            condition: 'AND',
-            include: ['files', 'tags', 'categories'].join(),
-            'files.organization': organizationId,
-            'categories.slug': $routeParams['categories.slug'],
-        };
-
-        DatasetListService.getDatasetsCount($scope.params, function(result) {
-            $scope.organizationsCount[organizationId] = result.data.count;
-        });
-    };
-
-    $scope.showLess = function(limit) {
-        var countOrganizations = $scope.organizations.length;
-        var minCount = Math.min(countOrganizations, limit);
-        $scope.organizations.splice(minCount, countOrganizations - minCount);
-        $scope.limitOrganizations = 0;
-        $scope.lessThanLimit = false;
-    };
+    // $scope.loadOrganizationCount = function(organizationId){
+    //     $scope.organizationsCount[organizationId] = 0;
+    //     $scope.params = {
+    //         condition: 'AND',
+    //         include: ['files', 'tags', 'categories'].join(),
+    //         'files.organization': organizationId,
+    //         'categories.slug': $routeParams['categories.slug'],
+    //     };
+    //
+    //     DatasetListService.getDatasetsCount($scope.params, function(result) {
+    //         $scope.organizationsCount[organizationId] = result.data.count;
+    //     });
+    // };
 
     $scope.loadOrganizations(0);
+
     $scope.selectOrganization = function(organization) {
         $rootScope.showFiltersMenu = false;
         $rootScope.showBackdrop = false;
         if(organization.active) {
+            organization.active = false;
+            $scope.selectedOrgs.splice($scope.selectedOrgs.indexOf(organization.name),1);
+            orgsAutocomplete.push(organization.name);
             LocationSearchService.removeFilterValue(filterName, organization.id);
         } else {
+            organization.active = true;
+            $scope.selectedOrgs.push(organization);
+            orgsAutocomplete.splice(orgsAutocomplete.indexOf(organization.name),1);
             LocationSearchService.addFilterValue(filterName, organization.id);
         }
+        sessionStorage.setItem('orgsAutocomplete',JSON.stringify(orgsAutocomplete));
+        sessionStorage.setItem('selectedOrgs', JSON.stringify($scope.selectedOrgs));
     };
+
     $scope.removeAll = function() {
         LocationSearchService.deleteFilter(filterName);
     };
 
-    var currentColor;
-    var category = rest().get({
-      type: 'categories',
-      params: 'slug='+$routeParams['categories.slug']+"&match=exact"
-    }, function(resp) {
-      if (resp.data[0]) {
-        $scope.currentCategory = resp.data[0];
-        if ($scope.currentCategory.color !== null && $scope.currentCategory.color !== undefined) {
-            $scope.currentColor = $scope.currentCategory.color ;
-            sessionStorage.setItem('currentColor', $scope.currentColor);
-        }
-      }else{
-        $scope.currentColor = sessionStorage.getItem('currentColor');
-      }
-    });
+    $scope.orgTypedSelected = function(orgSelected){
+      orgSelected=$scope.organizations.filter(function(organization){
+        return organization.name == orgSelected;
+      });
+      $scope.selectOrganization(orgSelected[0]);
+      $scope.orgsNames.splice($scope.orgsNames.indexOf(orgSelected[0].name),1);
+    };
 
 }

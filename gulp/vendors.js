@@ -13,8 +13,8 @@ gulp.task('vendors', ['base-url'], function() {
     .pipe(useref({ searchPath: '.' },
       lazypipe().pipe(sourcemaps.init, { loadMaps: true }))
     )
-    .pipe(gulpif('*.js', process.env.NODE_ENV ? uglify() : util.noop()))
-    .pipe(gulpif('*.css', process.env.NODE_ENV ? cleanCSS() : util.noop()))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.css', cleanCSS()))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
 });

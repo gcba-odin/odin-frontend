@@ -47,6 +47,20 @@ angular.module('store-factories')
                 },
                 interceptor: {responseError: handError}
             },
+            image: {
+                url: $url + "/:id/image",
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                    'Content-Type': 'application/xml'
+                },
+                transformResponse: function(data) {
+                    $rootScope.progressbar.complete();
+                    //console.log({svg: data});
+                    return {svg: data};
+                },
+                interceptor: {responseError: handError}
+            },
             contents: {
                 url: $url + "/:id/contents?:params",
                 method: 'GET',
