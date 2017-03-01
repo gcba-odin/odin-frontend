@@ -27,10 +27,18 @@
                         </div>-->
                         <div ng-show="countDatasetsByCategory > 0">
                             <div class="dataset-counter-container">
-                                <span ng-if="currentCategory.image" svg-img="currentCategory.image" data-currentcolor="{{currentCategory.color}}"></span>
-                                <p class="dataset-quantity">{{countDatasetsByCategory}}</p>
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <span ng-if="currentCategory.image" svg-img="currentCategory.image" data-currentcolor="{{currentCategory.color}}"></span>
+                                    </div>
+                                    <div class="col-xs-7 dataset-counter-text">
+                                        <p class="dataset-quantity">{{countDatasetsByCategory}}</p>
+                                        <p>Datasets</p>
+                                    </div>
+                                </div>
+
                             </div>
-                            <p>Datasets</p>
+
                         </div>
                     </div>
                 </div>
@@ -51,13 +59,13 @@
             </aside>
             <!-- <div class="primary col-lg-8"> -->
             <div class="primary col-xs-12 col-lg-7" ng-show="countDatasetsByCategory == 0">
-              <div class="div-no-datasets">
-                <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
-                <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
-              </div>
+                <div class="div-no-datasets">
+                    <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
+                    <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
+                </div>
             </div>
             <div class="primary col-xs-12 col-lg-7 col-lg-offset-0" ng-if="countDatasetsByCategory > 0">
-                 <section class="module">
+                <section class="module">
                     <div class="module-content">
                         <!--<div class="row center-spin" ng-if="showLoading">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>

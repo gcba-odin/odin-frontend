@@ -1317,7 +1317,11 @@ ul.unstyled-alt{
   .datasets-counter p{
     color: #3E4F5E;
     font-size: 18px;
-    float: right;
+    //float: right;
+  }
+  
+  .dataset-counter-text {
+    margin-top: 23px;
   }
 
   .dataset-counter-container svg{

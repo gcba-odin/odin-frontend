@@ -40,7 +40,7 @@
             length: 40,
             width: 20,
             radius: 49,
-            scale: 0.35,
+            scale: 0.30,
             corners: 1,
             color: '#19c3e3' //Odin: '#ff386a' // MarcaBA: '#19c3e3'
             ,
