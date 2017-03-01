@@ -73,7 +73,7 @@
                             </a>
                             <ul class="dropdown-menu" ng-if="!resource.type.api">
                                 <li>
-                                    <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.name | slug}}" data-format="{{fileTypes[resource.type.id] | lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</a>
+                                    <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.slug}}" data-format="{{resource.type.name | lowercase}}">{{resource.type.name| uppercase}}</a>
                                 </li>
                             </ul>
                             <ul class="dropdown-menu-filetype" ng-if="resource.type.api && i != resource.type.name">
