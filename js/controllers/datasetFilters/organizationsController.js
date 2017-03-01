@@ -10,7 +10,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
 
     $scope.organizations = [];
     $scope.resultOrganizations = [];
-    $scope.organizationsCount = {}
+    // $scope.organizationsCount = {}
 
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
@@ -33,7 +33,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
                 var organization = $scope.resultOrganizations.data[i];
                 organization.active = LocationSearchService.isActive(filterName, organization.id);
                 $scope.organizations.push(organization);
-                $scope.loadOrganizationCount(organization.id);
+                // $scope.loadOrganizationCount(organization.id);
                 $scope.orgsNames.push(organization.name);
             }
             orgsAutocomplete = JSON.parse(sessionStorage.getItem('orgsAutocomplete'));
@@ -42,25 +42,26 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
             } else {
               orgsAutocomplete =  $scope.orgsNames.sort();
             }
-            if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
+            // if ($filter('filter')($scope.organizations, {active: true})[0]!==undefined) {
+            if ($filter('filter')($scope.selectedOrgs, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
         });
     };
 
-    $scope.loadOrganizationCount = function(organizationId){
-        $scope.organizationsCount[organizationId] = 0;
-        $scope.params = {
-            condition: 'AND',
-            include: ['files', 'tags', 'categories'].join(),
-            'files.organization': organizationId,
-            'categories.slug': $routeParams['categories.slug'],
-        };
-
-        DatasetListService.getDatasetsCount($scope.params, function(result) {
-            $scope.organizationsCount[organizationId] = result.data.count;
-        });
-    };
+    // $scope.loadOrganizationCount = function(organizationId){
+    //     $scope.organizationsCount[organizationId] = 0;
+    //     $scope.params = {
+    //         condition: 'AND',
+    //         include: ['files', 'tags', 'categories'].join(),
+    //         'files.organization': organizationId,
+    //         'categories.slug': $routeParams['categories.slug'],
+    //     };
+    //
+    //     DatasetListService.getDatasetsCount($scope.params, function(result) {
+    //         $scope.organizationsCount[organizationId] = result.data.count;
+    //     });
+    // };
 
     $scope.loadOrganizations(0);
 

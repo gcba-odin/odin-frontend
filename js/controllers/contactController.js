@@ -1,4 +1,5 @@
 function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,  $rootScope) {
+    $rootScope.isHome = true;
     recaptchaId = null;
     $scope.setRecaptchaId = function (widgetId) {
         recaptchaId = widgetId;

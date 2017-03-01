@@ -6,14 +6,7 @@ angular.module('store-directives-dataset')
         scope: {
             dataset: '='
         },
-        controller: function($scope) {
-            $scope.shareUrl = $location.absUrl();
-            $scope.collapsed = true;
-            $scope.toggleCollapse = function() {
-                $scope.collapsed = !$scope.collapsed;
-            };
-            $scope.currentColor = sessionStorage.getItem('currentColor') || '';
-        },
+        controller: SocialsController,
         controllerAs: "socials"
     };
 });

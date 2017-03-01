@@ -1,4 +1,4 @@
-body{
+  body{
   background-color: #F6F6F6;
   overflow-x: hidden;
 }
@@ -24,7 +24,8 @@ hr{
   background: #F1F1F1;
   padding-top: 5px;
   &>input[type="text"]{
-    width: 100%;
+    width: 90%;
+    margin-left: 12px;
   }
 }
 
@@ -240,6 +241,8 @@ hr{
 .filter-title-wrap{
   cursor: pointer;
 }
+.filter-title-wrap:hover{ opacity: .7}
+
 .categories-sidebar .category-icon:last-child{
   background-color: #F5F5F5;
   // @include svg-color(#545D6F);
@@ -249,10 +252,30 @@ hr{
   background-color: $ba-yellow;
 }
 
+.div-no-datasets {
+  padding-top: 20px;
+  height: 69px;
+  padding-left: 15%;
 
+  & .no-datasets {
+    float: left;
+    margin-right: 20px;
+  }
+  & .no-data {
+      padding-top: 20px;
+      font-size: 16px;
+      font-family: Chalet-Sixty,Avenir,Helvetica,Arial,sans-serif;
+      font-weight: 400;
+  }
+}
 
 .container-search-bar{
   background-color: white;
+}
+
+[data-tooltip]:hover:after{
+  background-color: #c0edf6;
+  color: #3e4f5e;
 }
 
 .dataset-additional-info{
@@ -347,15 +370,15 @@ hr{
   float: right;
   font-family: "FontAwesome";
   color: #FFFFFF;
-  content: "\f04b";
+  content: "\f0d7";
   display: inline-block;
   margin-right: 5px;
   position: relative;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 
@@ -375,6 +398,7 @@ hr{
   @extend .dataset-button;
   background-color: $ba-skyblue;
   padding-left: 15px;
+  cursor: pointer;
 }
 .dataset-hide-resource{
   padding: 1px 10px;
@@ -386,7 +410,8 @@ hr{
 }
 
 .dataset-download-button:after{
-  content: none;
+  transform: rotate(0deg);
+
 }
 
 .dataset-download-button-alt{
@@ -397,9 +422,10 @@ hr{
     // right: 9%;
 }
 
-.dataset-download-button-alt:after{
-    content: none;
-}
+
+// .dataset-download-button-alt:after{
+//     content: none;
+// }
 
 .dataset-guide-data{
   @extend .dataset-button;
@@ -600,15 +626,32 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   margin-top: 20px;
 }
 
-.filters-menu{
+.filters-menu {
   box-shadow: none
 }
-
-.form-control:focus{
-  border-color: #C8C8C8;
-  box-shadow: none;
-  -webkit-box-shadow: none;
+.autocomplete input:focus {
+  border-color: #e5e5e5 !important;
+  box-shadow: inset 0 1px 1px #e5e5e5, 0 0 8px #e5e5e5 !important;
 }
+.search-bar .input-group input:focus {
+  border-color: #e5e5e5 !important;
+  box-shadow: inset 0 1px 1px #e5e5e5,0 0 8px #e5e5e5 !important;
+}
+
+// .form-control:focus {
+//     border: 1px solid  #DCDCDC;
+//
+//  }
+
+.form-control{
+    background-color: #fff;
+    height: 34px;}
+// }
+// .form-control:hover{
+//   box-shadow: 0 3px 8px 0
+//   rgba(0,0,0,0.2),0 0 0 1px
+//   rgba(0,0,0,0.08);
+// }
 
 .footer-ba-logo{
   padding-top: 15px;
@@ -869,7 +912,6 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .resource-actions .dropdown-menu{
   border: none;
   margin-top: 3px;
-
 }
 
 .resource-actions .dropdown-menu a{
@@ -1105,21 +1147,23 @@ ul.unstyled-alt{
   .resource-actions { right: inherit; top: inherit;}
 
   .popular-datasets-list { padding: 10px 12px; }
+
   .module .pagination { height: 60px }
 
   .widgets-heading { display: flex; }
 
   .widget-title {
     padding-left: 10px;
-    font-size: 20px;} }
+    font-size: 20px;
+    padding: 10px; } }
 
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 
   .category-item:last-child .category-name {
-    margin-left: 60px; }
+    margin-left: 75px; }
 
-  .dataset-additional-info { padding: 6px 10px;}
+  .dataset-additional-info { padding: 6px 10px; }
 
   .dataset-download-button {
     margin-top: -23px; }
@@ -1130,9 +1174,13 @@ ul.unstyled-alt{
 
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
         width: 100%; }
-  .resource-actions { top: 2.8vh; }
+  .dataset-resources li {
+    margin-left: 4px; }
+  .resource-actions { top: 6.8vh; }
 
   .module .pagination { height: 60px }
+
+  .text-auxiliar-bar:first-of-type { font-size: 13px; }
 
   .widget-title {
     font-size: 21px;
@@ -1149,10 +1197,16 @@ ul.unstyled-alt{
   //   margin: 2px 2px;
   //   width: 91px;
   // }
+  .categories-item-title {
+    font-size: 10px; }
 
+  .dataset-resources li {
+    margin-left: 4px; }
   .text-auxiliar-bar:first-of-type {
-    width: 100%;
-  }
+    width: 100%; }
+  .popular-list-item-description {
+    width: 0px;
+    font-size: 10px; }
 
   .toolbar  {
     float: left;
@@ -1160,25 +1214,19 @@ ul.unstyled-alt{
     line-height: 1.3;
     // margin: 0px;
     margin-left: 15px;
-    padding: 0;
+    padding: 0; }
 
-  }
-
-  .recouce-tab li a { margin-right: 5px; padding: 4px 22px;}
+  .resource-tab li a { margin-right: 8px; padding: 4px 25px; margin-top: 10px; }
 
   .widget > h2 {
-    font-size: 18px;
-  }
+    font-size: 18px; }
 
-  .menu-footer li{
-    font-size: 7px;
-  }
+  .menu-footer li {
+    font-size: 7px; }
 
   .menu-footer a:before {
     width: 13px;
-    top: 5px;
-  }
-}
+    top: 5px; } }
 /* ----------- End Iphone Fixes --------- */
 
 @media (min-device-width: 768px){
@@ -1234,9 +1282,13 @@ ul.unstyled-alt{
     font-size: 14px;
     margin-top: 10px;
   }
+  .categories-home {
+    color: #999;
 
+  }
   .categories-row-item{
       margin: 10px;
+      width: 75px;
   }
 
   .container-dataset{
@@ -1265,7 +1317,11 @@ ul.unstyled-alt{
   .datasets-counter p{
     color: #3E4F5E;
     font-size: 18px;
-    float: right;
+    //float: right;
+  }
+  
+  .dataset-counter-text {
+    margin-top: 23px;
   }
 
   .dataset-counter-container svg{
@@ -1283,12 +1339,17 @@ ul.unstyled-alt{
   }
 
   .dataset-download-button:after{
-    content: "\f04b";
+    content: "\f0d7";
   }
 
   .dataset-download-button-alt:after{
     content: none;
+
   }
+  .dataset-view-info:hover, .dataset-download-button-alt:hover, .dataset-download-button:hover, .dataset-guide-data:hover {
+    opacity: 0.7;
+  }
+
   .dataset-heading{
     display: inline-block;
   }
@@ -1623,6 +1684,8 @@ ul.unstyled-alt{
   .row.wrapper {
   margin:0;
   }
+  .dataset-download-button-alt {
+  margin-top: -20px;}
 
   .toolbar {
   margin-right:20px;
@@ -1650,7 +1713,7 @@ ul.unstyled-alt{
   .results.wrapper {
   margin:0;
   }
-  
+
   .container-data {
       right: 2%;
   }

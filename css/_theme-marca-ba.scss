@@ -390,14 +390,21 @@ h2.slogan {
 }
 
 .pagination > .active > a{
-    background-color: rgba(32, 149, 242, 0.8);
-    border-color: rgba(32, 149, 242, 0.8);
+    background-color: #19c3e3;
+    border-color: #19c3e3;
+}
+.pagination > .active > a:hover {
+    background-color: #fdd306;
+    border-color: #fdd306;
 }
 
 .pagination > li > a{
-    color: rgba(32, 149, 242, 0.8);
+    //color: rgba(32, 149, 242, 0.8);
 }
 
+.pagination > li > a:hover {
+  
+}
 .description-header {
     h1 {
         color: #4d4d4d;

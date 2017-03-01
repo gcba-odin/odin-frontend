@@ -40,7 +40,7 @@
             length: 40,
             width: 20,
             radius: 49,
-            scale: 0.35,
+            scale: 0.30,
             corners: 1,
             color: '#19c3e3' //Odin: '#ff386a' // MarcaBA: '#19c3e3'
             ,
@@ -153,10 +153,14 @@
         $rootScope.query = "";
         $rootScope.countQuery = 0;
         $rootScope.countFilter = 0;
+        $rootScope.isHome = false;
+        $rootScope.dataCategories = [];
+        $rootScope.dataFiletypes = [];
         screenSize.rules = {
-            any: '(max-width: 1025px)'
+            any: '(max-width: 767px)'
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
+          console.log(match);
             $rootScope.isMobile = match;
         });
 

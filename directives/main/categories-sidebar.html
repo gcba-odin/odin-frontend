@@ -1,9 +1,9 @@
 <div class="categories-sidebar" ng-class="{show: showCategoriesSidebar}">
     <ul class="category-list">
-        <li class="category-item" ng-repeat="category in categories" ng-class="{active: (category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}" ng-click="hideCategoriesSidebar()">
+        <li class="category-item" ng-repeat="category in categories | orderBy: 'name'" ng-class="{active: (category.name | slug) === activeCategory || activeCategories.indexOf(category.name) !== -1}" ng-click="hideCategoriesSidebar()">
             <a ng-href="datasets?categories.slug={{ category.name | slug }}">
                 <!-- TODO: set data-currentcolor in span -->
-                <span  class="category-icon" svg-img="url_api + '/categories/' + category.id + '/image'">
+                <span ng-if="!!category.image" class="category-icon" svg-img="category.image">
                     <!-- <i svg-img="url_api + '/categories/' + category.id + '/image'"></i> -->
                 </span>
                 <div class="category-name">{{category.name}}</div>
