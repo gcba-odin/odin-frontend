@@ -327,6 +327,7 @@ hr{
 }
 
 .spinner:before {
+    background: url('../images/animacion-avatar.gif') center no-repeat;
     background-color: rgba(255, 255, 255, 0.9);
     top: -50%;
     left: -50%;
@@ -336,6 +337,7 @@ hr{
     position: relative;
     display: block;
     content: "";
+    background-size: 45em;
 }
 
 

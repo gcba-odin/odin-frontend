@@ -36,7 +36,7 @@
         });
 
         usSpinnerConfigProvider.setDefaults({
-            lines: 10,
+            lines: 0,
             length: 40,
             width: 20,
             radius: 49,
