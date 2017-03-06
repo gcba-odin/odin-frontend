@@ -1,22 +1,41 @@
 <div class="search-bar-home">
-  <div class="container">
-      <div class="row">
-          <section class="col-lg-10 col-lg-offset-1 search-bar search-bar-home">
-              <div class="lead-container">
-                <p class="lead">Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.</p>
-              </div>
-              <div id="search" class="module-content search-form">
-                  <div class="input-group">
-                      <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}"
-                      onfocus="this.placeholder = ''"  name="q" ng-model="query" ng-enter="search()" class="form-control input-md"
-                      autocomplete="off" spellcheck="false" autocorrect="off" tabindex="1"  value="{{query}}">
-                      <div class="input-group-btn">
-                          <button type="button" ng-click="search()" class="btn btn-default"><i class="fa fa-search icon-search"></i></button>
-                      </div>
-                  </div>
-                  <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
-              </div>
-          </section>
-      </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <section class="col-lg-10 col-lg-offset-1 search-bar search-bar-home">
+                <div class="lead-container">
+                    <p class="lead">Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.</p>
+                </div>
+
+                <div class="col-lg-7 col-md-7">
+                    <iframe ng-if="coverType=='video' && !!coverSrc" src="{{coverSrc}}" class="embed-responsive-item" style="height:315px !important; width: 100% !important"></iframe>
+                    <img ng-if="coverType=='image' && !!coverSrc" ng-src="{{coverSrc}}" width="100%" height="315px" style="background-color:black">
+                </div>
+                <div class="col-xs-5">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p><span style="font-weight:normal">Abrimos gráficos, mapas y bases de datos de gobierno, para incentivar la investigación, el trabajo en equipo y el desarrollo económico y social de la ciudad.</span> Todos los datos son tuyos.</p>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <img src="images/odin-logo.png" width="100%" height="auto" style="background-color:black" ng-click="changeCover('images/odin-logo.png','image')">
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <img src="images/odin-logo.png" width="100%" height="auto" style="background-color:black" ng-click="changeCover('images/odin-logo.png','image')">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="search" class="module-content search-form col-xs-12">
+                    <div class="input-group">
+                        <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}" onfocus="this.placeholder = ''" name="q" ng-model="query" ng-enter="search()" class="form-control input-md" autocomplete="off"
+                            spellcheck="false" autocorrect="off" tabindex="1" value="{{query}}">
+                            <div class="input-group-btn">
+                                <button type="button" ng-click="search()" class="btn btn-default"><i class="fa fa-search icon-search"></i></button>
+                            </div>
+                    </div>
+                    <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
