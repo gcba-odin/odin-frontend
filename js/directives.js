@@ -473,7 +473,8 @@
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
             controller: SearchDatasetsController
-        });
+          }
+    });
 
 
     app.directive('auxiliarBar', function () {
