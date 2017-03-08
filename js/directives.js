@@ -447,7 +447,25 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
-            controller: SearchDatasetsController
+            controller: SearchDatasetsController,
+            link: function() {
+              $('.owl-carousel').owlCarousel({
+              loop:true,
+              margin:10,
+              nav:true,
+              responsive:{
+                  0:{
+                      items:1
+                  },
+                  600:{
+                      items:2
+                  },
+                  1000:{
+                      items:2
+                  }
+              }
+            });
+            }
         };
     });
 
@@ -513,47 +531,47 @@
             if (!!input) {
                 if (!!sessionStorage.getItem('categories')) {
                     var categories = JSON.parse(sessionStorage.getItem('categories'));
-                    
+
                     angular.forEach(categories, function(element) {
                         if(element.id == input) {
                             result.push(element);
                         }
                     });
-                    
+
                     return result[0];
                 } else {
                     return {};
                 }
-                
+
             } else {
                 return {};
             }
-            
+
         };
     });
-    
+
     app.filter('searchFiletype', function () {
         return function (input) {
             var result = [];
             if (!!input) {
                 if (!!sessionStorage.getItem('filetypes')) {
                     var filetypes = JSON.parse(sessionStorage.getItem('filetypes'));
-                    
+
                     angular.forEach(filetypes, function(element) {
                         if(element.id == input) {
                             result.push(element);
                         }
                     });
-                    
+
                     return result[0];
                 } else {
                     return {};
                 }
-                
+
             } else {
                 return {};
             }
-            
+
         };
     });
 
