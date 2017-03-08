@@ -6,25 +6,6 @@
                     <p class="lead">Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.</p>
                 </div>
                 <carousel ng-if='!!isHome'></carousel>
-                <!-- <div id="carousel">
-                  <div class="col-lg-7 col-md-7">
-                    <iframe ng-if="coverType=='video' && !!coverSrc" src="{{coverSrc}}" class="embed-responsive-item" style="height:315px !important; width: 100% !important"></iframe>
-                    <img ng-if="coverType=='image' && !!coverSrc" ng-src="{{coverSrc}}" width="100%" height="315px" style="background-color:black">
-                  </div>
-                  <div class="col-xs-5">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p style="font-size: 15px;"><span style="font-weight:normal; font-size: 15px;">Abrimos gráficos, mapas y bases de datos de gobierno, para incentivar la investigación, el trabajo en equipo y el desarrollo económico y social de la ciudad.</span> Todos los datos son tuyos.</p>
-                        </div>
-                      </div>
-                      <div class="owl-carousel owl-theme carousel-container">
-                        <div class="carousel-item"><img class="img-responsive" src="images/odin-logo.png" style="background-color:black" ng-click="changeCover('images/odin-logo.png','image')"></div>
-                        <div class="carousel-item"><img class="img-responsive" src="images/odin-logo.png" style="background-color:black" ng-click="changeCover('images/odin-logo.png','image')"></div>
-                        <div class="carousel-item"><img class="img-responsive" src="images/odin-logo.png" style="background-color:black" ng-click="changeCover('images/odin-logo.png','image')"></div>
-                      </div>
-                    </div>
-                </div> -->
-
                 <div id="search" class="module-content search-form">
                     <div class="input-group">
                         <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}" onfocus="this.placeholder = ''" name="q" ng-model="query" ng-enter="search()" class="form-control input-md" autocomplete="off"

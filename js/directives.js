@@ -472,8 +472,7 @@
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
-            controller: SearchDatasetsController,
-            }
+            controller: SearchDatasetsController
         });
 
 
