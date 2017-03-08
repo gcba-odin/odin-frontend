@@ -22,7 +22,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $scope.loadTags = function() {
         $scope.resultTags = rest().get({
             type: "tags",
-            params: "fields=name,slug,id"
+            params: "fields=name,slug,id&limit=1000"
         }, function() {
             for (var i = 0; i < $scope.resultTags.data.length; i++) {
                 var tag = $scope.resultTags.data[i];

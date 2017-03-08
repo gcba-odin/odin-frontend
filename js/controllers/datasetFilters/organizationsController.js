@@ -27,7 +27,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     $scope.loadOrganizations = function() {
         $scope.resultOrganizations = rest().get({
             type: "organizations",
-            params: "orderBy=name&sort=ASC"
+            params: "orderBy=name&sort=ASC&limit=1000"
         }, function() {
             for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
                 var organization = $scope.resultOrganizations.data[i];
