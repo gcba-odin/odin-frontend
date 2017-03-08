@@ -26,7 +26,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.loadFormats = function() {
         $scope.resultFormats = rest().get({
             type: "filetypes",
-            params: "orderBy=name&sort=ASC&"
+            params: "orderBy=name&sort=ASC&limit=1000"
         }, function() {
             for (var i = 0; i < $scope.resultFormats.data.length; i++) {
                 var filetype = $scope.resultFormats.data[i];
