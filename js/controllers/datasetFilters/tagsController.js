@@ -1,7 +1,9 @@
 angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
-function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
+function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     var filterName = 'tags.slug';
     var tagsAutocomplete;
 
@@ -41,7 +43,12 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
             if ($filter('filter')($scope.tags, {active: true})[0] !== undefined) {
               $scope.collapsed=false;
             }
-
+            
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+        }, function() {
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
     };
 
