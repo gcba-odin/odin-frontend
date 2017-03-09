@@ -443,37 +443,46 @@
         };
     });
 
+    app.directive('carousel', function(){
+      return {
+          restrict: 'E',
+          templateUrl: 'directives/main/carousel.html',
+          controller: SearchDatasetsController,
+          link: function() {
+            $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            nav:true,
+            video:true,
+            navText: ['anterior','siguiente'],
+            dots:false,
+            nav:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1000:{
+                    items:2
+                }
+            }
+          });
+          }
+      };
+    });
     app.directive('searchBarHome', function () {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
-            controller: SearchDatasetsController,
-            link: function() {
-              $('.owl-carousel').owlCarousel({
-              loop:true,
-              margin:10,
-              autoplay: true,
-              autoplayTimeout: 3000,
-              autoplayHoverPause: true,
-              nav:true,
-              video:true,
-              navText: ['anterior','siguiente'],
-              dots:false,
-              responsive:{
-                  0:{
-                      items:1
-                  },
-                  600:{
-                      items:2
-                  },
-                  1000:{
-                      items:2
-                  }
-              }
-            });
-            }
-        };
+            controller: SearchDatasetsController
+          }
     });
+
 
     app.directive('auxiliarBar', function () {
         return {
