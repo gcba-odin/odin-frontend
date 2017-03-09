@@ -4,34 +4,46 @@ angular.module('odin.controllers')
 function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
     var formatsAutocomplete;
+    
+    var filetypes_cache = JSON.parse(sessionStorage.getItem('filetypes'));
+
+    if(LocationSearchService.isSet(filterName) == 0) {
+        sessionStorage.removeItem('selectedFormats');
+        sessionStorage.removeItem('formatsAutocomplete');
+    }
 
     $scope.filetypes = [];
     $scope.resultFormats = [];
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
 
-    $scope.selectedFormats = JSON.parse(sessionStorage.getItem('selectedFormats'));
+    
     $scope.formatNames = [];
 
     $scope.collapsed = true;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };
-    if (!$.isArray($scope.selectedFormats)) {
-      $scope.selectedFormats = [];
+    if(!!sessionStorage.getItem('selectedFormats')) {
+        $scope.selectedFormats = JSON.parse(sessionStorage.getItem('selectedFormats'));
+    } else {
+        $scope.selectedFormats = [];
     }
+//    if (!$.isArray($scope.selectedFormats)) {
+//      $scope.selectedFormats = [];
+//    }
 
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     $scope.loadFormats = function() {
-        $scope.resultFormats = rest().get({
-            type: "filetypes",
-            params: "orderBy=name&sort=ASC&limit=1000"
-        }, function() {
-            for (var i = 0; i < $scope.resultFormats.data.length; i++) {
-                var filetype = $scope.resultFormats.data[i];
+//        $scope.resultFormats = rest().get({
+//            type: "filetypes",
+//            params: "orderBy=name&sort=ASC&limit=1000"
+//        }, function() {
+            for (var i = 0; i < filetypes_cache.length; i++) {
+                var filetype = filetypes_cache[i];
                 filetype.active = LocationSearchService.isActive(filterName, filetype.id);
-                filetype.slug = $filter('slug')(filetype.name);
+                //filetype.slug = filetype.slug;
                 $scope.filetypes.push(filetype);
                 // $scope.loadFileTypeCount(filetype.id);
                 $scope.formatNames.push(filetype.name);
@@ -45,7 +57,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
             if ($filter('filter')($scope.filetypes, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
-        });
+//        });
         $scope.datasetCount = {};
     };
 
@@ -78,7 +90,6 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
             formatsAutocomplete.splice(formatsAutocomplete.indexOf(filetype.name),1);
             LocationSearchService.addFilterValue(filterName, filetype.id);
         }
-
         sessionStorage.setItem('formatsAutocomplete',JSON.stringify(formatsAutocomplete));
         sessionStorage.setItem('selectedFormats', JSON.stringify($scope.selectedFormats));
     };

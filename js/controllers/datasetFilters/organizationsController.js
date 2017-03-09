@@ -4,6 +4,13 @@ angular.module('odin.controllers')
 function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
     var orgsAutocomplete;
+    
+    var organizations_cache = JSON.parse(sessionStorage.getItem('organizations'));
+    
+    if(LocationSearchService.isSet(filterName) == 0) {
+        sessionStorage.removeItem('selectedOrgs');
+        sessionStorage.getItem('orgsAutocomplete');
+    }
 
     $scope.selectedOrgs = JSON.parse(sessionStorage.getItem('selectedOrgs'));
     $scope.orgsNames = [];
@@ -25,12 +32,12 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
     }
 
     $scope.loadOrganizations = function() {
-        $scope.resultOrganizations = rest().get({
-            type: "organizations",
-            params: "orderBy=name&sort=ASC&limit=1000"
-        }, function() {
-            for (var i = 0; i < $scope.resultOrganizations.data.length; i++) {
-                var organization = $scope.resultOrganizations.data[i];
+//        $scope.resultOrganizations = rest().get({
+//            type: "organizations",
+//            params: "orderBy=name&sort=ASC&limit=1000"
+//        }, function() {
+            for (var i = 0; i < organizations_cache.length; i++) {
+                var organization = organizations_cache[i];
                 organization.active = LocationSearchService.isActive(filterName, organization.id);
                 $scope.organizations.push(organization);
                 // $scope.loadOrganizationCount(organization.id);
@@ -46,7 +53,7 @@ function OrganizationsController($rootScope, $scope, $routeParams, LocationSearc
             if ($filter('filter')($scope.selectedOrgs, {active: true})[0]!==undefined) {
               $scope.collapsed=false;
             }
-        });
+//        });
     };
 
     // $scope.loadOrganizationCount = function(organizationId){

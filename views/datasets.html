@@ -50,9 +50,9 @@
                     <div class="filters">
                         <div>
                             <order-result ng-if="viewFilter"></order-result>
-                            <tags-result ng-if="viewFilter"></tags-result>
-                            <formats-result ng-if="viewFilter"></formats-result>
-                            <organizations-result ng-if="viewFilter"></organizations-result>
+                            <tags-result ng-if="viewFilter && dataTags.length > 0"></tags-result>
+                            <formats-result ng-if="viewFilter  && dataFiletypes.length > 0"></formats-result>
+                            <organizations-result ng-if="viewFilter && dataOrgs.length > 0"></organizations-result>
                         </div>
                     </div>
                 </div>
