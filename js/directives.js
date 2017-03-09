@@ -452,6 +452,13 @@
             $('.owl-carousel').owlCarousel({
             loop:true,
             margin:10,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            nav:true,
+            video:true,
+            navText: ['anterior','siguiente'],
+            dots:false,
             nav:true,
             responsive:{
                 0:{

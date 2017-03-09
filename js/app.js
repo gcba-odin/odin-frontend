@@ -156,6 +156,8 @@
         $rootScope.isHome = false;
         $rootScope.dataCategories = [];
         $rootScope.dataFiletypes = [];
+        $rootScope.dataTags = [];
+        $rootScope.dataOrgs = [];
         screenSize.rules = {
             any: '(max-width: 767px)'
         };
