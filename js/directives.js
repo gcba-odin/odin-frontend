@@ -456,6 +456,7 @@
               autoplayTimeout: 3000,
               autoplayHoverPause: true,
               nav:true,
+              video:true,
               navText: ['anterior','siguiente'],
               dots:false,
               responsive:{
