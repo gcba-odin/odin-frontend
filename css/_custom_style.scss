@@ -28,9 +28,7 @@ hr{
     margin-left: 12px;
   }
 }
-.filter-autocomplete{
-  cursor: 'pointer';
-}
+
 .filters-items{
   background: #F1F1F1;
   border: none;
@@ -640,20 +638,10 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   box-shadow: inset 0 1px 1px #e5e5e5,0 0 8px #e5e5e5 !important;
 }
 
-// .form-control:focus {
-//     border: 1px solid  #DCDCDC;
-//
-//  }
-
 .form-control{
     background-color: #fff;
-    height: 34px;}
-// }
-// .form-control:hover{
-//   box-shadow: 0 3px 8px 0
-//   rgba(0,0,0,0.2),0 0 0 1px
-//   rgba(0,0,0,0.08);
-// }
+    height: 34px;
+}
 
 .footer-ba-logo{
   padding-top: 15px;
@@ -760,6 +748,9 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .module .read-more{
   color: $ba-skyblue;
+}
+.nav-autocomplete{
+  cursor: 'pointer';
 }
 .table-loader{
   position: absolute;
