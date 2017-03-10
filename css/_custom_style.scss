@@ -44,6 +44,7 @@ hr{
 
 .autocomplete-suggestion li{
   @extend .filters-items;
+  cursor: pointer;
 }
 
 .auxiliar-bar {
