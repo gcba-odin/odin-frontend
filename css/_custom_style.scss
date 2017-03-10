@@ -956,12 +956,13 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .odin-girl-container {
   margin-left: 5%;
   position: fixed;
-  width: 100%;
+  width: 8%;
   bottom:0;
   cursor: pointer;
+  z-index: 10;
 }
 .odin-img-girl {
-  width: 6%;
+  width: 100%;
   z-index: 10;
 }
 
