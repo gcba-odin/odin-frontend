@@ -1143,7 +1143,11 @@ ul.unstyled-alt {
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
         width: 100%; }
 
-  .dataset-download-button { margin-top: -23px;}
+  .dataset-download-button {
+    margin-top: -23px;
+    margin-right: -19px; }
+
+  .dataset-hide-resource { margin-left: -4px; }
 
   .resource-tab { margin-top: 40px;}
 
@@ -1176,7 +1180,8 @@ ul.unstyled-alt {
       padding: 15px; }
 
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
-        width: 100%; }
+        width: 100%;
+        margin-top: 40px;}
   .dataset-resources li {
     margin-left: 4px; }
   .resource-actions { top: 6.8vh; }
@@ -1189,7 +1194,6 @@ ul.unstyled-alt {
     font-size: 21px;
     padding-top: 12px;
     vertical-align: baseline; } }
-
 
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
