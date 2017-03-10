@@ -121,7 +121,10 @@ hr{
   height: 150px;
 }
 
-.owl-video-play-icon{
+.owl-theme .owl-nav {
+  margin-top: 25px;
+}
+.owl-video-play-icon {
   background: url(images/owl.video.play.png) no-repeat!important;
 }
 
@@ -355,10 +358,9 @@ hr{
   padding: 1px 3px;
 }
 
-
 .dataset-button span{
   display: inline;
-  margin:10px;
+  margin:8px;
 }
 
 .dataset-button:after{

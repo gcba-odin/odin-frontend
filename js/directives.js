@@ -451,7 +451,7 @@
           link: function() {
             $('.owl-carousel').owlCarousel({
             loop:true,
-            margin:10,
+            margin:25,
             autoplay: true,
             autoplayTimeout: 3000,
             autoplayHoverPause: true,
@@ -459,13 +459,14 @@
             merge:true,
             video:true,
             lazyLoad:true,
-            center:true,
+            items:2,
+            //center:true,
             navText: ['anterior','siguiente'],
             dots:false,
             nav:true,
             responsive:{
                 0:{
-                    items:1
+                    items:2
                 },
                 600:{
                     items:2
