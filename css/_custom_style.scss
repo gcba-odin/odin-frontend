@@ -255,6 +255,50 @@ hr{
 .filter-group .filter-name{
   margin-left: 35px;
 }
+
+.filter-share-name {
+    margin-left: 18px;
+    margin-top: -2px;
+}
+
+.filter-share-item {
+    font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 3px;
+    margin-top: -6px;
+    
+    .filter-icon {
+        margin-top: -7px;
+        background: none;
+    }
+    .filter-name {
+        background: none;
+        margin-left: 18px;
+    }
+}
+
+.dataset-resources .filter-group {
+    border-bottom: 0;
+    .filter-options {
+        width: 120px;
+        margin-left: 0;
+        font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+        font-weight: 400;
+
+        li {
+            display: list-item;
+            a {
+                font-size: 11px;
+                i {
+                    margin-right: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
 .filter-title-wrap{
   cursor: pointer;
 }
@@ -1144,7 +1188,11 @@ ul.unstyled-alt {
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
         width: 100%; }
 
-  .dataset-download-button { margin-top: -23px;}
+  .dataset-download-button {
+    margin-top: -23px;
+    margin-right: -19px; }
+
+  .dataset-hide-resource { margin-left: -4px; }
 
   .resource-tab { margin-top: 40px;}
 
@@ -1177,7 +1225,8 @@ ul.unstyled-alt {
       padding: 15px; }
 
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
-        width: 100%; }
+        width: 100%;
+        margin-top: 40px;}
   .dataset-resources li {
     margin-left: 4px; }
   .resource-actions { top: 6.8vh; }
@@ -1190,7 +1239,6 @@ ul.unstyled-alt {
     font-size: 21px;
     padding-top: 12px;
     vertical-align: baseline; } }
-
 
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {

@@ -6,9 +6,8 @@ app.factory('model', function ($resource) {
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
     usSpinnerService.spin('spinner');
-    $rootScope.countQuery++;
-    $rootScope.countQuery++;
-
+    $rootScope.countQuery = $rootScope.countQuery + 4;
+    
     var cache = {
         categories: {
             cache: false,
