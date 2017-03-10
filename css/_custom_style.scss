@@ -1167,13 +1167,11 @@ ul.unstyled-alt {
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 
-  .category-item:last-child .category-name {
-    margin-left: 75px; }
+  .category-item:last-child .category-name { margin-left: 75px; }
 
   .dataset-additional-info { padding: 6px 10px; }
 
-  .dataset-download-button {
-    margin-top: -23px; }
+  .dataset-download-button { margin-top: -23px; }
 
   .dataset-content {
       position: relative;
@@ -1182,8 +1180,9 @@ ul.unstyled-alt {
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
         width: 100%;
         margin-top: 40px;}
-  .dataset-resources li {
-    margin-left: 4px; }
+
+  .dataset-resources li { margin-left: 4px; }
+
   .resource-actions { top: 6.8vh; }
 
   .module .pagination { height: 60px }
