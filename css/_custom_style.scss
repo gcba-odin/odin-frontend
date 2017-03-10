@@ -44,6 +44,7 @@ hr{
 
 .autocomplete-suggestion li{
   @extend .filters-items;
+  cursor: pointer;
 }
 
 .auxiliar-bar {
@@ -254,6 +255,50 @@ hr{
 .filter-group .filter-name{
   margin-left: 35px;
 }
+
+.filter-share-name {
+    margin-left: 18px;
+    margin-top: -2px;
+}
+
+.filter-share-item {
+    font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 3px;
+    margin-top: -6px;
+    
+    .filter-icon {
+        margin-top: -7px;
+        background: none;
+    }
+    .filter-name {
+        background: none;
+        margin-left: 18px;
+    }
+}
+
+.dataset-resources .filter-group {
+    border-bottom: 0;
+    .filter-options {
+        width: 120px;
+        margin-left: 0;
+        font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+        font-weight: 400;
+
+        li {
+            display: list-item;
+            a {
+                font-size: 11px;
+                i {
+                    margin-right: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
 .filter-title-wrap{
   cursor: pointer;
 }
