@@ -267,7 +267,7 @@ hr{
     font-weight: 600;
     padding: 1px 3px;
     margin-top: -6px;
-    
+
     .filter-icon {
         margin-top: -7px;
         background: none;
@@ -952,6 +952,17 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .odin-branding-text{
   color: #FFFFFF;
+}
+.odin-girl-column {
+  margin-left: 5%;
+  position: fixed;
+  width: 100%;
+  bottom:0;
+  cursor: pointer;
+}
+.odin-img-girl {
+  width: 6%;
+  z-index: 10;
 }
 
 .popular-list-item-description {
