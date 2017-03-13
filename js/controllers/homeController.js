@@ -30,7 +30,7 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     };
 }
 
-function ProposeController($scope, $rootScope, vcRecaptchaService) {
+function ProposeController($scope, $rootScope, vcRecaptchaService, Alertify) {
     $rootScope.isHome = false;
 
     $scope.activeCategory = [];
@@ -44,13 +44,13 @@ function ProposeController($scope, $rootScope, vcRecaptchaService) {
 
     $scope.send = function () {
         if($scope.activeCategory.length == 0) {
-            alert('Por favor, seleccioná al menos una categoría.');
+            Alertify.alert('Por favor, seleccioná al menos una categoría.');
         } else if (!vcRecaptchaService.getResponse(recaptchaId)) {
             $scope.od_captcha = null;
             vcRecaptchaService.reload(recaptchaId);
-            alert('Por favor, completa el captcha.');
+            Alertify.alert('Por favor, completa el captcha.');
         } else {
-            alert('Al Gobierno Abierto lo construimos todos, ¡Gracias por tu sugerencia!');
+            Alertify.alert('Al Gobierno Abierto lo construimos todos, ¡Gracias por tu sugerencia!');
         }
     };
 

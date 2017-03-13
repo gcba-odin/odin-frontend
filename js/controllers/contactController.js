@@ -1,4 +1,4 @@
-function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,  $rootScope) {
+function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,  $rootScope, Alertify) {
     $rootScope.isHome = true;
     recaptchaId = null;
     $scope.setRecaptchaId = function (widgetId) {
@@ -9,7 +9,7 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,
         if (!vcRecaptchaService.getResponse(recaptchaId)) {
             $scope.od_captcha = null;
             vcRecaptchaService.reload(recaptchaId);
-            alert('Por favor, completa el captcha.');
+            Alertify.alert('Por favor, completa el captcha.');
         } else {
           var token=$rootScope.globals.currentUser.token;
           var formData = $("#contactForm").serialize();
@@ -30,9 +30,9 @@ function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,
 
     function showMsg(result) {
       if (result) {
-        alert('El mensaje ha sido enviado correctamente');
+        Alertify.alert('El mensaje ha sido enviado correctamente');
       } else {
-        alert('El mensaje no ha sido enviado, intente nuevamente más tarde');
+        Alertify.alert('El mensaje no ha sido enviado, intente nuevamente más tarde');
       }
       document.location.href="/";
     }

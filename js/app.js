@@ -21,7 +21,8 @@
         "matchMedia",
         "hm.readmore",
         "vcRecaptcha",
-        "angularSpinner"
+        "angularSpinner",
+        "Alertify"
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider, usSpinnerConfigProvider) {
 
