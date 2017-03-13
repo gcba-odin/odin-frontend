@@ -61,9 +61,9 @@
 </head>
 
 <body id="gapi-auth">
-    <div class="row">
+    <div class="row" ng-if="!!isHome && !isMobile">
         <div class="odin-girl-container" data-tooltip="¿Qué dataset te gustaría sumar al portal?">
-            <a href=""><img class="odin-img-girl" src="images/odin-girl.svg" /></a>
+            <a ng-href="propose-dataset"><img class="odin-img-girl" src="images/odin-girl.svg" /></a>
         </div>
     </div>
 
