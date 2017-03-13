@@ -63,3 +63,10 @@ function ProposeController($scope, $rootScope, vcRecaptchaService, Alertify) {
     };
 }
 ;
+
+function OdinGirlController($scope) {
+    $scope.hideGirl = false;
+    $scope.hideOdinGirl = function() {
+        $scope.hideGirl = !$scope.hideGirl;
+    };
+};

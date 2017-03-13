@@ -144,7 +144,7 @@
             }
         };
     });
-
+    app.controller('OdinGirlController', OdinGirlController);
     app.run(run);
 
 
