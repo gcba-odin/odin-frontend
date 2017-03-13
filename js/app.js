@@ -82,6 +82,9 @@
             }).when("/layout/:id/preview", {
                 templateUrl: "views/layout.html",
                 controller: LayoutController
+            }).when("/propose-dataset", {
+                templateUrl: "views/propose-dataset.html",
+                controller: ProposeController
             }).otherwise({
                 redirectTo: '/'
             });

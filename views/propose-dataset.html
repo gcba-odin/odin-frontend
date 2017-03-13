@@ -1,0 +1,59 @@
+<div role="main">
+    <div id="content" class="container">
+        <section class="row">
+            <div class="col-xs-12 col-lg-10 col-lg-offset-1 text-justify">
+                <div class="container-data">
+                    <div class="flash-messages"></div>
+
+                    <h1 class="section-title">¿Que información te gustaría que esté publicada en el portal?</h1>
+                    <p>Para nosotros es muy importante conocer tus necesidades e inquietudes. Por eso te invitamos a solicitar la publicación de nueva información en el portal de datos abiertos.</p>
+                    <br>
+                    <section class="center-block">
+
+                        <form id="contactForm" ng-submit="send();">
+                            <div class="form-group">
+                                <label for="about">¿De qué se trata la información?</label>
+                                <input ng-model="about" type="text" class="form-control" name="name" id="about" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="categories">¿En qué categoría la ubicarías?</label>
+                                <div class="categories-container row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
+                                        <div class="categories-row-container auxiliar-bar-line">
+                                            <a data-tooltip="{{category.name}}" ng-click="toogleActive(category.slug);"
+                                               class="categories-item categories-row-item" ng-repeat="category in categories| orderBy: 'name'"
+                                               style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
+                                               ng-style="(activeCategory.indexOf(category.slug) !== -1) || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1) ? {'background-color': category.color} : {'background-color': '#ccc'}"
+                                               ng-class="{active: (activeCategory.indexOf(category.slug) !== -1) || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
+                                                <div ng-if="!!category.image" class="category-image" svg-img="category.image"></div>
+                                                <span ng-show="(activeCategory.indexOf(category.slug) !== -1)" ng-style="{'background-color': category.color}"
+                                                      ng-class="!!category.image ? 'categories-underlined' : 'categories-underlined-push-down'" ></span>
+                                                <!-- <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4> -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Queremos que nos cuentes porqué es importante abrir esta información para poder potenciar tu pedido</label>
+                                <textarea ng-model="comment" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="mail">¡Dejanos tu contacto!<br>
+                                    Para poder seguir tu solicitud de forma personalizada te invitamos a que nos dejes un mail de contacto</label>
+                                <input ng-model="mail" type="email" class="form-control" name="mail" id="mail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="6Ldn4QsUAAAAAAqW7VwrjFyNCPoBOnb-KpJY4amZ"></div>
+                                <div vc-recaptcha ng-model="vm.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success pull-right">Enviar</button>
+                        </form>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
