@@ -12,11 +12,11 @@
 
                         <form id="contactForm" ng-submit="send();">
                             <div class="form-group">
-                                <small for="about">¿De qué se trata la información?</small>
+                                <label for="about">¿De qué se trata la información?</label>
                                 <input ng-model="about" type="text" class="form-control" name="name" id="about" required>
                             </div>
                             <div class="form-group">
-                                <small for="categories">¿En qué categoría la ubicarías?</small>
+                                <label for="categories">¿En qué categoría la ubicarías?</label>
                                 <div class="categories-container row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
                                         <div class="categories-row-container auxiliar-bar-line">
@@ -35,13 +35,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <small for="description">Queremos que nos cuentes por qué es importante abrir esta información para poder potenciar tu pedido</small>
+                                <label for="description">Queremos que nos cuentes por qué es importante abrir esta información para poder potenciar tu pedido</label>
                                 <textarea ng-model="comment" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
                             </div>
                             <br>
                             <div class="form-group">
-                                <small for="mail">¡Dejanos tu contacto!<br>
-                                    Para poder seguir tu solicitud de forma personalizada te invitamos a que nos dejes un email de contacto</small>
+                                <label for="mail">¡Dejanos tu contacto!</label>
+                                <small>Para poder seguir tu solicitud de forma personalizada te invitamos a que nos dejes un email de contacto</small>
                                 <input ng-model="mail" type="email" class="form-control" name="mail" id="mail" placeholder="Email">
                             </div>
                             <div class="form-group">
