@@ -537,6 +537,10 @@ hr{
      background-color: #d73925;
      border-color: #d73925;
  }
+ 
+ #carousel {
+    margin-top: 1.5em;
+ }
 
 
 .dataset-hide-resource:hover, .dataset-hide-resource:hover:after,.dataset-additional-info:hover, .dataset-additional-info:hover:after{
@@ -1865,8 +1869,12 @@ ul.unstyled-alt {
     margin-left: 15px;
   }
   .description-header{
-    padding-bottom: 10px;
+    //padding-bottom: 10px;
     // margin-left: 15px;
+  }
+  
+  .lead-container {
+      padding-bottom: 1px;
   }
 
   .footer-social-networks{
