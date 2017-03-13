@@ -6,11 +6,26 @@ app.factory('model', function ($resource) {
 
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
     usSpinnerService.spin('spinner');
-    $rootScope.countQuery++;
-    $rootScope.countQuery++;
-
-    var cache = false;
-    var cacheFilt = false;
+    $rootScope.countQuery = $rootScope.countQuery + 4;
+    
+    var cache = {
+        categories: {
+            cache: false,
+            total: 0
+        },
+        filetypes: {
+            cache: false,
+            total: 0
+        },
+        tags: {
+            cache: false,
+            total: 0
+        },
+        organizations: {
+            cache: false,
+            total: 0
+        }
+    };
 
     if ($routeParams['categories.slug']) {
         var activeCategory = $routeParams['categories.slug'];
@@ -35,18 +50,16 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         $rootScope.showCategoriesSidebar = false;
     };
 
-    var totalCategories = 0;
-    var totalFiletypes = 0;
-
+    //Categories cache
     $scope.$watch(function () {
         if (!!sessionStorage.getItem('categories')) {
             return sessionStorage.getItem('categories');
         }
 
     }, function (val) {
-        if (!!val && !cache && val.length > 0) {
+        if (!!val && !cache.categories.cache && val.length > 0) {
             var arrayCats = JSON.parse(val);
-            if (arrayCats.length == totalCategories) {
+            if (arrayCats.length == cache.categories.total) {
                 $rootScope.dataCategories = JSON.parse(val);
                 $rootScope.countQuery--;
                 if ($rootScope.countQuery == 0) {
@@ -56,16 +69,55 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         }
     });
 
+    //Filetypes cache
     $scope.$watch(function () {
         if (!!sessionStorage.getItem('filetypes')) {
             return sessionStorage.getItem('filetypes');
         }
 
     }, function (val) {
-        if (!!val && !cacheFilt && val.length > 0) {
+        if (!!val && !cache.filetypes.cache && val.length > 0) {
             var arrayFilt = JSON.parse(val);
-            if (arrayFilt.length == totalFiletypes) {
+            if (arrayFilt.length == cache.filetypes.total) {
                 $rootScope.dataFiletypes = JSON.parse(val);
+                $rootScope.countQuery--;
+                if ($rootScope.countQuery == 0) {
+                    usSpinnerService.stop('spinner');
+                }
+            }
+        }
+    });
+    
+    //Tags cache
+    $scope.$watch(function () {
+        if (!!sessionStorage.getItem('tags')) {
+            return sessionStorage.getItem('tags');
+        }
+
+    }, function (val) {
+        if (!!val && !cache.tags.cache && val.length > 0) {
+            var arrayTag = JSON.parse(val);
+            if (arrayTag.length == cache.tags.total) {
+                $rootScope.dataTags = JSON.parse(val);
+                $rootScope.countQuery--;
+                if ($rootScope.countQuery == 0) {
+                    usSpinnerService.stop('spinner');
+                }
+            }
+        }
+    });
+
+    //Organizations cache
+    $scope.$watch(function () {
+        if (!!sessionStorage.getItem('organizations')) {
+            return sessionStorage.getItem('organizations');
+        }
+
+    }, function (val) {
+        if (!!val && !cache.organizations.cache && val.length > 0) {
+            var arrayOrg = JSON.parse(val);
+            if (arrayOrg.length == cache.organizations.total) {
+                $rootScope.dataOrgs = JSON.parse(val);
                 $rootScope.countQuery--;
                 if ($rootScope.countQuery == 0) {
                     usSpinnerService.stop('spinner');
@@ -75,9 +127,9 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     });
 
     $rootScope.showCategories = true;
-
+    //Categories cache
     if (!!sessionStorage.getItem('categories')) {
-        cache = true;
+        cache.categories.cache = true;
         $scope.categories = JSON.parse(sessionStorage.getItem('categories'));
         $rootScope.dataCategories = $scope.categories;
         $rootScope.showCategories = false;
@@ -88,9 +140,9 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     } else {
         rest().get({
             type: $scope.type,
-            params: "parent=null&orderBy=name&sort=ASC"
+            params: "parent=null&orderBy=name&sort=ASC&fields=id,active,color,name,slug"
         }, function (categories) {
-            totalCategories = categories.meta.count;
+            cache.categories.total = categories.meta.count;
             //$scope.categories = categories.data;
             var cats = [];
             sessionStorage.setItem('categories', JSON.stringify(cats));
@@ -131,19 +183,20 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         });
     }
     ;
-
+    //Filetypes cache
     if (!!sessionStorage.getItem('filetypes')) {
         $rootScope.dataFiletypes = JSON.parse(sessionStorage.getItem('filetypes'));
-        cacheFilt = true;
+        cache.filetypes.cache = true;
         $rootScope.countQuery--;
         if ($rootScope.countQuery == 0) {
             usSpinnerService.stop('spinner');
         }
     } else {
         rest().get({
-            type: 'filetypes'
+            type: 'filetypes',
+            params: 'orderBy=name&limit=1000&fields=id,api,mimetype,name,slug'
         }, function (filetypes) {
-            totalFiletypes = filetypes.meta.count;
+            cache.filetypes.total = filetypes.meta.count;
             var fils = [];
             sessionStorage.setItem('filetypes', JSON.stringify(fils));
             angular.forEach(filetypes.data, function (element) {
@@ -157,6 +210,78 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
 
                 fils.push(info);
                 sessionStorage.setItem('filetypes', JSON.stringify(fils));
+
+            });
+        }, function (error) {
+            $rootScope.countQuery--;
+            if ($rootScope.countQuery == 0) {
+                usSpinnerService.stop('spinner');
+            }
+        });
+    }
+    ;
+    
+    //Tags cache
+    if (!!sessionStorage.getItem('tags')) {
+        $rootScope.dataTags = JSON.parse(sessionStorage.getItem('tags'));
+        cache.tags.cache = true;
+        $rootScope.countQuery--;
+        if ($rootScope.countQuery == 0) {
+            usSpinnerService.stop('spinner');
+        }
+    } else {
+        rest().get({
+            type: 'tags',
+            params: 'orderBy=name&limit=1000&fields=id,name,slug'
+        }, function (tags) {
+            cache.tags.total = tags.meta.count;
+            var tgs = [];
+            sessionStorage.setItem('tags', JSON.stringify(tgs));
+            angular.forEach(tags.data, function (element) {
+                var info = {
+                    id: element.id,
+                    name: element.name,
+                    slug: element.slug
+                };
+
+                tgs.push(info);
+                sessionStorage.setItem('tags', JSON.stringify(tgs));
+
+            });
+        }, function (error) {
+            $rootScope.countQuery--;
+            if ($rootScope.countQuery == 0) {
+                usSpinnerService.stop('spinner');
+            }
+        });
+    }
+    ;
+    
+    //Organizations cache
+    if (!!sessionStorage.getItem('organizations')) {
+        $rootScope.dataOrgs = JSON.parse(sessionStorage.getItem('organizations'));
+        cache.organizations.cache = true;
+        $rootScope.countQuery--;
+        if ($rootScope.countQuery == 0) {
+            usSpinnerService.stop('spinner');
+        }
+    } else {
+        rest().get({
+            type: 'organizations',
+            params: 'orderBy=name&sort=ASC&limit=1000&fields=id,name,slug'
+        }, function (organizations) {
+            cache.organizations.total = organizations.meta.count;
+            var tgs = [];
+            sessionStorage.setItem('organizations', JSON.stringify(tgs));
+            angular.forEach(organizations.data, function (element) {
+                var info = {
+                    id: element.id,
+                    name: element.name,
+                    slug: element.slug
+                };
+
+                tgs.push(info);
+                sessionStorage.setItem('organizations', JSON.stringify(tgs));
 
             });
         }, function (error) {

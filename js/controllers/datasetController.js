@@ -7,7 +7,6 @@ app.factory('model', function($resource) {
 function DatasetController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService, $httpParamSerializer, $filter, leafletData, configs, $anchorScroll, usSpinnerService) {
     PDFJS.workerSrc = $rootScope.baseHtml5 + 'plugins/pdf/pdf.worker.js';
     usSpinnerService.spin('spinner');
-    $rootScope.countQuery ++;
     sessionStorage.removeItem('query');
     LocationSearchService.init();
     $rootScope.isDatasetView = true;
@@ -53,9 +52,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             })
         }
 
-        $rootScope.countQuery --;
-        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
-
         $scope.tags = tags;
         $scope.fileTypes = {};
 
@@ -96,7 +92,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
     $scope.loadResults = function(limit) {
         usSpinnerService.spin('spinner');
-
+        $rootScope.countQuery ++;
         $anchorScroll('pagingDatasetResult');
         $scope.showLoading = true;
         $scope.params = $.extend({
@@ -284,6 +280,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             });
 
             $scope.showLoading = false;
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         }, function(error) {
             $scope.showLoading = false;
             $rootScope.countQuery --;
@@ -309,6 +307,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     };
 
     $scope.pagingAll = function(event, page, pageSize, total) {
+        usSpinnerService.spin('spinner');
         var skip = (page - 1) * $scope.params.limit;
         $scope.page = page;
         $scope.loadResults(skip);
@@ -357,4 +356,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.onProgress = function(progress) {
         // console.log(progress);
     }
+    
+    $scope.filterGroups = {};
+    $scope.toggleFilterGroup = function(filterGroup) {
+      $scope.filterGroups[filterGroup] = !$scope.filterGroups[filterGroup];
+    };
+    $scope.closeFilterMenu = function() {
+      $rootScope.showFilterMenu = false;
+    };
 }

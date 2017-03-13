@@ -1,9 +1,18 @@
 angular.module('odin.controllers')
 .controller('TagsController', TagsController);
 
-function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams) {
+function TagsController($rootScope, $scope, $filter, rest, LocationSearchService, $routeParams, usSpinnerService) {
+    usSpinnerService.spin('spinner');
+    $rootScope.countQuery ++;
     var filterName = 'tags.slug';
     var tagsAutocomplete;
+    
+    var tags_cache = JSON.parse(sessionStorage.getItem('tags'));
+    
+    if(LocationSearchService.isSet(filterName) == 0) {
+        sessionStorage.removeItem('selectedTags');
+        sessionStorage.removeItem('tagsAutocomplete');
+    }
 
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
@@ -20,12 +29,12 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     }
 
     $scope.loadTags = function() {
-        $scope.resultTags = rest().get({
-            type: "tags",
-            params: "fields=name,slug,id"
-        }, function() {
-            for (var i = 0; i < $scope.resultTags.data.length; i++) {
-                var tag = $scope.resultTags.data[i];
+//        $scope.resultTags = rest().get({
+//            type: "tags",
+//            params: "fields=name,slug,id&limit=1000"
+//        }, function() {
+            for (var i = 0; i < tags_cache.length; i++) {
+                var tag = tags_cache[i];
                 //tag.slug = $filter('slug')(tag.name);
                 tag.active = LocationSearchService.isActive(filterName, tag.slug);
                 $scope.tags.push(tag);
@@ -41,8 +50,13 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
             if ($filter('filter')($scope.tags, {active: true})[0] !== undefined) {
               $scope.collapsed=false;
             }
-
-        });
+            
+            $rootScope.countQuery --;
+            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+//        }, function() {
+//            $rootScope.countQuery --;
+//            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+//        });
     };
 
 

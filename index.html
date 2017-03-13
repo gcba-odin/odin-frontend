@@ -1,123 +1,133 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="odin">
 
-    <head>
-        <base href="<%= baseUrl %>">
-        <title>Buenos Aires Data</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="theme-color" content="#ffffff">
+<head>
+    <base href="<%= baseUrl %>">
+    <title>Buenos Aires Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#ffffff">
 
-        <!-- CSS CDN dependencies:START -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> -->
-        <!-- CSS CDN dependencies:END -->
+    <!-- CSS CDN dependencies:START -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> -->
+    <!-- CSS CDN dependencies:END -->
 
 
-        <!-- CSS Vendor dependencies bundle -->
-        <!-- build:css vendors.min.css -->
-        <link rel="stylesheet" href="plugins/font-awesome/font-awesome.min.css">
-        <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
-        <!-- endbuild -->
-        <!-- CSS Vendor dependencies:END -->
+    <!-- CSS Vendor dependencies bundle -->
+    <!-- build:css vendors.min.css -->
+    <link rel="stylesheet" href="plugins/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="bower_components/owl.carousel/dist/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="plugins/leaflet/leaflet.css">
+    <!-- endbuild -->
+    <!-- CSS Vendor dependencies:END -->
 
-        <!-- CSS bundle -->
-        <link rel="stylesheet" href="bundle.min.css">
+    <!-- CSS bundle -->
+    <link rel="stylesheet" href="bundle.min.css">
 
-        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
-        <!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> -->
-        <!-- <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
-        <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png">
+    <!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> -->
+    <!-- <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
 
-        <link rel="manifest" href="/manifest.json">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-        <!-- Google analytics API -->
-        <meta name="google-signin-client_id" content="150875399082-m0hsppbuvldrgojekv33v2d1tb3ohg0b.apps.googleusercontent.com">
-        <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly">
+    <!-- Google analytics API -->
+    <meta name="google-signin-client_id" content="150875399082-m0hsppbuvldrgojekv33v2d1tb3ohg0b.apps.googleusercontent.com">
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly">
 
-        <!-- Google Analytics -->
-        <script>
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
+    <!-- Google Analytics -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
                     (i[r].q = i[r].q || []).push(arguments)
                 },
                 i[r].l = 1 * new Date();
-                a = s.createElement(o),
+            a = s.createElement(o),
                 m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-85049588-1', 'auto');
-        </script>
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-85049588-1', 'auto');
+    </script>
 
-        <!-- Include the JS ReCaptcha API -->
-        <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"
-            async defer></script>
+    <!-- Include the JS ReCaptcha API -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
 
-    </head>
+</head>
 
-    <body id="gapi-auth">
-        <hr class="home-top-line">
-        <navbar></navbar>
-        <branding-data></branding-data>
-        <backdrop></backdrop>
-        <span us-spinner spinner-key="spinner"></span>
-        <!-- <section id="auth-button"></section>
+<body id="gapi-auth">
+    <div class="row">
+        <div class="odin-girl-container" data-tooltip="¿Qué dataset te gustaría sumar al portal?">
+            <a href=""><img class="odin-img-girl" src="images/odin-girl.svg" /></a>
+        </div>
+    </div>
+
+    <hr class="home-top-line">
+    <navbar></navbar>
+    <branding-data></branding-data>
+    <backdrop></backdrop>
+    <span us-spinner spinner-key="spinner"></span>
+    <!-- <section id="auth-button"></section>
 <section id="view-selector"></section>
 <section id="timeline"></section> -->
-        <div ng-view></div>
-        <footer-bar></footer-bar>
+
+    <div ng-view></div>
+    <footer-bar></footer-bar>
+
+    <!-- CDN dependencies:START -->
+    <!-- CDN dependencies:END -->
+
+    <!-- JS Vendor dependencies:START -->
+    <!-- build:js vendors.min.js -->
+    <script src="plugins/angular/angular.min.js"></script>
+    <script src="plugins/angular/angular-resource.min.js"></script>
+    <script src="plugins/angular/angular-route.min.js"></script>
+    <script src="plugins/jquery.min.js"></script>
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="plugins/moment.min.js"></script>
+    <script src="plugins/angular/angular-moment.min.js"></script>
+    <script src="plugins/leaflet/leaflet-src.js"></script>
+    <script src="plugins/loading.js"></script>
+    <script src="plugins/jquery.dotdotdot.min.js"></script>
+    <script src="plugins/angular-socialshare.min.js"></script>
+    <script src="plugins/ngtweet.min.js"></script>
+    <script src="plugins/chartjs/Chart.min.js"></script>
+    <script src="plugins/chartjs/angular-chart.min.js"></script>
+    <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
+    <script src="plugins/paging/paging.js"></script>
+    <script src="plugins/cookies/angular-cookies.min.js"></script>
+    <script src="plugins/middleware/angular-middleware.min.js"></script>
+    <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script>
+    <script src="node_modules/angular-media-queries/match-media.js"></script>
+    <script src="node_modules/slug/slug.js"></script>
+    <script src="plugins/spin.min.js"></script>
+    <script src="plugins/angular-spinner.min.js"></script>
+    <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
 
 
-        <!-- CDN dependencies:START -->
-        <!-- CDN dependencies:END -->
+    <script src="plugins/angular-recaptcha.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-read-more/dist/readmore.js"></script>
+    <!-- endbuild -->
+    <!-- JS Vendor dependencies:END -->
 
-        <!-- JS Vendor dependencies:START -->
-        <!-- build:js vendors.min.js -->
-        <script src="plugins/angular/angular.min.js"></script>
-        <script src="plugins/angular/angular-resource.min.js"></script>
-        <script src="plugins/angular/angular-route.min.js"></script>
-        <script src="plugins/jquery.min.js"></script>
-        <script src="plugins/bootstrap/bootstrap.min.js"></script>
-        <script src="plugins/moment.min.js"></script>
-        <script src="plugins/angular/angular-moment.min.js"></script>
-        <script src="plugins/leaflet/leaflet-src.js"></script>
-        <script src="plugins/loading.js"></script>
-        <script src="plugins/jquery.dotdotdot.min.js"></script>
-        <script src="plugins/angular-socialshare.min.js"></script>
-        <script src="plugins/ngtweet.min.js"></script>
-        <script src="plugins/chartjs/Chart.min.js"></script>
-        <script src="plugins/chartjs/angular-chart.min.js"></script>
-        <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
-        <script src="plugins/paging/paging.js"></script>
-        <script src="plugins/cookies/angular-cookies.min.js"></script>
-        <script src="plugins/middleware/angular-middleware.min.js"></script>
-        <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script>
-        <script src="node_modules/angular-media-queries/match-media.js"></script>
-        <script src="node_modules/slug/slug.js"></script>
-        <script src="plugins/spin.min.js"></script>
-        <script src="plugins/angular-spinner.min.js"></script>
+    <!-- JS bundle -->
+    <script src="bundle.min.js"></script>
 
-        <script src="plugins/angular-recaptcha.min.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-        <script src="bower_components/angular-read-more/dist/readmore.js"></script>
-        <!-- endbuild -->
-        <!-- JS Vendor dependencies:END -->
+    <script src="plugins/pdf/pdf.js"></script>
+    <script src="plugins/pdf/pdf.worker.js"></script>
+    <script src="plugins/pdf/pdf.compatibility.js"></script>
 
-        <!-- JS bundle -->
-        <script src="bundle.min.js"></script>
-
-        <script src="plugins/pdf/pdf.js"></script>
-        <script src="plugins/pdf/pdf.worker.js"></script>
-        <script src="plugins/pdf/pdf.compatibility.js"></script>
-
-        <!-- Disqus async script -->
-        <script id="dsq-count-scr" src="//badataodin.disqus.com/count.js" async></script>
+    <!-- Disqus async script -->
+    <script id="dsq-count-scr" src="//badataodin.disqus.com/count.js" async></script>
 
 
-    </body>
+</body>
+
 </html>

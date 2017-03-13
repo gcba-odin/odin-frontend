@@ -36,7 +36,7 @@
         });
 
         usSpinnerConfigProvider.setDefaults({
-            lines: 10,
+            lines: 0,
             length: 40,
             width: 20,
             radius: 49,
@@ -156,11 +156,12 @@
         $rootScope.isHome = false;
         $rootScope.dataCategories = [];
         $rootScope.dataFiletypes = [];
+        $rootScope.dataTags = [];
+        $rootScope.dataOrgs = [];
         screenSize.rules = {
             any: '(max-width: 767px)'
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
-          console.log(match);
             $rootScope.isMobile = match;
         });
 

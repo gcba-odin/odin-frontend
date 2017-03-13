@@ -443,13 +443,50 @@
         };
     });
 
+    app.directive('carousel', function(){
+      return {
+          restrict: 'E',
+          templateUrl: 'directives/main/carousel.html',
+          controller: SearchDatasetsController,
+          link: function() {
+            $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:25,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            nav:true,
+            merge:true,
+            video:true,
+            lazyLoad:true,
+            items:2,
+            //center:true,
+            navText: ['anterior','siguiente'],
+            dots:false,
+            nav:true,
+            responsive:{
+                0:{
+                    items:2
+                },
+                600:{
+                    items:2
+                },
+                1000:{
+                    items:2
+                }
+            }
+          });
+          }
+      };
+    });
     app.directive('searchBarHome', function () {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
             controller: SearchDatasetsController
-        };
+          }
     });
+
 
     app.directive('auxiliarBar', function () {
         return {
@@ -513,47 +550,47 @@
             if (!!input) {
                 if (!!sessionStorage.getItem('categories')) {
                     var categories = JSON.parse(sessionStorage.getItem('categories'));
-                    
+
                     angular.forEach(categories, function(element) {
                         if(element.id == input) {
                             result.push(element);
                         }
                     });
-                    
+
                     return result[0];
                 } else {
                     return {};
                 }
-                
+
             } else {
                 return {};
             }
-            
+
         };
     });
-    
+
     app.filter('searchFiletype', function () {
         return function (input) {
             var result = [];
             if (!!input) {
                 if (!!sessionStorage.getItem('filetypes')) {
                     var filetypes = JSON.parse(sessionStorage.getItem('filetypes'));
-                    
+
                     angular.forEach(filetypes, function(element) {
                         if(element.id == input) {
                             result.push(element);
                         }
                     });
-                    
+
                     return result[0];
                 } else {
                     return {};
                 }
-                
+
             } else {
                 return {};
             }
-            
+
         };
     });
 
