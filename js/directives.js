@@ -1,7 +1,7 @@
-(function () {
+(function() {
     var app = angular.module('store-directives', ["store-directives-home", "store-directives-dataset", "store-directives-datasets"]);
 
-    app.directive('autocomplete', function () {
+    app.directive('autocomplete', function() {
         var index = -1;
         return {
             restrict: 'E',
@@ -13,92 +13,92 @@
                 autocompleteRequired: '=',
                 noAutoSort: '=noAutoSort'
             },
-            controller: ['$scope', function ($scope) {
-                    // the index of the suggestions that's currently selected
-                    $scope.selectedIndex = -1;
+            controller: ['$scope', function($scope) {
+                // the index of the suggestions that's currently selected
+                $scope.selectedIndex = -1;
 
-                    $scope.initLock = true;
+                $scope.initLock = true;
 
-                    // set new index
-                    $scope.setIndex = function (i) {
-                        $scope.selectedIndex = parseInt(i);
-                    };
+                // set new index
+                $scope.setIndex = function(i) {
+                    $scope.selectedIndex = parseInt(i);
+                };
 
-                    this.setIndex = function (i) {
-                        $scope.setIndex(i);
-                        $scope.$apply();
-                    };
+                this.setIndex = function(i) {
+                    $scope.setIndex(i);
+                    $scope.$apply();
+                };
 
-                    $scope.getIndex = function (i) {
-                        return $scope.selectedIndex;
-                    };
+                $scope.getIndex = function(i) {
+                    return $scope.selectedIndex;
+                };
 
-                    // watches if the parameter filter should be changed
-                    var watching = true;
+                // watches if the parameter filter should be changed
+                var watching = true;
 
-                    // autocompleting drop down on/off
-                    $scope.completing = false;
+                // autocompleting drop down on/off
+                $scope.completing = false;
 
-                    // starts autocompleting on typing in something
-                    $scope.$watch('searchParam', function (newValue, oldValue) {
+                // starts autocompleting on typing in something
+                $scope.$watch('searchParam', function(newValue, oldValue) {
 
-                        if (oldValue === newValue || (!oldValue && $scope.initLock)) {
-                            return;
-                        }
+                    if (oldValue === newValue || (!oldValue && $scope.initLock)) {
+                        return;
+                    }
 
-                        if (watching && typeof $scope.searchParam !== 'undefined' && $scope.searchParam !== null) {
-                            $scope.completing = true;
-                            $scope.searchFilter = $scope.searchParam;
-                            $scope.selectedIndex = -1;
-                        }
+                    if (watching && typeof $scope.searchParam !== 'undefined' && $scope.searchParam !== null) {
+                        $scope.completing = true;
+                        $scope.searchFilter = $scope.searchParam;
+                        $scope.selectedIndex = -1;
+                    }
 
-                        // function thats passed to on-type attribute gets executed
-                        if ($scope.onType)
-                            $scope.onType($scope.searchParam);
-                    });
+                    // function thats passed to on-type attribute gets executed
+                    if ($scope.onType)
+                        $scope.onType($scope.searchParam);
+                });
 
-                    // for hovering over suggestions
-                    this.preSelect = function (suggestion) {
+                // for hovering over suggestions
+                this.preSelect = function(suggestion) {
 
-                        watching = false;
+                    watching = false;
 
-                        // this line determines if it is shown
-                        // in the input field before it's selected:
+                    // this line determines if it is shown
+                    // in the input field before it's selected:
+                    $scope.searchParam = suggestion;
+
+                    $scope.$apply();
+                    watching = true;
+
+                };
+
+                $scope.preSelect = this.preSelect;
+
+                this.preSelectOff = function() {
+                    watching = true;
+                };
+
+                $scope.preSelectOff = this.preSelectOff;
+
+                // selecting a suggestion with RIGHT ARROW or ENTER
+                $scope.select = function(suggestion) {
+                    if (suggestion) {
                         $scope.searchParam = suggestion;
-
-                        $scope.$apply();
+                        $scope.searchFilter = suggestion;
+                        if ($scope.onSelect)
+                            $scope.onSelect(suggestion);
+                    }
+                    watching = false;
+                    $scope.completing = false;
+                    setTimeout(function() {
                         watching = true;
-
-                    };
-
-                    $scope.preSelect = this.preSelect;
-
-                    this.preSelectOff = function () {
-                        watching = true;
-                    };
-
-                    $scope.preSelectOff = this.preSelectOff;
-
-                    // selecting a suggestion with RIGHT ARROW or ENTER
-                    $scope.select = function (suggestion) {
-                        if (suggestion) {
-                            $scope.searchParam = suggestion;
-                            $scope.searchFilter = suggestion;
-                            if ($scope.onSelect)
-                                $scope.onSelect(suggestion);
-                        }
-                        watching = false;
-                        $scope.completing = false;
-                        setTimeout(function () {
-                            watching = true;
-                        }, 1000);
-                        $scope.setIndex(-1);
-                    };
+                    }, 1000);
+                    $scope.setIndex(-1);
+                };
 
 
-                }],
-            link: function (scope, element, attrs) {
-                setTimeout(function () {
+            }],
+            link: function(scope, element, attrs) {
+                setTimeout(function() {
                     scope.initLock = false;
                     scope.$apply();
                 }, 250);
@@ -124,9 +124,9 @@
                 }
 
                 if (attrs.clickActivation) {
-                    element[0].onclick = function (e) {
+                    element[0].onclick = function(e) {
                         if (!scope.searchParam) {
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 scope.completing = true;
                                 scope.$apply();
                             }, 200);
@@ -134,9 +134,17 @@
                     };
                 }
 
-                var key = {left: 37, up: 38, right: 39, down: 40, enter: 13, esc: 27, tab: 9};
+                var key = {
+                    left: 37,
+                    up: 38,
+                    right: 39,
+                    down: 40,
+                    enter: 13,
+                    esc: 27,
+                    tab: 9
+                };
 
-                document.addEventListener("keydown", function (e) {
+                document.addEventListener("keydown", function(e) {
                     var keycode = e.keyCode || e.which;
 
                     switch (keycode) {
@@ -149,17 +157,17 @@
                     }
                 }, true);
 
-                document.addEventListener("blur", function (e) {
+                document.addEventListener("blur", function(e) {
                     // disable suggestions on blur
                     // we do a timeout to prevent hiding it before a click event is registered
-                    setTimeout(function () {
+                    setTimeout(function() {
                         scope.select();
                         scope.setIndex(-1);
                         scope.$apply();
                     }, 150);
                 }, true);
 
-                element[0].addEventListener("keydown", function (e) {
+                element[0].addEventListener("keydown", function(e) {
                     var keycode = e.keyCode || e.which;
 
                     var l = angular.element(this).find('li').length;
@@ -245,60 +253,62 @@
         };
     });
 
-    app.directive('suggestion', function () {
+    app.directive('suggestion', function() {
         return {
             restrict: 'A',
             require: '^autocomplete', // ^look for controller on parents element
-            link: function (scope, element, attrs, autoCtrl) {
-                element.bind('mouseenter', function () {
+            link: function(scope, element, attrs, autoCtrl) {
+                element.bind('mouseenter', function() {
                     autoCtrl.preSelect(attrs.val);
                     autoCtrl.setIndex(attrs.index);
                 });
 
-                element.bind('mouseleave', function () {
+                element.bind('mouseleave', function() {
                     autoCtrl.preSelectOff();
                 });
             }
         };
     });
 
-    app.directive('threeDots', function ($compile) {
+    app.directive('threeDots', function($compile) {
         // http://stackoverflow.com/questions/17417607/angular-ng-bind-html-and-directive-within-it
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var ensureCompileRunsOnce = scope.$watch(
-                        function (scope) {
-                            // watch the 'compile' expression for changes
-                            return scope.$eval(attrs.threeDots);
-                        },
-                        function (value) {
-                            // when the 'compile' expression changes
-                            // assign it into the current DOM
-                            element.html(value);
+                    function(scope) {
+                        // watch the 'compile' expression for changes
+                        return scope.$eval(attrs.threeDots);
+                    },
+                    function(value) {
+                        // when the 'compile' expression changes
+                        // assign it into the current DOM
+                        element.html(value);
 
-                            // compile the new DOM and link it to the current
-                            // scope.
-                            // NOTE: we only compile .childNodes so that
-                            // we don't get into infinite loop compiling ourselves
-                            $compile(element.contents())(scope);
-                            ensureCompileRunsOnce();
-                            $(element).dotdotdot({
-                                height: 100,
-                                wrap: 'letter'
-                            });
-                        }
+                        // compile the new DOM and link it to the current
+                        // scope.
+                        // NOTE: we only compile .childNodes so that
+                        // we don't get into infinite loop compiling ourselves
+                        $compile(element.contents())(scope);
+                        ensureCompileRunsOnce();
+                        $(element).dotdotdot({
+                            height: 100,
+                            wrap: 'letter'
+                        });
+                    }
                 );
             }
         };
     });
 
-    app.directive('ngEnter', function () {
-        return function (scope, element, attrs) {
-            element.bind("keydown keypress", function (event) {
+    app.directive('ngEnter', function() {
+        return function(scope, element, attrs) {
+            element.bind("keydown keypress", function(event) {
                 if (event.which === 13) {
-                    scope.$apply(function () {
-                        scope.$eval(attrs.ngEnter, {'event': event});
+                    scope.$apply(function() {
+                        scope.$eval(attrs.ngEnter, {
+                            'event': event
+                        });
                     });
 
                     event.preventDefault();
@@ -307,13 +317,13 @@
         };
     });
 
-    app.directive('svgUrl', function ($rootScope, $cookieStore) {
+    app.directive('svgUrl', function($rootScope, $cookieStore) {
         return {
             restrict: 'A',
             scope: {
                 svgUrl: '='
             },
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var $element = jQuery(element);
                 var attributes = $element.prop("attributes");
 
@@ -327,7 +337,7 @@
                     type: 'GET',
                     dataType: 'xml',
                     url: scope.svgUrl,
-                    success: function (data) {
+                    success: function(data) {
                         // Get the SVG tag, ignore the rest
                         var $svg = jQuery(data).find('svg');
 
@@ -335,7 +345,7 @@
                         $svg = $svg.removeAttr('xmlns:a');
 
                         // Loop through IMG attributes and apply on SVG
-                        $.each(attributes, function () {
+                        $.each(attributes, function() {
                             $svg.attr(this.name, this.value);
                         });
 
@@ -355,7 +365,7 @@
                         $element.find("polygon").css("fill", color_fill);
                         $element.find("circle").css("fill", color_fill);
                     },
-                    error: function (data) {
+                    error: function(data) {
                         $element.parent().find(".colorText").css("display", "block");
                         $element.parent().find(".popular-datasets-list-item-icon").css("display", "none");
                     }
@@ -364,13 +374,13 @@
         };
     });
 
-    app.directive('svgImg', function ($rootScope, $cookieStore) {
+    app.directive('svgImg', function($rootScope, $cookieStore) {
         return {
             restrict: 'A',
             scope: {
                 svgImg: '='
             },
-            link: function (scope, element, attrs) {
+            link: function(scope, element, attrs) {
                 var $element = jQuery(element);
                 var attributes = $element.prop("attributes");
 
@@ -381,7 +391,7 @@
                 $svg = $svg.removeAttr('xmlns:a');
 
                 // Loop through IMG attributes and apply on SVG
-                $.each(attributes, function () {
+                $.each(attributes, function() {
                     $svg.attr(this.name, this.value);
                 });
 
@@ -404,14 +414,14 @@
         };
     });
 
-    app.directive('brandingData', function () {
+    app.directive('brandingData', function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/branding-data.html',
         };
     });
 
-    app.directive('categoryPercent', function () {
+    app.directive('categoryPercent', function() {
         return {
             restrict: 'A',
             scope: {
@@ -419,7 +429,7 @@
             },
             replace: true,
             link: function postlink(scope, element, attrs) {
-                scope.$watch("categoryPercent", function (newVal, oldVal) {
+                scope.$watch("categoryPercent", function(newVal, oldVal) {
                     var $element = $(element);
                     var color = '#fdd306';
                     if (attrs.currentcolor !== 'null') {
@@ -435,7 +445,7 @@
         };
     });
 
-    app.directive('searchBar', function () {
+    app.directive('searchBar', function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar.html',
@@ -443,71 +453,71 @@
         };
     });
 
-    app.directive('carousel', function(){
-      return {
-          restrict: 'E',
-          templateUrl: 'directives/main/carousel.html',
-          controller: SearchDatasetsController,
-          link: function() {
-            $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:25,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true,
-            nav:true,
-            merge:true,
-            video:true,
-            lazyLoad:true,
-            items:2,
-            //center:true,
-            navText: ['anterior','siguiente'],
-            dots:false,
-            nav:true,
-            responsive:{
-                0:{
-                    items:2
-                },
-                600:{
-                    items:2
-                },
-                1000:{
-                    items:2
-                }
+    app.directive('carousel', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'directives/main/carousel.html',
+            controller: SearchDatasetsController,
+            link: function() {
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    margin: 25,
+                    // autoplay: true,
+                    // autoplayTimeout: 3000,
+                    // autoplayHoverPause: true,
+                    // nav:true,
+                    // merge:true,
+                    video: true,
+                    lazyLoad: true,
+                    items: 2,
+                    //center:true,
+                    navText: ['anterior', 'siguiente'],
+                    dots: false,
+                    // nav:true,
+                    responsive: {
+                        0: {
+                            items: 2
+                        },
+                        600: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 2
+                        }
+                    }
+                });
             }
-          });
-          }
-      };
+        };
     });
-    app.directive('searchBarHome', function () {
+    app.directive('searchBarHome', function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/search-bar-home.html',
             controller: SearchDatasetsController
-          }
+        }
     });
 
 
-    app.directive('auxiliarBar', function () {
+    app.directive('auxiliarBar', function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/home/auxiliar-bar.html',
-            controller: function () {
+            controller: function() {
                 sessionStorage.removeItem('currentColor');
                 sessionStorage.removeItem('activeCategory');
             }
         };
     });
 
-    app.directive('footerBar', function () {
+    app.directive('footerBar', function() {
         return {
             restrict: 'E',
             templateUrl: 'directives/main/footer-bar.html',
         };
     });
 
-    app.filter('returnFormat', function () {
-        return function (input) {
+    app.filter('returnFormat', function() {
+        return function(input) {
             var extension = input.split('.').pop();
             if (extension == "jpg" || extension == "png") {
                 return "img";
@@ -517,18 +527,18 @@
         }
     });
 
-    app.filter('urlEncode', [function () {
-            return window.encodeURIComponent;
-        }]);
+    app.filter('urlEncode', [function() {
+        return window.encodeURIComponent;
+    }]);
 
-    app.filter('capitalize', function () {
-        return function (input) {
+    app.filter('capitalize', function() {
+        return function(input) {
             return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
         }
     });
 
-    app.filter('truncString', function () {
-        return function (input) {
+    app.filter('truncString', function() {
+        return function(input) {
             var add = '...';
             var max = 26;
             var str = input;
@@ -536,23 +546,25 @@
         }
     });
 
-    app.filter('slug', function () {
-        return function (input) {
+    app.filter('slug', function() {
+        return function(input) {
             if (input) {
-                return slug(input, {lower: true});
+                return slug(input, {
+                    lower: true
+                });
             }
         };
     });
 
-    app.filter('searchCategory', function () {
-        return function (input) {
+    app.filter('searchCategory', function() {
+        return function(input) {
             var result = [];
             if (!!input) {
                 if (!!sessionStorage.getItem('categories')) {
                     var categories = JSON.parse(sessionStorage.getItem('categories'));
 
                     angular.forEach(categories, function(element) {
-                        if(element.id == input) {
+                        if (element.id == input) {
                             result.push(element);
                         }
                     });
@@ -569,15 +581,15 @@
         };
     });
 
-    app.filter('searchFiletype', function () {
-        return function (input) {
+    app.filter('searchFiletype', function() {
+        return function(input) {
             var result = [];
             if (!!input) {
                 if (!!sessionStorage.getItem('filetypes')) {
                     var filetypes = JSON.parse(sessionStorage.getItem('filetypes'));
 
                     angular.forEach(filetypes, function(element) {
-                        if(element.id == input) {
+                        if (element.id == input) {
                             result.push(element);
                         }
                     });
@@ -594,9 +606,9 @@
         };
     });
 
-    app.filter("sanitize", ['$sce', function ($sce) {
-            return function (htmlCode) {
-                return $sce.trustAsHtml(htmlCode);
-            }
-        }]);
+    app.filter("sanitize", ['$sce', function($sce) {
+        return function(htmlCode) {
+            return $sce.trustAsHtml(htmlCode);
+        }
+    }]);
 })();
