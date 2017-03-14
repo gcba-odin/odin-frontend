@@ -460,7 +460,7 @@
             controller: SearchDatasetsController,
             link: function() {
                 $('.owl-carousel').owlCarousel({
-                    loop: true,
+                    // loop: true,
                     margin: 25,
                     // autoplay: true,
                     // autoplayTimeout: 3000,
