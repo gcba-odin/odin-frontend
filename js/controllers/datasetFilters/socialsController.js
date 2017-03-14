@@ -3,7 +3,7 @@ angular.module('odin.controllers')
 
 function SocialsController($scope, $location) {
     $scope.shareUrl = $location.absUrl();
-    $scope.collapsed = true;
+    $scope.collapsed = false;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };

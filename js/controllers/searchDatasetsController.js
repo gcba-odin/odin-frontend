@@ -1,5 +1,8 @@
-function SearchDatasetsController ($scope, $element, $rootScope, $location, LocationSearchService) {
+function SearchDatasetsController($scope, $element, $rootScope, $location, LocationSearchService, $sce) {
     $rootScope.query = sessionStorage.getItem('query') || '';
+    $scope.coverSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/8MA-s9nUfGc')
+    $scope.coverType = 'video'
+
     $scope.search = function() {
         $rootScope.query = $scope.query;
         sessionStorage.removeItem('activeCategory');
@@ -7,7 +10,7 @@ function SearchDatasetsController ($scope, $element, $rootScope, $location, Loca
         sessionStorage.removeItem('currentColor');
         if ($rootScope.query) {
             sessionStorage.setItem('query', $rootScope.query);
-            
+
             $rootScope.showNavbarSearch = false;
             //$rootScope.query = sessionStorage.getItem('query') || '';
             LocationSearchService.deleteFilter('categories.slug');
@@ -24,8 +27,11 @@ function SearchDatasetsController ($scope, $element, $rootScope, $location, Loca
             LocationSearchService.deleteFilter('query');
         }
     };
-    $scope.$watch('isActive', function(isActive){
-      isActive && $($element).find('input').focus();
+    $scope.$watch('isActive', function(isActive) {
+        isActive && $($element).find('input').focus();
     });
-
+    $scope.changeCover = function(src, type) {
+        $scope.coverType = type;
+        $scope.coverSrc = $sce.trustAsResourceUrl(src);
+    }
 }

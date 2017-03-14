@@ -44,6 +44,7 @@ hr{
 
 .autocomplete-suggestion li{
   @extend .filters-items;
+  cursor: pointer;
 }
 
 .auxiliar-bar {
@@ -110,6 +111,22 @@ hr{
   color: #999;
   content: "|";
   font-size: 23px;
+}
+
+.carousel-container{
+  height: 250px;
+  margin-top: 15px;
+}
+
+.carousel-item{
+  height: 150px;
+}
+
+.owl-theme .owl-nav {
+  margin-top: 25px;
+}
+.owl-video-play-icon {
+  background: url(images/owl.video.play.png) no-repeat!important;
 }
 
 .category-box {
@@ -238,6 +255,50 @@ hr{
 .filter-group .filter-name{
   margin-left: 35px;
 }
+
+.filter-share-name {
+    margin-left: 18px;
+    margin-top: -2px;
+}
+
+.filter-share-item {
+    font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 3px;
+    margin-top: -6px;
+
+    .filter-icon {
+        margin-top: -7px;
+        background: none;
+    }
+    .filter-name {
+        background: none;
+        margin-left: 18px;
+    }
+}
+
+.dataset-resources .filter-group {
+    border-bottom: 0;
+    .filter-options {
+        width: 120px;
+        margin-left: 0;
+        font-family: Chalet-Eighty,Avenir,Helvetica,Arial,sans-serif;
+        font-weight: 400;
+
+        li {
+            display: list-item;
+            a {
+                font-size: 11px;
+                i {
+                    margin-right: 5px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
 .filter-title-wrap{
   cursor: pointer;
 }
@@ -321,28 +382,165 @@ hr{
     padding: 3px 7px 2px 7px;
 }
 
-.spinner {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.spinner:before {
-    background-color: rgba(255, 255, 255, 0.9);
-    top: -50%;
-    left: -50%;
-    border-radius: 5px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    display: block;
-    content: "";
-}
-
-
 // .dataset-additional-info-table td {
 //   padding: 2px 7px 1px 7px;
 //   width: 15vw;
 // }
+
+ /**
+* Bootstrap 3 Look and Feel
+* Based on Alertify Bootstrap theme.
+* @author İsmail Demirbilek
+* http://github.com/dbtek/alertify-bootstrap-3
+*/
+
+ .alertify {
+     background: #FFF;
+     border: 1px solid #8E8E8E;
+     /* browsers that don't support rgba */
+     border: 1px solid rgba(0, 0, 0, .3);
+     border-radius: 6px;
+     box-shadow: 0 3px 7px rgba(0, 0, 0, .3);
+     -webkit-background-clip: padding;
+     /* Safari 4? Chrome 6? */
+     -moz-background-clip: padding;
+     /* Firefox 3.6 */
+     background-clip: padding-box;
+     /* Firefox 4, Safari 5, Opera 10, IE 9 */
+ }
+
+ .alertify-dialog {
+     padding: 0;
+ }
+
+ .alertify-inner {
+     text-align: left;
+     margin-top: 15px;
+ }
+
+ .alertify-message {
+     padding: 15px;
+     margin: 0;
+ }
+
+ .alertify-text-wrapper {
+     padding: 0 15px;
+ }
+
+ .alertify-text {
+     color: #555;
+     border-radius: 4px;
+     padding: 8px;
+     background-color: #FFF;
+     border: 1px solid #CCC;
+     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+ }
+
+ .alertify-text:focus {
+     border-color: rgba(82, 168, 236, .8);
+     outline: 0;
+     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(82, 168, 236, .6);
+ }
+
+ .alertify-buttons {
+     margin: 0px 15px;
+     padding: 14px 0px 15px;
+     border-top: 1px solid #DDD;
+     border-radius: 0 0 6px 6px;
+     box-shadow: inset 0 1px 0 #FFF;
+     text-align: right;
+ }
+
+ .alertify-button, .alertify-button:hover, .alertify-button:focus, .alertify-button:active {
+     display: inline-block;
+     padding: 6px 12px;
+     margin-bottom: 0;
+     font-size: 14px;
+     font-weight: normal;
+     line-height: 1.428571429;
+     text-align: center;
+     white-space: nowrap;
+     vertical-align: middle;
+     cursor: pointer;
+     border: 1px solid transparent;
+     border-radius: 4px;
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     -o-user-select: none;
+     user-select: none;
+     font-family: Chalet-Sixty,Avenir,Helvetica,Arial,sans-serif;
+ }
+
+ .alertify-button:focus {
+     outline: none;
+     box-shadow: 0 0 5px #2B72D5;
+ }
+
+ .alertify-button:active {
+     position: relative;
+     box-shadow: inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+ }
+
+ .alertify-button-cancel, .alertify-button-cancel:hover, .alertify-button-cancel:focus, .alertify-button-cancel:active {
+     color: #fff;
+     background-color: #d9534f;
+     border-color: #d43f3a;
+ }
+
+ .alertify-button-cancel:hover, .alertify-button-cancel:focus, .alertify-button-cancel:active {
+     color: #ffffff;
+     background-color: #d2322d;
+     border-color: #ac2925;
+ }
+
+ .alertify-button-ok, .alertify-button-ok:hover, .alertify-button-ok:focus, .alertify-button-ok:active {
+     color: #fff;
+     background-color: #6eaa2e;
+     border-color: #679239;
+ }
+
+ .alertify-button-ok:hover, .alertify-button-ok:focus, .alertify-button-ok:active {
+     color: #ffffff;
+     background-color: #47a447;
+     border-color: #398439;
+ }
+
+ .alertify-log {
+     background: #3276b1;
+     padding: 15px 14px 15px;
+     border-radius: 4px;
+     color: #D9EDF7;
+     border: 1px solid #285e8e;
+ }
+
+ .alertify-log-error {
+     color: #ecf0f1;
+     background: #e74c3c;
+     border: 1px solid #c0392b;
+ }
+
+ .alertify-log-success {
+     color: #ecf0f1;
+     background: #27ae60;
+     border: 1px solid #2ecc71;
+ }
+
+ .alertify-button {
+     text-shadow: none !important;
+     box-shadow: none !important;
+     background-image: none !important;
+ }
+
+ .alertify-button-cancel:hover, .alertify-button-cancel:focus, .alertify-button-cancel:active {
+     color: #ffffff;
+     background-color: #d73925;
+     border-color: #d73925;
+ }
+
+ #carousel {
+    margin-top: 1.5em;
+ }
 
 
 .dataset-hide-resource:hover, .dataset-hide-resource:hover:after,.dataset-additional-info:hover, .dataset-additional-info:hover:after{
@@ -360,10 +558,9 @@ hr{
   padding: 1px 3px;
 }
 
-
 .dataset-button span{
   display: inline;
-  margin:10px;
+  margin:8px;
 }
 
 .dataset-button:after{
@@ -546,7 +743,12 @@ hr{
   color: #FFFFFF;
 }
 .dataset-hide-resource:after{
-  display: none;
+  margin: 0 5px 0 5px;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .dataset-quantity{
   font-family: "Chalet-Sixty", "Avenir", "Helvetica, Arial", "sans-serif";
@@ -638,20 +840,10 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
   box-shadow: inset 0 1px 1px #e5e5e5,0 0 8px #e5e5e5 !important;
 }
 
-// .form-control:focus {
-//     border: 1px solid  #DCDCDC;
-//
-//  }
-
 .form-control{
     background-color: #fff;
-    height: 34px;}
-// }
-// .form-control:hover{
-//   box-shadow: 0 3px 8px 0
-//   rgba(0,0,0,0.2),0 0 0 1px
-//   rgba(0,0,0,0.08);
-// }
+    height: 34px;
+}
 
 .footer-ba-logo{
   padding-top: 15px;
@@ -671,10 +863,8 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .home-top-line{
   display: none;
 }
-.icon-download{
-  // left: 160px;
-  // position: absolute;
-  // top: 1px;
+.img-responsive{
+  height: 100%;
 }
 
 .lead{
@@ -761,6 +951,9 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .module .read-more{
   color: $ba-skyblue;
 }
+.nav-autocomplete{
+  cursor: 'pointer';
+}
 .table-loader{
   position: absolute;
   left: 50%;
@@ -811,6 +1004,25 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 }
 .search-form{
   margin-right: 20px;
+}
+
+.spinner {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.spinner:before {
+    background: url('../images/animacion-avatar.gif') center no-repeat;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: -50%;
+    left: -50%;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    content: "";
+    background-size: 45em;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
@@ -896,6 +1108,18 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .odin-branding-text{
   color: #FFFFFF;
 }
+.odin-girl-container {
+  margin-left: 5%;
+  position: fixed;
+  width: 8%;
+  bottom:0;
+  cursor: pointer;
+  z-index: 10;
+}
+.odin-img-girl {
+  width: 80%;
+  z-index: 10;
+}
 
 .popular-list-item-description {
   font-size: 15px;
@@ -911,6 +1135,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 
 .resource-actions .dropdown-menu{
   border: none;
+  margin-left: 10px;
   margin-top: 3px;
 }
 
@@ -1076,43 +1301,35 @@ ul.unstyled{
   // padding: 10px 0px 7px 5px;
 }
 
-ul.unstyled-alt{
+ul.unstyled-alt {
   background: inherit;
-  border-bottom: none;
-}
+  border-bottom: none; }
 
-.widget{
+.widget {
   border: none;
-  border-radius: 20px;
-}
+  border-radius: 20px; }
 
 .widgets-heading {
   border-bottom: none;
   font-size: 30px;
-  display: inline-block;
-}
+  display: inline-block; }
 
-.widgets-first-row img, .widgets-second-row img{
+.widgets-first-row img, .widgets-second-row img {
   margin-left: 15px;
-  width: 40px;
-}
+  width: 40px; }
 
-.widget:last-of-type > img{
-  margin-bottom: 10px;
-}
+.widget:last-of-type > img {
+  margin-bottom: 10px; }
 
-.widget:last-of-type{
-  padding-right: none;
-}
+.widget:last-of-type {
+  padding-right: none; }
 
-.widget-item-footer{
+.widget-item-footer {
   border-bottom: none;
-  padding: 10px 10px;
-}
+  padding: 10px 10px; }
 
-.widget .widget-item{
-  background-color: #FFFFFF;
-}
+.widget .widget-item {
+  background-color: #FFFFFF; }
 
 .widget-item-title {
   color: $ba-skyblue;
@@ -1121,14 +1338,12 @@ ul.unstyled-alt{
   // padding-left: 10px;
 }
 
-.widget-item-title a{
-  min-height: 30px;
-}
+.widget-item-title a {
+  min-height: 30px; }
 
-.widget-item-description{
+.widget-item-description {
   font-weight: 200;
-  padding: 5px 10px;
-}
+  padding: 5px 10px; }
 
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 640px) {
@@ -1140,7 +1355,11 @@ ul.unstyled-alt{
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
         width: 100%; }
 
-  .dataset-download-button { margin-top: -23px;}
+  .dataset-download-button {
+    margin-top: -23px;
+    margin-right: -19px; }
+
+  .dataset-hide-resource { margin-left: -4px; }
 
   .resource-tab { margin-top: 40px;}
 
@@ -1160,22 +1379,22 @@ ul.unstyled-alt{
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
 
-  .category-item:last-child .category-name {
-    margin-left: 75px; }
+  .category-item:last-child .category-name { margin-left: 75px; }
 
   .dataset-additional-info { padding: 6px 10px; }
 
-  .dataset-download-button {
-    margin-top: -23px; }
+  .dataset-download-button { margin-top: -23px; }
 
   .dataset-content {
       position: relative;
       padding: 15px; }
 
   .dataset-additional-info-table.ng-scope.dataset-additional-info-table-active {
-        width: 100%; }
-  .dataset-resources li {
-    margin-left: 4px; }
+        width: 100%;
+        margin-top: 40px;}
+
+  .dataset-resources li { margin-left: 4px; }
+
   .resource-actions { top: 6.8vh; }
 
   .module .pagination { height: 60px }
@@ -1186,7 +1405,6 @@ ul.unstyled-alt{
     font-size: 21px;
     padding-top: 12px;
     vertical-align: baseline; } }
-
 
 /* -----------  Iphone5 fixes ----------- */
 @media (max-width: $min-iph5-portrait) and (max-height: $max-iph5-portrait)  {
@@ -1306,12 +1524,17 @@ ul.unstyled-alt{
     padding: 10px 15px 10px 10px;
 
   }
+  .dropdown.view-resources{
+    margin-right: 0;
+  }
   .dataset-view-info{
+    margin-left: 10px;
     padding-left: 15px;
   }
   .dataset-hide-resource{
     padding-left: 10px;
     padding-right: 10px;
+    margin: 0;
   }
 
   .datasets-counter p{
@@ -1319,7 +1542,7 @@ ul.unstyled-alt{
     font-size: 18px;
     //float: right;
   }
-  
+
   .dataset-counter-text {
     margin-top: 23px;
   }
@@ -1646,8 +1869,12 @@ ul.unstyled-alt{
     margin-left: 15px;
   }
   .description-header{
-    padding-bottom: 10px;
+    //padding-bottom: 10px;
     // margin-left: 15px;
+  }
+
+  .lead-container {
+      padding-bottom: 1px;
   }
 
   .footer-social-networks{

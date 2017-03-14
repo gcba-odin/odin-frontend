@@ -21,7 +21,8 @@
         "matchMedia",
         "hm.readmore",
         "vcRecaptcha",
-        "angularSpinner"
+        "angularSpinner",
+        "Alertify"
     ]);
     app.config(function($routeProvider, $locationProvider, $httpProvider, AuthenticationServiceProvider, $middlewareProvider, ChartJsProvider,vcRecaptchaServiceProvider, usSpinnerConfigProvider) {
 
@@ -36,7 +37,7 @@
         });
 
         usSpinnerConfigProvider.setDefaults({
-            lines: 10,
+            lines: 0,
             length: 40,
             width: 20,
             radius: 49,
@@ -82,6 +83,9 @@
             }).when("/layout/:id/preview", {
                 templateUrl: "views/layout.html",
                 controller: LayoutController
+            }).when("/propose-dataset", {
+                templateUrl: "views/propose-dataset.html",
+                controller: ProposeController
             }).otherwise({
                 redirectTo: '/'
             });
@@ -140,7 +144,7 @@
             }
         };
     });
-
+    app.controller('OdinGirlController', OdinGirlController);
     app.run(run);
 
 
@@ -156,11 +160,12 @@
         $rootScope.isHome = false;
         $rootScope.dataCategories = [];
         $rootScope.dataFiletypes = [];
+        $rootScope.dataTags = [];
+        $rootScope.dataOrgs = [];
         screenSize.rules = {
             any: '(max-width: 767px)'
         };
         $rootScope.isMobile = screenSize.on('any', function(match) {
-          console.log(match);
             $rootScope.isMobile = match;
         });
 

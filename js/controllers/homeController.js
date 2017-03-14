@@ -4,12 +4,6 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     sessionStorage.removeItem('activeCategory');
 
     localStorage.removeItem('currentCategory');
-    sessionStorage.removeItem('tagsAutocomplete');
-    sessionStorage.removeItem('orgsAutocomplete');
-    sessionStorage.removeItem('formatsAutocomplete');
-    sessionStorage.removeItem('selectedTags');
-    sessionStorage.removeItem('selectedOrgs');
-    sessionStorage.removeItem('selectedFormats');
 
     $rootScope.header = "Odin";
     $rootScope.isDatasetView = false;
@@ -17,19 +11,62 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     $rootScope.showLoadingLatest = true;
     $rootScope.showLoadingStarred = true;
 
-    $rootScope.countQuery ++;
-    DatasetListService.getDatasetsCount($scope.params, function(result) {
+    $rootScope.countQuery++;
+    DatasetListService.getDatasetsCount($scope.params, function (result) {
         $rootScope.countDatasets = result.data.count;
-        $rootScope.countQuery --;
-        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+        $rootScope.countQuery--;
+        if ($rootScope.countQuery == 0) {
+            usSpinnerService.stop('spinner');
+        }
     });
 
-    $scope.getHtml = function(html) {
+    $scope.getHtml = function (html) {
         return $sce.trustAsHtml(html);
     };
 
-    $scope.goToUrl = function(url) {
+    $scope.goToUrl = function (url) {
         $filter('slug')(this.item.name);
         window.location = "/dataset/" + $filter('slug')(this.item.id);
     };
 }
+
+function ProposeController($scope, $rootScope, vcRecaptchaService, Alertify) {
+    $rootScope.isHome = false;
+
+    $scope.activeCategory = [];
+    $scope.categories = JSON.parse(sessionStorage.getItem('categories')) || [];
+    $rootScope.dataCategories = $scope.categories;
+
+    recaptchaId = null;
+    $scope.setRecaptchaId = function (widgetId) {
+        recaptchaId = widgetId;
+    };
+
+    $scope.send = function () {
+        if($scope.activeCategory.length == 0) {
+            Alertify.alert('Por favor, seleccioná al menos una categoría.');
+        } else if (!vcRecaptchaService.getResponse(recaptchaId)) {
+            $scope.od_captcha = null;
+            vcRecaptchaService.reload(recaptchaId);
+            Alertify.alert('Por favor, completa el captcha.');
+        } else {
+            Alertify.alert('Al Gobierno Abierto lo construimos todos, ¡Gracias por tu sugerencia!');
+        }
+    };
+
+    $scope.toogleActive = function (slug) {
+        if ($scope.activeCategory.indexOf(slug) === -1) {
+            $scope.activeCategory.push(slug);
+        } else {
+            $scope.activeCategory.splice($scope.activeCategory.indexOf(slug), 1);
+        }
+    };
+}
+;
+
+function OdinGirlController($scope) {
+    $scope.hideGirl = false;
+    $scope.hideOdinGirl = function() {
+        $scope.hideGirl = !$scope.hideGirl;
+    };
+};
