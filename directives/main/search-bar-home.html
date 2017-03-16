@@ -5,7 +5,6 @@
                 <div class="lead-container">
                     <p class="lead">Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.</p>
                 </div>
-                <carousel ng-if='!!isHome && !isMobile'></carousel>
                 <div id="search" class="module-content search-form">
                     <div class="input-group">
                         <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}" onfocus="this.placeholder = ''" name="q" ng-model="query" ng-enter="search()" class="form-control input-md" autocomplete="off"
