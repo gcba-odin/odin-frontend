@@ -12,6 +12,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $rootScope.isDatasetView = true;
     $rootScope.isHome = false;
     $scope.activeCategories = [];
+    $scope.url_api = $rootScope.url;
 
     $scope.type = "datasets";
     $scope.params = {

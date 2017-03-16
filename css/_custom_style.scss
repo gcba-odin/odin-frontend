@@ -641,6 +641,20 @@ hr{
   color: white;
 }
 
+.dataset-download-data {
+    @extend .dataset-button;
+    background-color: #99C25F;
+    margin-left: 1em;
+}
+
+.dataset-download-data:after{
+  content: none;
+}
+
+.dataset-download-data a{
+  color: white;
+}
+
 .dataset-category-icon {
     width: 40px;
     height: 40px;

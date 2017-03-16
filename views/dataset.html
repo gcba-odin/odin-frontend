@@ -33,7 +33,7 @@
                                     <!--<a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">-->{{info.name}}<!--</a>-->
                                 </h3>
 
-                                <div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>
+                                <!--<div class="dataset-latest-update">Fecha de publicación: {{info.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>-->
                                 <div class="dataset-description" ng-bind-html="getHtml(info.description)"></div>
                                 <ul class="dataset-single-tags">
                                     <li ng-repeat="tag in info.tags" style="display:inline" >
@@ -92,6 +92,7 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li class="pull-right dataset-download-data"><a href="{{url_api + '/datasets/' + info.id + '/download'}}" target="_blank"><span data-tooltip="Descargar ZIP">Descargar</span></a></li>
                                     <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
                                 </ul>
                                 <ul class="info-adicional dataset-resources unstyled">
