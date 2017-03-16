@@ -98,10 +98,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.params = $.extend({
             dataset: $scope.info.id,
             //include: 'tags',
-            limit: 5,
+            orderBy: 'name',
+            sort: 'ASC',
+            limit: 8,
             skip: 0,
             limitTable: 15,
-            fields: ['description', 'fileName', 'id', 'layout', 'optionals', 'organization.name', 'name', 'publishedAt', 'type', 'updatedAt', 'url'].join()
+            fields: ['description', 'fileName', 'id', 'layout', 'optionals', 'organization.name', 'name', 'publishedAt', 'type', 'updatedAt', 'url', 'gatheringDate'].join()
         }, LocationSearchService.searchParams());
 
         if (limit) {

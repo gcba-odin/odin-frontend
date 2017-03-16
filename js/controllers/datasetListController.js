@@ -10,12 +10,13 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
     $scope.limit = 20;
 
     $scope.params = {
+        orderBy: 'name',
         sort: 'ASC',
         include: ['categories.id'],//['files', 'tags', 'categories.id'].join(),
-        limit: 5,
+        limit: 8,
         skip: 0,
         'categories.slug': $routeParams['categories.slug'],
-        fields: ['description', 'id', 'name', 'optionals', 'publishedAt'].join()
+        fields: ['description', 'id', 'name', 'optionals', 'publishedAt', 'updatedAt'].join()
     };
 
     var category = rest().get({
