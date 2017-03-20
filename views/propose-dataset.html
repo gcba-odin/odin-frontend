@@ -10,44 +10,42 @@
                     <br><br><br>
                     <section class="center-block">
 
-                        <form id="contactForm" ng-submit="send();">
+                        <form id="proposeForm" ng-submit="send();">
                             <div class="form-group">
                                 <label for="about">¿De qué se trata la información?</label>
                                 <textarea ng-model="about" class="form-control" name="about" id="about" placeholder="" rows="5" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="categories">¿En qué categoría la ubicarías?</label>
-                                <div id="categoriesgrid-container" class="categories-container row">
+                                  <div id="categoriesgrid-container" class="categories-container row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="categories-row-container auxiliar-bar-line">
-                                          <div ng-repeat="category in categories | orderBy: 'name'"  style="display:inline">
-                                            <a ng-href="datasets?categories.slug={{ category.name | slug }}" data-tooltip="{{category.name}}"
-                                            class="arrange-item categories-item categories-row-item"
-                                            style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
-                                            ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#ccc'}"
-                                            ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
+                                            <a data-tooltip="{{category.name}}" ng-click="toogleActive(category.slug, category.id);"
+                                               class="arrange-item categories-item categories-row-item" ng-repeat="category in categories| orderBy: 'name'"
+                                               style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
+                                               ng-style="(activeCategory.indexOf(category.slug) !== -1) || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1) ? {'background-color': category.color} : {'background-color': '#ccc'}"
+                                               ng-class="{active: (activeCategory.indexOf(category.slug) !== -1) || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
                                                 <div ng-if="!!category.image" class="category-image" svg-img="category.image"></div>
-                                                <span ng-show="(category.name | slug) === activeCategory" ng-style="{'background-color': category.color}"
-                                                ng-class="!!category.image ? 'categories-underlined' : 'categories-underlined-push-down'" ></span>
+                                                <span ng-show="(activeCategory.indexOf(category.slug) !== -1)" ng-style="{'background-color': category.color}"
+                                                      ng-class="!!category.image ? 'categories-underlined' : 'categories-underlined-push-down'" ></span>
                                             </a>
-                                          </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="description">Queremos que nos cuentes por qué es importante abrir esta información para poder potenciar tu pedido</label>
-                                <textarea ng-model="comment" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
+                                <textarea ng-model="description" class="form-control" name="description" id="description" placeholder="" rows="5" required></textarea>
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="mail">¡Dejanos tu contacto!</label>
                                 <small>Para poder seguir tu solicitud de forma personalizada te invitamos a que nos dejes un email de contacto</small>
-                                <input ng-model="mail" type="email" class="form-control" name="mail" id="mail" placeholder="Email">
+                                <input ng-model="email" type="email" class="form-control" name="mail" id="mail" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <div class="g-recaptcha" data-sitekey="6Ldn4QsUAAAAAAqW7VwrjFyNCPoBOnb-KpJY4amZ"></div>
-                                <div vc-recaptcha ng-model="vm.od_captcha" on-create="setRecaptchaId(widgetId)"></div>
+                                <div vc-recaptcha ng-model="od_captcha" on-create="setRecaptchaId(widgetId)"></div>
                             </div>
 
                             <button type="submit" class="btn btn-success pull-right">Enviar</button>
