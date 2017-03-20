@@ -798,8 +798,9 @@ hr{
   background: #F1F1F1;
   border-bottom: none;
   margin-bottom: 28px;
-
-
+}
+.dataset-item:hover {
+    background: #e8e8e8;
 }
 .dataset-item-single{
   @extend .dataset-item;
