@@ -30,7 +30,7 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     };
 }
 
-function ProposeController($scope, $rootScope, $timeout, vcRecaptchaService, Alertify) {
+function ProposeController($scope, $rootScope, $timeout, vcRecaptchaService, Alertify, usSpinnerService) {
     $rootScope.isHome = false;
 
     $scope.activeCategory = [];
@@ -63,9 +63,9 @@ function ProposeController($scope, $rootScope, $timeout, vcRecaptchaService, Ale
     };
 
     $timeout(function(){
-      // usSpinnerService.spin('spinner');
+      usSpinnerService.spin('spinner');
       arrangeCategories();
-      // usSpinnerService.stop('spinner');
+      usSpinnerService.stop('spinner');
     });
 }
 ;
