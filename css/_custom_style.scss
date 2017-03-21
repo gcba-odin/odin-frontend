@@ -728,7 +728,7 @@ hr{
   font-family: 'Chalet-Eighty'
 }
 
-.dataset-item:last-of-type{
+.dataset-item:last-of-type, .dataset-item-resource:last-of-type{
   border-bottom: none;
   // padding-bottom: 15px;
   // padding-bottom: 30px;
@@ -814,7 +814,7 @@ hr{
     padding-bottom: 1em;
 }
 
-.dataset-item{
+.dataset-item, .dataset-item-resource{
   background: #F1F1F1;
   border-bottom: none;
   margin-bottom: 28px;
@@ -824,6 +824,9 @@ hr{
 }
 .dataset-item-single{
   @extend .dataset-item;
+  &:hover {
+      background: #F1F1F1;
+  }
   padding-bottom: 30px;
 }
 
@@ -1651,7 +1654,7 @@ ul.unstyled-alt {
     margin-top: 23px;
   }
 
-  .dataset-item:last-of-type{
+  .dataset-item:last-of-type, .dataset-item-resource:last-of-type{
     border-bottom: none;
     // padding-bottom: 30px;
   }
@@ -1663,7 +1666,7 @@ ul.unstyled-alt {
     width: 200px;
   }
 
-  .dataset-item{
+  .dataset-item, .dataset-item-resource{
     background: #F1F1F1;
     border-bottom: none;
     margin-bottom: 28px;
