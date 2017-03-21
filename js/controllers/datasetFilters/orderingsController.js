@@ -48,7 +48,7 @@ function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $
     };
 
 
-    $scope.collapsed = false;
+    $scope.collapsed = !!$scope.collapse || false;
     $scope.toggleCollapse = function() {
         $scope.collapsed = !$scope.collapsed;
     };

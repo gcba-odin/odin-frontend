@@ -4,7 +4,8 @@ angular.module('store-directives-datasets')
         restrict: "E",
         templateUrl: "directives/datasets/order-results.html",
         scope: {
-            filesView: '='
+            filesView: '=',
+            collapse: '='
         },
         controller: 'OrderingsController'
     };

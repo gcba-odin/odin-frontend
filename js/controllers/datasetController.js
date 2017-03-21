@@ -23,6 +23,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
 
     $scope.activeCategory =   localStorage.getItem('currentCategory');
 
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
+
     L.Icon.Default.imagePath = '/images/leaflet/';
 
 
