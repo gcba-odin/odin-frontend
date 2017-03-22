@@ -1,4 +1,7 @@
-  body{
+#category-container{
+  text-align: center;
+}
+body{
   background-color: #F6F6F6;
   overflow-x: hidden;
 }
@@ -1020,7 +1023,7 @@ li.dataset-view-info.ng-scope.dataset-view-info-active{
 .popular-datasets-list{
   background: #FFFFFF;
   border-radius: 10px;
-  padding: 10px 5px;
+  padding: 25px 5px 10px 5px;
 }
 
 .popular-datasets-list-item-bar {
@@ -1559,7 +1562,7 @@ ul.unstyled-alt {
 
   }
   .categories-row-item{
-      margin: 10px;
+      margin: 7px;
       width: 75px;
   }
 
@@ -1606,8 +1609,9 @@ ul.unstyled-alt {
   }
 
   .dataset-counter-container{
-    width: 150px;
+    margin-right: 0.3em;
     float: right;
+    width: 150px;
     // padding-right: 10px;
   }
 
