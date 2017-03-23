@@ -7,7 +7,7 @@ app.factory('model', function ($resource) {
 function CategoryListController($scope, $location, rest, $rootScope, $routeParams, $httpParamSerializer, $log, usSpinnerService) {
     usSpinnerService.spin('spinner');
     $rootScope.countQuery = $rootScope.countQuery + 4;
-    
+
     var cache = {
         categories: {
             cache: false,
@@ -45,6 +45,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     $scope.porcentual = {};
     $scope.totalStatistics = 0;
     $scope.letterLimit = 4;
+
     $scope.hideCategoriesSidebar = function () {
         $rootScope.showBackdrop = false;
         $rootScope.showCategoriesSidebar = false;
@@ -87,7 +88,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
             }
         }
     });
-    
+
     //Tags cache
     $scope.$watch(function () {
         if (!!sessionStorage.getItem('tags')) {
@@ -220,7 +221,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         });
     }
     ;
-    
+
     //Tags cache
     if (!!sessionStorage.getItem('tags')) {
         $rootScope.dataTags = JSON.parse(sessionStorage.getItem('tags'));
@@ -256,7 +257,7 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         });
     }
     ;
-    
+
     //Organizations cache
     if (!!sessionStorage.getItem('organizations')) {
         $rootScope.dataOrgs = JSON.parse(sessionStorage.getItem('organizations'));
@@ -292,6 +293,8 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
         });
     }
     ;
+
+
 }
 
 

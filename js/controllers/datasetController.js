@@ -12,6 +12,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $rootScope.isDatasetView = true;
     $rootScope.isHome = false;
     $scope.activeCategories = [];
+    $scope.url_api = $rootScope.url;
 
     $scope.type = "datasets";
     $scope.params = {
@@ -21,6 +22,8 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     };
 
     $scope.activeCategory =   localStorage.getItem('currentCategory');
+
+    $scope.currentColor = sessionStorage.getItem('currentColor') || '';
 
     L.Icon.Default.imagePath = '/images/leaflet/';
 
@@ -98,10 +101,12 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         $scope.params = $.extend({
             dataset: $scope.info.id,
             //include: 'tags',
-            limit: 5,
+            orderBy: 'name',
+            sort: 'ASC',
+            limit: 8,
             skip: 0,
             limitTable: 15,
-            fields: ['description', 'fileName', 'id', 'layout', 'optionals', 'organization.name', 'name', 'publishedAt', 'type', 'updatedAt', 'url'].join()
+            fields: ['description', 'fileName', 'id', 'layout', 'optionals', 'organization.name', 'name', 'publishedAt', 'type', 'updatedAt', 'url', 'gatheringDate'].join()
         }, LocationSearchService.searchParams());
 
         if (limit) {

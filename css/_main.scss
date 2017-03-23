@@ -8001,12 +8001,12 @@ textarea {
 // }
 
 @media (max-width: 768px) {
-  .dataset-item {
+  .dataset-item, .dataset-item-resource {
     word-wrap: break-word;
   }
 }
 
-.dataset-item:last-of-type {
+.dataset-item:last-of-type, .dataset-item-resource:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
   // padding-bottom: 0;

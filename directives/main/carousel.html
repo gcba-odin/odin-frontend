@@ -1,24 +1,32 @@
-<div id="carousel" class="">
-    <div class="col-lg-7 col-md-7">
-        <iframe ng-if="coverType=='video' && !!coverSrc" src="{{coverSrc}}" class="embed-responsive-item" style="height:315px !important; width: 100% !important"></iframe>
-        <img ng-if="coverType=='image' && !!coverSrc" ng-src="{{coverSrc}}" width="100%" height="315px" style="background-color:black">
-    </div>
-    <div class="col-xs-5">
+<div class="search-bar-home">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <p style="font-size: 15px;"><span style="font-weight:normal; font-size: 15px;">Abrimos gráficos, mapas y bases de datos de gobierno, para incentivar la investigación, el trabajo en equipo y el desarrollo económico y social de la ciudad.</span> Todos los datos son
-                    tuyos.
-                </p>
-            </div>
-        </div>
-        <div class="owl-carousel owl-theme carousel-container">
-            <div class="carousel-item carousel-video">
-                <img class="img-responsive" style="background: url(images/tumbnails-01.jpg) no-repeat center; background-size: 100%;" ng-click="changeCover('https://www.youtube.com/embed/JpxsRwnRwCQ','video')">
-                <div class="owl-video-play-icon" ng-click="changeCover('https://www.youtube.com/embed/JpxsRwnRwCQ','video')"></div>
-            </div>
-            <div class="carousel-item carousel-video"><img class="img-responsive" style="background: url(images/tumbnails-02.jpg) no-repeat center; background-size: 100%;" ng-click="changeCover('https://www.youtube.com/embed/JpxsRwnRwCQ','video')">
-                <div class="owl-video-play-icon" ng-click="changeCover('https://www.youtube.com/embed/JpxsRwnRwCQ','video')"></div>
-            </div>
+            <section class="col-lg-10 col-lg-offset-1 search-bar search-bar-home">
+                <div id="carousel" class="">
+                    <div class="col-xs-5">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p style="font-size: 15px;"><span style="font-weight:normal; font-size: 15px;">Abrimos gráficos, mapas y bases de datos de gobierno, para incentivar la investigación, el trabajo en equipo y el desarrollo económico y social de la ciudad.</span> Todos los datos son
+                                    tuyos.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="owl-carousel owl-theme carousel-container">
+                            <div class="carousel-item carousel-video">
+                                <img class="img-responsive" style="background: url(images/tumbnails-01.jpg) no-repeat center; background-size: 100%;" ng-click="changeCover('https://www.youtube.com/embed/2lyFmfKa4j8', 'video')">
+                                <div class="owl-video-play-icon" ng-click="changeCover('https://www.youtube.com/embed/2lyFmfKa4j8', 'video')"></div>
+                            </div>
+                            <div class="carousel-item carousel-video"><img class="img-responsive" style="background: url(images/tumbnails-02.jpg) no-repeat center; background-size: 100%;" ng-click="changeCover('https://www.youtube.com/embed/WO4JUqkrX9Y', 'video')">
+                                <div class="owl-video-play-icon" ng-click="changeCover('https://www.youtube.com/embed/WO4JUqkrX9Y', 'video')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                        <iframe ng-if="coverType == 'video' && !!coverSrc" src="{{coverSrc}}" class="embed-responsive-item" style="height:315px !important; width: 100% !important"></iframe>
+                        <img ng-if="coverType == 'image' && !!coverSrc" ng-src="{{coverSrc}}" width="100%" height="315px" style="background-color:black">
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>

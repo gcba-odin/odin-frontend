@@ -460,20 +460,22 @@
             controller: SearchDatasetsController,
             link: function() {
                 $('.owl-carousel').owlCarousel({
-                    // loop: true,
+                     loop: true,
                     margin: 25,
-                    // autoplay: true,
-                    // autoplayTimeout: 3000,
-                    // autoplayHoverPause: true,
+                    
+                    
+                    autoplay: true,
+                     autoplayTimeout: 3000,
+                     autoplayHoverPause: true,
                     // nav:true,
-                    // merge:true,
+                     merge:true,
                     video: true,
                     lazyLoad: true,
                     items: 2,
                     //center:true,
-                    navText: ['anterior', 'siguiente'],
-                    dots: false,
-                    // nav:true,
+                    //navText: ['anterior', 'siguiente'],
+                    dots: true,
+                    nav:false,
                     responsive: {
                         0: {
                             items: 2

@@ -1,22 +1,17 @@
 <div class="categories-container col-lg-offset-1">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
+  <div id="categoriesgrid-container"  class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
     <div class="categories-row-container auxiliar-bar-line">
+      <div ng-repeat="category in categories | orderBy: 'name'"  style="display:inline">
         <a ng-href="datasets?categories.slug={{ category.name | slug }}" data-tooltip="{{category.name}}"
-        class="categories-item categories-row-item" ng-repeat="category in categories | orderBy: 'name'"
+        class="arrange-item categories-item categories-row-item"
         style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
         ng-style="(category.name | slug) === activeCategory || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1 )  ? {'background-color': category.color} : {'background-color':'#ccc'}"
         ng-class="{active: (category.name | slug) === activeCategory || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
             <div ng-if="!!category.image" class="category-image" svg-img="category.image"></div>
             <span ng-show="(category.name | slug) === activeCategory" ng-style="{'background-color': category.color}"
             ng-class="!!category.image ? 'categories-underlined' : 'categories-underlined-push-down'" ></span>
-          <!-- <h4 class="categories-item-title categories-row-item-title small-categories-item-title">{{category.name}}</h4> -->
         </a>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- TODO replace with a better loader
-<div class="row center-spin" ng-if="showCategories">
-    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-</div>
--->
