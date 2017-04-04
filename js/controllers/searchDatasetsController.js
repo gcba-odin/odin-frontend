@@ -1,6 +1,6 @@
 function SearchDatasetsController($scope, $element, $rootScope, $location, LocationSearchService, $sce) {
     $rootScope.query = sessionStorage.getItem('query') || '';
-    $scope.coverSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/2lyFmfKa4j8')
+    $scope.coverSrc = $sce.trustAsResourceUrl('https://www.youtube.com/embed/zUOnny7_iAo')
     $scope.coverType = 'video'
 
     $scope.search = function() {

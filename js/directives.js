@@ -471,7 +471,7 @@
                      merge:true,
                     video: true,
                     lazyLoad: true,
-                    items: 2,
+                    //items: 2,
                     //center:true,
                     //navText: ['anterior', 'siguiente'],
                     dots: true,
