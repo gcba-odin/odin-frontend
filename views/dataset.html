@@ -66,56 +66,7 @@
                                 </ul>
                             </div>
                             <div class="dataset-single-tags-footer">
-                                <ul class="dataset-resources unstyled">
-                                    <li class="pull-left filter-group" ng-if="!!isMobile">
-                                        <div class="filter-item filter-share-item" ng-click="toggleFilterGroup('socials')">
-                                            <div class="filter-icon">
-                                                <i class="fa fa-share-alt"></i>
-                                            </div>
-                                            <div class="filter-name filter-share-name">Compartir</div>
-                                        </div>
-                                        <ul class="filter-options" ng-show="filterGroups['socials']"
-                                            ng-controller="SocialsController"
-                                            >
-                                            <li class="nav-item">
-                                                <a href
-                                                   socialshare
-                                                   socialshare-provider="facebook"
-                                                   socialshare-text="{{dataset.name}}"
-                                                   socialshare-description="{{dataset.name}}"
-                                                   socialshare-url="{{shareUrl}}">
-                                                    <i class="fa fa-facebook-square" style="color: #3b5998"></i> Facebook
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href
-                                                   socialshare
-                                                   socialshare-provider="twitter"
-                                                   socialshare-text="{{dataset.name}}"
-                                                   socialshare-url="{{shareUrl}}">
-                                                    <i class="fa fa-twitter-square" style="color: #2ba9e1"></i> Twitter
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href
-                                                   socialshare
-                                                   socialshare-provider="pinterest"
-                                                   socialshare-text="{{dataset.name}}"
-                                                   socialshare-url="{{shareUrl}}">
-                                                    <i class="fa fa-pinterest-square" style="color: #cb2027"></i> Pinterest
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href
-                                                   socialshare
-                                                   socialshare-provider="linkedin"
-                                                   socialshare-text="{{dataset.name}}"
-                                                   socialshare-url="{{shareUrl}}">
-                                                    <i class="fa fa-linkedin-square" style="color: #007bb6"></i> Linkedin
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <ul class="dataset-resources unstyled">  
                                     <li class="pull-right dataset-download-data"><a href="{{url_api + '/datasets/' + info.id + '/download'}}" target="_blank"><span data-tooltip="Descargar ZIP">Descargar</span></a></li>
                                     <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
                                 </ul>
@@ -167,8 +118,8 @@
                         </section>
                     </div>
                     <div class="col-lg-9 col-lg-offset-2 text-center">
-                        <paging page="page" page-size="params.limit" total="countResources" 
-                                paging-action="pagingAll('pageClick', page, pageSize, total)" 
+                        <paging page="page" page-size="params.limit" total="countResources"
+                                paging-action="pagingAll('pageClick', page, pageSize, total)"
                                 hide-if-empty="true" show-prev-next="!isMobile" show-first-last="!isMobile"
                                 adjacent="{{!!isMobile ? '1' : '2'}}"
                                 text-title-page="Página {page}"
