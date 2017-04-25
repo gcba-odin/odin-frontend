@@ -17,7 +17,7 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usS
             params: "groupBy=category&action=download"
         }, function (statistics) {
 
-        // TODO: recieve total from API
+        // TODO: recieve total from API odin
             for (element in statistics.data) {
                 $scope.totalStatistics += statistics.data[element].count.GET;
             }
