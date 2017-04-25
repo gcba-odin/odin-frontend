@@ -31,7 +31,7 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
 }
 
 
-function ProposeController($scope, $rootScope, $timeout, vcRecaptchaService, Alertify, usSpinnerService) {
+function ProposeController($scope, $rootScope, $timeout, vcRecaptchaService, Alertify, usSpinnerService, rest, $location) {
     $rootScope.isHome = false;
 
     $scope.activeCategory = [];

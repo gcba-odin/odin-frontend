@@ -755,6 +755,7 @@ hr{
   // margin-left: 5px;
   margin-bottom: 10px;
   margin-top: 10px;
+  padding-left: 0px;
 
 }
 
@@ -799,7 +800,7 @@ hr{
 
 .svg-filetype {
     padding-right: 1.4em;
-        
+
     .svg-filetype-svg {
         float: left;
         width: 1.7em;
@@ -1416,11 +1417,11 @@ ul.unstyled-alt {
     margin-top: -23px;
     margin-right: -19px; }
 
-  .dataset-hide-resource { margin-left: -4px; }
+  .dataset-hide-resource { margin-right: -4px; }
 
   .resource-tab { margin-top: 40px;}
 
-  .resource-actions { right: inherit; top: inherit;}
+  .resource-actions { right: 28%; top: inherit;}
 
   .popular-datasets-list { padding: 10px 12px; }
 
@@ -1452,7 +1453,9 @@ ul.unstyled-alt {
 
   .dataset-resources li { margin-left: 4px; }
 
-  .resource-actions { top: 6.8vh; }
+  .resource-actions {
+    top: 1vh;
+    right: 36%; }
 
   .module .pagination { height: 60px }
 
@@ -1477,8 +1480,10 @@ ul.unstyled-alt {
 
   .dataset-resources li {
     margin-left: 4px; }
+
   .text-auxiliar-bar:first-of-type {
     width: 100%; }
+
   .popular-list-item-description {
     width: 0px;
     font-size: 10px; }
@@ -1491,7 +1496,14 @@ ul.unstyled-alt {
     margin-left: 15px;
     padding: 0; }
 
-  .resource-tab li a { margin-right: 8px; padding: 4px 25px; margin-top: 10px; }
+  .resource-actions {
+    right: 15%;
+    top: inherit; }
+
+  .resource-tab li a {
+    margin-right: 8px;
+    padding: 4px 25px;
+    margin-top: 10px; }
 
   .widget > h2 {
     font-size: 18px; }
@@ -1682,25 +1694,25 @@ ul.unstyled-alt {
     margin-top: -5px;*/
 padding-bottom: 3em;
     padding-top: 2em;
-    
+
     .secondary {
         .filters {
             margin-top: 0;
         }
     }
   }
-  
-  
+
+
   .div-socialshare {
         //margin-right: 5px;
         padding-top: .5em;
-        
+
         a {
             font-size: 1.5em;
             padding: .3em;
         }
   }
-  
+
   .resource-actions .dropdown {
       margin-left: 1em;
   }
