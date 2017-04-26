@@ -1,6 +1,6 @@
 function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usSpinnerService) {
-    usSpinnerService.spin('spinner');
-    $rootScope.countQuery ++;
+    // usSpinnerService.spin('spinner');
+    // $rootScope.countQuery ++;
     $scope.showPopularCategories = false;
     $scope.totalStatistics = 0;
     $scope.letterLimit = 4;
@@ -33,12 +33,12 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usS
             });
 
             $scope.showPopularCategories = true;
-            $rootScope.countQuery --;
-            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+            // $rootScope.countQuery --;
+            // if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         }, function (error) {
             $scope.showPopularCategories = true;
-            $rootScope.countQuery --;
-            if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
+            // $rootScope.countQuery --;
+            // if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
         });
     };
 
