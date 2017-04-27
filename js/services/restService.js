@@ -28,7 +28,7 @@ angular.module('store-factories')
                 interceptor: {responseError: handError}
             },
             statistics: {
-                url: $url + "/statistics?:params",
+                url: $url + "/statistics/downloads?:params",
                 method: 'GET',
                 // headers: {'Authorization': 'Bearer ' + token},
                 transformResponse: function(data) {
