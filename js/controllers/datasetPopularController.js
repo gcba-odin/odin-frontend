@@ -2,7 +2,7 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usS
     // usSpinnerService.spin('spinner');
     // $rootScope.countQuery ++;
     $scope.showPopularCategories = false;
-    $scope.totalStatistics = 0;
+    //$scope.totalStatistics = 0;
     $scope.letterLimit = 4;
     $scope.hideCategoriesSidebar = function () {
         $rootScope.showBackdrop = false;
@@ -13,18 +13,19 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usS
 
     var loadPorcentual = function (categories) {
         rest().statistics({
-            type: "datasets",
-            params: "groupBy=category&action=download"
+            type: "metrics"
         }, function (statistics) {
-
+          console.log(statistics);
         // TODO: recieve total from API
-            for (element in statistics.data) {
-                $scope.totalStatistics += statistics.data[element].count.GET;
-            }
+            // for (element in statistics.data) {
+            //     $scope.totalStatistics += element.count;
+            // }
 
             for (var i = 0; i < categories.length; i++) {
               if (!!statistics.data[categories[i].id]) {
-                categories[i]['porcentaje'] = statistics.data[categories[i].id].count.GET * 100 / $scope.totalStatistics;
+                categories[i]['porcentaje'] = statistics.data[categories[i].id] * 100 / statistics.data.total;
+              } else {
+                categories[i]['porcentaje'] = 0;
               }
             }
 
