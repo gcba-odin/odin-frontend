@@ -3,6 +3,7 @@
         "ngRoute",
         "odin.config",
         "odin.version",
+        "odin.customdefaults",
         "ngResource",
         "ngProgress",
         "odin.controllers",
@@ -148,12 +149,13 @@
     app.run(run);
 
 
-    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize, odin_version) {
+    function run($rootScope, $location, $http, $window, EnvironmentConfig, BaseHTML5, screenSize, odin_version, customdefaults) {
         $rootScope.url = EnvironmentConfig.api;
         $rootScope.odin_version = EnvironmentConfig.odin_version;
         $rootScope.absUrl = $location.absUrl();
         $rootScope.baseHtml5 = BaseHTML5.url;
         $rootScope.odin_version = odin_version;
+        $rootScope.custom_defaults = customdefaults;
         $rootScope.query = "";
         $rootScope.countQuery = 0;
         $rootScope.countFilter = 0;
@@ -173,5 +175,7 @@
             $window.ga('send', 'pageview', $location.path());
             window.scrollTo(0, 0);
         });
+
+        console.log($rootScope.custom_defaults);
     }
 })();

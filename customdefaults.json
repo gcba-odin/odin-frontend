@@ -1,0 +1,89 @@
+{
+  "customdefaults": {
+    "bodyColor": "",
+    "hrHeader": "#fdd306",
+    "titleOdin": {
+      "text": "Buenos Aires Data",
+      "color": "#4D4D4D"
+    },
+    "descriptionOdin": {
+      "text": "Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.",
+      "color": "#4D4D4D"
+    },
+    "logoOdin": "../images/BAlogoHeaderMobile.svg",
+    "completeCatalog": {
+      "backgroundColor": "#fdd306",
+      "color": "#5f4600"
+    },
+    "categoriesContainer": "#ccc",
+    "homeSectionTitle": {
+      "textColor": "#19c3e3",
+      "iconColor": "#00b3e3"
+    },
+    "downloads": {
+      "icon": "#19c3e3",
+      "button": {
+        "backgroundColor": "#99C25F",
+        "color": "#FFF"
+      }
+    },
+    "datasets": {
+      "container": {
+        "backgroundColor": "#6d6e70",
+        "color": "#3E4F5E"
+      },
+      "home": {
+        "backgroundColor": "#b3b3b3",
+        "color": "#19c3e3"
+      }
+    },
+    "filetypes": {
+      "backgroundColor": "#999",
+      "color": "#fff"
+    },
+    "resources": {
+      "backgroundColor": "#6d6e70",
+      "color": "#3E4F5E",
+      "filetypeColor": "#3E4F5E",
+      "viewResources": {
+        "backgroundColor": "#19c3e3",
+        "color": "#fff"
+      }
+    },
+    "layoutButton": {
+      "backgroundColor": "#19c3e3",
+      "color": "#fff"
+    },
+    "footerOdin": {
+      "backgroundColor": "#363636",
+      "color": "#fff",
+      "logo": "../images/ba-logo-01.svg"
+    },
+    "viewMoreLink": "#19c3e3",
+    "searchbarText": "#19c3e3",
+    "additionalInfo": {
+      "backgroundColor": "#fff",
+      "color": "#4D4D4D"
+    },
+    "paginator": {
+      "backgroundColor": "#fff",
+      "color": "#19c3e3",
+      "active": {
+        "backgroundColor": "#19c3e3",
+        "color": "#fff"
+      }
+    },
+    "filters": {
+      "backgroundColor": "#19c3e3",
+      "color": "#fff"
+    },
+    "tooltips": {
+      "backgroundColor": "#19c3e3",
+      "color": "#fff"
+    },
+    "fonts": "",
+    "breadcrumb": {
+      "color": "#999"
+    }
+  }
+}

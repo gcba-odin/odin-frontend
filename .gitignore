@@ -41,6 +41,7 @@ js/config.js
 js/templates.js
 dist/
 js/version.js
+js/customdefaults.js
 
 # OS X
 .DS_STORE
