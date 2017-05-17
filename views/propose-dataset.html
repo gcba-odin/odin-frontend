@@ -1,4 +1,4 @@
-<div role="main">
+<div role="main" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
     <div id="content" class="container">
         <section class="row">
             <div class="col-xs-12 col-lg-10 col-lg-offset-1 text-justify">
@@ -17,13 +17,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="categories">¿En qué categoría la ubicarías?</label>
-                                  <div id="categoriesgrid-container" class="categories-container row">
+                                  <div id="categoriesgrid-container" class="categories-container row" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="categories-row-container auxiliar-bar-line">
                                             <a data-tooltip="{{category.name}}" ng-click="toogleActive(category.slug, category.id);"
                                                class="arrange-item categories-item categories-row-item" ng-repeat="category in categories| orderBy: 'name'"
                                                style="background:#E5E5E5" ng-mouseover="hoverActive = true" ng-mouseleave="hoverActive = false"
-                                               ng-style="(activeCategory.indexOf(category.slug) !== -1) || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1) ? {'background-color': category.color} : {'background-color': '#ccc'}"
+                                               ng-style="(activeCategory.indexOf(category.slug) !== -1) || (hoverActive && category.color !== 'null' && category.color !== '' && category.color.indexOf('#') !== -1) ? {'background-color': category.color} : {'background-color': custom_defaults.categoriesContainer || '#ccc'}"
                                                ng-class="{active: (activeCategory.indexOf(category.slug) !== -1) || (activeCategories && activeCategories.indexOf(category.name) !== -1)}">
                                                 <div ng-if="!!category.image" class="category-image" svg-img="category.image"></div>
                                                 <span ng-show="(activeCategory.indexOf(category.slug) !== -1)" ng-style="{'background-color': category.color}"

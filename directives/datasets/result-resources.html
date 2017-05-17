@@ -1,7 +1,7 @@
 <div class="dataset-list unstyled">
     <div class="dataset-resources-heading col-md-8 col-xs-12">
         <img src="images/recursos.svg" alt="" />
-        <h2 class="list-heading">Recursos y descargas</h2>
+        <h2 class="list-heading" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Recursos y descargas</h2>
     </div>
     <div class="dataset-resources-heading col-md-4 col-xs-12 pull-right" style="width: 18em;">
         <aside class="secondary" ng-if="!isMobile">
@@ -15,10 +15,10 @@
     <div class="table-loader" ng-show="showLoader">
         <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
     </div>
-    <div ng-show="!showLoader" class="dataset-item-resource clearfix" ng-repeat="resource in files" ng-if="resource.layout == false || resource.layout == null">
+    <div ng-show="!showLoader" class="dataset-item-resource clearfix" ng-style="{ 'background-color': custom_defaults.resources.backgroundColor || '' }" ng-repeat="resource in files" ng-if="resource.layout == false || resource.layout == null">
         <div class="dataset-content">
             <div class="row">
-                <h3 class="dataset-heading col-md-10 col-xs-12">
+                <h3 class="dataset-heading col-md-10 col-xs-12" ng-style="{ 'color': custom_defaults.resources.color || '' }">
                     {{resource.name}}
                 </h3>
                 <div class="dataset-resources unstyled col-md-2 col-xs-12">
@@ -100,7 +100,7 @@
                             <div class="resource-actions col-md-6 col-xs-12">
                                 <div class="pull-right dropdown no-hover">
                                     <a href class="view-resources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <div class="dataset-download-button">
+                                        <div class="dataset-download-button" ng-style="{ 'background-color': custom_defaults.downloads.button.backgroundColor || '', 'color': custom_defaults.downloads.button.color || '' }">
                                             <span>Descargar</span>
                                         </div>
                                     </a>

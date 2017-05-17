@@ -4,9 +4,11 @@ angular.module('odin.controllers')
 function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $routeParams) {
     LocationSearchService.init();
     var filterName = 'orderBy';
-    
+
+    $scope.custom_defaults = $rootScope.custom_defaults;
+
     $scope.currentColor = sessionStorage.getItem('currentColor') || '';
-    
+
     $scope.orderings = [
         {
             name: 'Nombre',

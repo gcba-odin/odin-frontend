@@ -1,10 +1,10 @@
-<footer class="site-footer">
+<footer class="site-footer" ng-style="{ 'background-color': custom_defaults.footerOdin.backgroundColor || '', 'color': custom_defaults.footerOdin.color || '' }">
     <div class="container">
         <div class="row">
             <div class="col-xs-6 col-lg-6 col-lg-offset-1">
 
                 <div class="footer-ba-logo">
-                    <img src="../images/ba-logo-01.svg" alt="BA-Logo" />
+                    <img src="{{custom_defaults.footerOdin.logo}}" alt="BA-Logo" />
                 </div>
                 <div class="footer-social-networks" ng-hide="!!layout_preview">
 

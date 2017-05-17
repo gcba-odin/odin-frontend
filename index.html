@@ -61,7 +61,7 @@
 
 </head>
 
-<body id="gapi-auth">
+<body id="gapi-auth" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
     <div class="row" ng-if="!isMobile" ng-controller="OdinGirlController" ng-show="!hideGirl">
           <div class="odin-girl-container" data-tooltip="¿Qué dataset te gustaría sumar al portal?">
               <i ng-click="hideOdinGirl();" class="fa fa-times" aria-hidden="true" style="display: block;"></i>
@@ -69,7 +69,7 @@
           </div>
     </div>
 
-    <hr class="home-top-line">
+    <hr class="home-top-line" ng-style="{'background-color': custom_defaults.hrHeader || '' }">
     <navbar></navbar>
     <branding-data></branding-data>
     <backdrop></backdrop>

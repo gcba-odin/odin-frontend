@@ -6,9 +6,11 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
     $rootScope.countQuery ++;
     var filterName = 'tags.slug';
     var tagsAutocomplete;
-    
+
+    $scope.custom_defaults = $rootScope.custom_defaults;
+
     var tags_cache = JSON.parse(sessionStorage.getItem('tags'));
-    
+
     if(LocationSearchService.isSet(filterName) == 0) {
         sessionStorage.removeItem('selectedTags');
         sessionStorage.removeItem('tagsAutocomplete');
@@ -50,7 +52,7 @@ function TagsController($rootScope, $scope, $filter, rest, LocationSearchService
             if ($filter('filter')($scope.tags, {active: true})[0] !== undefined) {
               $scope.collapsed=false;
             }
-            
+
             $rootScope.countQuery --;
             if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
 //        }, function() {

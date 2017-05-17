@@ -1,7 +1,7 @@
 <!-- <ul class="dataset-list unstyled"> -->
 <!-- <div class="dataset-list unstyled"> -->
 <!-- <li class="dataset-item clearfix" ng-repeat="result in datasets | orderBy:'-downloads'"> -->
-<div class="dataset-item" ng-repeat="result in datasets| orderBy:'-downloads'">
+<div class="dataset-item" ng-repeat="result in datasets| orderBy:'-downloads'" ng-style="{ 'background-color': custom_defaults.datasets.container.backgroundColor || '' }">
     <a ng-href="dataset/{{result.name| slug}}">
         <div class="dataset-content">
             <div class="container-resource-categories">
@@ -9,7 +9,7 @@
 
                 <!--<div class="dataset-latest-update-special">Fecha de publicación: {{result.publishedAt| amDateFormat:'DD/MM/YYYY'}}<span class="dataset-latest-update-date"></span></div>-->
             </div>
-            <h3 class="dataset-heading">
+            <h3 class="dataset-heading" ng-style="{ 'color': custom_defaults.datasets.container.color || '' }">
               {{result.name}}
             <!-- <a ng-href="dataset/{{result.name| slug}}" ng-title="{{result.name}}">{{result.name}}</a> -->
         </h3>

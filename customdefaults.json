@@ -29,11 +29,11 @@
     },
     "datasets": {
       "container": {
-        "backgroundColor": "#6d6e70",
+        "backgroundColor": "#FFF",
         "color": "#3E4F5E"
       },
       "home": {
-        "backgroundColor": "#b3b3b3",
+        "backgroundColor": "#FFF",
         "color": "#19c3e3"
       }
     },

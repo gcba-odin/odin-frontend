@@ -4,9 +4,11 @@ angular.module('odin.controllers')
 function OrganizationsController($rootScope, $scope, $routeParams, LocationSearchService, DatasetListService, rest, $filter) {
     var filterName = 'files.organization';
     var orgsAutocomplete;
-    
+
+    $scope.custom_defaults = $rootScope.custom_defaults;
+
     var organizations_cache = JSON.parse(sessionStorage.getItem('organizations'));
-    
+
     if(LocationSearchService.isSet(filterName) == 0) {
         sessionStorage.removeItem('selectedOrgs');
         sessionStorage.getItem('orgsAutocomplete');

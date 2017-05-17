@@ -1,13 +1,13 @@
-<div class="search-bar-home">
+<div class="search-bar-home" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
     <div class="container">
         <div class="row">
-            <section class="col-lg-10 col-lg-offset-1 search-bar search-bar-home">
+            <section class="col-lg-10 col-lg-offset-1 search-bar search-bar-home" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
                 <div id="search" class="module-content search-form">
                     <div class="input-group">
-                        <input id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}" onfocus="this.placeholder = ''" name="q" ng-model="query" ng-enter="search()" class="form-control input-md" autocomplete="off"
+                        <input ng-style="{ 'color': custom_defaults.searchbarText || '' }" id="search-input" placeholder="{{!!countDatasets ? 'Buscá entre los ' + countDatasets + ' datasets' : 'Buscá entre los datasets'}}" onfocus="this.placeholder = ''" name="q" ng-model="query" ng-enter="search()" class="form-control input-md" autocomplete="off"
                             spellcheck="false" autocorrect="off" tabindex="1" value="{{query}}">
                             <div class="input-group-btn">
-                                <button type="button" ng-click="search()" class="btn btn-default"><i class="fa fa-search icon-search"></i></button>
+                                <button type="button" ng-click="search()" class="btn btn-default" ng-style="{ 'color': custom_defaults.searchbarText || '' }"><i class="fa fa-search icon-search"></i></button>
                             </div>
                     </div>
                     <a id="search-clear" href="#" class="fa fa-times-circle hide" aria-hidden="true"><span class="sr-only">Clear search</span></a>

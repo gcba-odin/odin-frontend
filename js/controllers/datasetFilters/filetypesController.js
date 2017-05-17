@@ -4,7 +4,9 @@ angular.module('odin.controllers')
 function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, LocationSearchService, DatasetListService) {
     var filterName = 'files.type';
     var formatsAutocomplete;
-    
+
+    $scope.custom_defaults = $rootScope.custom_defaults;
+
     var filetypes_cache = JSON.parse(sessionStorage.getItem('filetypes'));
 
     if(LocationSearchService.isSet(filterName) == 0) {
@@ -17,7 +19,7 @@ function FiletypesController($filter, $routeParams, $rootScope, $scope, rest, Lo
     $scope.lessThanLimit;
     $scope.fileTypesCount = {};
 
-    
+
     $scope.formatNames = [];
 
     $scope.collapsed = true;

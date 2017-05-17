@@ -1,4 +1,4 @@
 <li ng-if="divLi">
-    <span class="{{divClass}}" data-format="{{fileType.name | lowercase}}">{{fileType.name | uppercase}}</span>
+    <span class="{{divClass}}" data-format="{{fileType.name | lowercase}}" ng-style="{ 'background-color': custom_defaults.filetypes.backgroundColor || '', 'color': custom_defaults.filetypes.color || '' }">{{fileType.name | uppercase}}</span>
 </li>
-<span ng-if="!divLi" class="{{divClass}}" data-format="{{fileType.name | lowercase}}">{{fileType.name | uppercase}}</span>
+<span ng-if="!divLi" class="{{divClass}}" data-format="{{fileType.name | lowercase}}" ng-style="{ 'background-color': custom_defaults.filetypes.backgroundColor || '', 'color': custom_defaults.filetypes.color || '' }">{{fileType.name | uppercase}}</span>

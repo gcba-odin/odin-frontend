@@ -8,8 +8,9 @@ angular.module('store-directives-datasets')
             divLi: '=infoLi',
             divClass: '@infoClass'
         },
-        controller: function($scope, $filter) {
+        controller: function($scope, $filter, $rootScope) {
             $scope.fileType = $filter('searchFiletype')($scope.fileType);
+            $scope.custom_defaults = $rootScope.custom_defaults;
         }
     };
 });
