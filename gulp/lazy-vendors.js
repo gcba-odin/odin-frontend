@@ -49,9 +49,9 @@ gulp.task('lazy-contact', function() {
 
 gulp.task('lazy-layout', function() {
   return gulp.src([
-      'plugins/pdf/pdf.js',
-      'plugins/pdf/pdf.worker.js',
-      'plugins/pdf/pdf.compatibility.js',
+      // 'plugins/pdf/pdf.js',
+      // 'plugins/pdf/pdf.worker.js',
+      // 'plugins/pdf/pdf.compatibility.js',
       'node_modules/angular-pdf/dist/angular-pdf.min.js'
     ])
     .pipe(plumber())

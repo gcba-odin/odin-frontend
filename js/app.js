@@ -48,13 +48,9 @@
             {
               name:"lazy-layout",
               files: [
-                "lazy-layout.min.js"
-              ],
-            }
-            ,
-            {
-              name:"lazy-layout",
-              files: [
+                "plugins/pdf/pdf.js",
+                // "plugins/pdf/pdf.worker.js",
+                // "plugins/pdf/pdf.compatibility.js",
                 "lazy-layout.min.js"
               ],
             },
