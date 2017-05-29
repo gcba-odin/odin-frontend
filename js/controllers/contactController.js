@@ -1,4 +1,8 @@
-function contactController($scope, $http, vcRecaptchaService, EnvironmentConfig,  $rootScope, Alertify) {
+angular.module('odin')
+
+.controller('ContactController', ContactController);
+
+function ContactController($scope, $http, vcRecaptchaService, EnvironmentConfig,  $rootScope, Alertify) {
     $rootScope.isHome = true;
     recaptchaId = null;
     $scope.setRecaptchaId = function (widgetId) {

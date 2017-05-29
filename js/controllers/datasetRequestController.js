@@ -1,41 +1,69 @@
 angular.module('odin')
 
-.controller('controllerHome', controllerHome);
+.controller('DatasetRequestController', DatasetRequestController);
 
-function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService, usSpinnerService) {
-    usSpinnerService.spin('spinner');
-    sessionStorage.removeItem('query');
-    sessionStorage.removeItem('activeCategory');
+function DatasetRequestController($scope, $rootScope, $timeout, vcRecaptchaService, Alertify, usSpinnerService, rest, $location) {
+    $rootScope.isHome = false;
 
-    localStorage.removeItem('currentCategory');
+    $scope.activeCategory = [];
+    $scope.categories = JSON.parse(sessionStorage.getItem('categories')) || [];
+    $rootScope.dataCategories = $scope.categories;
+    var categories_send = [];
 
-    $rootScope.header = "Odin";
-    $rootScope.isDatasetView = false;
-    $rootScope.isHome = true;
-    $rootScope.showLoadingLatest = true;
-    $rootScope.showLoadingStarred = true;
+    recaptchaId = null;
+    $scope.setRecaptchaId = function (widgetId) {
+        recaptchaId = widgetId;
+    };
 
-    $rootScope.countQuery++;
-    DatasetListService.getDatasetsCount($scope.params, function (result) {
-        $rootScope.countDatasets = result.data.count;
-        $rootScope.countQuery--;
-        if ($rootScope.countQuery == 0) {
-            usSpinnerService.stop('spinner');
+    $scope.send = function () {
+        if ($scope.activeCategory.length == 0) {
+            Alertify.alert('Por favor, seleccioná al menos una categoría.');
+        } else if (!vcRecaptchaService.getResponse(recaptchaId)) {
+            $scope.od_captcha = null;
+            vcRecaptchaService.reload(recaptchaId);
+            Alertify.alert('Por favor, completa el captcha.');
+        } else if (!$scope.about || $scope.about == '' || !$scope.description || $scope.description == ''){
+            Alertify.alert('Hay campos sin completar.');
+        } else {
+            var data = {
+                about: $scope.about,
+                description: $scope.description,
+                email: $scope.email,
+                categories: categories_send
+            };
+
+            rest().save({
+                type: 'datasetrequests'
+            }, data, function (resp) {
+                Alertify.alert('Al Gobierno Abierto lo construimos todos, ¡Gracias por tu sugerencia!');
+                $location.path('/');
+            }, function (error) {
+                Alertify.alert('Hubo un error al procesar la sugerencia. Intentalo más tarde.');
+            });
         }
+    };
+
+    $scope.toogleActive = function (slug, id) {
+        if ($scope.activeCategory.indexOf(slug) === -1) {
+            $scope.activeCategory.push(slug);
+            categories_send.push(id);
+        } else {
+            $scope.activeCategory.splice($scope.activeCategory.indexOf(slug), 1);
+            categories_send.splice(categories_send.indexOf(id), 1);
+        }
+    };
+
+    $timeout(function(){
+      usSpinnerService.spin('spinner');
+      arrangeCategories();
+      usSpinnerService.stop('spinner');
     });
-
-    $scope.getHtml = function (html) {
-        return $sce.trustAsHtml(html);
-    };
-
-    $scope.goToUrl = function (url) {
-        $filter('slug')(this.item.name);
-        window.location = "/dataset/" + $filter('slug')(this.item.id);
-    };
 }
+;
 
 function arrangeCategories(){
     var container = $('#categoriesgrid-container').width();
+    debugger;
     if (container > 0) {
 
       var items = $('.arrange-item');

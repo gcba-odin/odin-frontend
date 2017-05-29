@@ -33,7 +33,7 @@ gulp.task('vendors-watch', ['vendors'], function (done) {
   done();
 });
 
-gulp.task('javascript-watch', ['javascript'], function (done) {
+gulp.task('javascript-watch', ['bundle-general', 'bundles'], function (done) {
   gulp.browserSync.reload();
   done();
 });

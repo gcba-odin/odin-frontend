@@ -1,10 +1,7 @@
-(function() {
-    var app = angular.module('store-directives-dataset', []);
+angular.module('odin', [])
 
-    app.filter('trustUrl', ['$sce', function($sce) {
+    .filter('trustUrl', ['$sce', function($sce) {
         return function(url) {
             return $sce.trustAsResourceUrl(url);
         };
     }]);
-
-})();

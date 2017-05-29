@@ -1,4 +1,4 @@
-angular.module('store-directives-datasets')
+angular.module('odin')
 .directive("orderResult", function() {
     return {
         restrict: "E",

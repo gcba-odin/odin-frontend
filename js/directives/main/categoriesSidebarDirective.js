@@ -1,4 +1,4 @@
-angular.module('store-directives')
+angular.module('odin')
 .directive("categoriesSidebar", function() {
     return {
         restrict: "E",

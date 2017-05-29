@@ -1,4 +1,4 @@
-angular.module('store-directives-home')
+angular.module('odin')
 .directive("navbar", function($rootScope) {
     return {
         restrict: "E",

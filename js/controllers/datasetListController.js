@@ -1,3 +1,7 @@
+angular.module('odin', ['hm.readmore'])
+
+.controller('DatasetListController', DatasetListController);
+
 function DatasetListController($scope, $location, rest, $rootScope, $sce, $routeParams, DatasetListService, configs, $anchorScroll, usSpinnerService, $filter) {
     $scope.viewFilter = false;
     $rootScope.isDatasetView = false;

@@ -8,6 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WP8SWD5');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- CSS CDN dependencies:START -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"> -->
     <!-- CSS CDN dependencies:END -->
@@ -62,10 +70,14 @@
 </head>
 
 <body id="gapi-auth" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP8SWD5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="row" ng-if="!isMobile" ng-controller="OdinGirlController" ng-show="!hideGirl">
           <div class="odin-girl-container" data-tooltip="¿Qué dataset te gustaría sumar al portal?">
               <i ng-click="hideOdinGirl();" class="fa fa-times" aria-hidden="true" style="display: block;"></i>
-              <a ng-href="propose-dataset"><img class="odin-img-girl" src="images/odin-girl.svg" /></a>
+              <a ng-href="dataset-request"><img class="odin-img-girl" src="images/odin-girl.svg" /></a>
           </div>
     </div>
 
@@ -74,9 +86,6 @@
     <branding-data></branding-data>
     <backdrop></backdrop>
     <span us-spinner spinner-key="spinner"></span>
-    <!-- <section id="auth-button"></section>
-<section id="view-selector"></section>
-<section id="timeline"></section> -->
 
     <div ng-view></div>
     <footer-bar></footer-bar>
@@ -93,39 +102,42 @@
     <script src="plugins/bootstrap/bootstrap.min.js"></script>
     <script src="plugins/moment.min.js"></script>
     <script src="plugins/angular/angular-moment.min.js"></script>
-    <script src="plugins/leaflet/leaflet-src.js"></script>
+    <!-- <script src="plugins/leaflet/leaflet-src.js"></script> -->
     <script src="plugins/loading.js"></script>
     <script src="plugins/jquery.dotdotdot.min.js"></script>
-    <script src="plugins/angular-socialshare.min.js"></script>
-    <script src="plugins/ngtweet.min.js"></script>
+    <!-- <script src="plugins/angular-socialshare.min.js"></script> -->
+    <!-- <script src="plugins/ngtweet.min.js"></script> -->
     <script src="plugins/chartjs/Chart.min.js"></script>
     <script src="plugins/chartjs/angular-chart.min.js"></script>
-    <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script>
-    <script src="plugins/paging/paging.js"></script>
+    <!-- <script src="plugins/leaflet/angular-leaflet-directive.min.js"></script> -->
+    <!-- <script src="plugins/paging/paging.js"></script> -->
     <script src="plugins/cookies/angular-cookies.min.js"></script>
     <script src="plugins/middleware/angular-middleware.min.js"></script>
-    <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script>
+    <!-- <script src="node_modules/angular-pdf/dist/angular-pdf.js"></script> -->
     <script src="node_modules/angular-media-queries/match-media.js"></script>
     <script src="node_modules/slug/slug.js"></script>
     <script src="plugins/spin.min.js"></script>
     <script src="plugins/angular-spinner.min.js"></script>
-    <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+    <!-- <script src="bower_components/owl.carousel/dist/owl.carousel.min.js"></script> -->
 
 
     <script src="plugins/angular-recaptcha.min.js"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-read-more/dist/readmore.js"></script>
-    <script src="bower_components/ng-alertify/dist/ng-alertify.js"></script>
+    <!-- <script src="bower_components/angular-read-more/dist/readmore.js"></script> -->
+    <!-- <script src="bower_components/ng-alertify/dist/ng-alertify.js"></script> -->
+
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
     <!-- endbuild -->
     <!-- JS Vendor dependencies:END -->
 
     <!-- JS bundle -->
-    <script src="bundle.min.js"></script>
+    <script src="bundle-general.min.js"></script>
+    <!-- <script src="bundle-home.min.js"></script> -->
 
-    <script src="plugins/pdf/pdf.js"></script>
+    <!-- <script src="plugins/pdf/pdf.js"></script>
     <script src="plugins/pdf/pdf.worker.js"></script>
-    <script src="plugins/pdf/pdf.compatibility.js"></script>
+    <script src="plugins/pdf/pdf.compatibility.js"></script> -->
 
     <!-- Disqus async script -->
     <script id="dsq-count-scr" src="//badataodin.disqus.com/count.js" async></script>

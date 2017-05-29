@@ -1,4 +1,4 @@
-angular.module('store-directives-datasets')
+angular.module('odin')
 .directive("datasetCategories", function() {
     return {
         restrict: "E",

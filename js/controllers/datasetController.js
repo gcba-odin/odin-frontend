@@ -1,4 +1,6 @@
-var app = angular.module('odin.datasetControllers', []);
+var app = angular.module('odin.datasetControllers', ['hm.readmore', '720kb.socialshare', 'leaflet-directive'])
+
+.controller('DatasetController', DatasetController);
 
 app.factory('model', function($resource) {
     return $resource();
@@ -334,6 +336,10 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
         return $sce.trustAsHtml(html);
     };
 
+    $scope.getUrl = function(url) {
+      return $sce.trustAsResourceUrl(url)
+    }
+
     $scope.disqusConfig = {
         disqus_shortname: 'badataodin',
         disqus_identifier: $routeParams.id,
@@ -361,7 +367,7 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
     $scope.onProgress = function(progress) {
         // console.log(progress);
     }
-    
+
     $scope.filterGroups = {};
     $scope.toggleFilterGroup = function(filterGroup) {
       $scope.filterGroups[filterGroup] = !$scope.filterGroups[filterGroup];

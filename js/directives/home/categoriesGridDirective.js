@@ -1,4 +1,4 @@
-angular.module('store-directives-home')
+angular.module('odin')
 .directive("categoriesGrid", function() {
     return {
         restrict: "E",

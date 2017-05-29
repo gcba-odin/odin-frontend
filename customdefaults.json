@@ -1,89 +1,94 @@
 {
   "customdefaults": {
     "bodyColor": "",
-    "hrHeader": "#fdd306",
+    "containerColor": "",
+    "homepage":"",
+    "homeSectionTitleSocial": {
+      "textColor": ""
+    },
+    "hrHeader": "",
     "titleOdin": {
       "text": "Buenos Aires Data",
-      "color": "#4D4D4D"
+      "color": ""
     },
     "descriptionOdin": {
       "text": "Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.",
-      "color": "#4D4D4D"
+      "color": ""
     },
     "logoOdin": "../images/BAlogoHeaderMobile.svg",
     "completeCatalog": {
-      "backgroundColor": "#fdd306",
-      "color": "#5f4600"
+      "backgroundColor": "",
+      "color": ""
     },
-    "categoriesContainer": "#ccc",
+    "categoriesContainer": "",
     "homeSectionTitle": {
-      "textColor": "#19c3e3",
-      "iconColor": "#00b3e3"
+      "textColor": "",
+      "iconColor": ""
     },
     "downloads": {
-      "icon": "#19c3e3",
+      "icon": "",
       "button": {
-        "backgroundColor": "#99C25F",
-        "color": "#FFF"
+        "backgroundColor": "",
+        "color": ""
       }
     },
     "datasets": {
       "container": {
-        "backgroundColor": "#FFF",
-        "color": "#3E4F5E"
+        "backgroundColor": "",
+        "color": ""
       },
       "home": {
-        "backgroundColor": "#FFF",
-        "color": "#19c3e3"
+        "backgroundColor": "",
+        "color": ""
       }
     },
     "filetypes": {
-      "backgroundColor": "#999",
-      "color": "#fff"
+      "backgroundColor": "",
+      "color": ""
     },
     "resources": {
-      "backgroundColor": "#6d6e70",
-      "color": "#3E4F5E",
-      "filetypeColor": "#3E4F5E",
+      "backgroundColor": "",
+      "color": "",
+      "filetypeColor": "",
       "viewResources": {
-        "backgroundColor": "#19c3e3",
-        "color": "#fff"
+        "backgroundColor": "",
+        "color": ""
       }
     },
     "layoutButton": {
-      "backgroundColor": "#19c3e3",
-      "color": "#fff"
+      "backgroundColor": "",
+      "color": ""
     },
     "footerOdin": {
-      "backgroundColor": "#363636",
-      "color": "#fff",
+      "backgroundColor": "",
+      "color": "",
       "logo": "../images/ba-logo-01.svg"
     },
-    "viewMoreLink": "#19c3e3",
-    "searchbarText": "#19c3e3",
+    "viewMoreLink": "",
+    "searchbarText": "",
     "additionalInfo": {
-      "backgroundColor": "#fff",
-      "color": "#4D4D4D"
+      "backgroundColor": "",
+      "color": ""
     },
     "paginator": {
-      "backgroundColor": "#fff",
-      "color": "#19c3e3",
+      "backgroundColor": "",
+      "color": "",
       "active": {
-        "backgroundColor": "#19c3e3",
-        "color": "#fff"
+        "backgroundColor": "",
+        "color": ""
       }
     },
     "filters": {
-      "backgroundColor": "#19c3e3",
-      "color": "#fff"
+      "backgroundColor": "",
+      "color": ""
     },
     "tooltips": {
-      "backgroundColor": "#19c3e3",
-      "color": "#fff"
+      "backgroundColor": "",
+      "color": ""
     },
     "fonts": "",
     "breadcrumb": {
-      "color": "#999"
+      "color": ""
     }
   }
 }
