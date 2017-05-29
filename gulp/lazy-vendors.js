@@ -52,7 +52,7 @@ gulp.task('lazy-layout', function() {
       'plugins/pdf/pdf.js',
       'plugins/pdf/pdf.worker.js',
       'plugins/pdf/pdf.compatibility.js',
-      'node_modules/angular-pdf/dist/angular-pdf.js'
+      'node_modules/angular-pdf/dist/angular-pdf.min.js'
     ])
     .pipe(plumber())
     .pipe(sourcemaps.init())

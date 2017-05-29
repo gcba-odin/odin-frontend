@@ -11,10 +11,7 @@ gulp.task('bundle-general', ['ng-config', 'ng-version', 'pdf-build'], function()
     'js/*.js',
     'js/services/*.js',
     'js/controllers/searchDatasetsController.js',
-    'js/directives/homeDirectives.js',
-    'js/directives/home/navbarDirective.js',
-    'js/directives/main/navbarSearch.js',
-    'js/directives/main/backdropDirective.js'
+    'js/directives/main/*.js',
   ])
     .pipe(plumber())
     .pipe(sourcemaps.init())

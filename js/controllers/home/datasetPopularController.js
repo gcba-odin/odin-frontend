@@ -15,12 +15,6 @@ function DatasetPopularController($scope, $location, rest, $rootScope, $sce, usS
         rest().statistics({
             type: "metrics"
         }, function (statistics) {
-          console.log(statistics);
-        // TODO: recieve total from API
-            // for (element in statistics.data) {
-            //     $scope.totalStatistics += element.count;
-            // }
-
             for (var i = 0; i < categories.length; i++) {
               if (!!statistics.data[categories[i].id]) {
                 categories[i]['porcentaje'] = statistics.data[categories[i].id] * 100 / statistics.data.total;

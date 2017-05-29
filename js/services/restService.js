@@ -75,6 +75,20 @@ angular.module('store-factories')
                     responseError: handError
                 }
             },
+            getFiletypes: {
+                url: $url + "/:id/filetypes?:params",
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                transformResponse: function(data) {
+                    $rootScope.progressbar.complete();
+                    return angular.fromJson(data);
+                },
+                interceptor: {
+                    responseError: handError
+                }
+            },
             resources: {
                 url: $url + "/:id/resources?:params",
                 method: 'GET',

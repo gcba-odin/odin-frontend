@@ -25,7 +25,6 @@ function SubcategoriesController($rootScope, $scope, $routeParams, $filter, rest
                 $scope.subcategories.push(subcategory);
             }
             $scope.lessThanLimit = subcategories.length < Math.max(skip, limit);
-            //console.log(subcategories.length, skip);
             $scope.resultSubcategoriesLength = subcategories.length;
         });
 

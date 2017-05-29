@@ -3,7 +3,6 @@ angular.module('odin')
 .controller('controllerHome', controllerHome);
 
 function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, DatasetListService, usSpinnerService) {
-    usSpinnerService.spin('spinner');
     sessionStorage.removeItem('query');
     sessionStorage.removeItem('activeCategory');
 
@@ -15,14 +14,14 @@ function controllerHome($scope, $location, $sce, $filter, $rootScope, rest, Data
     $rootScope.showLoadingLatest = true;
     $rootScope.showLoadingStarred = true;
 
-    $rootScope.countQuery++;
-    DatasetListService.getDatasetsCount($scope.params, function (result) {
-        $rootScope.countDatasets = result.data.count;
-        $rootScope.countQuery--;
-        if ($rootScope.countQuery == 0) {
-            usSpinnerService.stop('spinner');
-        }
-    });
+    if(!!sessionStorage.getItem('countDatasets')) {
+      $rootScope.countDatasets = sessionStorage.getItem('countDatasets');
+    } else {
+      DatasetListService.getDatasetsCount($scope.params, function (result) {
+          $rootScope.countDatasets = result.data.count;
+          sessionStorage.setItem('countDatasets', result.data.count);
+      });
+    }
 
     $scope.getHtml = function (html) {
         return $sce.trustAsHtml(html);

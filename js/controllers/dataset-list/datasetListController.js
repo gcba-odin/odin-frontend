@@ -82,34 +82,25 @@ function DatasetListController($scope, $location, rest, $rootScope, $sce, $route
                 });
 
                 dataset.fileTypes = [];
-                $scope.filesResults = rest().get({
-                    type: 'files',
-                    params: 'fields=type&dataset=' + dataset.id
+                /*
+                  TODO
+
+                  Service getFiletypes para llamar en:
+                  - DatasetListController
+                  - datasetStarredController (home)
+                  - datasetLatestController (home)
+                */
+                $scope.filesResults = rest().getFiletypes({
+                    type: 'datasets',
+                    id: dataset.id
                 }, function (result) {
-                    $scope.files = result.data;
-                    $scope.files.forEach(function (element) {
-                        if (!!element.type && element.type.id) {
-                            if (dataset.fileTypes.indexOf(element.type.id) === -1) {
-                                dataset.fileTypes.push(element.type.id);
+                    $scope.ftypes = result.data;
+                    $scope.ftypes.forEach(function (element) {
+                        if (!!element.id) {
+                            if (dataset.fileTypes.indexOf(element.id) === -1) {
+                                dataset.fileTypes.push(element.id);
                             }
                         }
-//                              if(!!element.type && !!element.type.id) {
-//                                  $rootScope.countQuery ++;
-//                                rest().findOne({
-//                                    id: element.type.id,
-//                                    type: 'filetypes'
-//                                }, function(resultFileType) {
-//                                    var resultFileTypeName = resultFileType.name;
-//                                    if (dataset.fileTypes.indexOf(resultFileTypeName) === -1) {
-//                                        dataset.fileTypes.push(resultFileTypeName);
-//                                    }
-//                                    $rootScope.countQuery --;
-//                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
-//                                }, function(error) {
-//                                    $rootScope.countQuery --;
-//                                    if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
-//                                });
-//                            }
                     });
                 }, function (error) {
                 });

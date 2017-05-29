@@ -126,21 +126,6 @@ function DatasetController($scope, $location, rest, $rootScope, $sce, $routePara
             $scope.countResources = result.meta.count;
             $scope.files = $scope.filesResults.data;
             $scope.files.forEach(function(element) {
-                //console.log(element);
-//                if(!!element.type && !!element.type.id) {
-//                    $rootScope.countQuery ++;
-//                    rest().findOne({
-//                        id: element.type.id,
-//                        type: 'filetypes'
-//                    }, function(resultFileType) {
-//                        $scope.fileTypes[element.type.id] = resultFileType.name;
-//                        $rootScope.countQuery --;
-//                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
-//                    }, function(error) {
-//                        $rootScope.countQuery --;
-//                        if($rootScope.countQuery == 0) { usSpinnerService.stop('spinner'); }
-//                    });
-//                }
 
                 element.additional_info = []
 

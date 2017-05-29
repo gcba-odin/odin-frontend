@@ -18,17 +18,10 @@ gulp.task('bundles', [
 
 gulp.task('bundle-home', function() {
   return gulp.src([
-      'js/controllers/homeController.js',
-      'js/directives/home/categoriesGridDirective.js',
-      'js/controllers/categoryController.js',
-      'js/directives/home/latestDatasetsDirective.js',
-      'js/controllers/datasetLatestController.js',
-      'js/directives/home/starredDatasetsDirective.js',
-      'js/controllers/datasetStarredController.js',
-      'js/directives/home/popularDatasetsDirective.js',
-      'js/controllers/datasetPopularController.js',
-      'js/directives/home/socialNetworksDirective.js',
-      // 'js/controllers/datasetLatestController.js',
+      'js/controllers/home/*.js',
+      'js/controllers/cacheController.js',
+      'js/directives/home/*.js',
+      'js/directives/dataset-list/datasetFiletypesDirective.js',
     ])
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -43,17 +36,11 @@ gulp.task('bundle-home', function() {
 
 gulp.task('bundle-dataset', function() {
   return gulp.src([
-      'js/controllers/datasetController.js',
-      'js/controllers/datasetFilters/orderingsController.js',
-      'js/controllers/categoryController.js',
-      'js/directives/home/categoriesRowDirective.js',
-      'js/directives/main/categoriesSidebarDirective.js',
-      'js/directives/main/filtersMenu.js',
-      'js/directives/main/datasetDirectives.js',
-      'js/directives/dataset/resultResoucesDirective.js',
-      'js/directives/datasets/datasetCategoriesDirective.js',
-      'js/directives/datasets/orderResultDirective.js',
-      'js/directives/datasets/datasetSvgFiletypesDirective.js',
+      'js/controllers/dataset/*.js',
+      'js/controllers/dataset-general/*.js',
+      'js/controllers/cacheController.js',
+      'js/directives/dataset-general/*.js',
+      'js/directives/dataset/*.js',
       'js/directives/disqusDirectives.js',
     ])
     .pipe(plumber())
@@ -69,23 +56,11 @@ gulp.task('bundle-dataset', function() {
 
 gulp.task('bundle-dataset-list', function() {
   return gulp.src([
-      'js/controllers/datasetListController.js',
-      'js/controllers/datasetFilters/orderingsController.js',
-      'js/controllers/datasetFilters/tagsController.js',
-      'js/controllers/datasetFilters/filetypesController.js',
-      'js/controllers/datasetFilters/organizationsController.js',
-      'js/controllers/categoryController.js',
-      'js/directives/home/categoriesRowDirective.js',
-      'js/directives/main/categoriesSidebarDirective.js',
-      'js/directives/main/filtersMenu.js',
-      'js/directives/datasets/orderResultDirective.js',
-      'js/directives/datasets/tagsResultDirective.js',
-      'js/directives/datasets/formatResultDirective.js',
-      'js/directives/datasets/organizationResultDirective.js',
-      'js/directives/datasets/resultDatasetsDirective.js',
-      'js/directives/datasets/datasetCategoriesDirective.js',
-      'js/directives/datasets/datasetFiletypesDirective.js',
-
+      'js/controllers/dataset-list/*.js',
+      'js/controllers/dataset-general/*.js',
+      'js/controllers/cacheController.js',
+      'js/directives/dataset-general/*.js',
+      'js/directives/dataset-list/*.js',
     ])
     .pipe(plumber())
     .pipe(sourcemaps.init())

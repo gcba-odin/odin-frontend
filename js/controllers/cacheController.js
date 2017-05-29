@@ -8,6 +8,11 @@ function CategoryListController($scope, $location, rest, $rootScope, $routeParam
     usSpinnerService.spin('spinner');
     $rootScope.countQuery = $rootScope.countQuery + 4;
 
+    /*
+      TODO
+
+      Service cache al inicio del sitio
+    */
     var cache = {
         categories: {
             cache: false,

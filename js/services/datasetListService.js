@@ -47,7 +47,6 @@ angular.module('store-factories')
             rest().statistics({
                 type: 'metrics'
             }, function(downloadsResults) {
-              console.log(downloadsResults);
                 var items = downloadsResults.data;
                 $.each(items, function(key, value) {
                     downloads.push({
