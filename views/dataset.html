@@ -71,7 +71,7 @@
                                     <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank" ng-style="{ 'background-color': custom_defaults.layoutButton.button.backgroundColor || '', 'color': custom_defaults.layoutButton.button.color || '' }">Guía de datos</a></li>
                                 </ul>
                                 <ul class="info-adicional dataset-resources unstyled">
-                                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-style="{ 'background-color': custom_defaults.additionalInfo.backgroundColor || '' }" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
                                     <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
                                         <thead>
                                             <tr>

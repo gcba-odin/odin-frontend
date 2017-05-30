@@ -28,6 +28,24 @@
     "angular-media-queries": "^0.6.1",
     "angular-pdf": "^1.3.0",
     "bower": "^1.7.9",
+    "lodash": "^4.17.4",
+    "requestify": "^0.2.5",
     "slug": "^0.9.1"
-  }
+  },
+  "description": "## Requirements",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcba-odin/odin-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gcba-odin/odin-frontend/issues"
+  },
+  "homepage": "https://github.com/gcba-odin/odin-frontend#readme"
 }

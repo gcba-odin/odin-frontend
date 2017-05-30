@@ -1,7 +1,7 @@
 {
   "local": {
     "EnvironmentConfig": {
-      "api": "http://13.82.151.60/api"
+      "api": "http://10.9.4.119/api"
     },
     "BaseHTML5": {
         "url": "/"

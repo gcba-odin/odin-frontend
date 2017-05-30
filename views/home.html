@@ -1,6 +1,6 @@
 
 <search-bar-home></search-bar-home>
-<div class="homepage layout-1">
+<div class="homepage layout-1"  ng-style="{ 'background-color': custom_defaults.homepage || '' }">
     <div class="categories-container" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
         <div class="container">
             <div class="row">
@@ -16,7 +16,7 @@
     <carousel ng-if='!!isHome && !isMobile'></carousel>
 
     <!-- <div class="container-widget-wide"> -->
-    <div class="container datasets-home-container">
+    <div class="container datasets-home-container" ng-style="{ 'background-color': custom_defaults.containerColor || '' }">
         <!-- <section class="container-widgets col-md-12"> -->
         <section class="row">
             <div class="col-xs-12 col-lg-10 col-lg-offset-1">
@@ -57,7 +57,7 @@
                     <article class="col-xs-12 col-md-6 col-lg-5 widget">
                         <div class="widgets-heading">
                             <img src="images/ds-redes.svg" alt="" />
-                            <h2 class="title-container-home" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Redes Sociales</h2>
+                            <h2 class="title-container-home" ng-style="{ 'color': custom_defaults.homeSectionTitleSocial.textColor || '' }">Redes Sociales</h2>
                         </div>
                         <social-networks></social-networks>
                     </article>
