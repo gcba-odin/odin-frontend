@@ -1,11 +1,5 @@
 {
   "customdefaults": {
-<<<<<<< HEAD
-    "bodyColor": "#FFF",
-    "hrHeader": "#fdd306",
-    "containerColor": "",
-    "homepage":"",
-=======
     "bodyColor": "",
     "containerColor": "",
     "homepage":"",
@@ -13,7 +7,6 @@
       "textColor": ""
     },
     "hrHeader": "",
->>>>>>> 2270d638df5c91a9171a3abf642c81b5f9ed20d9
     "titleOdin": {
       "text": "Buenos Aires Data",
       "color": ""

@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("datasetCategories", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/datasets/dataset-categories.html",
+        templateUrl: "directives/dataset-general/dataset-categories.html",
         scope: {
             category: '=info'
         },

@@ -249,7 +249,7 @@
 
                 });
             },
-            templateUrl: 'directives/main/autocomplete.html',
+            templateUrl: 'directives/autocomplete.html',
         };
     });
 
@@ -417,7 +417,7 @@
     app.directive('brandingData', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/main/branding-data.html',
+            templateUrl: 'directives/branding-data.html',
         };
     });
 
@@ -448,7 +448,7 @@
     app.directive('searchBar', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/main/search-bar.html',
+            templateUrl: 'directives/search-bar.html',
             controller: SearchDatasetsController
         };
     });
@@ -456,7 +456,7 @@
     app.directive('carousel', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/main/carousel.html',
+            templateUrl: 'directives/carousel.html',
             controller: SearchDatasetsController,
             link: function() {
                 $('.owl-carousel').owlCarousel({
@@ -494,7 +494,7 @@
     app.directive('searchBarHome', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/main/search-bar-home.html',
+            templateUrl: 'directives/search-bar-home.html',
             controller: SearchDatasetsController
         }
     });
@@ -503,7 +503,7 @@
     app.directive('auxiliarBar', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/home/auxiliar-bar.html',
+            templateUrl: 'directives/auxiliar-bar.html',
             controller: function() {
                 sessionStorage.removeItem('currentColor');
                 sessionStorage.removeItem('activeCategory');
@@ -514,7 +514,7 @@
     app.directive('footerBar', function() {
         return {
             restrict: 'E',
-            templateUrl: 'directives/main/footer-bar.html',
+            templateUrl: 'directives/footer-bar.html',
         };
     });
 

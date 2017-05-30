@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("filtersMenu", function($rootScope) {
     return {
         restrict: "E",
-        templateUrl: "directives/main/filters-menu.html",
+        templateUrl: "directives/dataset-general/filters-menu.html",
         controller: function($scope) {
           $scope.filterGroups = {};
           $scope.toggleFilterGroup = function(filterGroup) {

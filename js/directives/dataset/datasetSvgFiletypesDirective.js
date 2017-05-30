@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("svgFiletypes", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/datasets/svg-filetypes.html",
+        templateUrl: "directives/dataset/svg-filetypes.html",
         scope: {
             fileType: '=info',
         },

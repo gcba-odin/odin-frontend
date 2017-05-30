@@ -11,10 +11,10 @@ body {
 
 /* Preloads hover images so there's no blinking on first hover */
 
-body:after {
-    display: none;
-    content: url("../images/categories/urbanismo-e-infraestructura-hover.svg") url("../images/categories/transporte-hover.svg") url("../images/categories/seguridad-hover.svg") url("../images/categories/salud-hover.svg") url("../images/categories/medio-ambiente-hover.svg") url("../images/categories/gobierno-y-administracion-publica-hover.svg") url("../images/categories/educacion-hover.svg") url("../images/categories/economia-negocio-y-comercio-hover.svg") url("../images/categories/cultura-recreacion-y-turismo-hover.svg") url('../images/complete-catalog-hover.svg') url('../images/viz-collection-hover.svg');
-}
+// body:after {
+//     display: none;
+//     content: url("../images/categories/urbanismo-e-infraestructura-hover.svg") url("../images/categories/transporte-hover.svg") url("../images/categories/seguridad-hover.svg") url("../images/categories/salud-hover.svg") url("../images/categories/medio-ambiente-hover.svg") url("../images/categories/gobierno-y-administracion-publica-hover.svg") url("../images/categories/educacion-hover.svg") url("../images/categories/economia-negocio-y-comercio-hover.svg") url("../images/categories/cultura-recreacion-y-turismo-hover.svg") url('../images/complete-catalog-hover.svg') url('../images/viz-collection-hover.svg');
+// }
 
 input {
     font-family: "Avenir", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, sans-serif;

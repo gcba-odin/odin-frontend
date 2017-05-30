@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("formatsResult", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/datasets/formats-results.html",
+        templateUrl: "directives/dataset-list/formats-results.html",
         scope: {},
         controller: 'FiletypesController'
     };

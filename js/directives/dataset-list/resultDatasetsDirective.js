@@ -2,7 +2,7 @@ angular.module('odin')
     .directive("resultDatasets", function() {
         return {
             restrict: "E",
-            templateUrl: "directives/datasets/result-datasets.html",
+            templateUrl: "directives/dataset-list/result-datasets.html",
             controller: function($scope, $window, $location, rest) {
                 $scope.stats = {};
                 $scope.views = {};

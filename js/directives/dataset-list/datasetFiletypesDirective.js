@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("datasetFiletypes", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/datasets/dataset-filetypes.html",
+        templateUrl: "directives/dataset-list/dataset-filetypes.html",
         scope: {
             fileType: '=info',
             divLi: '=infoLi',

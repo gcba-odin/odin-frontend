@@ -2,7 +2,7 @@ angular.module('odin')
 .directive("categoriesSidebar", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/main/categories-sidebar.html",
+        templateUrl: "directives/dataset-general/categories-sidebar.html",
         controller: CategoryListController
     };
 });
