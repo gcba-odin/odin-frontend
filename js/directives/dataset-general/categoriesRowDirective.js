@@ -1,8 +1,8 @@
 angular.module('odin')
-.directive("categoriesGrid", function() {
+.directive("categoriesRow", function() {
     return {
         restrict: "E",
-        templateUrl: "directives/home/categories-grid.html",
+        templateUrl: "directives/main/categories-row.html",
         controller:CategoryListController,
         controllerAs: "category"
     };

@@ -6,11 +6,16 @@ var gulp = require('gulp'),
     util = require('gulp-util'),
     sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('javascript', ['ng-config', 'ng-version', 'pdf-build'], function() {
-  return gulp.src('js/**/*.js')
+gulp.task('bundle-general', ['ng-config', 'ng-version', 'pdf-build'], function() {
+  return gulp.src([
+    'js/*.js',
+    'js/services/*.js',
+    'js/controllers/searchDatasetsController.js',
+    'js/directives/main/*.js',
+  ])
     .pipe(plumber())
     .pipe(sourcemaps.init())
-      .pipe(concat('bundle.min.js'))
+      .pipe(concat('bundle-general.min.js'))
       .pipe(ngAnnotate({
         add: true
       }))

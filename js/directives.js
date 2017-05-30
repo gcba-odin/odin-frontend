@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('store-directives', ["store-directives-home", "store-directives-dataset", "store-directives-datasets"]);
+    var app = angular.module('store-directives', []); //"store-directives-home", "store-directives-dataset", "store-directives-datasets"
 
     app.directive('autocomplete', function() {
         var index = -1;
@@ -462,8 +462,8 @@
                 $('.owl-carousel').owlCarousel({
                      loop: true,
                     margin: 25,
-                    
-                    
+
+
                     autoplay: true,
                      autoplayTimeout: 3000,
                      autoplayHoverPause: true,

@@ -1,5 +1,5 @@
 <div class="categories-container col-lg-offset-1" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
-  <div id="categoriesgrid-container"  class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
+  <div id="categoriesgrid-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-11">
     <div class="categories-row-container auxiliar-bar-line">
       <div ng-repeat="category in categories | orderBy: 'name'"  style="display:inline">
         <a ng-href="datasets?categories.slug={{ category.name | slug }}" data-tooltip="{{category.name}}"

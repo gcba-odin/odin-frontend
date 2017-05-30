@@ -1,3 +1,7 @@
+angular.module('odin')
+
+.controller('LayoutController', LayoutController);
+
 function LayoutController($scope, $location, rest, $rootScope, $sce, $routeParams, LocationSearchService) {
     PDFJS.workerSrc = $rootScope.baseHtml5 + 'plugins/pdf/pdf.worker.js';
     LocationSearchService.init();
