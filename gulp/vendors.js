@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     cleanCSS = require('gulp-clean-css'),
     util = require('gulp-util'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    nano = require('gulp-cssnano');
 
 gulp.task('vendors', ['base-url'], function() {
     return gulp.src('dist/index.html')
@@ -14,7 +15,7 @@ gulp.task('vendors', ['base-url'], function() {
       lazypipe().pipe(sourcemaps.init, { loadMaps: true }))
     )
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', cleanCSS()))
+    .pipe(gulpif('*.css', nano()))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist'));
 });

@@ -14,16 +14,20 @@ function OrderingsController ($scope, $rootScope, LocationSearchService, rest, $
             name: 'Nombre',
             property: 'name',
             sort: 'ASC'
-        }, {
+        },
+        {
             name: 'Fecha de publicación',
             property: 'publishedAt',
-            sort: 'DESC'
-        }, {
-            name: 'Más descargados',
-            property: 'downloads',
-            sort: null,
-            datasetsOnly: true
-        }, {
+            sort: 'DESC',
+            filesOnly: true
+        },
+        // {
+        //     name: 'Más descargados',
+        //     property: 'downloads',
+        //     sort: null,
+        //     datasetsOnly: true
+        // },
+        {
             name: 'Última actualización',
             property: 'updatedAt',
             sort: 'DESC',

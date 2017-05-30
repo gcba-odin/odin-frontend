@@ -5,13 +5,15 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     util = require('gulp-util'),
     purify = require('gulp-purifycss'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    uncss = require('gulp-uncss'),
+    nano = require('gulp-cssnano');
 
 gulp.task('styles', function () {
- return gulp.src('css/index.scss')
+ return gulp.src('css/**/*.scss')
   .pipe(plumber())
   .pipe(sourcemaps.init())
-    .pipe(sass.sync())
+    .pipe(sass())
     //TODO: add autoprefixer
     //.pipe(cleanCSS())
     // .pipe(purify([
@@ -20,9 +22,18 @@ gulp.task('styles', function () {
     //   'directives/*.html',
     //   'index.html'
     // ]))
-    .pipe(cleanCSS())
+    // .pipe(cleanCSS())
   .pipe(sourcemaps.write())
   .pipe(rename('bundle.min.css'))
+  // .pipe(uncss({
+  //     html: [
+  //       'index.html',
+  //       'view/*.html',
+  //       'directives/**/*.html',
+  //       'js/**/*.js'
+  //     ]
+  // }))
+  .pipe(nano())
   .pipe(gulp.dest('dist'))
   .pipe(gulp.browserSync.stream());
 });
