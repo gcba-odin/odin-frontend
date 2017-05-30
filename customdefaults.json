@@ -26,7 +26,7 @@
       "iconColor": ""
     },
     "homeSectionTitleSocial": {
-     "textColor": "#65F098"
+     "textColor": ""
     },
     "downloads": {
       "icon": "",
@@ -37,12 +37,12 @@
     },
     "datasets": {
       "container": {
-        "backgroundColor": "#6d6e70",
-        "color": "#3E4F5E"
+        "backgroundColor": "",
+        "color": ""
       },
       "home": {
-        "backgroundColor": "#b3b3b3",
-        "color": "#19c3e3"
+        "backgroundColor": "",
+        "color": ""
       }
     },
     "filetypes": {
