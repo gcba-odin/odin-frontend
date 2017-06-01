@@ -1,8 +1,8 @@
-angular.module('store-directives-dataset')
+angular.module('odin')
     .directive("resultResources", function() {
         return {
             restrict: "E",
-            templateUrl: "directives/datasets/result-resources.html",
+            templateUrl: "directives/dataset/result-resources.html",
             controller: function($scope) {
 
                 $scope.toggleDropdown = function(event) {

@@ -24,7 +24,7 @@ angular.module('store-factories')
       if (params.orderBy === 'downloads') {
         delete params.orderBy;
       }
-      
+
       //Resolve if this is either search or get
       params.condition = params.query ? 'OR' : 'AND';
 
@@ -41,20 +41,18 @@ angular.module('store-factories')
     getDownloadResults: function(params, cb){
         LocationSearchService.init();
         var params = $.extend(LocationSearchService.searchParams(), params);
-        
+
         var downloads = [];
         if (params.orderBy === 'downloads') {
             rest().statistics({
-                type: 'datasets'
+                type: 'metrics'
             }, function(downloadsResults) {
-                var items = downloadsResults.data.items;
+                var items = downloadsResults.data;
                 $.each(items, function(key, value) {
-                    if (key.indexOf('download') >= 0 && value.resource === 'Dataset') {
-                        downloads.push({
-                            dataset: value.item,
-                            downloads: value.count.GET
-                        });
-                    }
+                    downloads.push({
+                        dataset: key,
+                        downloads: value
+                    });
                 });
                 cb(downloads);
             });

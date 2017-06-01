@@ -1,6 +1,6 @@
 <!-- <search-bar ng-if="!isMobile"></search-bar> -->
 <search-bar-home ng-if="!isMobile"></search-bar-home>
-<div role="main">
+<div role="main" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
     <div id="content" class="container">
         <categories-row ng-if="!isMobile"></categories-row>
         <categories-sidebar ng-if="isMobile"></categories-sidebar>
@@ -10,7 +10,7 @@
         <div class="row datasets-header">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="toolbar">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
                         <li class="breadcrumb-item">
                             <a ng-href="{{baseHtml5}}">Inicio</a>
                         </li>
@@ -60,7 +60,7 @@
             <!-- <div class="primary col-lg-8"> -->
             <div class="primary col-xs-12 col-lg-7" ng-show="countDatasetsByCategory == 0">
                 <div class="div-no-datasets">
-                    <div class="no-datasets" ng-include="'directives/main/no-hay-datasets.html'"></div>
+                    <div class="no-datasets" ng-include="'directives/dataset-list/no-datasets.html'"></div>
                     <p class="no-data" ng-style="{color:currentCategory.color || '#19c3e3'}"> No se han encontrado datasets </p>
                 </div>
             </div>

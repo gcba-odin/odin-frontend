@@ -1,0 +1,232 @@
+<div class="dataset-list unstyled">
+    <div class="dataset-resources-heading col-md-8 col-xs-12">
+        <img src="images/recursos.svg" alt="" />
+        <h2 class="list-heading" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Recursos y descargas</h2>
+    </div>
+    <div class="dataset-resources-heading col-md-4 col-xs-12 pull-right" style="width: 18em;">
+        <aside class="secondary" ng-if="!isMobile">
+            <div class="filters">
+                <div>
+                    <order-result files-view="true" collapse="true"></order-result>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <div class="table-loader" ng-show="showLoader">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+    </div>
+    <div ng-show="!showLoader" class="dataset-item-resource clearfix" ng-style="{ 'background-color': custom_defaults.resources.backgroundColor || '' }" ng-repeat="resource in files" ng-if="resource.layout == false || resource.layout == null">
+        <div class="dataset-content">
+            <div class="row">
+                <h3 class="dataset-heading col-md-10 col-xs-12" ng-style="{ 'color': custom_defaults.resources.color || '' }">
+                    {{resource.name}}
+                </h3>
+                <div class="dataset-resources unstyled col-md-2 col-xs-12">
+                    <svg-filetypes ng-if="dataFiletypes.length > 0" info="resource.type.id"></svg-filetypes>
+                    <!--<div class="label resource-format-label" data-format="{{fileTypes[resource.type.id]|| lowercase}}">{{fileTypes[resource.type.id]| uppercase}}</div>-->
+                    <div class="dataset-resources" ng-if="dataFiletypes == 0">
+                        <div ng-include="'views/loading-dots.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || resource.type.slug == 'pdf'">
+                <div class="col-xs-12 svg-visualizations">
+                    <a title="Tabla" ng-if="resource.contents" href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="16.473px" height="16.473px" viewBox="0 0 16.473 16.473" enable-background="new 0 0 16.473 16.473" xml:space="preserve">
+                            <path fill="#3E4F5E" ng-style="resource.type_resource === 'tables' ? {'fill': currentColor || '#19c3e3'} : {}" d="M13.792,1.292H2.68c-0.768,0-1.389,0.622-1.389,1.389v11.112c0,0.768,0.621,1.389,1.389,1.389h11.112
+                                c0.768,0,1.389-0.621,1.389-1.389V2.681C15.181,1.914,14.56,1.292,13.792,1.292z M5.458,13.793H2.68v-2.777h2.778V13.793z
+                                M5.458,9.626H2.68V6.848h2.778V9.626z M5.458,5.459H2.68V2.681h2.778V5.459z M9.625,13.793H6.847v-2.777h2.778V13.793z
+                                M9.625,9.626H6.847V6.848h2.778V9.626z M9.625,5.459H6.847V2.681h2.778V5.459z M13.792,13.793h-2.778v-2.777h2.778V13.793z
+                                M13.792,9.626h-2.778V6.848h2.778V9.626z M13.792,5.459h-2.778V2.681h2.778V5.459z"/>
+                        </svg>
+                    </a>
+                    <a title="Gráfico" ng-if="!!resource.resources.data.charts" href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="16.473px" height="16.473px" viewBox="0 0 16.473 16.473" enable-background="new 0 0 16.473 16.473" xml:space="preserve">
+                            <path fill="#3E4F5E" ng-style="resource.type_resource === 'charts' ? {'fill': currentColor || '#19c3e3'} : {}" d="M6.434,15.182h3.605V0.762H6.434V15.182z M1.026,15.182h3.604v-7.21H1.026V15.182z M11.842,5.268v9.914
+                                h3.604V5.268H11.842z"/>
+                        </svg>
+                    </a>
+                    <a title="Mapa" ng-if="!!resource.resources.data.maps" href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="16.473px" height="16.473px" viewBox="0 0 16.473 16.473" enable-background="new 0 0 16.473 16.473" xml:space="preserve">
+                            <path fill="#3E4F5E" ng-style="resource.type_resource === 'maps' ? {'fill': currentColor || '#19c3e3'} : {}" d="M8.237,0.805c-2.771,0-5.018,2.246-5.018,5.016c0,3.764,5.018,9.317,5.018,9.317s5.017-5.554,5.017-9.317
+                                C13.253,3.051,11.006,0.805,8.237,0.805z M8.237,7.613c-0.989,0-1.792-0.802-1.792-1.792c0-0.989,0.803-1.791,1.792-1.791
+                                c0.988,0,1.791,0.802,1.791,1.791C10.028,6.811,9.225,7.613,8.237,7.613z"/>
+                        </svg>
+                    </a>
+                    <a title="PDF" ng-if="resource.type.slug == 'pdf'" href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="22px" height="22px" viewBox="0 0 27 27" enable-background="new 0 0 27 27" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <circle fill="#3E4F5E" ng-style="resource.type_resource === 'pdf' ? {'fill': currentColor || '#19c3e3'} : {}" cx="14.135" cy="17.208" r="2.67"/>
+                                    <path fill="#3E4F5E" ng-style="resource.type_resource === 'pdf' ? {'fill': currentColor || '#19c3e3'} : {}" d="M15.84,1.583H6.275c-1.315,0-2.379,1.286-2.379,2.602L3.884,23.253c0,1.315,1.064,2.33,2.379,2.33h14.359
+                                        c1.315,0,2.377-0.743,2.377-2.058V9.178L15.84,1.583z M14.135,21.006c-0.949,0-1.815-0.352-2.481-0.93l-1.889,1.889l-0.798-0.798
+                                        l1.951-1.951c-0.366-0.583-0.581-1.271-0.581-2.009c0-2.094,1.704-3.798,3.798-3.798c2.095,0,3.798,1.704,3.798,3.798
+                                        S16.229,21.006,14.135,21.006z M15,9.583V3.797l6.221,5.786H15z"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="dataset-description word-break" hm-read-more hm-text="{{ getHtml(resource.description)}}" hm-limit="80" hm-more-text=" (ver más)" hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
+                    <div class="dataset-latest-update">Publicado por {{resource.organization.name}}</div>
+                    <div ng-if="!!resource.gatheringDate" class="dataset-latest-update">Fecha de relevamiento de los datos: {{resource.gatheringDate| date:'dd/MM/yyyy'}}<span class="dataset-latest-update-date"></span></div>
+                    <div ng-if="!resource.gatheringDate && !!resource.updatedAt" class="dataset-latest-update">Fecha de actualización {{resource.updatedAt| date:'dd/MM/yyyy'}}<span class="dataset-latest-update-date"></span></div>
+                    <div class="dataset-resources unstyled list-dataset ">
+                        <div class="resource-footer">
+                            <ul class="info-adicional dataset-resources unstyled col-md-6 col-xs-12">
+                                <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="resource.additional_info && resource.additional_info.length > 0">Info adicional</li>
+                                <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="resource.additional_info && resource.additional_info.length > 0">
+                                    <thead>
+                                        <tr>
+                                            <th>Campo</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="adt_info in resource.additional_info">
+                                            <td>{{adt_info.clave}}</td>
+                                            <td>{{adt_info.valor}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </ul>
+                            <div class="resource-actions col-md-6 col-xs-12">
+                                <div class="pull-right dropdown no-hover">
+                                    <a href class="view-resources" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <div class="dataset-download-button" ng-style="{ 'background-color': custom_defaults.downloads.button.backgroundColor || '', 'color': custom_defaults.downloads.button.color || '' }">
+                                            <span>Descargar</span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu" ng-if="!resource.type.api">
+                                        <li>
+                                            <a target="_blank" href="{{ resource.url}}" download="{{ resource.name | slug }}{{ resource.type.slug}}" data-format="{{resource.type.name| lowercase}}">{{resource.type.name| uppercase}}</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="dropdown-menu-filetype" ng-if="resource.type.api && i != resource.type.name">
+                                        <li ng-repeat="i in ['xls', 'xlsx', 'csv']">
+                                            <a target="_blank" href="{{ resource.url}}/{{i| lowercase}}" download="{{ resource.name | slug }}{{ i | slug}}">{{i| uppercase}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pull-right dropdown no-hover view-resources">
+                                    <!-- <div class="dataset-view-info" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || (fileTypes[resource.type.id]|| lowercase) == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> -->
+                                    <div class="" ng-if="!!resource.resources.data.maps || !!resource.resources.data.charts || resource.contents.data || resource.type.slug == 'pdf'" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <span class="dataset-view-info" ng-if="!resource.resourceSelected" ng-click="toggleDropdown($event)">Ver Recurso</span>
+                                        <!-- <span class=""  ng-click="toggleDropdown($event)">Ver Recurso</span> -->
+                                        <!-- <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span> -->
+                                        <span class="dataset-hide-resource" ng-if="resource.resourceSelected" ng-click="hideResource(resource)">Ocultar Recurso</span>
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li ng-if="resource.contents">
+                                            <a href ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Tabla</a>
+                                        </li>
+                                        <li ng-if="!!resource.resources.data.charts">
+                                            <a href ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Gráfico</a>
+                                        </li>
+                                        <li ng-if="!!resource.resources.data.maps">
+                                            <a href ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">Mapa</a>
+                                        </li>
+                                        <li ng-if="resource.type.slug == 'pdf'">
+                                            <a href ng-click="toogleTypeResource('pdf', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)">PDF</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear-both clearfix">
+                            <!--<div ng-show="resource.type_resource" class="pull-left">
+                                <ul class="resource-tab">
+                                    <li>
+                                        <a class="tablinks" ng-click="toogleTypeResource('charts', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.charts" ng-class="{'active': resource.type_resource === 'charts'}">Gráfico</a>
+                                    </li>
+                                    <li>
+                                        <a class="tablinks" ng-click="toogleTypeResource('maps', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.resources.data.maps" ng-class="{'active': resource.type_resource === 'maps'}">Mapa</a>
+                                    </li>
+                                    <li>
+                                        <a class="tablinks" ng-click="toogleTypeResource('tables', resource);toggleResourceSelected(resource, resource.resources.data[resource.type_resource][0].name)" ng-show="!!resource.contents.data" ng-class="{'active': resource.type_resource === 'tables'}">Tabla</a>
+                                    </li>
+                                </ul>
+                            </div>-->
+                            <div ng-show="resource.type_resource" class="pull-right">
+                                <ul class="resource-tab">
+                                    <li ng-repeat="element in resource.resources.data[resource.type_resource]">
+                                        <a ng-class="{'active': element.name === resource.resource_selected}" ng-click="toggleResourceSelected(resource, element.name)">
+                                            {{resource.type_resource == 'maps' ? 'Mapa ' + ($index + 1) : 'Gráfico ' + ($index + 1)}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="resource-map" ng-if="resource.type_resource === 'maps'">
+                            <div ng-repeat="map in resource.resources.data.maps" ng-if="resource.resource_selected === map.name">
+                                <leaflet ng-if="!map.link && !!map.geoData && !!map.tile && map.name == resource.resource_selected" defaults="map_defaults" tiles="map.tile" lf-center="center" class="iframeDiv" ng-attr-id='map.id' geojson="map.geoData" event-broadcast="map.events"></leaflet>
+                                <iframe class="iframeDiv" ng-src="{{ getUrl(map.link) }}" ng-if="map.link"></iframe>
+                                <p class="resource-resources-title">{{map.name}}</p>
+                                <div class="dataset-description module" hm-read-more hm-text="{{ getHtml(map.description)}}" hm-limit="150" hm-more-text=" (ver más)"
+                                     hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
+                            </div>
+                        </div>
+                        <div class="resource-charts" ng-if="resource.type_resource === 'charts'">
+                            <div ng-repeat="chart in resource.resources.data.charts" ng-if="resource.resource_selected === chart.name">
+                                <iframe class="iframeDiv" ng-if="chart.link" ng-src="{{ getUrl(chart.link) }}"></iframe>
+                                <canvas ng-if="!chart.link && chart.name == resource.resource_selected && chart.dataChart && !!chart.series.length" class="iframeDiv chart chart-base" chart-type="chart.type" chart-data="chart.dataChart.data" chart-labels="chart.data.labels" chart-dataset-override="chart.series" chart-colors="chart.colors"></canvas>
+                                <p class="resource-resources-title">{{chart.name}}</p>
+                                <div class="dataset-description module" hm-read-more hm-text="{{ getHtml(chart.description)}}" hm-limit="150" hm-more-text=" (ver más)"
+                                     hm-less-text=" (ver menos)" hm-dots-class="dataset-description" hm-link-class="read-more"></div>
+                            </div>
+                        </div>
+                        <div class="resource-pdf">
+                            <div class="wrapper" ng-if="resource.type_resource === 'pdf'">
+                                <h1 class="pdf-title">{{resource.name}}</h1>
+                                <ng-pdf template-url="/views/pdfviewer.html" ng-init="pdfUrl = resource.url" scale="page-fit"></ng-pdf>
+                            </div>
+                        </div>
+                        <div class="clear-both clearfix resource-table">
+                            <div ng-if="resource.type_resource === 'tables'" class="div-table">
+                                <!-- <div ng-if="resource.type_resource === 'tables'" class="div-table" ng-hide="showLoader"> -->
+                                <div class="table-responsive">
+                                    <div class="row center-spin" ng-if="showLoadingResource">
+                                        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                                    </div>
+                                    <table class="table dataset-additional-info-table" ng-if="!showLoadingResource">
+                                        <thead>
+                                            <tr>
+                                                <th ng-repeat="(key, val) in resource.contents.data[0]" ng-if="key !== '_id' && key !== 'GEOJSON'">{{key}}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="field in resource.contents.data">
+                                                <td ng-repeat="(key, val) in field" ng-if="key !== '_id' && key !== 'GEOJSON'">{{val}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="paging">
+                                    <!-- <div class="paging">
+                                      <paging page="resource.contents.meta.page" page-size="params.limit" total="resource.contents.meta.count" paging-action="paging('pageClick', page, pageSize, total, resource)" hide-if-empty="true"></paging>
+                                    </div> -->
+                                    <paging page="resource.contents.meta.page" page-size="params.limitTable"
+                                            total="resource.contents.meta.count"
+                                            paging-action="paging('pageClick', page, pageSize, total, resource)"
+                                            hide-if-empty="true"
+                                            text-title-page="Página {page}"
+                                            text-title-first="Primera página"
+                                            text-title-last="Última página"
+                                            text-title-next="Siguiente"
+                                            text-title-prev="Anterior"></paging>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

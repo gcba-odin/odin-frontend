@@ -1,7 +1,7 @@
 
 <search-bar-home></search-bar-home>
-<div class="homepage layout-1">
-    <div class="categories-container">
+<div class="homepage layout-1"  ng-style="{ 'background-color': custom_defaults.homepage || '' }">
+    <div class="categories-container" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
         <div class="container">
             <div class="row">
                 <!-- <div class="container-navigation col-md-12"> -->
@@ -16,7 +16,7 @@
     <carousel ng-if='!!isHome && !isMobile'></carousel>
 
     <!-- <div class="container-widget-wide"> -->
-    <div class="container datasets-home-container">
+    <div class="container datasets-home-container" ng-style="{ 'background-color': custom_defaults.containerColor || '' }">
         <!-- <section class="container-widgets col-md-12"> -->
         <section class="row">
             <div class="col-xs-12 col-lg-10 col-lg-offset-1">
@@ -24,7 +24,7 @@
                     <article class="col-xs-12 col-md-6 col-lg-6 widget">
                         <div class="widgets-heading">
                             <img src="images/ds-actualizaciones.svg" alt="" />
-                            <h2 class="title-container-home">Últimas Actualizaciones</h2>
+                            <h2 class="title-container-home" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Últimas Actualizaciones</h2>
                         </div>
                         <!--<div class="row center-spin" ng-if="showLoadingLatest">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
@@ -35,7 +35,7 @@
                     <article class="col-xs-12 col-md-6 col-lg-6 widget pull-right">
                         <div class="widgets-heading">
                             <img src="images/ds-destacados.svg" alt="" />
-                            <h2 class="title-container-home">Datasets Destacados</h2>
+                            <h2 class="title-container-home" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Datasets Destacados</h2>
                         </div>
                         <!--<div class="row center-spin" ng-if="showLoadingStarred">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
@@ -47,7 +47,7 @@
                     <article class="col-xs-12 col-md-6 col-lg-7 widget">
                         <div class="widgets-heading">
                             <img src="images/ds-descargados.svg" alt="" />
-                            <h2 class="title-container-home special">Descarga de datasets</h2>
+                            <h2 class="title-container-home special" ng-style="{ 'color': custom_defaults.homeSectionTitle.textColor || '' }">Descarga de datasets</h2>
                         </div>
                         <!--<div class="row center-spin" ng-if="showLoadingPopular">
                             <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
@@ -57,7 +57,7 @@
                     <article class="col-xs-12 col-md-6 col-lg-5 widget">
                         <div class="widgets-heading">
                             <img src="images/ds-redes.svg" alt="" />
-                            <h2 class="title-container-home">Redes Sociales</h2>
+                            <h2 class="title-container-home" ng-style="{ 'color': custom_defaults.homeSectionTitleSocial.textColor || '' }">Redes Sociales</h2>
                         </div>
                         <social-networks></social-networks>
                     </article>

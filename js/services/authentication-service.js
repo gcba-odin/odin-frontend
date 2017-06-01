@@ -21,7 +21,11 @@
         function Login(Consumer, callback) {
             /* Use this for real authenticationa
              ----------------------------------------------*/
-            $http.post($rootScope.url + '/clients/tokens', Consumer)
+            $http.post($rootScope.url + '/clients/tokens', Consumer,{
+              headers: {
+                'Cache-Control': 'max-age=604800'
+              }
+            })
                     .success(function(response) {
                         callback(response);
                     })

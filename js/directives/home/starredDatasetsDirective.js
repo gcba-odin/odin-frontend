@@ -1,4 +1,4 @@
-angular.module('store-directives-home')
+angular.module('odin')
 .directive("starredDatasets", function() {
     return {
         restrict: "E",

@@ -1,10 +1,10 @@
 <div ng-repeat="item in latestDataset.data">
     <!-- <div class="col-sm-6 datasets"> -->
     <div class="col-sm-3 col-md-6 col-lg-6 container-dataset">
-        <div class="thumbnail">
-            <div class="caption widget-item" ng-click="datasets.goToUrl()">
+        <div class="thumbnail" ng-style="{ 'background-color': custom_defaults.datasets.home.backgroundColor || '' }">
+            <div class="caption widget-item" ng-click="datasets.goToUrl()" ng-style="{ 'background-color': custom_defaults.datasets.home.backgroundColor || '' }">
                 <a ng-href="dataset/{{ item.name | slug }}">
-                    <h3 class="widget-item-title">{{item.name| limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</h3>
+                    <h3 class="widget-item-title" ng-style="{ 'color': custom_defaults.datasets.home.color || '' }">{{item.name| limitTo: 23}}{{item.name.length > 23 ? '...' : ''}}</h3>
                     <p three-dots="getHtml(item.description)"></p>
                 </a>
                 <div class="thumbnail-dataset-icons">

@@ -1,0 +1,23 @@
+<section class="module module-narrow module-shallow" ng-if="filetypes.length">
+  <div class="filter-title-wrap"  ng-click="toggleCollapse()">
+     <h2  ng-style="{background:currentColor || custom_defaults.filters.backgroundColor || '#19c3e3', 'color': custom_defaults.filters.color || ''}" class="module-heading" >
+        Formatos
+        <i class="collapse-icon fa module-action"
+          ng-class="{'fa-caret-down': collapsed, 'fa-caret-up': !collapsed}"
+        ></i>
+     </h2>
+  </div>
+  <div  ng-hide="collapsed">
+     <nav class="nav-autocomplete">
+        <autocomplete  ng-model="result" attr-placeholder="Buscar formato..." click-activation="true" data="formatNames"  on-select="formatTypedSelected"></autocomplete>
+        <ul class="unstyled nav nav-simple nav-facet">
+           <li class="nav-item" ng-repeat="filetype in filetypes | filter: {active: true}" ng-class="{'active': filetype.active}">
+              <a class="tags-item" ng-click="selectFiletype(filetype)" title="{{filetype.name}}">
+                 <!-- <span>{{filetype.name | truncString | lowercase}} ({{fileTypesCount[filetype.id]}})</span> -->
+                 <span>{{filetype.name | truncString | lowercase}}</span>
+              </a>
+           </li>
+        </ul>
+     </nav>
+  </div>
+</section>

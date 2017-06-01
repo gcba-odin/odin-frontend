@@ -1,7 +1,7 @@
 {
   "local": {
     "EnvironmentConfig": {
-      "api": "http://13.82.151.60/api"
+      "api": "http://localhost:3000"
     },
     "BaseHTML5": {
         "url": "/"

@@ -1,0 +1,97 @@
+{
+  "customdefaults": {
+    "bodyColor": "",
+    "containerColor": "",
+    "homepage":"",
+    "homeSectionTitleSocial": {
+      "textColor": ""
+    },
+    "hrHeader": "",
+    "titleOdin": {
+      "text": "Buenos Aires Data",
+      "color": ""
+    },
+    "descriptionOdin": {
+      "text": "Iniciativa de Datos Públicos y Transparencia de la Ciudad Autónoma de Buenos Aires.",
+      "color": ""
+    },
+    "logoOdin": "../images/BAlogoHeaderMobile.svg",
+    "completeCatalog": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "categoriesContainer": "",
+    "homeSectionTitle": {
+      "textColor": "",
+      "iconColor": ""
+    },
+    "homeSectionTitleSocial": {
+     "textColor": ""
+    },
+    "downloads": {
+      "icon": "",
+      "button": {
+        "backgroundColor": "",
+        "color": ""
+      }
+    },
+    "datasets": {
+      "container": {
+        "backgroundColor": "",
+        "color": ""
+      },
+      "home": {
+        "backgroundColor": "",
+        "color": ""
+      }
+    },
+    "filetypes": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "resources": {
+      "backgroundColor": "",
+      "color": "",
+      "filetypeColor": "",
+      "viewResources": {
+        "backgroundColor": "",
+        "color": ""
+      }
+    },
+    "layoutButton": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "footerOdin": {
+      "backgroundColor": "",
+      "color": "",
+      "logo": "../images/ba-logo-01.svg"
+    },
+    "viewMoreLink": "",
+    "searchbarText": "",
+    "additionalInfo": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "paginator": {
+      "backgroundColor": "",
+      "color": "",
+      "active": {
+        "backgroundColor": "",
+        "color": ""
+      }
+    },
+    "filters": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "tooltips": {
+      "backgroundColor": "",
+      "color": ""
+    },
+    "fonts": "",
+    "breadcrumb": {
+      "color": ""
+    }
+  }
+}

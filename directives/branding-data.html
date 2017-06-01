@@ -1,0 +1,17 @@
+<div class="branding-data" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-lg-10 col-lg-offset-1 title">
+              <div class="description-header">
+                <h1><a ng-href="{{!!layout_preview ? '#' : baseHtml5}}" ng-style="{ 'color': custom_defaults.titleOdin.color || '' }">{{custom_defaults.titleOdin.text}}</a></h1>
+                <div class="ba-logo-mobile" ng-style="{ 'background-image': 'url(' + custom_defaults.logoOdin + ')' || '' }">
+                  <p class="base-text-logo">Vamos Buenos Aires</p>
+                </div>
+              </div>
+              <div class="lead-container">
+                  <p class="lead" ng-style="{ 'color': custom_defaults.descriptionOdin.color || '' }">{{ custom_defaults.descriptionOdin.text }}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

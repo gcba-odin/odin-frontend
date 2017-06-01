@@ -1,6 +1,6 @@
 <!-- <search-bar ng-if="!isMobile"></search-bar> -->
 <search-bar-home ng-if="!isMobile"></search-bar-home>
-<div role="main">
+<div role="main" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
     <div id="content" class="container">
         <categories-row ng-if="!isMobile"></categories-row>
         <categories-sidebar ng-if="isMobile"></categories-sidebar>
@@ -8,7 +8,7 @@
         <div class="flash-messages"></div>
         <div class="row datasets-header">
             <div class="col-lg-offset-1 toolbar">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb" ng-style="{ 'background-color': custom_defaults.bodyColor || '' }">
                     <li class="breadcrumb-item">
                         <a ng-href="{{baseHtml5}}">Inicio</a>
                     </li>
@@ -24,7 +24,7 @@
             <div class="col-md-12 col-lg-10 col-lg-offset-1">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="dataset-item-single" >
+                        <div class="dataset-item-single" ng-style="{ 'background-color': custom_defaults.datasets.container.backgroundColor || '' }">
                             <div class="dataset-content clearfix">
                                 <div class="container-resource-categories">
                                     <dataset-categories ng-if="dataCategories.length > 0" ng-repeat="category in info.categories" info="category.id"></dataset-categories>
@@ -53,7 +53,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <h3 class="dataset-heading" id="pagingDatasetResult">
+                                <h3 class="dataset-heading" id="pagingDatasetResult" ng-style="{ 'color': custom_defaults.datasets.container.color || '' }">
                                     <!--<a ng-href="dataset/{{info.name | slug}}" ng-title="{{info.name}}">-->{{info.name}}<!--</a>-->
                                 </h3>
 
@@ -66,12 +66,12 @@
                                 </ul>
                             </div>
                             <div class="dataset-single-tags-footer">
-                                <ul class="dataset-resources unstyled">  
-                                    <li class="pull-right dataset-download-data"><a href="{{url_api + '/datasets/' + info.id + '/download'}}" target="_blank"><span data-tooltip="Descargar ZIP">Descargar</span></a></li>
-                                    <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank">Guía de datos</a></li>
+                                <ul class="dataset-resources unstyled">
+                                    <li class="pull-right dataset-download-data"><a href="{{url_api + '/datasets/' + info.id + '/download'}}" target="_blank" ng-style="{ 'background-color': custom_defaults.downloads.button.backgroundColor || '', 'color': custom_defaults.downloads.button.color || '' }"><span data-tooltip="Descargar ZIP">Descargar</span></a></li>
+                                    <li class="pull-right dataset-guide-data" ng-if="layout == true"><a ng-href="layout/{{layout_id}}/preview" target="_blank" ng-style="{ 'background-color': custom_defaults.layoutButton.button.backgroundColor || '', 'color': custom_defaults.layoutButton.button.color || '' }">Guía de datos</a></li>
                                 </ul>
                                 <ul class="info-adicional dataset-resources unstyled">
-                                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
+                                    <li class="dataset-additional-info" ng-click="toggleDropdown($event)" ng-style="{ 'background-color': custom_defaults.additionalInfo.backgroundColor || '' }" ng-if="info.additional_info && info.additional_info.length > 0">Info adicional</li>
                                     <table class="dataset-additional-info-table dataset-additional-info-table-inactive" ng-if="info.additional_info && info.additional_info.length > 0">
                                         <thead>
                                             <tr>
@@ -112,6 +112,7 @@
                                 <!--<div class="row center-spin" ng-if="showLoading">
                                     <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                                 </div>-->
+
                                 <result-resources ng-if="!showLoading"></result-resources>
                             </div>
                             <!-- <paging class="text-center" page="page" page-size="params.limit" total="countResources" paging-action="pagingAll('pageClick', page, pageSize, total)" hide-if-empty="true" show-prev-next="true" show-first-last="true"></paging> -->
