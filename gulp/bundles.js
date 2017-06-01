@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'),
     uglify = require('gulp-uglify'),
     util = require('gulp-util'),
-    order = require("gulp-order"),
     sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('bundles', [
