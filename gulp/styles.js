@@ -4,9 +4,7 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     rename = require('gulp-rename'),
     util = require('gulp-util'),
-    purify = require('gulp-purifycss'),
     sourcemaps = require('gulp-sourcemaps'),
-    uncss = require('gulp-uncss'),
     nano = require('gulp-cssnano');
 
 gulp.task('styles', function () {
